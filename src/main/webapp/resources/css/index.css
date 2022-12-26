@@ -6,6 +6,9 @@
 	    font-size: 0.75em;
 	    color: #353535;
 	}
+	strong {
+	    font-weight: bold;
+	}
 	input[type=text], input[type=password] {
 	    height: 18px;
 	    line-height: 20px;

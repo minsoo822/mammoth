@@ -117,9 +117,18 @@
 	    font-weight: 600;
 	    letter-spacing: -0.4px;
 	}
-	img {
+	img, fieldset{
 	    border: none;
 	    vertical-align: top;
+	}
+	h3 {
+	    display: block;
+	    font-size: 1.17em;
+	    margin-block-start: 1em;
+	    margin-block-end: 1em;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	    font-weight: bold;
 	}
 	.join_intro .snsSync {
 	    padding: 100px 0 21px;
@@ -205,4 +214,25 @@
     outline: 0;
     text-align: center;
     background: #f2f2f2;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+caption {
+    display: table-caption;
+    text-align: -webkit-center;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+th, td {
+    border: 0;
+    vertical-align: top;
 }

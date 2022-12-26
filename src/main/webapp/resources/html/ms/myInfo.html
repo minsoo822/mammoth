@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/index.css" rel="stylesheet">
+    <title>회원 정보 수정</title>
+    <style type="text/css">
+    .path {
+	    overflow: hidden;
+	    height: 60px;
+	    line-height: 30px;
+	    *zoom: 1;
+	}
+	.path ol {
+	    float: right;
+	    background: url(../../images/ico_home.png) no-repeat 0 8px;
+	    padding-left: 16px;
+	    background-size: 15px 14px;
+	    
+	}
+	.path li {
+	    float: left;
+	    padding: 0 0 0 12px;
+	    margin: 0 0 0 8px;
+	    color: #888888;
+	    background: url(../../images/ico_home_next.png) no-repeat 0 10px;
+	}
+	.path li:first-child {
+	    background: none;
+	    display: none;
+	}
+	.path span {
+	    overflow: hidden;
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    white-space: nowrap;
+	    text-indent: 100%;
+	}
+	.path li a {
+	    color: #888888;
+	}
+	li {
+	    list-style: none;
+	}
+	.path li strong, .path li strong a {
+	    color: #333333;
+	}
+	.titleArea {
+	    min-height: 70px;
+	    margin: 0;
+	}
+	.titleArea h2 {
+	    display: block;
+	    padding: 0 0 0 0;
+	    margin-top: -55px;
+	    font-weight: 500;
+	    color: #0e0e0e;
+	    font-size: 18px;
+	    *display: inline;
+	    *zoom: 1;
+	}
+	.xans-myshop-asyncbenefit {
+	    margin: 0 0 20px;
+	    color: #353535;
+	}
+	.ec-base-box {
+	    padding: 20px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    border: 5px solid #e8e8e8;
+	    color: #404040;
+	}
+	.ec-base-box.typeMember.gMessage {
+	    border-width: 1px;
+	    border-color: #d7d5d5;
+	}
+	.ec-base-box.typeMember {
+	    padding: 0;
+	}
+	.ec-base-box.typeMember .information {
+	    display: table;
+	    table-layout: fixed;
+	    padding: 10px 0;
+	    width: 100%;
+	    box-sizing: border-box;
+	}
+	.ec-base-box.typeMember .information > .title, .ec-base-box.typeMember .information > .thumbnail {
+	    display: table-cell;
+	    padding: 0 15px;
+	    width: 70px;
+	    text-align: center;
+	    vertical-align: middle;
+	}
+	img {
+	    overflow-clip-margin: content-box;
+	    overflow: clip;
+	}
+	.xans-myshop-asyncbenefit .thumbnail img {
+	    max-width: 70px;
+	    max-height: 70px;
+	}
+	.ec-base-box.typeMember .information > .thumbnail img {
+	    max-width: 70px;
+	}
+	.xans-myshop-asyncbenefit .description {
+    min-height: 70px;
+}
+.ec-base-box.typeMember .information .description {
+    display: table-cell;
+    padding: 0 10px;
+    width: auto;
+    line-height: 1.5em;
+    border-left: 1px solid #e8e8e8;
+    vertical-align: middle;
+}
+.txtEm {
+    color: #008bcc;
+}
+.xans-member-edit h3 {
+    margin: 50px 0 10px;
+    font-size: 16px;
+    color: #2e2e2e;
+}
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border: 1px solid #d7d5d5;
+    border-top: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+caption {
+    display: none;
+}
+colgroup {
+    display: table-column-group;
+}
+col {
+    display: table-column;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.displaynone {
+    display: none !important;
+}
+.ec-base-table th:first-child {
+    border-left: 0;
+}
+.ec-base-table tbody th {
+    padding: 11px 0 10px 18px;
+    border: 1px solid #dfdfdf;
+    border-bottom-width: 0;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    background-color: #fbfafa;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.ec-base-table.typeWrite td {
+    padding: 8px 10px 7px;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+}
+.xans-member-edit .required {
+    margin: -25px 0 10px;
+    color: #353535;
+    text-align: right;
+}
+.xans-member-edit .required img {
+    vertical-align: middle;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<div class="path">
+    		<span>현재 위치</span>
+    		<ol>
+    			<li>
+    				<a href="#">홈</a>
+    			</li>
+    			<li>
+		    		<strong>회원 정보 수정</strong>
+    			</li>
+    		</ol>
+    	</div>
+    	<div class="titleArea">
+    		<h2>회원 정보 수정</h2>
+    	</div>
+    	<div class="xans-element- xans-myshop xans-myshop-asyncbenefit">
+    		<div class="ec-base-box typeMember gMessage ">
+    			<div class="information">
+    				<p class="thumbnail">
+    					<img src="../../images/img_member_default.gif" alt="" class="myshop_benefit_group_image_tag">
+    				</p>
+    				<div class="description">
+    					<p>
+    						저희 쇼핑몰을 이용해 주셔서 감사합니다. 
+    					<strong class="txtEm"><span><span class="xans-member-var-name">김민수</span></span></strong>
+    						님은
+						<strong>[<span class="xans-member-var-group_name">웰컴</span><span class="myshop_benefit_ship_free_message"></span>]</strong>
+							회원이십니다.   						
+    					</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="xans-element- xans-member xans-member-edit">
+    		<div class>
+    			<h3>회원인증</h3>
+    			<div class="ec-base-table typeWrite">
+    				<table border="1" summary>
+    					<caption>회원인증</caption>
+    					<colgroup>
+							<col style="width:150px;">
+							<col style="width:auto;">
+						</colgroup>
+						<tbody>
+							<tr class="displaynone">
+								<th scope="row">회원구분</th>
+								<td>개인</td>
+			                </tr>
+							<tr>
+							<th scope="row">인증여부</th>
+								<td>
+							    <strong class="txtEm">미인증</strong>
+							    <ul class="certifInfo">
+									<li>정보통신망법에 따라 고객의 주민등록번호를 수집하지 않습니다.</li>
+									<li>안전한 전자상거래를 위하여 아래 수단으로 본인인증을 완료하여 주시기 바랍니다.</li>                        
+								</ul>
+								</td>
+							</tr>
+							<tr class="">
+							<th scope="row">회원인증</th>
+							<td>
+							<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
+							<div class="certifForm" id="mobileWrap" style="">
+						<!-- 		<a href="#none" onclick=""><img src="#" alt="휴대폰 인증"></a> -->
+								<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
+							    <p class="certifInfo">본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
+							</div>
+							    </td>
+							</tr>
+						</tbody>
+    				</table>
+    			</div>
+    		</div>
+    		<h3 class>기본정보</h3>
+    		<p class="required "><img src="../../images/ico_required.gif" alt="필수"> 필수입력사항</p>
+    		<div class="ec-base-table typeWrite">
+    			<table border="1" summary>
+    				<caption>회원 기본정보</caption>
+    				<colgroup>
+						<col style="width:150px;">
+						<col style="width:auto;">
+					</colgroup>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

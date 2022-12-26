@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/index.css" rel="stylesheet">
+    <title>장바구니</title>
+    <style type="text/css">
+    .path {
+	    overflow: hidden;
+	    height: 60px;
+	    line-height: 30px;
+	    *zoom: 1;
+	}
+	.path ol {
+	    float: right;
+	    background: url(../../images/ico_home.png) no-repeat 0 8px;
+	    padding-left: 16px;
+	    background-size: 15px 14px;
+	    
+	}
+	.path li {
+	    float: left;
+	    padding: 0 0 0 12px;
+	    margin: 0 0 0 8px;
+	    color: #888888;
+	    background: url(../../images/ico_home_next.png) no-repeat 0 10px;
+	}
+	.path li:first-child {
+	    background: none;
+	    display: none;
+	}
+	.path span {
+	    overflow: hidden;
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    white-space: nowrap;
+	    text-indent: 100%;
+	}
+	.path li a {
+	    color: #888888;
+	}
+	li {
+	    list-style: none;
+	}
+	.path li strong, .path li strong a {
+	    color: #333333;
+	}
+	.titleArea {
+	    min-height: 70px;
+	    margin: 0;
+	}
+	.titleArea h2 {
+	    display: block;
+	    padding: 0 0 0 0;
+	    margin-top: -55px;
+	    font-weight: 500;
+	    color: #0e0e0e;
+	    font-size: 18px;
+	    *display: inline;
+	    *zoom: 1;
+	}
+	.xans-order-basketpackage .xans-order-tabinfo {
+	    margin: 40px 0 0;
+	}
+	.ec-base-tab {
+	    position: relative;
+	}
+	.ec-base-tab .menu {
+	    margin: 0 0 20px;
+	    border: 1px solid #cbcdce;
+	    border-bottom-color: #202020;
+	    border-left: 0;
+	    background: #f2f2f2;
+	    box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	}
+	.ec-base-tab .menu li {
+	    float: left;
+	    border-left: 1px solid #cbcdce;
+	    background: #f2f2f2;
+	}
+	.ec-base-tab .menu li.selected:first-child a {
+	    left: -1px;
+	}	
+	.ec-base-tab.typeLight .menu li.selected a {
+	    margin: 0 0 -2px;
+	    border-bottom: 1px solid #fff;
+	    color: #404040;
+	    background: #fff;
+	}
+	.ec-base-tab .menu:after {
+	    content: "";
+	    display: block;
+	    clear: both;
+	}
+	.xans-order-basketpackage .xans-order-empty p {
+	    margin: 50px 0;
+	    text-align: center;
+	    font-weight: bold;
+	    color: #707070;
+	}
+	.ec-base-button {
+	    padding: 10px 0;
+	    text-align: center;
+	}
+	.xans-order-basketpackage .xans-order-totalorder {
+	    margin: 10px 0 40px;
+	}
+	.ec-base-button.justify {
+	    position: relative;
+	}
+	span.btn_neo_act a, a.btn_neo_act {
+	    display: inline-block;
+	    min-width: 129px;
+	    min-height: 38px;
+	    line-height: 38px;
+	    font-size: 16px;
+	    text-align: center;
+	    background: #000000;
+	    color: #fff;
+	    border-radius: 3px;
+	    border: 1px solid #000000;
+	}
+	span.btn_neo_act a, a.btn_neo_act {
+	    display: inline-block;
+	    min-width: 129px;
+	    min-height: 38px;
+	    line-height: 38px;
+	    font-size: 16px;
+	    text-align: center;
+	    background: #369ddc;
+	    color: #fff;
+	    border-radius: 3px;
+	    border: 1px solid #369ddc;
+	}
+	span.btn_neo_act.gray a, a.btn_neo_act.gray {
+    color: #fff;
+    background: #8C8C8C;
+    border: 1px solid #8C8C8C;
+}
+.ec-base-button .gRight {
+    float: right;
+    text-align: right;
+}
+.ec-base-button.justify .gRight {
+    position: absolute;
+    right: 0;
+}
+span.btn_neo_act.white a, a.btn_neo_act.white {
+    color: #4d4b48;
+    background: #ffffff;
+    border: 1px solid #909090;
+}
+div.ec-base-help {
+    margin: 20px 0;
+    border: 1px solid #d6d4d4;
+    line-height: 18px;
+}
+div.ec-base-help > h2, div.ec-base-help > h3 {
+    padding: 9px 0 6px 10px;
+    border-bottom: 1px solid #e8e7e7;
+    color: #101010;
+    font-size: 12px;
+    background: #fbfbfb;
+}
+div.ec-base-help .inner {
+    padding: 0 9px 12px;
+}
+div.ec-base-help h4:first-child {
+    margin-top: 13px;
+}
+div.ec-base-help h4 {
+    margin: 22px 0 -4px;
+    color: #404040;
+    font-size: 12px;
+    font-weight: normal;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<div class="path">
+    		<span>현재 위치</span>
+    		<ol>
+    			<li>
+    				<a href="#">홈</a>
+    			</li>
+    			<li>
+		    		<strong>장바구니</strong>
+    			</li>
+    		</ol>
+    	</div>
+    	<div class="titleArea">
+    		<h2>장바구니</h2>
+    	</div>
+    	<div class="xans-element- xans-order xans-order-basketpackage ">
+    		<div class="xans-element- xans-order xans-order-tabinfo ec-base-tab typeLight ">
+    			<ul class="menu">
+    				<li class="selected ">
+    					<a href="#">국내배송상품 (0)</a>
+    				</li>
+    				<li class=" ">
+    					<a href="#">해외배송상품 (0)</a>
+    				</li>
+    			</ul>
+    		</div>
+    		<div class="xans-element- xans-order xans-order-empty ">
+    			<p>장바구니가 비어 있습니다.</p>
+    		</div>
+    		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
+    			<a href="#none" onclick=""  id="" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
+    			<a href="#none" onclick="" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
+    			<span class="gRight">
+		            <a href="/" class="btn_neo_act white" style="text-decoration: none;">쇼핑계속하기</a>
+		        </span>
+		        <div style="color: #ff0000; padding: 20px 0 4px 0; letter-spacing: -1px;width: 300px;margin: 0 auto;" class="xans-element- xans-layout xans-layout-statelogoff ">
+		        ! 네이버페이 구매시 회원혜택을 받기 어렵습니다.
+				</div>
+				<div id=" " style="margin: 10px 0;"></div>
+    		</div>
+    	</div>
+    	<div class="xans-element- xans-order xans-order-basketguide ec-base-help ">
+    		<h3>이용안내</h3>
+    		<div class="inner">
+    			<h4>장바구니 이용안내</h4>
+    			<ol>
+					<li>해외배송 상품과 국내배송 상품은 함께 결제하실 수 없으니 장바구니 별로 따로 결제해 주시기 바랍니다.</li>
+		            <li>해외배송 가능 상품의 경우 국내배송 장바구니에 담았다가 해외배송 장바구니로 이동하여 결제하실 수 있습니다.</li>
+		            <li>선택하신 상품의 수량을 변경하시려면 수량변경 후 [변경] 버튼을 누르시면 됩니다.</li>
+		            <li>[쇼핑계속하기] 버튼을 누르시면 쇼핑을 계속 하실 수 있습니다.</li>
+		            <li>장바구니와 관심상품을 이용하여 원하시는 상품만 주문하거나 관심상품으로 등록하실 수 있습니다.</li>
+		            <li>파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.</li>
+		        </ol>
+    			<h4>무이자할부 이용안내</h4>
+   				<ol>
+					<li>상품별 무이자할부 혜택을 받으시려면 무이자할부 상품만 선택하여 [주문하기] 버튼을 눌러 주문/결제 하시면 됩니다.</li>
+		            <li>[전체 상품 주문] 버튼을 누르시면 장바구니의 구분없이 선택된 모든 상품에 대한 주문/결제가 이루어집니다.</li>
+		            <li>단, 전체 상품을 주문/결제하실 경우, 상품별 무이자할부 혜택을 받으실 수 없습니다.</li>
+		        </ol>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

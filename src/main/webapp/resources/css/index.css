@@ -236,3 +236,37 @@ th, td {
     border: 0;
     vertical-align: top;
 }
+input[type="text" i] {
+    padding: 1px 2px;
+}
+input, select, textarea {
+    font-size: 100%;
+    color: #353535;
+    vertical-align: middle;
+}
+select {
+    height: 24px;
+    border: 1px solid #d5d5d5;
+}
+input[type=radio], input[type=checkbox] {
+    width: 13px;
+    height: 13px;
+    border: 0;
+}
+input[type=radio] + label, input[type=checkbox] + label {
+    margin: 0 4px 0 2px;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+}

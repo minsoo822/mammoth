@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/index.css" rel="stylesheet">
+    <title>장바구니</title>
+    <style type="text/css">
+	.myshopMain {
+    margin: 0 0 35px 0;
+}
+.myshopMain .my_level {
+    padding: 20px 0;
+    min-height: 215px;
+    border: 1px solid #e0e0e0;
+    width: 839px;
+    float: left;
+    box-sizing: border-box;
+}
+.my_level .level_summ {
+    float: left;
+    width: calc(100% - 490px);
+}
+.my_level .member_txt2 {
+    font-size: 30.9px;
+    color: #000;
+    font-weight: 300;
+    padding: 50px 0 0 30px;
+    margin: 0 0;
+    line-height: 1.22;
+    letter-spacing: -1.08px;
+}
+.my_level .member_txt2 strong {
+    font-weight: 500;
+}
+.my_level .member_txt2 span.color {
+    color: #000000;
+    font-weight: bold;
+}
+.my_level .level_detail {
+    padding: 2px 30px;
+    width: 429px;
+    float: left;
+    border-left: 1px solid #e0e0e0;
+}
+.my_level .member_txt4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0 0 0 0;
+}
+.my_level .member_txt3 {
+    font-size: 13.5px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    padding: 5px 0 0 0;
+    letter-spacing: -1px;
+}
+.myGraph {
+    margin: 0 0 0 0;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #f6f6f6;
+}
+.myLevel_graph {
+    padding: 10px 0;
+}
+.myLevel_graph .graph_bg {
+    background: #eeeeee;
+    height: 5px;
+    position: relative;
+    border-radius: 0;
+}
+.myLevel_graph .graph_bg .bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 0;
+    background: #017ee2;
+}
+.myGraph .gradeGuide {
+    text-align: center;
+    letter-spacing: -1px;
+}
+.my_level .member_benefit a {
+    display: block;
+    line-height: 48px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #939393;
+    background: #ffffff;
+    color: #000000;
+    margin: 0 0;
+    font-size: 14.6px;
+    letter-spacing: -1.02px;
+    font-weight: 500;
+}
+.myshopMain .my_mileage {
+    padding: 15px 0 0;
+    border: 1px solid #e0e0e0;
+    width: 349px;
+    float: right;
+    box-sizing: border-box;
+}
+.my_mileage .item:first-child {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+}
+.my_mileage .item {
+    margin: 0 29px;
+}
+.my_mileage .item p {
+    color: #000;
+    opacity: 0.5;
+    font-size: 15.8px;
+    font-weight: 300;
+    letter-spacing: -0.87px;
+}
+.my_mileage .item .money {
+    color: #000;
+    font-size: 30.6px;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.87px;
+    margin: 20px 0 15px 0;
+}
+.my_mileage .item .money a {
+    color: #000;
+    text-decoration: none;
+    color: #000;
+}
+.myShopping:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.myShopping .side {
+    width: 250px;
+    float: left;
+}
+.my_shopping_info {
+    padding: 0 0 35px 0;
+}
+.myShopping .my_title {
+    font-size: 16.8px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: -0.55px;
+    padding: 0 0 15px;
+    border-bottom: 1px solid #000;
+}
+li {
+	list-style: none;
+}
+.my_shopping_info ul li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 19px 0;
+    line-height: 1.1;
+    background: url(../../images/myicon_07.png) no-repeat 100% 50%;
+    background-size: 15px 15px;
+}
+.my_shopping_info ul li a {
+    display: block;
+    position: relative;
+    line-height: 1.5;
+    padding: 0 0 0 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+}
+.my_shopping_info ul li img {
+    height: 17px;
+    vertical-align: top;
+    margin: 0 8px 0 0;
+}
+.my_shopping_info ul li a .value {
+    display: block;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    border-radius: 100%;
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -12px;
+    background: #212121;
+    color: #fff;
+    font-size: 10px;
+}
+.invite_friend {
+    padding: 0 0 35px 0;
+}
+.invite_friend .invite {
+    margin: 10px 0 0;
+}
+.invite_friend .invite .txt {
+    font-size: 14px;
+    color: #000;
+    opacity: 0.6;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.78px;
+}
+strong {
+    font-weight: bold;
+}
+.invite_friend .invite .inputBox {
+    position: relative;
+    box-sizing: content-box;
+    padding: 0 0 0 0;
+    margin: 0 0 14px;
+}
+.invite_friend .invite #reco_url {
+    width: 100%;
+    padding: 3px 3px 3px 6px;
+    height: 44px;
+    line-height: 44px;
+    background: #e2e2e2;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+.invite_friend .invite a {
+    display: block;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    margin: 10px 0;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+}
+.myShopping .conts {
+    width: 923px;
+    float: right;
+}
+.myShopping .my_title2 {
+    font-size: 16.8px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: -0.55px;
+    padding: 0 0 15px;
+    border-bottom: 2px solid #000;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<div class="myshopMain" style="height: 215px;">
+    		<div class="xans-element- xans-layout xans-layout-statelogon my_level">
+    			<div class="level_summ ">
+    				<div class="member_txt2">
+						<strong><span class="xans-member-var-name">김민수</span> 회원</strong>님은<br>
+						<span class="color" id="group_name"><span class="xans-member-var-group_name">웰컴</span></span> 등급입니다.
+					</div>
+    			</div>
+    			<div class="level_detail ">
+    				<div class="member_txt4">
+    					<span class="xans-member-var-group_name">웰컴</span>
+    					등급혜택
+    				</div>
+    				<div class="member_txt3" id="level_mypage">아래 ‘멤버십 등급별 혜택 보기’로 혜택을 확인해 보세요!</div>
+    				<div class="xans-element- xans-myshop xans-myshop-asyncbenefit myGraph ">
+    					<div class="myLevel_graph">
+							<div class="graph_bg">
+								<div class="bar " id="myGrp" style="width: 0%;"></div>
+							</div>
+						</div>
+						<div class=" gradeGuide" id="sGradeAutoDisplayArea">
+							<div class=" sAutoGradeDisplay">
+								<span id="needVal"><span class="xans-member-var-sGradeIncreasePrice">30,000원</span></span>  추가 구매시 다음달 <span class="xans-member-var-sNextGrade">패밀리</span> 달성</div>
+						</div>
+    				</div>
+    				<div class="member_benefit">
+						<a href="#" style="text-decoration: none; font-weight: bold;">멤버십 등급별 혜택 보기</a>
+					</div>
+    			</div>
+    		</div>
+    		<div class="xans-element- xans-layout xans-layout-statelogon my_mileage ">
+    			<div class="item">
+					<p style="margin: 0px;">사용가능한 적립금</p>
+					<div class="xans-element- xans-myshop xans-myshop-asyncbankbook money ">
+						<a href="/myshop/mileage/historyList.html"><span id="xans_myshop_bankbook_avail_mileage">0</span></a>
+					</div>
+				</div>
+				<div class="item">
+					<p style="margin: 0px;">사용가능한 쿠폰</p>
+					<div class="xans-element- xans-myshop xans-myshop-asyncbankbook money ">
+						<a href="/myshop/coupon/coupon.html"><span id="xans_myshop_bankbook_coupon_cnt">7</span></a>
+					</div>
+				</div>
+    		</div>
+    	</div>
+    	<div class="myShopping">
+    		<div class="side">
+    			<div class="xans-element- xans-myshop xans-myshop-orderstate my_shopping_info ">
+    				<div class="my_title">나의 쇼핑 정보</div>
+    				<ul style="padding-left: 0px; margin: 0px;">
+    					<li>
+    						<a href="/myshop/order/list.html">
+    							<img src="../../images/myicon_04.png" alt="">주문/배송현황
+								<span class="xans-element- xans-layout xans-layout-statelogon ">
+									<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value " style="display: none;">
+										<span id="xans_myshop_total_orders">0</span>
+									</span>
+								</span>
+							</a>
+    					</li>
+    					<li>
+    						<a href="/myshop/order/list.html?mode=cs"><img src="../../images/myicon_05.png" alt="">취소/교환/반품 내역
+							<span class="xans-element- xans-layout xans-layout-statelogon ">
+								<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value " style="display: none;">
+									<span id="xans_myshop_total_orders_cs">0</span>
+								</span>
+							</span>
+							</a>
+    					</li>
+    					<li>
+    						<a href="#"><img src="../../images/myicon_06.png" alt="">배송지 수정</a>
+    					</li>
+    				</ul>
+    			</div>
+    			<div class="xans-element- xans-myshop xans-myshop-asyncbenefit invite_friend ">
+    				<div class="my_title">친구 초대하기</div>
+    				<div class="invite ">
+    					<div class="txt">
+						아래 주소를 복사하여 친구에게 보내 초대해보세요.
+						가입 즉시 친구와 회원님에게 <strong>1000원</strong> 적립금이 지급됩니다.
+						</div>
+						<div class="inputBox">
+							<input type="text" id="reco_url" value="//theforment.com/?reco_id=2595876488@k" readonly="">
+							<a href="#none" class="btnStrong" onclick="" style="text-decoration: none;">주소복사</a>
+						</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="conts">
+    			<div class="my_title2">최근 주문</div>
+    			<div class="xans-element- xans-myshop xans-myshop-orderhistorylistitem">
+    				<table border="1" ></table>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

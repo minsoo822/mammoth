@@ -2,6 +2,10 @@
 		margin: 0;
 		padding: 0;
     }
+    html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+}
     body, code {
 	    font-size: 0.75em;
 	    color: #353535;
@@ -269,4 +273,13 @@ button {
     margin: 0;
     border: 0;
     cursor: pointer;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }

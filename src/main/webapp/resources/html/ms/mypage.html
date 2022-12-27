@@ -244,6 +244,109 @@ strong {
     padding: 0 0 15px;
     border-bottom: 2px solid #000;
 }
+.xans-myshop-orderhistorylistitem table {
+    border-collapse: separate;
+    border: 1px solid #d7d5d5;
+    color: #353535;
+    line-height: 1.5;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    text-indent: initial;
+}
+.xans-myshop-orderhistorylistitem table th:first-child {
+    border-left: 0;
+}
+.xans-myshop-orderhistorylistitem .myShopTable thead th {
+    font-weight: 500;
+    letter-spacing: -0.55px;
+    color: #000;
+    background: #ffffff;
+    font-size: 14px;
+    letter-spacing: -0.55px;
+    padding: 18px 0;
+    line-height: 1.5;
+    border-bottom: 1px solid #000;
+    border-left: none;
+}
+.xans-myshop-orderhistorylistitem table th {
+    padding: 11px 0 9px;
+    border-left: 1px solid #e9e9e9;
+    font-weight: normal;
+    vertical-align: middle;
+    background: #fbfafa;
+}
+.xans-myshop-orderhistorylistitem table .thumb {
+    width: 92px;
+}
+.xans-myshop-orderhistorylistitem table .product {
+    width: auto;
+}
+.xans-myshop-orderhistorylistitem table .quantity {
+    width: 60px;
+}
+.xans-myshop-orderhistorylistitem table .number {
+    width: 135px;
+}
+.xans-myshop-orderhistorylistitem table .price {
+    width: 110px;
+}
+.xans-myshop-orderhistorylistitem table td.number {
+    letter-spacing: -1px;
+}
+.xans-myshop-orderhistorylistitem table td a {
+    color: #353535;
+}
+.xans-myshop-orderhistorylistitem table td.thumb img {
+    width: 80px;
+}
+.xans-myshop-orderhistorylistitem table td.product {
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.xans-myshop-orderhistorylistitem table td.product a {
+    color: #353535;
+}
+.xans-myshop-orderhistorylistitem table td.product div.option, .xans-myshop-orderhistorylistitem table td.product ul.option > li {
+    margin: 9px 0 0;
+    color: #757575;
+    line-height: 16px;
+}
+.xans-myshop-orderhistorylistitem table td.product ul.option > li > strong {
+    display: block;
+    color: #353535;
+}
+.xans-myshop-orderhistorylistitem table td.product .free {
+    margin: 5px 0 0;
+}
+
+
+
+
+
+
+
+.xans-myshop-orderhistorylistitem table .empty {
+    padding: 50px 0;
+    text-align: center;
+    font-weight: bold;
+    color: #757575;
+}
+.xans-myshop-orderhistorylistitem table td {
+    padding: 8px 0 5px;
+    border-top: 1px solid #e9e9e9;
+    text-align: center;
+    vertical-align: middle;
+}
+.displaynone {
+    display: none;
+}
+.displaynone {
+    display: none !important;
+}
     </style>
 </head>
 <body>
@@ -252,7 +355,7 @@ strong {
     		<div class="xans-element- xans-layout xans-layout-statelogon my_level">
     			<div class="level_summ ">
     				<div class="member_txt2">
-						<strong><span class="xans-member-var-name">김민수</span> 회원</strong>님은<br>
+						<strong style="font-weight: bold;"><span class="xans-member-var-name">김민수</span> 회원</strong>님은<br>
 						<span class="color" id="group_name"><span class="xans-member-var-group_name">웰컴</span></span> 등급입니다.
 					</div>
     			</div>
@@ -339,7 +442,75 @@ strong {
     		<div class="conts">
     			<div class="my_title2">최근 주문</div>
     			<div class="xans-element- xans-myshop xans-myshop-orderhistorylistitem">
-    				<table border="1" ></table>
+    				<table border="1" summary="" class="myShopTable" style="border: none;">
+					    <thead>
+					        <tr>
+					            <th scope="col" class="number" style="font-weight: bold;">주문일자</th>
+					            <th scope="col" class="thumb" style="font-weight: bold;">이미지</th>
+					            <th scope="col" class="product" style="font-weight: bold;">상품정보</th>
+					            <th scope="col" class="quantity" style="font-weight: bold;">수량</th>
+					            <th scope="col" class="number" style="font-weight: bold;">주문번호</th>
+					            <th scope="col" class="price" style="font-weight: bold;">상품구매금액</th>
+					        </tr>
+					    </thead>
+					    <!-- <tbody class="">	displaynone
+					        <tr class="">
+					            <td class="number">2022/10/11</td>
+					            <td class="thumb">
+					                <a href="#">
+					                    <img src="../../images/img_product_small.gif"  alt="">
+					                </a>
+					            </td>
+					            <td class="product">
+					                <a href="#" style="text-decoration: none;"><strong>dsds</strong></a>
+					                <div class="option ">dsds</div>	displaynone
+					                <ul class="xans-element- xans-myshop xans-myshop-optionset option" style="padding-left: 0px;">
+					                    <li class="">
+					                        <strong>dsadas</strong> (개)
+					                    </li>
+					                </ul>
+					                <p class="free ">무이자할부 상품</p>	displaynone
+					            </td>
+					            <td class="quantity"></td>
+					            <td>
+					                <a href="" style="text-decoration: none;"></a>
+					            </td>
+					            <td class="price">
+					                <strong></strong><div class="displaynone"></div>
+					            </td>
+					        </tr>
+					        <tr class="">
+					            <td class="number">2022/10/11</td>
+					            <td class="thumb">
+					                <a href="">
+					                    <img src="../../images/img_product_small.gif"  alt="">
+					                </a>
+					            </td>
+					            <td class="product">
+					                <a href="#"><strong>dsdsdsd</strong></a>
+					                <div class="option ">dsds</div>	displaynone
+					                <ul class="xans-element- xans-myshop xans-myshop-optionset option" style="padding-left: 0px;">
+					                    <li class="">
+					                        <strong>dsdsss</strong> (개)
+					                    </li>
+					                </ul>
+					                <p class="free displaynone">무이자할부 상품</p>
+					            </td>
+					            <td class="quantity"></td>
+					            <td>
+					                <a href="/myshop/order/detail.html"></a>
+					            </td>
+					            <td class="price">
+					                <strong></strong><div class="displaynone"></div>
+					            </td>
+					        </tr>
+					    </tbody> -->
+					    <tbody class="emptyBody ">
+					        <tr>
+					            <td colspan="6" class="empty">주문 내역이 없습니다</td>
+					        </tr>
+					    </tbody>
+					</table>
     			</div>
     		</div>
     	</div>

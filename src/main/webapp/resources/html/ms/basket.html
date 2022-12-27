@@ -146,6 +146,7 @@
     float: right;
     text-align: right;
 }
+
 .ec-base-button.justify .gRight {
     position: absolute;
     right: 0;
@@ -179,6 +180,66 @@ div.ec-base-help h4 {
     font-size: 12px;
     font-weight: normal;
 }
+.ec-base-box.typeMember {
+    padding: 0;
+}
+.ec-base-box {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #e8e8e8;
+    color: #404040;
+}
+.xans-order-dcinfo {
+    margin: 20px 0;
+    color: #353535;
+    line-height: 1.5;
+}
+.ec-base-box.typeMember .information {
+    display: table;
+    table-layout: fixed;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ec-base-box.typeMember .information > .title {
+    vertical-align: middle;
+}
+.ec-base-box.typeMember .information > .title, .ec-base-box.typeMember .information > .thumbnail {
+    display: table-cell;
+    padding: 0 15px;
+    width: 70px;
+    text-align: center;
+    vertical-align: middle;
+}
+.xans-order-dcinfo h3 {
+    font-size: 12px;
+}
+.ec-base-box.typeMember .information .description {
+    display: table-cell;
+    padding: 0 10px;
+    width: auto;
+    line-height: 1.5em;
+    border-left: 1px solid #e8e8e8;
+    vertical-align: middle;
+}
+.xans-order-dcinfo .description .mileage {
+    margin: 6px 0 0;
+    padding: 10px 0 0;
+    border-top: 1px solid #e8e8e8;
+    *zoom: 1;
+}
+.xans-order-dcinfo .description .mileage li {
+    float: left;
+    margin: 0 40px 0 0;
+}
+.xans-order-dcinfo .description .mileage li a {
+    text-decoration: none;
+    color: #000;
+}
+.xans-order-dcinfo .description .mileage li strong {
+    color: #008bcc;
+}
     </style>
 </head>
 <body>
@@ -198,6 +259,26 @@ div.ec-base-help h4 {
     		<h2>장바구니</h2>
     	</div>
     	<div class="xans-element- xans-order xans-order-basketpackage ">
+    		<!-- 로그인했을때 넣고 안했을때 히든처리 s -->
+    		<div class="xans-element- xans-order xans-order-dcinfo ec-base-box typeMember  ">
+    			<div class="information">
+		            <h3 class="title">지금 고객님들이 가장 많이 구매한 상품</h3>
+		            <div class="description">
+		                <div class="member ">
+		                    <p><strong>김민수</strong> 님은, [웰컴] 회원이십니다.</p>
+						</div>
+		                <ul class="mileage">
+							<li>
+								<a href="/myshop/mileage/historyList.html" style="color: 000;">가용적립금 : <strong>0원</strong></a>
+							</li>
+		                    <li>
+		                    	<a href="/myshop/coupon/coupon.html" style="color: 000;">쿠폰 : <strong>7개</strong></a>
+		                    </li>
+		                </ul>
+					</div>
+		        </div>
+    		</div>
+    		<!-- 로그인했을때 넣고 안했을때 히든처리 e -->
     		<div class="xans-element- xans-order xans-order-tabinfo ec-base-tab typeLight ">
     			<ul class="menu">
     				<li class="selected ">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>notice</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
     <style type="text/css">
@@ -62,6 +62,7 @@
 		
 		a {
 			color: black;
+			text-decoration: none;
 		}
 		
 		#viewMore {
@@ -88,27 +89,86 @@
 		
     </style>
     <style type="text/css"> /* c/s center 부분 */
-    	li {
-    	 list-style: none;
-    	 float: left;
-    	 margin-right: 25px;
-    	 font-size: 12pt;
-    	}
-    	td {
-    		border: 1px solid #f8f8f8;
+    
+    	.upperMenuList {
+	    	 list-style: none;
+	    	 float: left;
+	    	 margin-right: 25px;
+	    	 font-size: 11pt;
     	}
     	
+    	.pathList {
+			list-style: none;
+			float: left;
+			margin-right: 10px;
+			font-size: 11pt;
+    	}
+    	
+    	.pathList i {
+    		color: grey;
+    	}
+    	
+    	.xans-board-search {
+		    padding: 20px 0 20px 10px;
+		    color: #2e2e2e;
+		    font-size: 12px;
+		}
+    	
+    	.xans-board-search .boardSearch {
+		    display: block;
+		}
+		
+		fieldset {
+		    border: none;
+		    vertical-align: top;
+		    margin-inline-start: 2px;
+		    margin-inline-end: 2px;
+		    padding-block-start: 0.35em;
+		    padding-inline-start: 0.75em;
+		    padding-inline-end: 0.75em;
+		    padding-block-end: 0.625em;
+		    min-inline-size: min-content;
+		}
+		    
+		.xans-board-search p {
+		    margin: 0 0 10px;
+		    padding: 0 0 0 7px;
+		}
+		
+		p {
+			display: block;
+		   	margin-block-start: 1em;
+		   	margin-block-end: 1em;
+		   	margin-inline-start: 0px;
+		   	margin-inline-end: 0px;
+		}
+		select {
+		    height: 24px;
+		    border: 1px solid #d5d5d5;
+		}
+		
+    	.table td {
+    		border: 1px solid #d5d5d5;
+    		font-size: 12pt;
+    	}
+    	
+		.table th {
+			border: 1px solid #d5d5d5;
+    		font-size: 12pt;
+    		text-align: center;
+    		font-weight: normal;
+    	}
     </style>
   </head>
   <body>
   
   	<!-- header -->
-    <nav class="navbar navbar-expand-lg bg-body sticky-top" style="border-bottom: 1px solid #E6E6E6;">
+    <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" style="padding-left: 50px;" href="#"><b>FORMENT</b></a>
+	    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt;" href="#"><b>FORMENT</b></a>
 	    <div class="collapse navbar-collapse" style="padding-left: 30px;" id="navbarNavDropdown">
 		    <div class="dropdown">
-			  <button class="dropbtn">PRODUCT</button>
+			  <button class="dropbtn" style="font-weight: bold;">PRODUCT</button>
 			  <div class="dropdown-content">
 			  <a href="#">ALL</a>
 			  <a href="#">BEST</a>
@@ -121,14 +181,14 @@
 			  </div>
 			</div>
 			<div class="dropdown">
-			  <button class="dropbtn">ABOUT</button>
+			  <button class="dropbtn" style="font-weight: bold;">ABOUT</button>
 			  <div class="dropdown-content">
 			  <a href="#">MAGAZINE</a>
 			  <a href="#">CAMPAIGN</a>
 			  </div>
 			</div>
 			<div class="dropdown">
-			  <button class="dropbtn">C/S CENTER</button>
+			  <button class="dropbtn" style="font-weight: bold;">C/S CENTER</button>
 			  <div class="dropdown-content">
 			  <a href="#">NOTICE</a>
 			  <a href="#">Q&A</a>
@@ -140,7 +200,7 @@
 	  </div>
 	  <div class="container-fluid">
 	  	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
-		    <div class="loginSection pb-2">
+		    <div class="loginSection">
 		    	<ul style="list-style: none;">
 		    		<a href="#"><li class="headerRightList">MY PAGE</li></a>
 		    		<a href="#"><li class="headerRightList">CART</li></a>
@@ -159,53 +219,111 @@
 			<div class="col">
 				<span>NOTICE</span> 
 			</div>
+			<div class="col d-flex justify-content-end" name="path">
+				<ol>
+	    			<li class="pathList">
+	    				<a href="#"><i class="fa-solid fa-house-chimney"></i></a>
+	    			</li>
+	    			<li class="pathList">
+	    				<i class="fa-solid fa-chevron-right"></i>
+	    			</li>
+	    			<li class="pathList">
+			    		<strong>NOTICE</strong>
+	    			</li>
+	    		</ol>
+			</div>
 		</div>
 		<div class="row"style="margin: 0 30px 0 40px;">
 			<div class="col d-flex justify-content-center">
 				<ul>
-					<li>NOTICE</li>
-					<li>Q&A</li>
-					<li>FAQ</li>
-					<li>MEMBERSHIP</li>
+					<li class="upperMenuList"><u>NOTICE</u></li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;">Q&A</li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;">FAQ</li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;">MEMBERSHIP</li>
 				</ul> 
 			</div>
 		</div>
 		<div class="row"style="margin: 20px 30px 80px 30px;">
 			<div class="col">
 				<table class="table">
-					<tr>
-						<td>번호</td>
-						<td>제목</td>
-						<td>작성자</td>
-						<td>조회</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td>적립금 소멸기준 공지사항</td>
-						<td>포맨트</td>
-						<td>513</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td>포맨트 네이버 알림 서비스 오픈 공지</td>
-						<td>포맨트</td>
-						<td>11085</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td>[FORMENT] 배송비 변경 및 무료배송 기준 변경 공지사항</td>
-						<td>포맨트</td>
-						<td>270</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td>[FORMENT] 개인정보처리방침 변경 안내 <i class="fa-solid fa-paperclip"></i></td>
-						<td>포맨트</td>
-						<td>513</td>
-					</tr>
-					
+					<colgroup class="colgroup">
+						<col style="width: 70px;">
+						<col style="width: auto;">
+						<col style="width: 84px;">
+						<col style="width: 55px;">
+					</colgroup>
+					<thead>
+						<tr style="background: #fbfafa;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>조회</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>공지</th>
+							<td>[FORMENT] 배송비 변경 및 무료배송 기준 변경 공지사항</td>
+							<th>포맨트</th>
+							<th>270</th>
+						</tr>
+						<tr>
+							<th>공지</th>
+							<td>[FORMENT] 개인정보처리방침 변경 안내 <i class="fa-solid fa-paperclip"></i></td>
+							<th>포맨트</th>
+							<th>513</th>
+						</tr>
+					</tbody>
 				</table>
 			</div>
+		</div>
+		
+		<!-- pagination -->
+		<div class="row">
+			<div class="col justify-content-center d-flex">
+				<div class="row text-center" style="width: 150px; font-size: 10pt; font-weight: bold;">
+					<div class="col col-3">
+						<a>
+							<i class="fa-solid fa-chevron-left"></i>
+						</a>
+					</div>
+					<div class="col col-3">
+						<a>1</a>
+					</div>
+					<div class="col col-3">
+						<a>2</a>
+					</div>
+					<div class="col col-3">
+						<a>
+							<i class="fa-solid fa-chevron-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 하단 검색 부분 -->
+		<div class="xans-element- xans-board xans-board-search-1002 xans-board-search xans-board-1002 mt-3">
+		    <fieldset class="boardSearch">
+		        <p>
+		        	<select id="search_date" name="search_date" fw-filter="" fw-label="" fw-msg="">
+		                <option value="week">일주일</option>
+		                <option value="month">한달</option>
+		                <option value="month3">세달</option>
+		                <option value="all">전체</option>
+		            </select> 
+		            <select id="search_key" name="search_key" fw-filter="" fw-label="" fw-msg="">
+		                <option value="subject">제목</option>
+		                <option value="content">내용</option>
+		                <option value="writer_name">글쓴이</option>
+		                <option value="member_id">아이디</option>
+		                <option value="nick_name">별명</option>
+		            </select> 
+		            <input id="search" name="search" fw-filter="" fw-label="" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 
+		           	<a href="#none" onclick="" style="border: 1px solid black; background: black; padding: 2px; color: white;">찾기</a>
+		       </p>
+		    </fieldset>
 		</div>
 	</div>
 	

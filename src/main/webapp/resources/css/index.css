@@ -283,3 +283,11 @@ ul {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.ec-base-table img {
+    vertical-align: middle;
+}

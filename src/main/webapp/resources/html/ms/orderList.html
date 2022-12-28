@@ -291,6 +291,72 @@ ol {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
+.ec-base-table .center {
+    text-align: center;
+}
+.ec-base-table.typeList .center td, .ec-base-table.typeList td.center {
+    padding-left: 0;
+    padding-right: 0;
+}
+.xans-myshop-orderhistorylistitem table td.number {
+    letter-spacing: -1px;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
+}
+.xans-myshop-orderhistorylistitem table .number {
+    width: 135px;
+}
+.xans-myshop-orderhistorylistitem table td {
+    padding: 8px 0 5px;
+    border-top: 1px solid #e9e9e9;
+    text-align: center;
+    vertical-align: middle;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+}
+.xans-myshop-orderhistorylistitem table td .line {
+    text-decoration: underline;
+}
+.xans-myshop-orderhistorylistitem table td a {
+    color: #353535;
+}
+.xans-myshop-orderhistorylistitem table .thumb {
+    width: 92px;
+}
+.xans-myshop-orderhistorylistitem table td.thumb img {
+    width: 80px;
+}
+.ec-base-table.typeList .center td.left {
+    padding-left: 10px;
+}
+.xans-myshop-orderhistorylistitem table td.product {
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.xans-myshop-orderhistorylistitem table td.product div.option, .xans-myshop-orderhistorylistitem table td.product ul.option > li {
+    margin: 9px 0 0;
+    color: #757575;
+    line-height: 16px;
+}
+.ec-base-table.typeList .center td.right {
+    padding-right: 10px;
+}
+.ec-base-table .right {
+    text-align: right;
+}
+.xans-myshop-orderhistorylistitem table .state {
+    width: 110px;
+}
+.xans-myshop-orderhistorylistitem table td.state p {
+    color: #008bcc;
+    font-weight: 800;
+}
     </style>
 </head>
 <body>
@@ -386,8 +452,41 @@ ol {
 		                <th scope="col">취소/교환/반품</th>
 		            </tr>
 	            </thead>
+			    <tbody class="center ">
+			    	<tr class="xans-record-">
+			    		<td rowspan="3" class="number ">
+		                    2022-12-21                    
+		                    <p style="margin: 0px;">
+		                    	<a href="#" class="line">[20221221-0005206]</a>
+		                   	</p>
+		                </td>
+		                <td class="thumb">
+		                	<a href="#">
+		                		<img src="../../images/pum.jpg" alt="">
+	                		</a>
+                		</td>
+                		<td class="product left top">
+		                    <a href="#"><strong>포맨트 올인원 퍼퓸 샤워</strong></a>
+		                    <div class="option ">[옵션: 코튼디어나잇/퍼퓸샤워 1개]</div>
+		                </td>
+		                <td>1</td>
+		                <td class="right">
+							<strong>24,000원</strong>
+						</td>
+						<td class="state">
+		                    <p class="txtEm">취소완료</p>
+		                    <!-- <p class="txtEm">상품준비중</p> -->
+		                </td>
+		                <td>
+		                    <p class="">
+		                    	<a href="#none" class="line" onclick="" style="font-weight: 700;">[상세정보]</a>
+	                    	</p>
+		                </td>
+			    	</tr>
+			    </tbody>
 		    </table>
-		    <p class="message ">주문 내역이 없습니다.</p>
+		    <!-- 주문내역이 없을때 -->
+		    <!-- <p class="message ">주문 내역이 없습니다.</p> -->
     	</div>
     	<!-- 페이징 s -->
     	<div class="xans-element- xans-myshop xans-myshop-orderhistorypaging ec-base-paginate">

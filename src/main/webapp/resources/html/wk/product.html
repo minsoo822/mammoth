@@ -186,6 +186,42 @@
 		    height: 19px;
 		}
     </style>
+    <style type="text/css"> /* 장바구니 버튼 */
+    
+		.basket {
+			background-color: whie;
+			border-radius: 50%;
+			border: transparent;
+			height: 35px;
+			width: 35px;
+			font-size: 15pt;
+			color: black;
+			position: relative;
+			bottom: 360px;
+			left: 225px;
+		}
+		
+		.bombTag, .newTag{
+			background: #a92517;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 122px;
+			font-size: 9pt;
+		}
+		
+		.limitedTag, .bestTag{
+			background: black;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 122px;
+			font-size: 9pt;
+		}
+		
+    </style>
   </head>
   <body>
 	  <form id="mainForm">
@@ -242,7 +278,7 @@
 		
 		
 		
-		<div class="container" style="padding-top: 50px;">
+		<div class="container" style="padding: 50px 0 0 20px;">
 			<div class="row">
 				<div class="col">
 					<ul>
@@ -265,11 +301,11 @@
 					<span style="font-size: 10pt;">총 <b>87</b>개의 상품이 있습니다</span> 
 				</div>
 			</div>
-			<div class="row" style="margin: 20px 30px 80px 30px;">
+			<div class="row" style="margin: 20px 30px 50px 30px;">
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품8.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -293,11 +329,16 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
+					<span class="bombTag">주문폭주</span>
+					<span class="limitedTag">LIMITED</span>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품7.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct7.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -321,11 +362,15 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
+					<span class="newTag">NEW</span>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품6.jpeg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -349,11 +394,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품5.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -377,13 +425,17 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
+					<span class="limitedTag">LIMITED</span>
 				</div>
 			</div>
 			<div class="row" style="margin: 0 30px 80px 30px;">
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품4.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -407,11 +459,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품3.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -435,11 +490,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품2.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -463,11 +521,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품1.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -491,13 +552,16 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 			</div>
 			<div class="row" style="margin: 0px 30px 80px 30px;">
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품8.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -521,11 +585,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품7.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct7.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -549,11 +616,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품6.jpeg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -577,11 +647,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품5.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -605,13 +678,16 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 			</div>
-			<div class="row" style="margin: 0 30px 0px 30px;">
+			<div class="row" style="margin: 0 30px -30px 30px;">
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품4.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -635,11 +711,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품3.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -663,11 +742,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품2.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -691,11 +773,14 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="../../images/메인상품1.jpg" style="height: 100%; width: 100%;">
+							<img src="../../images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -719,6 +804,9 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
+					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+						<img src="../../images/ico_cart.svg">
+					</button>
 				</div>
 			</div>
 		</div>

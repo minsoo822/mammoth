@@ -54,9 +54,11 @@
 			margin: 0 0 0 25px;
 	    	font-size: 16px; 
 		}
+		
 		a {
 			color: black;
 		}
+		
     </style>
     <style type="text/css"> /* footer style */
     
@@ -64,7 +66,7 @@
 		    margin: 0;
 		    padding: 0;
 		}
-		    .tail_wrap {
+    	.tail_wrap {
 		    margin-top: 30px;
 		    padding: 0 0 30px 0;
 		    min-width: 1200px;
@@ -189,6 +191,42 @@
 		    height: 19px;
 		}
     </style>
+    <style type="text/css"> /* 장바구니 버튼 */
+    
+		.basket {
+			background-color: whie;
+			border-radius: 50%;
+			border: transparent;
+			height: 35px;
+			width: 35px;
+			font-size: 15pt;
+			color: black;
+			position: relative;
+			bottom: 360px;
+			left: 225px;
+		}
+		
+		.bombTag, .newTag{
+			background: #a92517;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 126px;
+			font-size: 9pt;
+		}
+		
+		.limitedTag, .bestTag{
+			background: black;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 126px;
+			font-size: 9pt;
+		}
+		
+    </style>
   </head>
   <body>
   
@@ -276,11 +314,11 @@
 				<span><b>MD's PICK</b></span> 
 			</div>
 		</div>
-		<div class="row" style="margin: 20px 30px 80px 30px;" id="product card">
+		<div class="row" style="margin: 20px 30px 50px 30px;" id="productCard">
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품8.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -288,7 +326,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -304,11 +342,16 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="bombTag">주문폭주</span>
+				<span class="limitedTag">LIMITED</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품7.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct7.jpg" " style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -316,7 +359,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -332,11 +375,15 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="newTag">NEW</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품6.jpeg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -344,7 +391,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -360,11 +407,15 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="bestTag">BEST</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품5.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -372,7 +423,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -388,13 +439,17 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="limitedTag">LIMITED</span>
 			</div>
 		</div>
-		<div class="row" style="margin: 0 30px 0 30px;" id="product card">
+		<div class="row" style="margin: 0 30px -30px 30px;" id="productCard">
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품4.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -402,7 +457,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -418,11 +473,14 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품3.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -430,7 +488,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -446,11 +504,14 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품2.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -458,7 +519,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -474,11 +535,14 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/메인상품1.jpg" style="height: 100%; width: 100%;">
+						<img src="../../images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -486,7 +550,7 @@
 						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
 					</div>
 				</div>
-				<div class="row  mt-1">
+				<div class="row  mt-2">
 					<div class="col col-4" style="width: 50px; color: red;">
 					20%
 					</div>
@@ -502,6 +566,9 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
 			</div>
 		</div>
 	</div>
@@ -533,6 +600,11 @@
 						<img src="../../images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col">
+				<span><b>마스터 퍼퓨머가 '성공'에 영감을 받아 탄생한 향수</b></span>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Q&A</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+    
+    	div {
+    		/* border: 1px solid grey; */
+    	}
+    
+	    .dropbtn {
+		  background-color: transparent;
+		  /* color: white; */
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropdown {
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  	display: none;
+		  	background-color: white;
+		  	min-width: 160px;
+		  	box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.2);
+		  	z-index: 1;
+		  	position: absolute;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown-content a:hover {
+			background-color: #f1f1f1
+		}
+		
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		
+		.headerRightList {
+			float: left;
+			margin: 0 0 0 25px;
+	    	font-size: 16px; 
+		}
+		
+		.mzCard {
+			float: left;
+		}
+		
+		
+		a {
+			color: black;
+			text-decoration: none;
+		}
+		
+		#viewMore {
+			border: 0.5px solid black;
+			background: transparent;
+			font-size: 10pt; 
+		}
+		
+		#magazineCard #image:hover img {
+		    transform: scale(1.1); 
+		}
+		
+		#magazineCard #image img {
+		    transition: 0.5s;
+		}
+		
+		.carousel-indicators [data-bs-target] {
+			background-color: black;
+		}
+		
+		p {
+			margin: 0;
+		}
+		
+    </style>
+    <style type="text/css"> /* c/s center 부분 */
+    
+    	.upperMenuList {
+	    	 list-style: none;
+	    	 float: left;
+	    	 margin-right: 25px;
+	    	 font-size: 11pt;
+    	}
+    	
+    	.pathList {
+			list-style: none;
+			float: left;
+			margin-right: 10px;
+			font-size: 11pt;
+    	}
+    	
+    	.pathList i {
+    		color: grey;
+    	}
+    	
+    	.xans-board-search {
+		    padding: 20px 0 20px 10px;
+		    color: #2e2e2e;
+		    font-size: 12px;
+		}
+    	
+    	.xans-board-search .boardSearch {
+		    display: block;
+		}
+		
+		fieldset {
+		    border: none;
+		    vertical-align: top;
+		    margin-inline-start: 2px;
+		    margin-inline-end: 2px;
+		    padding-block-start: 0.35em;
+		    padding-inline-start: 0.75em;
+		    padding-inline-end: 0.75em;
+		    padding-block-end: 0.625em;
+		    min-inline-size: min-content;
+		}
+		    
+		.xans-board-search p {
+		    margin: 0 0 10px;
+		    padding: 0 0 0 7px;
+		}
+		
+		p {
+			display: block;
+		   	margin-block-start: 1em;
+		   	margin-block-end: 1em;
+		   	margin-inline-start: 0px;
+		   	margin-inline-end: 0px;
+		}
+		select {
+		    height: 24px;
+		    border: 1px solid #d5d5d5;
+		}
+		
+		.table td, th{
+			font-size: 11pt;
+			vertical-align: middle;
+			border: 1px solid #d5d5d5;
+			text-align: center;
+		}
+    </style>
+  </head>
+  <body>
+  
+  	<!-- header -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt;" href="#"><b>FORMENT</b></a>
+	    <div class="collapse navbar-collapse" style="padding-left: 30px;" id="navbarNavDropdown">
+		    <div class="dropdown">
+			  <button class="dropbtn" style="font-weight: bold;">PRODUCT</button>
+			  <div class="dropdown-content">
+			  <a href="#">ALL</a>
+			  <a href="#">BEST</a>
+			  <a href="#">PERFUME</a>
+			  <a href="#">BODY & HAND</a>
+			  <a href="#">HAIR</a>
+			  <a href="#">LIP</a>
+			  <a href="#">LIFE STYLE</a>
+			  <a href="#">MEN'S SKIN</a>
+			  </div>
+			</div>
+			<div class="dropdown">
+			  <button class="dropbtn" style="font-weight: bold;">ABOUT</button>
+			  <div class="dropdown-content">
+			  <a href="#">MAGAZINE</a>
+			  <a href="#">CAMPAIGN</a>
+			  </div>
+			</div>
+			<div class="dropdown">
+			  <button class="dropbtn" style="font-weight: bold;">C/S CENTER</button>
+			  <div class="dropdown-content">
+			  <a href="#">NOTICE</a>
+			  <a href="#">Q&A</a>
+			  <a href="#">FAQ</a>
+			  <a href="#">MEMBERSHIP</a>
+			  </div>
+			</div>
+	    </div>
+	  </div>
+	  <div class="container-fluid">
+	  	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
+		    <div class="loginSection">
+		    	<ul style="list-style: none;">
+		    		<a href="#"><li class="headerRightList">MY PAGE</li></a>
+		    		<a href="#"><li class="headerRightList">CART</li></a>
+		    		<a href="#"><li class="headerRightList">ORDER</li></a>
+		    		<a href="#"><li class="headerRightList">JOIN</li></a>
+		    		<a href="#"><li class="headerRightList">LOGIN</li></a>
+		    	</ul>
+		    </div>
+	  	</div>
+	  </div>
+	</nav>
+	
+	<!-- section --> <!-- NOTICE-->
+	<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
+		<div class="row"style="margin: 0 30px 0 40px;">
+			<div class="col">
+				<span>상품 Q&A</span> 
+			</div>
+			<div class="col d-flex justify-content-end" name="path">
+				<ol>
+	    			<li class="pathList">
+	    				<a href="#"><i class="fa-solid fa-house-chimney"></i></a>
+	    			</li>
+	    			<li class="pathList">
+	    				<i class="fa-solid fa-chevron-right"></i>
+	    			</li>
+	    			<li class="pathList">
+	    				게시판
+	    			</li>
+	    			<li class="pathList">
+	    				<i class="fa-solid fa-chevron-right"></i>
+	    			</li>
+	    			<li class="pathList">
+			    		<strong>상품 Q&A</strong>
+	    			</li>
+	    		</ol>
+			</div>
+		</div>
+		<div class="row"style="margin: 0 30px 0 40px;">
+			<div class="col d-flex justify-content-center">
+				<ul>
+					<li class="upperMenuList">NOTICE</li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;"><u>Q&A</u></li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;">FAQ</li>
+					<li class="upperMenuList" style="border-left: 1px solid black; padding-left: 20px;">MEMBERSHIP</li>
+				</ul> 
+			</div>
+		</div>
+		<div class="row"style="margin: 20px 30px 10px 30px;">
+			<div class="col">
+				<table class="table">
+					<colgroup class="colgroup">
+						<col style="width: 70px;">
+						<col style="width: auto;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 60px; font-size: 5pt;">
+					</colgroup>
+					<thead>
+						<tr style="background: #fbfafa;">
+							<td>번호</td>
+							<td>제목</td>
+							<td>작성자</td>
+							<td>작성일</td>
+							<td>조회</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>공지</td>
+							<td style="text-align: start;">[FORMENT] 설 연휴 배송 및 고객센터 휴무 공지</td>
+							<th>포맨트</th>
+							<td style="font-size: 9pt;">2022-01-25 09:23:33</td>
+							<td style="font-size: 9pt;">502</td>
+						</tr>
+						<tr>
+							<td>공지</td>
+							<td style="text-align: start;">[FORMENT] 주문취소는 어떻게 하나요?</td>
+							<th>포맨트</th>
+							<td style="font-size: 9pt;">2021-11-17 09:23:33</td>
+							<td style="font-size: 9pt;">1309</td>
+						</tr>
+						<tr>
+							<td>44139</td>
+							<td style="text-align: start;">[배송] 배송관련 문의 드립니다. <i class="fa-solid fa-lock"></i></td>
+							<th>정**</th>
+							<td style="font-size: 9pt;">2022-12-29 09:23:33</td>
+							<td style="font-size: 9pt;">1</td>
+						</tr>
+						<tr>
+							<td>44138</td>
+							<td style="padding-left: 50px; text-align: start;"><i class="fa-solid fa-angle-up"></i> 포맨트에서 답변드립니다. <i class="fa-solid fa-lock"></i></td>
+							<th>포맨트</th>
+							<td style="font-size: 9pt;">2022-12-29 09:23:33</td>
+							<td style="font-size: 9pt;">1</td>
+						</tr>
+						<tr>
+							<td>44138</td>
+							<td style="padding-left: 50px; text-align: start;"><i class="fa-solid fa-caret-up"></i> 포맨트에서 답변드립니다. <i class="fa-solid fa-lock"></i></td>
+							<th>포맨트</th>
+							<td style="font-size: 9pt;">2022-12-29 09:23:33</td>
+							<td style="font-size: 9pt;">1</td>
+						</tr>
+						
+					</tbody>
+					<tfoot>
+						<tr style="background: #fbfafa;">
+							<td colspan="5" style="text-align: end;">
+								<a><img src="../../images/btn_write.gif"></a>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		
+		<!-- pagination -->
+		<div class="row">
+			<div class="col justify-content-center d-flex">
+				<div class="row text-center" style="width: 150px; font-size: 10pt; font-weight: bold;">
+					<div class="col col-3">
+						<a>
+							<i class="fa-solid fa-chevron-left"></i>
+						</a>
+					</div>
+					<div class="col col-3">
+						<a>1</a>
+					</div>
+					<div class="col col-3">
+						<a>2</a>
+					</div>
+					<div class="col col-3">
+						<a>
+							<i class="fa-solid fa-chevron-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 하단 검색 부분 -->
+		<div class="xans-element- xans-board xans-board-search-1002 xans-board-search xans-board-1002 mt-3">
+		    <fieldset class="boardSearch">
+		        <p>
+		        	<select id="search_date" name="search_date" fw-filter="" fw-label="" fw-msg="">
+		                <option value="week">일주일</option>
+		                <option value="month">한달</option>
+		                <option value="month3">세달</option>
+		                <option value="all">전체</option>
+		            </select> 
+		            <select id="search_key" name="search_key" fw-filter="" fw-label="" fw-msg="">
+		                <option value="subject">제목</option>
+		                <option value="content">내용</option>
+		                <option value="writer_name">글쓴이</option>
+		                <option value="member_id">아이디</option>
+		                <option value="nick_name">별명</option>
+		            </select> 
+		            <input id="search" name="search" fw-filter="" fw-label="" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 
+		           	<a href="#none" onclick="" style="border: 1px solid black; background: black; padding: 2px; color: white;">찾기</a>
+		       </p>
+		    </fieldset>
+		</div>
+	</div>
+	
+	
+    
+    
+    
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+

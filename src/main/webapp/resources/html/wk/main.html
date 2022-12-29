@@ -225,6 +225,25 @@
 			bottom: 126px;
 			font-size: 9pt;
 		}
+    </style>
+    <style type="text/css">
+	    .modal-content {
+		    width: 600px;
+		    pointer-events: auto;
+		    background-color: white;
+		    border: 1px solid black;
+		    border-radius: 0rem;
+		    outline: 0;
+		    box-sizing: content-box;
+		    font-size: 12pt;
+		}
+		
+		.modal-header {
+			background: #495164;
+			border-radius: 0rem;
+			color: white;
+			height: 45px;
+		}
 		
     </style>
   </head>
@@ -342,7 +361,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+				<button type="button" class="basket" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="javascript:event.stopPropagation(); basket()"> 
 					<img src="../../images/ico_cart.svg">
 				</button>
 				<span class="bombTag">주문폭주</span>
@@ -608,6 +627,89 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- modal section -->
+		<!-- 장바구니 modal -->
+		<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    
+		      <div class="modal-header">
+		        <span class="modal-title" id="exampleModalLabel">옵션 선택</span>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      
+		      <div class="modal-body">
+		        <div class="row">
+		        	<div class="col">
+		        		<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>		        	
+		        	</div>
+		        </div>
+		        <hr>
+		        <div class="row">
+		        	<div class="col-4" style="width: 82px; height: 82px;">
+		        		<img src="../../images/modal/productModalImg1.jpg" style="width: 100%; height: 100%;">
+		        	</div>
+		        	<div class="col-8">
+		        		<div class="row">
+		        			<div class="col">
+		        				<span>옵션 선택</span>
+		        				<span>향 선택</span>
+		        				<span>세트 선택</span>
+		        			</div>
+		        			<div class="col">
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="row">
+		        	<div class="col">
+		        		<p style="color: red;">
+		        			<img src="../../images/ico_info.gif" style="width: 20px; height: 20px;">
+		        			위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.
+		        		</p>
+		        	</div>
+		        </div>
+		        <hr>
+		        <div class="row">
+		        	<div class="col">
+		        		<span>총 상품금액(수량) : </span>
+		        		<span style="color: blue;"><strong>0원</strong>(0개)</span>
+		        	</div>
+		        </div>
+		      </div>
+		      
+		      <div class="modal-footer justify-content-center">
+		        <button type="button" class="btn btn-dark">바로 구매하기</button>
+		        <button type="button" class="btn btn-dark">장바구니 담기</button>
+		        <button type="button" class="btn btn-light" style="border: 1px solid black; " data-bs-dismiss="modal">닫기</button>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div> -->
+		
+        
+        
+        
 	
 	<!-- footer -->
 	<div class="tail_wrap">

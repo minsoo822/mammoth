@@ -24,7 +24,7 @@
 <body>
 
 	<!-- header  -->
-	<%@include file="/resources/include/header.jsp"%>
+	<%-- <%@include file="/resources/include/header.jsp"%> --%>
 	
 	<div class="container">
 	    <div class="page-content">
@@ -33,7 +33,7 @@
 	</div>
 	
 	<!-- footer -->
-	<%@include file="/resources/include/footer.jsp"%>
+	<%-- <%@include file="/resources/include/footer.jsp"%> --%>
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>

@@ -49,12 +49,12 @@
 <!-- Header Area -->
 <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
   <div class="container-fluid">
-    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt; color: #000; text-decoration: none;" href="#"><b>FORMENT</b></a>
+    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt; color: #000; text-decoration: none;" href="/"><b>FORMENT</b></a>
     <div class="collapse navbar-collapse" style="padding-left: 30px;" id="navbarNavDropdown">
 	    <div class="dropdown">
-		  <button class="dropbtn" style="font-weight: bold;">PRODUCT</button>
+		  <button class="dropbtn" style="font-weight: bold;" href="/product/productList">PRODUCT</button>
 		  <div class="dropdown-content">
-		  <a href="#">ALL</a>
+		  <a href="/product/productList">ALL</a>
 		  <a href="#">BEST</a>
 		  <a href="#">PERFUME</a>
 		  <a href="#">BODY & HAND</a>
@@ -67,15 +67,15 @@
 		<div class="dropdown">
 		  <button class="dropbtn" style="font-weight: bold;">ABOUT</button>
 		  <div class="dropdown-content">
-		  <a href="#">MAGAZINE</a>
-		  <a href="#">CAMPAIGN</a>
+		  <a href="/magazineList">MAGAZINE</a>
+		  <a href="/campaignList">CAMPAIGN</a>
 		  </div>
 		</div>
 		<div class="dropdown">
 		  <button class="dropbtn" style="font-weight: bold;">C/S CENTER</button>
 		  <div class="dropdown-content">
-		  <a href="#">NOTICE</a>
-		  <a href="#">MEMBERSHIP</a>
+		  <a href="/post/postList">NOTICE</a>
+		  <a href="/membership">MEMBERSHIP</a>
 		  </div>
 		</div>
     </div>

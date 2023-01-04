@@ -135,7 +135,7 @@
     <div class="btm_content">
         <div class="btm_info">
 
-            <ul class="btm_link"><li class="logo_b"><img src="../../images/footer_logo.png" alt="" style="width: 200px; height: 40px;" /></li>
+            <ul class="btm_link"><li class="logo_b"><img src="/resources/images/footer_logo.png" alt="" style="width: 200px; height: 40px;" /></li>
                <!--  <li><a href="/shopinfo/brandstory.html?board_no=9301">회사소개</a></li>
                 <li><a href="/member/agreement.html">이용약관</a></li>
                 <li><a href="/shopinfo/guide.html">이용안내</a></li>

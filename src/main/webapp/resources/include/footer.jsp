@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<!-- Footer Area -->
 <div class="tail_wrap">
     <div class="btm_content">
         <div class="btm_info">

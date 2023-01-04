@@ -18,11 +18,7 @@
 		div	{
 			/* border: solid 1px orange; */
 		}
-		    * {
-		margin: 0;
-		padding: 0;
-    }
-    a {
+		    a {
 	    text-decoration: none;
 	    cursor: pointer;
 	}
@@ -114,7 +110,7 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-		<div class="container">
+	<div class="container">
 		<div class="join_intro">
 			<div class="join_title">
 				<h2>로그인</h2>
@@ -147,7 +143,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<!-- footer -->
 	<%-- <%@include file="/resources/include/footer.jsp"%> --%>
 	

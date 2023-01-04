@@ -19,17 +19,521 @@
 			/* border: solid 1px orange; */
 		}
 		
+    
+	    .dropbtn {
+		  background-color: transparent;
+		  /* color: white; */
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropdown {
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  	display: none;
+		  	background-color: white;
+		  	min-width: 160px;
+		  	box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.2);
+		  	z-index: 1;
+		  	position: absolute;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown-content a:hover {
+			background-color: #f1f1f1
+		}
+		
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		
+		.headerRightList {
+			float: left;
+			margin: 0 0 0 25px;
+	    	font-size: 16px; 
+		}
+		
+		a {
+			color: black;
+		}
+		    
+		.basket {
+			background-color: whie;
+			border-radius: 50%;
+			border: transparent;
+			height: 35px;
+			width: 35px;
+			font-size: 15pt;
+			color: black;
+			position: relative;
+			bottom: 360px;
+			left: 225px;
+		}
+		
+		.bombTag, .newTag{
+			background: #a92517;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 126px;
+			font-size: 9pt;
+		}
+		
+		.limitedTag, .bestTag{
+			background: black;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 126px;
+			font-size: 9pt;
+		}
+	    .modal-content {
+		    width: 600px;
+		    pointer-events: auto;
+		    background-color: white;
+		    border: 1px solid black;
+		    border-radius: 0rem;
+		    outline: 0;
+		    box-sizing: content-box;
+		    font-size: 12pt;
+		}
+		.modal-header {
+			background: #495164;
+			border-radius: 0rem;
+			color: white;
+			height: 45px;
+		}
+		
 	</style>
 </head>
 <body>
 
 	<!-- header  -->
-	<%@include file="/resources/include/header.jsp"%>
+	<%-- <%@include file="/resources/include/header.jsp"%> --%>
 	
-	<div class="container">
-	hi
-	
+	<!-- main carousel -->
+	<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item">
+	      <img src="../../images/로고&배너/1.jpg" class="d-block w-100" alt="...">
+	    </div>
+	    <div class="carousel-item">
+	      <img src="../../images/로고&배너/2.jpg" class="d-block w-100" alt="...">
+	    </div>
+	    <div class="carousel-item active">
+	      <img src="../../images/로고&배너/3.jpg" class="d-block w-100" alt="...">
+	    </div>
+	    <div class="carousel-item">
+	      <img src="../../images/로고&배너/4.jpg" class="d-block w-100" alt="...">
+	    </div>
+	  </div>
+	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Previous</span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Next</span>
+	  </button>
 	</div>
+	
+	<!-- section1 --> <!-- MD's PICK -->
+	<div class="container" style="margin-top: 150px; margin-bottom: 150px;">
+		<div class="row" style="margin: 0 30px 0 30px;">
+			<div class="col">
+				<span><b>MD's PICK</b></span> 
+			</div>
+		</div>
+		<div class="row" style="margin: 20px 30px 50px 30px;" id="productCard">
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="bombTag">주문폭주</span>
+				<span class="limitedTag">LIMITED</span>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct7.jpg" " style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="newTag">NEW</span>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="bestTag">BEST</span>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+				<span class="limitedTag">LIMITED</span>
+			</div>
+		</div>
+		<div class="row" style="margin: 0 30px -30px 30px;" id="productCard">
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+			</div>
+			<div class="col col-3" style="font-size: 10pt;">
+				<div class="row">
+					<div class="col">
+						<img src="../../images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
+					</div>
+				</div>
+				<div class="row  mt-2">
+					<div class="col col-4" style="width: 50px; color: red;">
+					20%
+					</div>
+					<div class="col col-4" style="width: 100px;">
+					<b>49,000원</b>
+					</div>
+					<div class="col col-4" style="width: 100px;"> 
+					<s>61,000원</s>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col">
+						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+					</div>
+				</div>
+				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
+					<img src="../../images/ico_cart.svg">
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<!-- section2 --> <!-- FORMENT VIDEO -->
+	<div class="section" style="padding: 80px 150px 150px 150px; background: #f8f8f8;">
+		<div class="row mb-2">
+			<div class="col">
+				<span><b>FORMENT VIDEO</b></span> 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-9"">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/0kcLbkptq-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col col-3">
+				<div class="row m-1">
+					<div class="col" style="height: 160px; width: 280px;">
+						<img src="../../images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row m-1">
+					<div class="col" style="height: 160px; width: 200px;">
+						<img src="../../images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+				<div class="row m-1">
+					<div class="col" style="height: 160px; width: 280px;">
+						<img src="../../images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col">
+				<span><b>마스터 퍼퓨머가 '성공'에 영감을 받아 탄생한 향수</b></span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- modal section -->
+		<!-- 장바구니 modal -->
+		<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    
+		      <div class="modal-header">
+		        <span class="modal-title" id="exampleModalLabel">옵션 선택</span>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      
+		      <div class="modal-body">
+		        <div class="row">
+		        	<div class="col">
+		        		<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>		        	
+		        	</div>
+		        </div>
+		        <hr>
+		        <div class="row">
+		        	<div class="col-4" style="width: 82px; height: 82px;">
+		        		<img src="../../images/modal/productModalImg1.jpg" style="width: 100%; height: 100%;">
+		        	</div>
+		        	<div class="col-8">
+		        		<div class="row">
+		        			<div class="col">
+		        				<span>옵션 선택</span>
+		        				<span>향 선택</span>
+		        				<span>세트 선택</span>
+		        			</div>
+		        			<div class="col">
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        				<select>
+		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
+		        					<option></option>
+		        					<option></option>
+		        					<option></option>
+		        				</select>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="row">
+		        	<div class="col">
+		        		<p style="color: red;">
+		        			<img src="../../images/ico_info.gif" style="width: 20px; height: 20px;">
+		        			위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.
+		        		</p>
+		        	</div>
+		        </div>
+		        <hr>
+		        <div class="row">
+		        	<div class="col">
+		        		<span>총 상품금액(수량) : </span>
+		        		<span style="color: blue;"><strong>0원</strong>(0개)</span>
+		        	</div>
+		        </div>
+		      </div>
+		      
+		      <div class="modal-footer justify-content-center">
+		        <button type="button" class="btn btn-dark">바로 구매하기</button>
+		        <button type="button" class="btn btn-dark">장바구니 담기</button>
+		        <button type="button" class="btn btn-light" style="border: 1px solid black; " data-bs-dismiss="modal">닫기</button>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div> -->
+		
+        
+        
+        
+	
 	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>

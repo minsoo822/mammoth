@@ -6,7 +6,7 @@
 
 <mapper namespace="com.mammoth.infra.modules.base.BaseMapper">
 
-    <resultMap id="resultMapObj" type="com.space.infra.modules.base.Base"></resultMap>
+    <resultMap id="resultMapObj" type="com.mammoth.infra.modules.base.Base"></resultMap>
     
     <select id="" resultMap="resultMapObj">
     

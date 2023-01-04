@@ -14,7 +14,8 @@
 	<%@include file="/resources/include/link.jsp"%>
 	
 
-	<style>
+	<style type="text/css"> /* header style */
+	
     	.dropbtn {
 		  background-color: transparent;
 		  /* color: white; */
@@ -112,6 +113,54 @@
 		}
 		
 	</style>
+	<style type="text/css"> /* 장바구니 style */
+    
+		.basket {
+			background-color: whie;
+			border-radius: 50%;
+			border: transparent;
+			height: 35px;
+			width: 35px;
+			font-size: 15pt;
+			color: black;
+			position: relative;
+			bottom: 360px;
+			left: 225px;
+		}
+		
+		.bombTag, .newTag{
+			background: #a92517;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 122px;
+			font-size: 9pt;
+		}
+		
+		.limitedTag, .bestTag{
+			background: black;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 122px;
+			font-size: 9pt;
+		}
+		
+		textarea {
+		    width: 100%;
+		    height: 10em;
+		    border: none;
+		    resize: none;
+		}
+		
+		.right {
+			float: right;
+			margin-left: 5px;
+		}
+		
+    </style>
 </head>
 <body>
 

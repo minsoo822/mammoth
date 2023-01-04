@@ -84,11 +84,11 @@
   	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
 	    <div class="loginSection">
 	    	<ul style="list-style: none;">
-	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
-	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
-	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
-	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">JOIN</li></a>
-	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGIN</li></a>
+	    		<a href="/member/mypage" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
+	    		<a href="/member/basket" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
+	    		<a href="/member/orderList" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
+	    		<a href="/member/join" style=" color: #000; text-decoration: none;"><li class="headerRightList">JOIN</li></a>
+	    		<a href="/member/login" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGIN</li></a>
 	    	</ul>
 	    </div>
   	</div>

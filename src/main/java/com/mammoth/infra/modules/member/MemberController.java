@@ -22,6 +22,24 @@ public class MemberController {
 		return "infra/member/basket";
 	}
 	
+	@RequestMapping(value="guest_order")
+	public String guest_order() throws Exception {
+		return "infra/member/guest_order";
+	}
 	
+	@RequestMapping(value="join")
+	public String join() throws Exception {
+		return "infra/member/join";
+	}
+	
+	@RequestMapping(value="myinfo")
+	public String myinfo() throws Exception {
+		return "infra/member/myinfo";
+	}
+	
+	@RequestMapping(value="mypage")
+	public String mypage() throws Exception {
+		return "infra/member/mypage";
+	}
 	
 }

@@ -44,15 +44,12 @@
 		margin: 0 0 0 25px;
     	font-size: 16px; 
 	}
-	a {
-		color: black;
-	}
 </style>
 
 <!-- Header Area -->
 <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
   <div class="container-fluid">
-    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt;" href="#"><b>FORMENT</b></a>
+    <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt; color: #000; text-decoration: none;" href="#"><b>FORMENT</b></a>
     <div class="collapse navbar-collapse" style="padding-left: 30px;" id="navbarNavDropdown">
 	    <div class="dropdown">
 		  <button class="dropbtn" style="font-weight: bold;">PRODUCT</button>
@@ -87,11 +84,11 @@
   	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
 	    <div class="loginSection">
 	    	<ul style="list-style: none;">
-	    		<a href="#"><li class="headerRightList">MY PAGE</li></a>
-	    		<a href="#"><li class="headerRightList">CART</li></a>
-	    		<a href="#"><li class="headerRightList">ORDER</li></a>
-	    		<a href="#"><li class="headerRightList">JOIN</li></a>
-	    		<a href="#"><li class="headerRightList">LOGIN</li></a>
+	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
+	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
+	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
+	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">JOIN</li></a>
+	    		<a href="#" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGIN</li></a>
 	    	</ul>
 	    </div>
   	</div>

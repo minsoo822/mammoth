@@ -13,6 +13,14 @@
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
 	
+	<style type="text/css">
+		.headerRightList, .productCategoryList{
+			float: left;
+			margin: 0 0 0 25px;
+	    	font-size: 16px; 
+		}
+	</style>
+	
 </head>
 <body>
 
@@ -25,7 +33,7 @@
 		<div class="container" style="padding: 50px 0 0 20px;">
 			<div class="row">
 				<div class="col">
-					<ul>
+					<ul style="float: left;">
 						<li class="productCategoryList" style="margin-left: 0px;"><a href="#">ALL</a></li>
 						<li class="productCategoryList"><a href="#">PERFUME</a></li>
 						<li class="productCategoryList"><a href="#">BODY & HAND</a></li>

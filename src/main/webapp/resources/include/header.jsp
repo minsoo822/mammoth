@@ -1,5 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<style type="text/css">
+    .dropbtn {
+	  background-color: transparent;
+	  /* color: white; */
+	  padding: 16px;
+	  font-size: 16px;
+	  border: none;
+	  cursor: pointer;
+	}
+	
+	
+	.dropdown {
+	  display: inline-block;
+	}
+	
+	.dropdown-content {
+	  	display: none;
+	  	background-color: white;
+	  	min-width: 160px;
+	  	box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.2);
+	  	z-index: 1;
+	  	position: absolute;
+	}
+	
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+	
+	.dropdown-content a:hover {
+		background-color: #f1f1f1
+	}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+	
+	.headerRightList {
+		float: left;
+		margin: 0 0 0 25px;
+    	font-size: 16px; 
+	}
+	a {
+		color: black;
+	}
+</style>
+
 <!-- Header Area -->
 <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
   <div class="container-fluid">
@@ -47,5 +96,4 @@
 	    </div>
   	</div>
   </div>
-  <div 
 </nav>

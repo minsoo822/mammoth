@@ -1,5 +1,135 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<style type="text/css">
+/* footer css */
+    .tail_wrap {
+	    margin-top: 30px;
+	    padding: 0 0 30px 0;
+	    min-width: 1200px;
+	    background: #f0f0f0;
+	    color: #000;
+	    font-size: 14px;
+	}
+	.tail_wrap .btm_content {
+	    position: relative;
+	    width: 1200px;
+	    margin: 0 auto;
+	    padding: 50px 0 0 0;
+	}
+	.tail_wrap .btm_info {
+	    margin: 0 0 0;
+	    padding-right: 210px;
+	    position: relative;
+	}
+	.tail_wrap .btm_link {
+	    padding: 0;
+	    height: 90px;
+	}
+	ul {
+	    display: block;
+	    list-style-type: disc;
+	    margin-block-start: 1em;
+	    margin-block-end: 1em;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	    padding-inline-start: 40px;
+	}
+	.tail_wrap .btm_link li.logo_b {
+	    width: 200px;
+	    vertical-align: top;
+	    margin: 0;
+	    padding: 5px 0 0 0;
+	}
+	.tail_wrap .btm_link li {
+	    display: inline-block;
+	    margin: 0 10px;
+	}
+	a {
+	    text-decoration: none;
+	    color: #000;
+	}
+	.tail_wrap .btm_link li a {
+	    margin-right: 20px;
+	    font-weight: bold;
+	    font-size: 16px;
+	    display: inline-block;
+	}
+	li {
+	    list-style: none;
+	}
+	li {
+	    list-style: none;
+	}
+	user agent stylesheet
+	li {
+	    text-align: -webkit-match-parent;
+	}
+	.tail_wrap .com_info {
+	    line-height: 1.7;
+	}
+	.tail_wrap .btm_info .desc {
+	    position: absolute;
+	    width: 220px;
+	    right: 0;
+	    top: 0;
+	}
+	.tail_wrap .fsns {
+	    margin: 0 0 60px 0;
+	}
+	.tail_wrap .fsns li {
+	    display: inline-block;
+	    margin: 0 20px 0 0;
+	}
+	.tail_wrap .fsns li a {
+	    display: block;
+	    width: 30px;
+	    height: 30px;
+	    text-align: center;
+	    line-height: 30px;
+	    background: #000;
+	    color: #fff;
+	    -webkit-border-radius: 30px;
+	    -moz-border-radius: 30px;
+	    border-radius: 30px;
+	}
+	    
+	    .tail_wrap .btm_info .desc strong {
+	    display: block;
+	    font-size: 26px;
+	    margin: 0 0 5px 0;
+	}
+	strong {
+	    font-weight: bold;
+	}
+	.tail_wrap .btm_info .ftt {
+	    display: inline-block;
+	    padding: 3px 10px;
+	    background: #000;
+	    color: #fff;
+	}
+	
+	
+	.tail_wrap .btm_info .ftt a {
+	    color: #fff;
+	}
+	    
+	    .tail_wrap .fsns li a i {
+	    font-size: 20px;
+	    line-height: 30px;
+	}
+	img {
+	    overflow-clip-margin: content-box;
+	    overflow: clip;
+	    border: none;
+	    vertical-align: top;
+	}
+	.tail_wrap .btm_link li.logo_b img {
+	    height: 19px;
+	}
+	/* footer css */
+</style>
+
+
 <!-- Footer Area -->
 <div class="tail_wrap">
     <div class="btm_content">

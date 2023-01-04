@@ -15,12 +15,7 @@
 	
 
 	<style>
-		div	{
-			/* border: solid 1px orange; */
-		}
-		
-    
-	    .dropbtn {
+    	.dropbtn {
 		  background-color: transparent;
 		  /* color: white; */
 		  padding: 16px;
@@ -121,7 +116,7 @@
 <body>
 
 	<!-- header  -->
-	<%-- <%@include file="/resources/include/header.jsp"%> --%>
+	<%@include file="/resources/include/header.jsp"%>
 	
 	<!-- main carousel -->
 	<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">

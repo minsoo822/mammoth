@@ -127,16 +127,16 @@
 	<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 	  <div class="carousel-inner">
 	    <div class="carousel-item">
-	      <img src="../../images/로고&배너/1.jpg" class="d-block w-100" alt="...">
+	      <img src="/resources/images/로고&배너/1.jpg" class="d-block w-100" alt="...">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="../../images/로고&배너/2.jpg" class="d-block w-100" alt="...">
+	      <img src="/resources/images/로고&배너/2.jpg" class="d-block w-100" alt="...">
 	    </div>
 	    <div class="carousel-item active">
-	      <img src="../../images/로고&배너/3.jpg" class="d-block w-100" alt="...">
+	      <img src="/resources/images/로고&배너/3.jpg" class="d-block w-100" alt="...">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="../../images/로고&배너/4.jpg" class="d-block w-100" alt="...">
+	      <img src="/resources/images/로고&배너/4.jpg" class="d-block w-100" alt="...">
 	    </div>
 	  </div>
 	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -160,7 +160,7 @@
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -185,7 +185,7 @@
 					</div>
 				</div>
 				<button type="button" class="basket" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 				<span class="bombTag">주문폭주</span>
 				<span class="limitedTag">LIMITED</span>
@@ -193,7 +193,7 @@
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct7.jpg" " style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct7.jpg" " style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -218,14 +218,14 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 				<span class="newTag">NEW</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -250,14 +250,14 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 				<span class="bestTag">BEST</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -282,7 +282,7 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 				<span class="limitedTag">LIMITED</span>
 			</div>
@@ -291,7 +291,7 @@
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -316,13 +316,13 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -347,13 +347,13 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -378,13 +378,13 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
 					<div class="col">
-						<img src="../../images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
+						<img src="/resources/images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -409,7 +409,7 @@
 					</div>
 				</div>
 				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="../../images/ico_cart.svg">
+					<img src="/resources/images/ico_cart.svg">
 				</button>
 			</div>
 		</div>
@@ -429,17 +429,17 @@
 			<div class="col col-3">
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<img src="../../images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
+						<img src="/resources/images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 200px;">
-						<img src="../../images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
+						<img src="/resources/images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<img src="../../images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
+						<img src="/resources/images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
 					</div>
 				</div>
 			</div>
@@ -471,7 +471,7 @@
 		        <hr>
 		        <div class="row">
 		        	<div class="col-4" style="width: 82px; height: 82px;">
-		        		<img src="../../images/modal/productModalImg1.jpg" style="width: 100%; height: 100%;">
+		        		<img src="/resources/images/modal/productModalImg1.jpg" style="width: 100%; height: 100%;">
 		        	</div>
 		        	<div class="col-8">
 		        		<div class="row">
@@ -506,7 +506,7 @@
 		        <div class="row">
 		        	<div class="col">
 		        		<p style="color: red;">
-		        			<img src="../../images/ico_info.gif" style="width: 20px; height: 20px;">
+		        			<img src="/resources/images/ico_info.gif" style="width: 20px; height: 20px;">
 		        			위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.
 		        		</p>
 		        	</div>

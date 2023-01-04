@@ -143,10 +143,10 @@
                 <li><a href="https://docs.google.com/forms/d/1RV7R9T7oPcH2TXeqxUUah515DcGa8oK6f70RmrB8y8w/edit#responses" target="_blank" class="btnPartner">협업문의 바로가기</a></li> -->
             </ul><div class="com_info">
                 <strong>COMPANY</strong><br/>
-                APR CO.LTD           CEO | 김민수, 정우경	<br/>
+                APR CO.LTD           CEO | 정우경, 김민수	<br/>
                 Address | 36th floor, 300, Olympic-ro, Songpa-gu, Seoul, Republic of Korea<br/>
                 CS CENTER Address | 2th floor, Seokgwang building, 8, Yeongdong-daero 96-gil, Gangnam-gu, Seoul, Korea<br/>
-                Business License No | 220-88-89441 <a href="https://www.ftc.go.kr/info/bizinfo/communicationList.jsp" target="_blank">(사업자정보확인)</a>          E-Commerce Registration No | 2020-서울송파-1274        <br/>
+                Business License No | 220-88-89441 <a href="#" target="_blank" style="text-decoration: none; color: #000;">(사업자정보확인)</a>          E-Commerce Registration No | 2020-서울송파-1274        <br/>
                 Personal Info Manager | Jae Ha Shin(forment@apr-in.com) <br/>
                 고객님은 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서 가입한 PG 사의 구매안전서비스를 이용하실 수 있습니다.<br/><br/>
                 호스팅 업체 : 카페24(주)<br/>
@@ -165,7 +165,7 @@
 
                 상담시간ㅣ09:00 ~ 18:00<br/>
                 점심시간ㅣ12:00 ~ 13:00<br/>
-                토·일요일, 공휴일 휴무<br/><br/><div class="ftt"><a href="/shopinfo/bankinfo.html">반품 &amp; 환불 안내</a></div>
+                토·일요일, 공휴일 휴무<br/><br/><div class="ftt"><a href="#" style="text-decoration: none;">반품 &amp; 환불 안내</a></div>
 
             </div>
         </div>

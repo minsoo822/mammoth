@@ -48,7 +48,7 @@
 				  </div>
 				  <div class="carousel-inner" style="height: 400px;">
 				    <div class="carousel-item active" style="height: 100%; background: #f8f8f8;">
-				  		<img src="/resources/images/campaign/캠페인1.jpg" class="d-block h-100">
+				  		<img src="/resources/images/campaign/campaign1.jpg" class="d-block h-100">
 					  	<div class="carousel-caption d-flex d-md-block text-start" style="color: black; width: 600px; position: relative; bottom: 300px; left: 620px;">
 					    	<h4><b>ATTRACTION IN THE UNCONSCIOUS</b></h4>
 					   	 	<p style="margin-top: 40px; font-size: 12pt;">무의식 속 이끌림</p>
@@ -56,7 +56,7 @@
 					  	</div>
 				    </div>
 				    <div class="carousel-item" style="height: 100%; background: #f8f8f8;">
-				  		<img src="/resources/images/campaign/캠페인2.jpg" class="d-block h-100">
+				  		<img src="/resources/images/campaign/campaign2.jpg" class="d-block h-100">
 					  	<div class="carousel-caption d-flex d-md-block text-start" style="color: black; width: 600px; position: relative; bottom: 300px; left: 590px;">
 					    	<h4><b>FORMENT X ABSOLUT</b></h4>
 					   	 	<p style="margin-top: 40px; font-size: 12pt;">Creative . Sensual . Original</p>
@@ -64,7 +64,7 @@
 					  	</div>
 				    </div>
 				    <div class="carousel-item" style="height: 100%; background: #f8f8f8;">
-				  		<img src="/resources/images/campaign/캠페인3.jpg" class="d-block h-100">
+				  		<img src="/resources/images/campaign/campaign3.jpg" class="d-block h-100">
 					  	<div class="carousel-caption d-flex d-md-block text-start" style="color: black; width: 600px; position: relative; bottom: 300px; left: 590px;">
 					    	<h4><b>FORMENT X 강태오</b></h4>
 					   	 	<p style="margin-top: 40px; font-size: 12pt;">강태오의 가장 빛나는 순간</p>

@@ -171,44 +171,59 @@
 					success:function(response){
 						
 						var token = Kakao.Auth.getAccessToken(); 
-						console.log(token);
 
 						Kakao.Auth.setAccessToken(token);
 						var account = response.kakao_account;  
 
 						console.log(response)
+						console.log("id : " + response.id);
 						console.log("email : " + account.email);
 						console.log("name : " + account.profile.nickname);
 						console.log("picture : " + account.profile.thumbnail_image_url);
 						console.log("gender : " + account.gender);
 						console.log("birthday : " + account.birthday);
 						/*  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length)); */
-
-
 						/*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
-
+						
 						$.ajax({
-							async: true
-							,cache: false
-							,type:"POST"
-							,url: "/member/kakaoLoginProc"
-							,datatype: 'json'
-							,data: {
-								mmid : account.email
-								,mmEmail : account.email
-								,mmName : account.profile.nickname
-								,mmGender : account.gender == 'male' ? 1 : 2
+							type : 'Post'
+							,url : '/member/idCheck'
+							,datatype : 'json'
+							,data : {
+								mmId : response.id
 							}
-							,success : function(response) {
-								if (response.rt == "fail") {
-								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
-								return false;
+							,success : function(result) {
+								alert(result.idCheck);
+								if (response.idCheck == "0") {
+									
+									$.ajax({
+										async: true
+										,cache: false
+										,type:"POST"
+										,url: "/member/kakaoLoginProc"
+										,datatype: 'json'
+										,data: {
+											/* mmId : response.id */
+											mmEmail : account.email
+											,mmName : account.profile.nickname
+											,mmGender : account.gender == 'male' ? 1 : 2
+											,mmBirth : account.birthday		
+										}
+										,success : function(response) {
+											if (response.rt == "fail") {
+											alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+											return false;
+											} else {
+											window.location.href = "/";
+											}
+										},
+										error : function(jqXHR, status, error) {
+											alert("카카오 로그인아작스 에러 [ " + error + " ]");
+										}
+									});
 								} else {
-								window.location.href = "/";
+									return false;
 								}
-							},
-							error : function(jqXHR, status, error) {
-								alert("카카오 로그인아작스 에러 [ " + error + " ]");
 							}
 						});
 					},

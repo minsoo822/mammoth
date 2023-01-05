@@ -23,7 +23,6 @@
 			,mmGrade
 			,mmCertNy
 			,mmCreDate
-			,mmModDate
 			,mmDelNy
 			,mmAdminNy
 		)
@@ -33,19 +32,18 @@
 			,#{mmName}
 			,#{mmTelecom}
 			,#{mmPhoneNumber}
-			,#{mmSmsRecieveCheckNy}
+			,0
 			,#{mmEmail}
-			,#{mmEmailRecieveCheckNy}
+			,0
 			,#{mmGender}
 			,#{mmBirth}
-			,#{mmGrade}
-			,#{mmCertNy}
-			,#{mmCreDate}
-			,#{mmModDate}
-			,#{mmDelNy}
-			,#{mmAdminNy}
+			,0
+			,0
+			,now()
+			,0
+			,0
 		)
-		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+		<selectKey resultType="Integer" keyProperty="mmSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -57,9 +55,9 @@
 		SELECT
 			COUNT(*)
 		FROM
-			member a
+			member
 		WHERE 1=1
-			AND id = #{id}
+			AND mmId = #{mmId}
 	</select>
 	
 </mapper>

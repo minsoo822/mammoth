@@ -11,7 +11,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- 카카오 api 사용을 위한 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	
+<!-- 카카오 우편번호 api 사용을 위한 스크립트 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script>
 $("#btnLogout").on("click", function(){

@@ -133,7 +133,7 @@
 			<input id="sIsSnsCheckid" name="sIsSnsCheckid" value="" type="hidden">
 			<input id="sProvider" name="sProvider" value="" type="hidden"> -->
 			<div class="xans-element- xans-member xans-member-login snsSync ">
-				<a href="#none" onclick="" class=" sync kakao" style="text-decoration: none;">
+				<a href="#none" id="kakaoBtn" class=" sync kakao" style="text-decoration: none;">
 					<img src="/resources/images/log_sns_kakao.png" alt="">카카오로 로그인 하기
 				</a>
 				<a href="" class="sync" style="text-decoration: none;">다른 방법으로 시작 하기</a>
@@ -155,7 +155,89 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		
+	//카카오
+	Kakao.init('c1205ed10c6257b76d998633147ec125'); //발급받은 키 중 javascript키를 사용해준다.
+	console.log(Kakao.isInitialized()); // sdk초기화여부판단
+	
+	$("#kakaoBtn").on("click", function() {
+		/* Kakao.Auth.authorize({
+		redirectUri: 'http://localhost:8080/member/kakaoCallback',
+		}); */
+
+		Kakao.Auth.login({
+			success:function(response){
+				Kakao.API.request({ 
+					url:'/v2/user/me',
+					success:function(response){
+						
+						var token = Kakao.Auth.getAccessToken(); 
+						console.log(token);
+
+						Kakao.Auth.setAccessToken(token);
+						var account = response.kakao_account;  
+
+						console.log(response)
+						console.log("email : " + account.email);
+						console.log("name : " + account.profile.nickname);
+						console.log("picture : " + account.profile.thumbnail_image_url);
+						console.log("gender : " + account.gender);
+						console.log("birthday : " + account.birthday);
+						/*  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length)); */
+
+
+						/*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
+
+						$.ajax({
+							async: true
+							,cache: false
+							,type:"POST"
+							,url: "/member/kakaoLoginProc"
+							,datatype: 'json'
+							,data: {
+								mmid : account.email
+								,mmEmail : account.email
+								,mmName : account.profile.nickname
+								,mmGender : account.gender == 'male' ? 1 : 2
+							}
+							,success : function(response) {
+								if (response.rt == "fail") {
+								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+								return false;
+								} else {
+								window.location.href = "/";
+								}
+							},
+							error : function(jqXHR, status, error) {
+								alert("카카오 로그인아작스 에러 [ " + error + " ]");
+							}
+						});
+					},
+					fail: function (error) {
+					console.log(error)
+					},
+				})
+			},
+			fail: function (error) {
+			console.log(error)
+			},
+		})
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</script>	
 </body>
 </html>

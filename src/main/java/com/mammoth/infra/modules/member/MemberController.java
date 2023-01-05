@@ -1,11 +1,23 @@
 package com.mammoth.infra.modules.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.mammoth.infra.common.contants.Constants;
 
 @Controller
 @RequestMapping(value="/member/")
 public class MemberController {
+	
+	@Autowired
+	MemberServiceImpl service;
 
 	@RequestMapping(value="login")
 	public String login() throws Exception {
@@ -41,5 +53,35 @@ public class MemberController {
 	public String mypage() throws Exception {
 		return "infra/member/mypage";
 	}
+	
+	@ResponseBody
+    @RequestMapping(value = "kakaoLoginProc")
+    public Map<String, Object> kakaoLoginProc(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>(); 
+        
+        String txt = dto.getMmId();
+        String[] split = txt.split("@");
+        dto.setMmId(split[0]);
+        
+        int kakaoLogin = service.idCheck();
+        
+//         System.out.println("test : " + dto.getToken());
+        
+        if (kakaoLogin == 0) {
+            service.memberInst(dto);    
+            
+            httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+            // session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
+            //session(dto, httpSession); 
+            returnMap.put("rt", "success");
+        } else {
+            httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+            
+            // session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
+            //session(kakaoLogin, httpSession);
+            returnMap.put("rt", "success");
+        }
+        return returnMap;
+    }
 	
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mammoth.infra.modules.member.MemberMapper">
+
+	<resultMap id="resultMapObj" type="com.mammoth.infra.modules.member.Member"></resultMap>
+	
+	<insert id="memberInst">
+		INSERt INTO member (
+			mmId
+			,mmPassword
+			,mmName
+			,mmTelecom
+			,mmPhoneNumber
+			,mmSmsRecieveCheckNy
+			,mmEmail
+			,mmEmailRecieveCheckNy
+			,mmGender
+			,mmBirth
+			,mmGrade
+			,mmCertNy
+			,mmCreDate
+			,mmModDate
+			,mmDelNy
+			,mmAdminNy
+		)
+		VALUES (
+			#{mmId}
+			,#{mmPassword}
+			,#{mmName}
+			,#{mmTelecom}
+			,#{mmPhoneNumber}
+			,#{mmSmsRecieveCheckNy}
+			,#{mmEmail}
+			,#{mmEmailRecieveCheckNy}
+			,#{mmGender}
+			,#{mmBirth}
+			,#{mmGrade}
+			,#{mmCertNy}
+			,#{mmCreDate}
+			,#{mmModDate}
+			,#{mmDelNy}
+			,#{mmAdminNy}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	
+	
+	
+	<select id="idCheck" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			member a
+		WHERE 1=1
+			AND id = #{id}
+	</select>
+	
+</mapper>

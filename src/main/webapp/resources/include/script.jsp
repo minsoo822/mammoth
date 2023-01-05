@@ -9,6 +9,9 @@
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- 카카오 api 사용을 위한 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	
 
 <script>
 $("#btnLogout").on("click", function(){

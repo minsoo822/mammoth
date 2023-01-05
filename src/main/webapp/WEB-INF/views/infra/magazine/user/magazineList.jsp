@@ -52,7 +52,7 @@
 				<div class="col m-3 text-center" id="magazineCard">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
-							<img src="/resources/images/magazine/매거진1.jpg" style="width: 100%;">
+							<img src="/resources/images/magazine/magazine1.jpg" style="width: 100%;">
 						</div>
 					</div>
 					<div class="row">
@@ -74,7 +74,7 @@
 				<div class="col m-3 text-center" id="magazineCard">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
-							<img src="/resources/images/magazine/매거진2.jpg" style="width: 100%;">
+							<img src="/resources/images/magazine/magazine2.jpg" style="width: 100%;">
 						</div>
 					</div>
 					<div class="row">
@@ -96,7 +96,7 @@
 				<div class="col m-3 text-center" id="magazineCard">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
-							<img src="/resources/images/magazine/매거진3.jpg" style="width: 100%;">
+							<img src="/resources/images/magazine/magazine3.jpg" style="width: 100%;">
 						</div>
 					</div>
 					<div class="row">

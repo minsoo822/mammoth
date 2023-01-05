@@ -194,7 +194,7 @@
 	</div>
 	
 	<!-- section1 --> <!-- MD's PICK -->
-	<div class="container" style="margin-top: 150px; margin-bottom: 150px;">
+	<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
 		<div class="row" style="margin: 0 30px 0 30px;">
 			<div class="col">
 				<span><b>MD's PICK</b></span> 

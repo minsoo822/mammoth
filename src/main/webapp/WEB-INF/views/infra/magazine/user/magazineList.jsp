@@ -14,14 +14,15 @@
 	<%@include file="/resources/include/link.jsp"%>
 	
 	<style type="text/css"> /* magazine style */
-		.mzCard {
-			float: left;
-		}
 		
 		#viewMore {
 			border: 0.5px solid black;
 			background: transparent;
 			font-size: 10pt; 
+		}
+		
+		#magazineCard {
+			cursor: pointer;
 		}
 		
 		#magazineCard #image:hover img {
@@ -49,7 +50,7 @@
 				</div>
 			</div>
 			<div class="row"style="margin: 20px 30px 80px 30px;">
-				<div class="col m-3 text-center" id="magazineCard">
+				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.arenakorea.com/arena/article/51706';">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine1.jpg" style="width: 100%;">
@@ -71,7 +72,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col m-3 text-center" id="magazineCard">
+				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.thestar.kr/board/star/4759';">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine2.jpg" style="width: 100%;">
@@ -93,7 +94,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col m-3 text-center" id="magazineCard">
+				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.thestar.kr/board/star/4759';">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine3.jpg" style="width: 100%;">

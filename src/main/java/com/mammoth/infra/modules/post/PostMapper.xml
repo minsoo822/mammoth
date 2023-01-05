@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mammoth.infra.modules.post.PostMapper">
+
+    <resultMap id="resultMapObj" type="com.mammoth.infra.modules.post.Post"></resultMap>
+    
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT 
+    		po.poTitle
+    		,po.po_mmSeq
+    		,mm.mmName
+    		,po.poContents
+    		,po.poViewCount
+    		,po.poCreDate
+    		,po.poModDate
+    		,poup.upPath
+    		,poup.upUuidName
+    	FROM post po
+    	JOIN member mm ON mm.mmSeq = po.po_mmSeq
+    	JOIN postUploaded poup ON po.poSeq = poup.up_poSeq
+    	WHERE 1=1
+    		AND po.poUseNy = 1
+    		AND po.poDelNy = 0
+    </select>
+</mapper>

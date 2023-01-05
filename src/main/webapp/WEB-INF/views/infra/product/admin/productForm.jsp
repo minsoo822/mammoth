@@ -25,6 +25,15 @@
 			float: right;
 			margin-left: 5px;
 		}
+		
+		input [type=text] {
+			height: 100%;
+			line-height: 20px;
+			padding: 2px 4px;
+			border: 1px solid #d5d5d5;
+			color: #353535;
+			font-size: 12px;
+		}
 	</style>
 	
 </head>
@@ -58,22 +67,22 @@
 				<div class="col-12">
 					<br>
 					<label for="name" class="form-label">상품명</label>
-					<input type="text" class="form-control" id="name" name="name" value="">
+					<input type="text" class="form-control" id="prName" name="prName" value="">
 				</div>
 				<div class="col-6">
 					<br>
 					<label for="price" class="form-label">가격</label>
-					<input type="text" class="form-control" id="price" name="price" placeholder="\">
+					<input type="text" class="form-control" id="prPrice" name="prPrice" placeholder="\">
 				</div>
 				<div class="col-6">
 					<br>
 					<label for="salePrice" class="form-label">할인가</label>
-					<input type="text" class="form-control" id="discount" name="discount" placeholder="%">
+					<input type="text" class="form-control" id="prDiscount" name="prDiscount" placeholder="%">
 				</div>
 				<div class="col-12">
 					<br>
 					<label for="info_item" class="form-label">상품 설명</label>
-					<textarea class="form-control" id="info_item" name="info_item"  placeholder="내용을 입력해주세요."></textarea>
+					<textarea class="form-control" id="prInfo" name="prInfo"  placeholder="내용을 입력해주세요."></textarea>
 				</div>
 				<div class="col-12">
 					<br>
@@ -81,7 +90,7 @@
 					<button type="button" class="btn btn-space btn-light btn-sm" id="btnSave" style="margin-bottom: 0.25rem;"><i class="fa-solid fa-plus"></i></button>
 					<div class="row mt-2">
 						<div class="col-8">
-							<input type="text" class="form-control" id="option_item" name="option_item" value="">
+							<input type="text" class="form-control" id="prOption" name="prOption" value="">
 						</div>
 						<div class="col-4">
 							<button type="button" class="btn btn-space btn-light btn-sm" id=""><i class="fa-solid fa-minus"></i></button>
@@ -89,7 +98,7 @@
 					</div>
 					<div class="row mt-2">
 						<div class="col-8">
-							<input type="text" class="form-control" id="option_item" name="option_item" value="">
+							<input type="text" class="form-control" id="prOption" name="prOption" value="">
 						</div>
 						<div class="col-4">
 							<button type="button" class="btn btn-space btn-light btn-sm" id=""><i class="fa-solid fa-minus"></i></button>
@@ -100,16 +109,16 @@
 					<br>
 					<label for="useNY2" class="form-label">사용여부</label>
 					<select class="form-select" aria-label="Default select example">
-						<option selected="">Y</option>
-						<option value="2">N</option>
+						<option value="0">N</option>
+						<option value="1" selected>Y</option>
 					</select>
 				</div>
 				<div class="col-6">
 					<br>
 					<label for="useNY2" class="form-label">삭제여부</label>
-					<select class="form-select">
-						<option selected="">N</option>
-						<option value="2">Y</option>
+					<select class="form-select" aria-label="Default select example">
+						<option value="0">N</option>
+						<option value="1" selected>Y</option>
 					</select>
 				</div>
 			</div>
@@ -154,13 +163,12 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-space right btn-success" id="btnSave"><i
-					class="fa-solid fa-bookmark"></i></button>
+			<button type="button" class="btn btn-space right btn-success" onclick="save()"><i class="fa-solid fa-pen"></i></button>
 			<button type="button" class="btn btn-danger btn-space right" data-bs-toggle="modal" data-bs-target="#exampleModal2"
 				id="btnDelete"><i class="fa-solid fa-x"></i></button>
 			<button type="button" class="btn btn-danger btn-space right" data-bs-toggle="modal" data-bs-target="#exampleModal"
 				id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
-			<button type="button" class="btn btn-secondary" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
+			<button type="button" class="btn btn-secondary" onclick="back()"><i class="fa-solid fa-list-ul"></i></button>
 			<!-- <button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
 			<button type="button" class="btn btn-space btn-danger right">
 				   <i class="fa-solid fa-x"></i>
@@ -175,6 +183,19 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	
+	/* 상품등록 버튼 */
+	save = function() {
+		
+		form.attr("action", "/product/productInst").submit();
+		
+	}
+	
+	/* 뒤로가기 버튼 */
+	back = function() {
+		location.href='/product/productList';
+	}
+	
 		
 	</script>	
 </body>

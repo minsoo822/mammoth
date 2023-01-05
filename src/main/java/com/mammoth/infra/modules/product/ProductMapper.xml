@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mammoth.infra.modules.product.ProductMapper">
+
+    <resultMap id="resultMapObj" type="com.mammoth.infra.modules.product.Product"></resultMap>
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		pr.prName
+    		,pr.prDiscount
+    		,pr.prPrice
+    		,pr.prInfo
+    		,pr.prKind
+    		,prup.upPath
+    		,prup.upUuidName
+    	FROM product pr
+    	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
+    	WHERE 1=1
+    		AND pr.prUseNy = 1
+    		AND pr.prDelNy = 0
+    </select>
+    
+    <insert id="insert">
+    	INSERT INTO product (
+    		prName
+    		,prDiscount
+    		,prPrice
+    		,prInfo
+    		,prKind
+    		,prDelNy
+    		,prUseNy
+    	)
+    	
+    	VALUES (
+    		#{prName}
+    		, #{prDiscount}
+    		, #{prPrice}
+    		, #{prInfo}
+    		, #{prKind}
+    		, #{prDelNy}
+    		, #{prUseNy}
+    	)
+    </insert>
+    
+</mapper>

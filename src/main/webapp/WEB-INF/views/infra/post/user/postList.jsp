@@ -148,7 +148,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<th>공지</th>
 								<td>[FORMENT] 배송비 변경 및 무료배송 기준 변경 공지사항</td>
 								<th>포맨트</th>
@@ -159,7 +159,15 @@
 								<td>[FORMENT] 개인정보처리방침 변경 안내 <i class="fa-solid fa-paperclip"></i></td>
 								<th>포맨트</th>
 								<th>513</th>
-							</tr>
+							</tr> -->
+							<c:forEach items="${list}" var="list">
+								<tr>
+									<th>공지</th>
+									<td><c:out value="${list.poTitle}"/></td>
+									<th><c:out value="${list.mmName}"/></th>
+									<th><c:out value="${list.poViewCount}"/></th>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

@@ -108,7 +108,7 @@
 				<div class="col-6">
 					<br>
 					<label for="useNY2" class="form-label">사용여부</label>
-					<select class="form-select" aria-label="Default select example">
+					<select class="form-select" aria-label="Default select example" id="prUseNy" name="prUseNy">
 						<option value="0">N</option>
 						<option value="1" selected>Y</option>
 					</select>
@@ -116,9 +116,9 @@
 				<div class="col-6">
 					<br>
 					<label for="useNY2" class="form-label">삭제여부</label>
-					<select class="form-select" aria-label="Default select example">
-						<option value="0">N</option>
-						<option value="1" selected>Y</option>
+					<select class="form-select" aria-label="Default select example" id="prDelNy" name="prDelNy">
+						<option value="0" selected>N</option>
+						<option value="1">Y</option>
 					</select>
 				</div>
 			</div>

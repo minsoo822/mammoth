@@ -37,13 +37,38 @@
     	
     	VALUES (
     		#{prName}
-    		, #{prDiscount}
-    		, #{prPrice}
-    		, #{prInfo}
-    		, #{prKind}
-    		, #{prDelNy}
-    		, #{prUseNy}
+    		,#{prDiscount}
+    		,#{prPrice}
+    		,#{prInfo}
+    		,#{prKind}
+    		,#{prDelNy}
+    		,#{prUseNy}
     	)
     </insert>
+    
+    <!-- <insert id="insertUpload">
+    	INSERT INTO productUploaded (
+    		upType
+    		,upDefaultNy
+    		,upPath
+    		,upOriginalName
+    		,upUuidName
+    		,upExt
+    		,upSize
+    		,up_prSeq
+    	)
+    	
+    	VALUES (
+    		#{upType}
+    		,#{upDefaultNy}
+    		,#{upPath}
+    		,#{upOriginalName}
+    		,#{upUuidName}
+    		,#{upExt}
+    		,#{upSize}
+    		,#{up_prSeq}
+    	)
+    	
+    </insert> -->
     
 </mapper>

@@ -19,5 +19,7 @@ public class ProductDao {
 	public List<Product> selectList() throws Exception {return sqlSession.selectList(namespace + ".selectList", "");}
 	
 	public void insert(Product dto) throws Exception {sqlSession.insert(namespace + ".insert", dto);}
+	
+//	public void insertUpload(Product dto) throws Exception {sqlSession.insert(namespace + ".insertUpload", dto);}
 
 }

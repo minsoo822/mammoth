@@ -1,6 +1,8 @@
 package com.mammoth.infra.modules.member;
 
-public class Member {
+import com.mammoth.infra.modules.base.Base;
+
+public class Member extends Base{
 	
 	private Integer mmSeq;
 	

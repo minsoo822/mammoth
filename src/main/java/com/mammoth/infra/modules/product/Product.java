@@ -1,6 +1,8 @@
 package com.mammoth.infra.modules.product;
 
-public class Product {
+import com.mammoth.infra.modules.base.Base;
+
+public class Product extends Base{
 	
 	private Integer prSeq;
 	private String prName;

@@ -167,7 +167,9 @@
 			<br>sessSeq: <c:out value="${sessSeq }"/><br>
 				sessName: <c:out value="${sessName }"/><br>
 				sessId: <c:out value="${sessId }"/><br>
-				sessAdminNy: <c:out value="${sessAdminNy }"></c:out>
+				sessAdminNy: <c:out value="${sessAdminNy }"/><br>
+				sessEmail: <c:out value="${sessEmail }"/>
+			
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>

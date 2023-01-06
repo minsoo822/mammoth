@@ -3,20 +3,17 @@ package com.mammoth.infra.modules.base;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mammoth.infra.modules.member.Member;
+import com.mammoth.infra.modules.member.MemberVo;
 
 @Controller
 @RequestMapping(value="/")
 public class BaseController {
 	
 	@RequestMapping(value="")
-	public String home(Member dto, HttpSession httpSession) throws Exception {
-		System.out.println(dto.getMmSeq());
-		System.out.println(dto.getMmName());
-		System.out.println(dto.getMmId());
-		System.out.println(dto.getMmAdminNy());
+	public String home(MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 		return "infra/home/user/main";
 	}
 	

@@ -47,7 +47,7 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
-	<select id="myInfo" resultMap="resultMapObj">
+	<select id="selectOne" resultMap="resultMapObj">
 	SELECT
 		mmId
 	    ,mmName
@@ -55,7 +55,7 @@
 	    ,mmGender
 	FROM member 
 	WHERE 1=1
-	AND mmId = #{mmId}
+	AND mmSeq = #{mmSeq}
 	</select>
 	
 	

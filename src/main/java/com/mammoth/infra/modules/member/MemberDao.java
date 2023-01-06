@@ -15,7 +15,7 @@ public class MemberDao {
 	
 	private static String namespace = "com.mammoth.infra.modules.member.MemberMapper";
 	
-	public Member myInfo(Member dto) { return sqlSession.selectOne(namespace + ".myInfo", dto);}
+	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	
 	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
 	

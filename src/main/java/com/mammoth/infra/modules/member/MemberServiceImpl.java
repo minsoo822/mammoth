@@ -19,9 +19,9 @@ public class MemberServiceImpl implements MemberService{
 		return dao.idCheck(dto);
 	}
 	@Override
-	public Member myInfo(Member dto) throws Exception {
+	public Member selectOne(MemberVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.myInfo(dto);
+		return dao.selectOne(vo);
 	}
 	
 	

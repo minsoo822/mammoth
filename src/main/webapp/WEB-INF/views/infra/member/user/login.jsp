@@ -195,7 +195,8 @@
 							,datatype : 'json'
 							,data : 
 							{
-								mmId : id
+								mmId : id +"@K"
+								,mmEmail : account.email
 							}
 							,success : function(result) {
 								if (result.rt == "fail") {
@@ -227,7 +228,6 @@
 									});
 								} else {
 									window.location.href = "/";
-									return false;
 								}
 							}
 						});

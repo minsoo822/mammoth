@@ -56,10 +56,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo(Member dto, Model model , HttpSession httpSession) throws Exception {
+	public String myinfo() throws Exception {
 		
-		Member myInfo = service.myInfo(dto);
-		model.addAttribute("item", myInfo);
 		return "infra/member/user/myinfo";
 	}
 	

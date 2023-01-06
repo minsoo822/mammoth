@@ -19,7 +19,7 @@ public class MemberDao {
 	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
 	
 //	아이디 중복 체크
-	public int idCheck() { return sqlSession.selectOne(namespace + ".idCheck", ""); }
+	public int idCheck(Member dto) { return sqlSession.selectOne(namespace + ".idCheck", dto); }
 	
 	
 }

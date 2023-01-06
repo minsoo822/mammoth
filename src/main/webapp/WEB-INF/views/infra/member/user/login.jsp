@@ -174,9 +174,10 @@
 
 						Kakao.Auth.setAccessToken(token);
 						var account = response.kakao_account;  
-
+						var id = response.id;
+						
 						console.log(response)
-						console.log("id : " + response.id);
+						console.log("id : " + id);
 						console.log("email : " + account.email);
 						console.log("name : " + account.profile.nickname);
 						console.log("picture : " + account.profile.thumbnail_image_url);
@@ -186,15 +187,15 @@
 						/*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
 						
 						$.ajax({
-							type : 'Post'
+							type : 'POST'
 							,url : '/member/idCheck'
 							,datatype : 'json'
-							,data : {
-								mmId : response.id
+							,data : 
+							{
+								mmId : id
 							}
 							,success : function(result) {
-								alert(result.idCheck);
-								if (response.idCheck == "0") {
+								if (result.rt == "fail") {
 									
 									$.ajax({
 										async: true
@@ -203,8 +204,8 @@
 										,url: "/member/kakaoLoginProc"
 										,datatype: 'json'
 										,data: {
-											/* mmId : response.id */
-											mmEmail : account.email
+											mmId : id
+											,mmEmail : account.email
 											,mmName : account.profile.nickname
 											,mmGender : account.gender == 'male' ? 1 : 2
 											,mmBirth : account.birthday		
@@ -222,6 +223,7 @@
 										}
 									});
 								} else {
+									window.location.href = "/";
 									return false;
 								}
 							}

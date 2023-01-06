@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.executor.loader.ResultLoaderMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,9 +70,16 @@ public class MemberController {
     public Map<String, Object> idCheck(Member dto, HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 
         
-        int idCheck = service.idCheck();
-        
-        returnMap.put("idCheck", idCheck);
+        int idCheck = service.idCheck(dto);
+        System.out.println("idCheck : ------------------------------" + idCheck);
+        if(idCheck > 0 ) {
+        	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+        	session(dto, httpSession); 
+        	returnMap.put("rt", "success");
+        } else {
+        	returnMap.put("rt", "fail");
+        }
+
         
         return returnMap;
     }
@@ -80,30 +88,23 @@ public class MemberController {
     @RequestMapping(value = "kakaoLoginProc")
     public Map<String, Object> memberInst(Member dto, HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 
-        
-//        String txt = dto.getMmId();
-//        String[] split = txt.split("@");
-//        dto.setMmId(split[0]);
-        
-//        int kakaoLogin = service.idCheck();
-        
-//         System.out.println("test : " + dto.getToken());
-        
-//        if (kakaoLogin == 0) {
-            service.memberInst(dto);    
+
+        	service.memberInst(dto);    
             
             httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-            // session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
-            //session(dto, httpSession); 
+            session(dto, httpSession); 
             returnMap.put("rt", "success");
-//        } else {
-//            httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-//            
-//            // session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
-//            //session(kakaoLogin, httpSession);
-//            returnMap.put("rt", "success");
-//        }
         return returnMap;
     }
+	
+	
+//------------------------------------------------------------------------	
+	public void session(Member dto, HttpSession httpSession) {
+		httpSession.setAttribute("sessSeq", dto.getMmSeq());
+		httpSession.setAttribute("sessId", dto.getMmId());
+		httpSession.setAttribute("sessName", dto.getMmName());
+		httpSession.setAttribute("sessEmail", dto.getMmEmail());
+		httpSession.setAttribute("sessAdmin", dto.getMmAdminNy());
+	}
 	
 }

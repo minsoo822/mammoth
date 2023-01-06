@@ -14,9 +14,9 @@ public class MemberServiceImpl implements MemberService{
 		return dao.memberInst(dto);
 	}
 	@Override
-	public int idCheck() throws Exception {
+	public int idCheck(Member dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.idCheck();
+		return dao.idCheck(dto);
 	}
 	
 	

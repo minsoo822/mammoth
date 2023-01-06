@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.executor.loader.ResultLoaderMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -55,7 +56,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo() throws Exception {
+	public String myinfo(Member dto, Model model , HttpSession httpSession) throws Exception {
+		
+		Member myInfo = service.myInfo(dto);
+		model.addAttribute("item", myInfo);
 		return "infra/member/user/myinfo";
 	}
 	
@@ -71,7 +75,6 @@ public class MemberController {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 
         
         int idCheck = service.idCheck(dto);
-        System.out.println("idCheck : ------------------------------" + idCheck);
         if(idCheck > 0 ) {
         	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
         	session(dto, httpSession); 

@@ -266,7 +266,10 @@
 	</style>
 </head>
 <body>
-
+				<br>sessSeq: <c:out value="${sessSeq }"/><br>
+				sessName: <c:out value="${sessName }"/><br>
+				sessId: <c:out value="${sessId }"/><br>
+				sessAdmin <c:out value="${sessAdmin }"></c:out>
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -294,7 +297,7 @@
     				<div class="description">
     					<p>
     						저희 쇼핑몰을 이용해 주셔서 감사합니다. 
-    					<strong class="txtEm"><span><span class="xans-member-var-name">김민수</span></span></strong>
+    					<strong class="txtEm"><span><span class="xans-member-var-name"><c:out value="${item.mmName }"/></span></span></strong>
     						님은
 						<strong>[<span class="xans-member-var-group_name">웰컴</span><span class="myshop_benefit_ship_free_message"></span>]</strong>
 							회원이십니다.   						

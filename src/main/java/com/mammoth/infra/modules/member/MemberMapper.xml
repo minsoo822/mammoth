@@ -47,8 +47,16 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
-	
-	
+	<select id="myInfo" resultMap="resultMapObj">
+	SELECT
+		mmId
+	    ,mmName
+	    ,mmEmail
+	    ,mmGender
+	FROM member 
+	WHERE 1=1
+	AND mmId = #{mmId}
+	</select>
 	
 	
 	<select id="idCheck" resultType="Integer">

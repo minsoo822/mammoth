@@ -18,6 +18,11 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.idCheck(dto);
 	}
+	@Override
+	public Member myInfo(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.myInfo(dto);
+	}
 	
 	
 

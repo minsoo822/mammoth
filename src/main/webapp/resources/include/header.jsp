@@ -83,7 +83,7 @@
   <div class="container-fluid">
   	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
   		<c:choose>
-  			<c:when test="${sessSeq eq null}">
+  			<c:when test="${sessId eq null}">
 			    <div class="loginSection">
 			    	<ul style="list-style: none;">
 			    		<a href="/member/login" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGIN</li></a>
@@ -98,7 +98,7 @@
 			    <div class="logoutSection">
 			    	<ul style="list-style: none;">
 			    		<a href="/member/login" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGOUT</li></a>
-			    		<a href="/member/join" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY INFO</li></a>
+			    		<a href="/member/myinfo" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY INFO</li></a>
 			    		<a href="/member/orderList" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
 			    		<a href="/member/basket" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
 			    		<a href="/member/mypage" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>

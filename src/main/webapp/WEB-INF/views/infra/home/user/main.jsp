@@ -167,7 +167,7 @@
 			<br>sessSeq: <c:out value="${sessSeq }"/><br>
 				sessName: <c:out value="${sessName }"/><br>
 				sessId: <c:out value="${sessId }"/><br>
-				sessAdmin: <c:out value="${sessAdminNy }"></c:out>
+				sessAdminNy: <c:out value="${sessAdminNy }"></c:out>
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -591,7 +591,7 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		
+		console.log(sessId);
 	</script>	
 </body>
 </html>

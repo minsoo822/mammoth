@@ -97,7 +97,7 @@
   			<c:otherwise>
 			    <div class="logoutSection">
 			    	<ul style="list-style: none;">
-			    		<a href="/member/login" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGOUT</li></a>
+			    		<a href="" onclick="btnLogout()" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGOUT</li></a>
 			    		<a href="/member/myinfo" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY INFO</li></a>
 			    		<a href="/member/orderList" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
 			    		<a href="/member/basket" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>

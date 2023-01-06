@@ -77,6 +77,7 @@ public class MemberController {
         int idCheck = service.idCheck(dto);
         if(idCheck > 0 ) {
         	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+        	//session(dto.getMmSeq(), dto.getMmId(), dto.getMmName(), dto.getMmEmail(),httpSession);
         	session(dto, httpSession); 
         	returnMap.put("rt", "success");
         } else {
@@ -100,14 +101,22 @@ public class MemberController {
         return returnMap;
     }
 	
-	
+	@ResponseBody
+    @RequestMapping(value = "logout")
+    public Map<String, Object> logout(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>(); 
+
+        httpSession.invalidate();
+        returnMap.put("rt", "success");
+        return returnMap;
+    }
 //------------------------------------------------------------------------	
 	public void session(Member dto, HttpSession httpSession) {
 		httpSession.setAttribute("sessSeq", dto.getMmSeq());
 		httpSession.setAttribute("sessId", dto.getMmId());
 		httpSession.setAttribute("sessName", dto.getMmName());
 		httpSession.setAttribute("sessEmail", dto.getMmEmail());
-		httpSession.setAttribute("sessAdmin", dto.getMmAdminNy());
+		httpSession.setAttribute("sessAdminNy", dto.getMmAdminNy());
 	}
 	
 }

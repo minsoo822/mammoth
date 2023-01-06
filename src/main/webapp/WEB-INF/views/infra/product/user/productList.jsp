@@ -20,7 +20,37 @@
 	    	font-size: 16px; 
 		}
 	</style>
-	
+	<style type="text/css"> /* 장바구니 버튼 */
+		.basket {
+			border-radius: 50%;
+			height: 35px;
+			width: 35px;
+			position: relative;
+			bottom: 360px;
+			left: 225px;
+		}
+	</style>
+	<style type="text/css"> /* 상품 태그 style css */
+		.bombTag, .newTag{
+			background: #a92517;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 114px;
+			font-size: 9pt;
+		}
+		
+		.limitedTag, .bestTag{
+			background: black;
+			color: white;
+			padding: 5px 8px 5px 8px;
+			position: relative;
+			left: -39px;
+			bottom: 114px;
+			font-size: 9pt;
+		}
+    </style>
 </head>
 <body>
 
@@ -57,7 +87,7 @@
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
 						<div class="col">
-							<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
+							<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;"> 
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -81,9 +111,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 					<span class="bombTag">주문폭주</span>
 					<span class="limitedTag">LIMITED</span>
 				</div>
@@ -114,9 +142,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 					<span class="newTag">NEW</span>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
@@ -146,9 +172,8 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
+					<span class="bestTag">BEST</span>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -177,9 +202,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 					<span class="limitedTag">LIMITED</span>
 				</div>
 			</div>
@@ -211,9 +234,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -242,9 +263,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -273,9 +292,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -304,9 +321,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 			</div>
 			<div class="row" style="margin: 0px 30px 80px 30px;">
@@ -337,9 +352,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -368,9 +381,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -399,9 +410,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -430,9 +439,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 			</div>
 			<div class="row" style="margin: 0 30px -30px 30px;">
@@ -463,9 +470,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -494,9 +499,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -525,9 +528,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 				<div class="col col-3" style="font-size: 10pt;" id="productCard">
 					<div class="row">
@@ -556,9 +557,7 @@
 							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 						</div>
 					</div>
-					<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-						<img src="/resources/images/ico_cart.svg">
-					</button>
+					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				</div>
 			</div>
 			

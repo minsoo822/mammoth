@@ -14,87 +14,7 @@
 	<%@include file="/resources/include/link.jsp"%>
 	
 
-	<style type="text/css"> /* header style */
-	
-    	.dropbtn {
-		  background-color: transparent;
-		  /* color: white; */
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		  cursor: pointer;
-		}
-		
-		.dropdown {
-		  display: inline-block;
-		}
-		
-		.dropdown-content {
-		  	display: none;
-		  	background-color: white;
-		  	min-width: 160px;
-		  	box-shadow: 0px 10px 5px 5px rgba(0,0,0,0.2);
-		  	z-index: 1;
-		  	position: absolute;
-		}
-		
-		.dropdown-content a {
-		  color: black;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
-		}
-		
-		.dropdown-content a:hover {
-			background-color: #f1f1f1
-		}
-		
-		.dropdown:hover .dropdown-content {
-		  display: block;
-		}
-		
-		.headerRightList {
-			float: left;
-			margin: 0 0 0 25px;
-	    	font-size: 16px; 
-		}
-		
-		a {
-			color: black;
-		}
-		    
-		.basket {
-			background-color: whie;
-			border-radius: 50%;
-			border: transparent;
-			height: 35px;
-			width: 35px;
-			font-size: 15pt;
-			color: black;
-			position: relative;
-			bottom: 360px;
-			left: 225px;
-		}
-		
-		.bombTag, .newTag{
-			background: #a92517;
-			color: white;
-			padding: 5px 8px 5px 8px;
-			position: relative;
-			left: -39px;
-			bottom: 126px;
-			font-size: 9pt;
-		}
-		
-		.limitedTag, .bestTag{
-			background: black;
-			color: white;
-			padding: 5px 8px 5px 8px;
-			position: relative;
-			left: -39px;
-			bottom: 126px;
-			font-size: 9pt;
-		}
+	<style type="text/css"> /* basket modal style */
 	    .modal-content {
 		    width: 600px;
 		    pointer-events: auto;
@@ -111,30 +31,25 @@
 			color: white;
 			height: 45px;
 		}
-		
 	</style>
-	<style type="text/css"> /* 장바구니 style */
-    
+	<style type="text/css"> /* 장바구니 버튼 */
 		.basket {
-			background-color: whie;
 			border-radius: 50%;
-			border: transparent;
 			height: 35px;
 			width: 35px;
-			font-size: 15pt;
-			color: black;
 			position: relative;
-			bottom: 360px;
+			bottom: 365px;
 			left: 225px;
 		}
-		
+	</style>
+	<style type="text/css"> /* 상품 태그 style css */
 		.bombTag, .newTag{
 			background: #a92517;
 			color: white;
 			padding: 5px 8px 5px 8px;
 			position: relative;
 			left: -39px;
-			bottom: 122px;
+			bottom: 119px;
 			font-size: 9pt;
 		}
 		
@@ -144,22 +59,9 @@
 			padding: 5px 8px 5px 8px;
 			position: relative;
 			left: -39px;
-			bottom: 122px;
+			bottom: 119px;
 			font-size: 9pt;
 		}
-		
-		textarea {
-		    width: 100%;
-		    height: 10em;
-		    border: none;
-		    resize: none;
-		}
-		
-		.right {
-			float: right;
-			margin-left: 5px;
-		}
-		
     </style>
 </head>
 <body>
@@ -235,9 +137,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="bombTag">주문폭주</span>
 				<span class="limitedTag">LIMITED</span>
 			</div>
@@ -268,9 +168,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="newTag">NEW</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
@@ -300,9 +198,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="bestTag">BEST</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
@@ -332,9 +228,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="limitedTag">LIMITED</span>
 			</div>
 		</div>
@@ -366,9 +260,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
@@ -397,9 +289,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
@@ -428,9 +318,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;">
 				<div class="row">
@@ -459,9 +347,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<button type="button" class="basket" onclick="javascript:event.stopPropagation(); basket()"> 
-					<img src="/resources/images/ico_cart.svg">
-				</button>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
 		</div>
 	</div>

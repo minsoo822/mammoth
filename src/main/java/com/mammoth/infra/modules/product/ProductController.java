@@ -14,6 +14,8 @@ public class ProductController {
 	@RequestMapping(value="productList")
 	public String productList() throws Exception {
 		
+		service.selectList();
+		
 		return "infra/product/user/productList";
 	}
 	

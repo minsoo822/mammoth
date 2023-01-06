@@ -80,7 +80,7 @@
 		</div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid pb-3"> 
   	<div class="collapse navbar-collapse justify-content-end" style="padding-left: 30px; padding-right: 80px;" id="navbarNavDropdown">
   		<c:choose>
   			<c:when test="${sessId eq null}">

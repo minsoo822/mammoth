@@ -15,27 +15,28 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script>
-$("#btnLogout").on("click", function(){
-	
-	$.ajax({
-		async: true
-		,cach: false
-		,type: "post"
-		,url: "/member/logout"
-		,data: {}
-		,success: function(response) {
-			if(response.rt == "success"){
-				location.href = "/";
-			} else {
-				//by pass
+	/* 로그아웃 s */
+	function btnLogout() {
+		$.ajax({
+			async: true
+			,cach: false
+			,type: "post"
+			,url: "/member/logout"
+			,datatype: 'json'
+			,data: {}
+			,success: function(response) {
+				if(response.rt == "success"){
+					location.href = "/";
+				} else {
+					//by pass
+				}
 			}
-		}
-		,error : function(jqXHR, textStatus, errorThrown){
-			alert("ajaxUpdate" + jqXHR.textStatus + ": " + jqXHR.errorThrown);
-		}
-		
-	});
-});
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate" + jqXHR.textStatus + ": " + jqXHR.errorThrown);
+			}
+		});
+	};
+	/* 로그아웃 e */
 
 
 </script>

@@ -72,7 +72,8 @@
 				sessAdminNy: <c:out value="${sessAdminNy }"/><br>
 				sessEmail: <c:out value="${sessEmail }"/>
 			
-
+	<form action="" method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -471,7 +472,7 @@
         
         
 	
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	
@@ -479,7 +480,7 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		console.log(sessId);
+	
 	</script>	
 </body>
 </html>

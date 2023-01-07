@@ -53,6 +53,7 @@
 	    ,mmName
 	    ,mmEmail
 	    ,mmGender
+	    ,mmCertNy
 	FROM member 
 	WHERE 1=1
 	AND mmSeq = #{mmSeq}

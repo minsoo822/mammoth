@@ -196,9 +196,6 @@
 							,data : 
 							{
 								mmId : id +"@K"
-								,mmEmail : account.email
-								,mmName : account.profile.nickname
-								,mmAdminNy : "0" 
 							}
 							,success : function(result) {
 								if (result.rt == "fail") {

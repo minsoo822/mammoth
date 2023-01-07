@@ -12,7 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
-	
+	<link href="/resources/css/index.css" rel="stylesheet">
 
 	<style>
 		div	{
@@ -270,6 +270,8 @@
 				sessName: <c:out value="${sessName }"/><br>
 				sessId: <c:out value="${sessId }"/><br>
 				sessAdmin <c:out value="${sessAdmin }"></c:out>
+	<form method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="">			
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -307,57 +309,64 @@
     		</div>
     	</div>
     	<div class="xans-element- xans-member xans-member-edit">
-    		<div class>
-    			<h3>회원인증</h3>
-    			<div class="ec-base-table typeWrite">
-    				<table border="1" summary>
-    					<caption>회원인증</caption>
-    					<colgroup>
-							<col style="width:150px;">
-							<col style="width:auto;">
-						</colgroup>
-						<tbody>
-							<tr class="displaynone">
-								<th scope="row">회원구분</th>
-								<td>개인</td>
-			                </tr>
-							<tr>
-								<th scope="row">인증여부</th>
+    		<c:choose>
+    			<c:when test="${item.mmCertNy eq 0 }">
+	    			<div class>
+	    			<h3>회원인증</h3>
+	    			<div class="ec-base-table typeWrite">
+	    				<table border="1" summary>
+	    					<caption>회원인증</caption>
+	    					<colgroup>
+								<col style="width:150px;">
+								<col style="width:auto;">
+							</colgroup>
+							<tbody>
+								<tr class="displaynone">
+									<th scope="row">회원구분</th>
+									<td>개인</td>
+				                </tr>
+								<tr>
+									<th scope="row">인증여부</th>
+									<td>
+								    <strong class="txtEm">미인증</strong>
+								    <ul class="certifInfo">
+										<li>정보통신망법에 따라 고객의 주민등록번호를 수집하지 않습니다.</li>
+										<li>안전한 전자상거래를 위하여 아래 수단으로 본인인증을 완료하여 주시기 바랍니다.</li>                        
+									</ul>
+									</td>
+								</tr>
+								<tr class="">
+								<th scope="row">회원인증</th>
 								<td>
-							    <strong class="txtEm">미인증</strong>
-							    <ul class="certifInfo">
-									<li>정보통신망법에 따라 고객의 주민등록번호를 수집하지 않습니다.</li>
-									<li>안전한 전자상거래를 위하여 아래 수단으로 본인인증을 완료하여 주시기 바랍니다.</li>                        
-								</ul>
-								</td>
-							</tr>
-							<tr class="">
-							<th scope="row">회원인증</th>
-							<td>
-							<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
-							<div class="certifForm" id="mobileWrap" style="">
-								<select id="" name="" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
-									<option value="">SKT</option>
-									<option value="011">KT</option>
-									<option value="016">LGU+</option>
-								</select>
-								<input id="" name=""  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
-								<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
-								<a href="#" onclick="">
-									<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
-								</a><br>
-								<input id="" name="" value="" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
-								<a href="#" onclick="">
-									<button type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
-								</a>
-							    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
-							</div>
-							    </td>
-							</tr>
-						</tbody>
-    				</table>
-    			</div>
-    		</div>
+								<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
+								<div class="certifForm" id="mobileWrap" style="">
+									<select id="" name="" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
+										<option value="">SKT</option>
+										<option value="011">KT</option>
+										<option value="016">LGU+</option>
+									</select>
+									<input id="" name=""  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
+									<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
+									<a href="#" onclick="">
+										<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
+									</a><br>
+									<input id="" name="" value="" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
+									<a href="#" onclick="">
+										<button type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
+									</a>
+								    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
+								</div>
+								    </td>
+								</tr>
+							</tbody>
+	    				</table>
+	    			</div>
+	    		</div>
+    			</c:when>
+    			<c:otherwise>
+    			
+    			</c:otherwise>
+    		</c:choose>
     		<h3 class>기본정보</h3>
     		<p class="required "><img src="/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
     		<div class="ec-base-table typeWrite">
@@ -371,12 +380,12 @@
 						<tr>
 							<th scope="row">아이디 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 			                <td>
-			                    <input id="member_id" name="member_id" fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity" fw-label="아이디" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text">                     (영문소문자/숫자, 4~16자)
+			                    <input id="" name="mmId" readonly="readonly" value="${item.mmId }" type="text">(영문소문자/숫자, 4~16자)
 			                </td>
 			            </tr>
 						<tr>
 							<th scope="row">비밀번호 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
-			                <td><input id="passwd" name="passwd" fw-filter="isMin[4]&amp;isMax[16]" fw-label="비밀번호" fw-msg="" autocomplete="off" maxlength="16" disabled="1" value="" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)</td>
+			                <td><input id="" name="" maxlength="16" disabled="1" value="${item.mmPassword }" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)</td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">비밀번호 확인 <img src="/resources/images/ico_required.gif" alt="필수"></th>
@@ -386,7 +395,7 @@
 			            </tr>
 			            <tr style="display:1">
 							<th scope="row" id="nameTitle">이름 <img src="/resources/images/ico_required.gif" alt="필수"></th>
-			                <td><input id="name" name="name" fw-filter="isFill&amp;isMax[30]" fw-label="이름" fw-msg="" class="ec-member-name" placeholder="" maxlength="30" readonly="readonly" value="" type="text"></td>
+			                <td><input id="name" name="name"maxlength="30" readonly="readonly" value="${item.mmName }" type="text"></td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">주소</th>
@@ -428,7 +437,7 @@
 			            <tr>
 							<th scope="row">이메일 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 			                <td>
-			                    <input id="email1" name="email1" fw-filter="isFill&amp;isEmail" fw-label="이메일" fw-alone="N" fw-msg="" value="" type="text"> <span id="emailMsg"></span>
+			                    <input id="email1" name="email1"value="${item.mmEmail }" type="text"> <span id="emailMsg"></span>
 			                </td>
 			            </tr>
 			            <tr class="">
@@ -490,7 +499,7 @@
     		</div>
     	</div>
     </div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

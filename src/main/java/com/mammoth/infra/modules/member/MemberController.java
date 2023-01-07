@@ -56,7 +56,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo() throws Exception {
+	public String myinfo(MemberVo vo, Model model) throws Exception {
+		
+		Member myInfo = service.selectOne(vo);
+		model.addAttribute("item", myInfo);
 		
 		return "infra/member/user/myinfo";
 	}

@@ -15,6 +15,13 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script>
+	
+	var form = $("#mainForm");
+	var mmSeq = $("#mmSeq").val();
+	
+	var goMyinfo = "/member/myinfo";
+	
+
 	/* 로그아웃 s */
 	function btnLogout() {
 		$.ajax({
@@ -37,6 +44,8 @@
 		});
 	};
 	/* 로그아웃 e */
-
+	btnMyinfo = function(key) {
+		form.attr("action" , goMyinfo ).submit();
+	}
 
 </script>

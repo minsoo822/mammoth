@@ -20,6 +20,10 @@
 	var mmSeq = $("#mmSeq").val();
 	
 	var goMyinfo = "/member/myinfo";
+	var orderList = "/member/orderList";
+	var basket = "member/basket";
+	var mypage = "/member/mypage";
+	
 	
 
 	/* 로그아웃 s */
@@ -46,6 +50,15 @@
 	/* 로그아웃 e */
 	btnMyinfo = function(key) {
 		form.attr("action" , goMyinfo ).submit();
+	}
+	btnOderlist = function(key) {
+		form.attr("action" , orderList ).submit();
+	}
+	btnBasket = function(key) {
+		form.attr("action" , basket ).submit();
+	}
+	btnMypage = function(key) {
+		form.attr("action" , mypage ).submit();
 	}
 
 </script>

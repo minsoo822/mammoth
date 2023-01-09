@@ -99,9 +99,9 @@
 			    	<ul style="list-style: none;">
 			    		<a href="#" onclick="btnLogout()" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGOUT</li></a>
 			    		<a href="#" onclick="btnMyinfo(${sessSeq})" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY INFO</li></a>
-			    		<a href="/member/orderList" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
-			    		<a href="/member/basket" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
-			    		<a href="/member/mypage" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
+			    		<a href="#" onclick="btnOderlist(${sessSeq})" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
+			    		<a href="#" onclick="btnBasket(${sessSeq})" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
+			    		<a href="#" onclick="btnMypage(${sessSeq})" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
 			    	</ul>
 			    </div>
   			</c:otherwise>

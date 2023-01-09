@@ -12,6 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	<link href="/resources/css/index.css" rel="stylesheet">
 	
 
 	<style>
@@ -373,7 +374,12 @@ table {
 	</style>
 </head>
 <body>
-
+	<br>sessSeq: <c:out value="${sessSeq }"/><br>
+		sessName: <c:out value="${sessName }"/><br>
+		sessId: <c:out value="${sessId }"/><br>
+		sessAdmin <c:out value="${sessAdmin }"></c:out>
+	<form method="post" id="mainForm" >	
+	<input type="hidden" name="mmSeq" id="mmSeq" value="">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -520,7 +526,7 @@ table {
     		</div>
     	</div>
     </div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

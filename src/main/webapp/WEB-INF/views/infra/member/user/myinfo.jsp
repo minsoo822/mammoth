@@ -271,7 +271,8 @@
 				sessId: <c:out value="${sessId }"/><br>
 				sessAdmin <c:out value="${sessAdmin }"></c:out>
 	<form method="post" id="mainForm">
-	<input type="hidden" name="mmSeq" id="mmSeq" value="">			
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${vo.mmSeq }">	
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${item.mmSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -293,7 +294,7 @@
     	<div class="xans-element- xans-myshop xans-myshop-asyncbenefit">
     		<div class="ec-base-box typeMember gMessage ">
     			<div class="information">
-    				<p class="thumbnail">
+    				<p class="thumbnail" style="width: 100px;">
     					<img src="/resources/images/img_member_default.gif" alt="" class="myshop_benefit_group_image_tag">
     				</p>
     				<div class="description">

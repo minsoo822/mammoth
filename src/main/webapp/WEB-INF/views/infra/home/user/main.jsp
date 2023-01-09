@@ -65,13 +65,10 @@
     </style>
 </head>
 <body>
-
-			<br>sessSeq: <c:out value="${sessSeq }"/><br>
+			<%-- <br>sessSeq: <c:out value="${sessSeq }"/><br>
 				sessName: <c:out value="${sessName }"/><br>
 				sessId: <c:out value="${sessId }"/><br>
-				sessAdminNy: <c:out value="${sessAdminNy }"/><br>
-				sessEmail: <c:out value="${sessEmail }"/>
-			
+				sessAdmin: <c:out value="${sessAdmin }"/><br> --%>
 	<form action="" method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<!-- header  -->

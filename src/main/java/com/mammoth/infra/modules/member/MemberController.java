@@ -65,7 +65,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="mypage")
-	public String mypage() throws Exception {
+	public String mypage(MemberVo vo, Model model) throws Exception {
+		
+		Member mypage = service.selectOne(vo);
+		model.addAttribute("item", mypage);
+		
 		return "infra/member/user/mypage";
 	}
 	
@@ -76,16 +80,22 @@ public class MemberController {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 
         
         int idCheck = service.idCheck(dto);
+        Member logInCd = service.logInCd(dto);
+        
+        
+        System.out.println("-----------------------" + idCheck);
+        
         if(idCheck > 0 ) {
-        	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-        	//session(dto.getMmSeq(), dto.getMmId(), dto.getMmName(), dto.getMmEmail(),httpSession);
-        	session(dto, httpSession); 
         	returnMap.put("rt", "success");
+        	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+        	httpSession.setAttribute("sessSeq", logInCd.getMmSeq());
+			httpSession.setAttribute("sessId", logInCd.getMmId());
+			httpSession.setAttribute("sessName", logInCd.getMmName());
+			httpSession.setAttribute("sessAdmin", logInCd.getMmAdminNy());
+			returnMap.put("name", logInCd.getMmName());
         } else {
         	returnMap.put("rt", "fail");
         }
-
-        
         return returnMap;
     }
 	
@@ -96,9 +106,13 @@ public class MemberController {
 
         	service.memberInst(dto);    
             
+        	returnMap.put("rt", "success");
             httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-            session(dto, httpSession); 
-            returnMap.put("rt", "success");
+    		httpSession.setAttribute("sessSeq", dto.getMmSeq());
+    		httpSession.setAttribute("sessId", dto.getMmId());
+    		httpSession.setAttribute("sessName", dto.getMmName());
+    		httpSession.setAttribute("sessEmail", dto.getMmEmail());
+    		httpSession.setAttribute("sessAdmin", dto.getMmAdminNy());
         return returnMap;
     }
 	
@@ -111,13 +125,5 @@ public class MemberController {
         returnMap.put("rt", "success");
         return returnMap;
     }
-//------------------------------------------------------------------------	
-	public void session(Member dto, HttpSession httpSession) {
-		httpSession.setAttribute("sessSeq", dto.getMmSeq());
-		httpSession.setAttribute("sessId", dto.getMmId());
-		httpSession.setAttribute("sessName", dto.getMmName());
-		httpSession.setAttribute("sessEmail", dto.getMmEmail());
-		httpSession.setAttribute("sessAdminNy", dto.getMmAdminNy());
-	}
 	
 }

@@ -186,8 +186,6 @@
 						console.log("picture : " + account.profile.thumbnail_image_url);
 						console.log("gender : " + account.gender);
 						console.log("birthday : " + account.birthday);
-						/*  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length)); */
-						/*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
 						
 						$.ajax({
 							type : 'POST'
@@ -198,8 +196,13 @@
 								mmId : id +"@K"
 							}
 							,success : function(result) {
-								if (result.rt == "fail") {
+								if (result.rt == "success") {
+									swal("로그인 성공!", result.name + " 회원님 로그인되었습니다.", "success")
+									.then(function() {
+										location.href="/";
+									});
 									
+								} else {
 									$.ajax({
 										async: true
 										,cache: false
@@ -225,8 +228,6 @@
 											alert("카카오 로그인아작스 에러 [ " + error + " ]");
 										}
 									});
-								} else {
-									window.location.href = "/";
 								}
 							}
 						});

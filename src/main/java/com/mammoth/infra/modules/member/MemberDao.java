@@ -21,6 +21,7 @@ public class MemberDao {
 	
 //	아이디 중복 체크
 	public int idCheck(Member dto) { return sqlSession.selectOne(namespace + ".idCheck", dto); }
+	public Member logInCd(Member dto) {return sqlSession.selectOne(namespace + ".logInCd", dto);}
 	
 	
 }

@@ -68,5 +68,17 @@
 		WHERE 1=1
 			AND mmId = #{mmId}
 	</select>
+	<!-- 로그인세션 -->
+	<select id="logInCd" resultMap="resultMapObj">
+		SELECT
+			mmSeq
+			,mmId
+			,mmName
+			,mmAdminNy
+		FROM 
+			member
+		WHERE 1=1
+			AND mmId = #{mmId}
+	</select>
 	
 </mapper>

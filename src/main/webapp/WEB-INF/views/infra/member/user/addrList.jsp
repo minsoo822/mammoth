@@ -231,7 +231,8 @@ div.ec-base-help li {
 	</style>
 </head>
 <body>
-
+	<form method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" name="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -284,30 +285,36 @@ div.ec-base-help li {
 		                    <th scope="col">수정</th>
 		                </tr>
 		            </thead>
-		            <tbody class=" center">
-		                <tr class="xans-record-">
-		                    <td>
-		                        <input name="" value="" type="checkbox">
-		                    </td>
-		                    <td>
-		                        <span class="">-</span>
-		                    </td>
-		                    <td>
-		                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> <span>집</span>
-		                    </td>
-		                    <td><span>김민수</span></td>
-		                    <td><span>02--</span></td>
-		                    <td><span>010-4400-0161</span></td>
-		                    <td class="left">(<span>12110</span>)<span>경기도 남양주시 별내3로 23 (별내동)</span> <span>미리내마을4-4단지</span></td>
-		                    <td><a href=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정"></a></td>
-		                </tr>
-		            </tbody>
-		            <!-- 주소지 없을때 -->
-		            <!-- <tbody class="">
-		                <tr>
-		                    <td colspan="8" class="message">등록된 주소가 없습니다.</td>
-		                </tr>
-		            </tbody> -->
+		            <c:choose>
+		            	<c:when test="${adrList eq null }">
+		            		<!-- 주소지 없을때 -->
+				            <tbody class="">
+				                <tr>
+				                    <td colspan="8" class="message">등록된 주소가 없습니다.</td>
+				                </tr>
+				            </tbody>
+		            	</c:when>
+		            	<c:otherwise>
+		            		<tbody class=" center">
+				                <tr class="xans-record-">
+				                    <td>
+				                        <input name="" value="" type="checkbox">
+				                    </td>
+				                    <td>
+				                        <span class="">-</span>
+				                    </td>
+				                    <td>
+				                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> <span>집</span>
+				                    </td>
+				                    <td><span>김민수</span></td>
+				                    <td><span>02--</span></td>
+				                    <td><span>010-4400-0161</span></td>
+				                    <td class="left">(<span>12110</span>)<span>경기도 남양주시 별내3로 23 (별내동)</span> <span>미리내마을4-4단지</span></td>
+				                    <td><a href=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정"></a></td>
+				                </tr>
+				            </tbody>
+		            	</c:otherwise>
+		            </c:choose>
 		        </table>
 		    </div>
 		    <div class="ec-base-button">
@@ -334,8 +341,7 @@ div.ec-base-help li {
 		    </div>
 		</form>
 	</div>
-	
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

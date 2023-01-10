@@ -1,11 +1,11 @@
 package com.mammoth.infra.modules.member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.executor.loader.ResultLoaderMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,11 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value="addrList")
-	public String addrList() throws Exception {
+	public String addrList(MemberVo vo, Model model) throws Exception {
+		
+		List<Member> adrList = service.adrList(vo);
+		model.addAttribute("adrList", adrList);
+		
 		return "infra/member/user/addrList";
 	}
 	@RequestMapping(value="addrListForm")

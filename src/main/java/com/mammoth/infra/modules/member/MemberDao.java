@@ -1,5 +1,7 @@
 package com.mammoth.infra.modules.member;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -15,13 +17,16 @@ public class MemberDao {
 	
 	private static String namespace = "com.mammoth.infra.modules.member.MemberMapper";
 	
-	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo);}
-	
-	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
-	
-//	아이디 중복 체크
+//	로그인&회원가입 s
 	public int idCheck(Member dto) { return sqlSession.selectOne(namespace + ".idCheck", dto); }
 	public Member logInCd(Member dto) {return sqlSession.selectOne(namespace + ".logInCd", dto);}
+	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
+//	로그인&회원가입 e	
+
+	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo);}
+	
+	public List<Member> adrList(MemberVo vo) { return sqlSession.selectList(namespace + ".adrList", vo);}
+	
 	
 	
 }

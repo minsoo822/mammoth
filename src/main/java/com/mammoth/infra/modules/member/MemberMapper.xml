@@ -80,5 +80,12 @@
 		WHERE 1=1
 			AND mmId = #{mmId}
 	</select>
+	<select id="adrList" resultMap="resultMapObj">
+	SELECT
+		*
+	FROM address 
+	WHERE 1=1 
+	AND adr_mmSeq = #{mmSeq}
+	</select>
 	
 </mapper>

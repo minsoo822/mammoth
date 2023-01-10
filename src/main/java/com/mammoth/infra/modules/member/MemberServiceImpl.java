@@ -35,6 +35,11 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.adrList(vo);
 	}
+	@Override
+	public int addrInst(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 

@@ -450,7 +450,7 @@ table {
 							</a>
     					</li>
     					<li>
-    						<a href="" onclick="btnAddrList(${sessSeq})"><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
+    						<a href="/member/addrList" ><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
     					</li>
     				</ul>
     			</div>

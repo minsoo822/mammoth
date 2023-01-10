@@ -48,15 +48,15 @@
 		</selectKey>
 	</insert>
 	<select id="selectOne" resultMap="resultMapObj">
-	SELECT
-		mmId
-	    ,mmName
-	    ,mmEmail
-	    ,mmGender
-	    ,mmCertNy
-	FROM member 
-	WHERE 1=1
-	AND mmSeq = #{mmSeq}
+		SELECT
+			mmId
+		    ,mmName
+		    ,mmEmail
+		    ,mmGender
+		    ,mmCertNy
+		FROM member 
+		WHERE 1=1
+		AND mmSeq = #{mmSeq}
 	</select>
 	
 	
@@ -81,11 +81,38 @@
 			AND mmId = #{mmId}
 	</select>
 	<select id="adrList" resultMap="resultMapObj">
-	SELECT
-		*
-	FROM address 
-	WHERE 1=1 
-	AND adr_mmSeq = #{mmSeq}
+		SELECT
+			*
+		FROM address 
+		WHERE 1=1 
+		AND adr_mmSeq = #{mmSeq}
 	</select>
+	<insert id="addrInst">
+		INSERT INTO address (
+			adrAddrName
+		  	,adrName
+		  	,adrZipcode
+		  	,adrAddress
+		  	,adrAddressDetail
+		  	,adrPhoneNumber
+		  	,adrTel
+		  	,adrdefaultNy
+		  	,adr_mmSeq
+		)
+		VALUES (
+			#{adrAddrName}
+		  	,#{adrName}
+		  	,#{adrZipcode}
+		  	,#{adrAddress}
+		  	,#{adrAddressDetail}
+		  	,#{adrPhoneNumber}
+		  	,#{adrTel}
+		  	,#{adrdefaultNy}
+		  	,#{mmSeq}
+		)
+		<selectKey resultType="Integer" keyProperty="adrSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 	
 </mapper>

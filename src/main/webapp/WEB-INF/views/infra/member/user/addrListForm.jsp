@@ -220,7 +220,8 @@ div.ec-base-help li {
 	</style>
 </head>
 <body>
-
+<form method="post" id="mainForm">
+<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -256,13 +257,13 @@ div.ec-base-help li {
 		                    <tr>
 		                        <th scope="row">배송지명 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 		                        <td>
-		                            <input id="" name="" class="inputTypeText" placeholder="" value="" type="text">
+		                            <input id="" name="adrAddrName" class="inputTypeText" placeholder="" value="" type="text">
 		                        </td>
 		                    </tr>
 		                    <tr>
 		                        <th scope="row">성명 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 		                        <td>
-		                            <input id="" name="" class="ec-member-name" placeholder="" value="" type="text">
+		                            <input id="" name="adrName" class="ec-member-name" placeholder="" value="" type="text">
 		                        </td>
 		                    </tr>
 		                    <tr>
@@ -279,7 +280,7 @@ div.ec-base-help li {
 		                    <tr>
 		                        <th scope="row">일반전화 </th>
 		                        <td>
-		                            <input id="" name="" maxlength="11"value="" type="text" placeholder="-를뺀 숫자만입력해주세요">
+		                            <input id="" name="adrTel" maxlength="11"value="" type="text" placeholder="-를뺀 숫자만입력해주세요">
 		                        </td>
 		                    </tr>
 		                    <tr>
@@ -287,12 +288,12 @@ div.ec-base-help li {
 		                            <span class=""><img src="/resources/images/ico_required.gif" alt="필수"></span>
 		                        </th>
 		                        <td>
-		                            <input id="" name="" maxlength="11" value="" type="text" placeholder="-를뺀 숫자만입력해주세요">
+		                            <input id="" name="adrPhoneNumber" maxlength="11" value="" type="text" placeholder="-를뺀 숫자만입력해주세요">
 		                        </td>
 		                    </tr>
 		                    <tr class="right">
 		                        <td colspan="2">
-		                            <input id="" name="" type="checkbox">
+		                            <input id="" name="adrdefaultNy" type="checkbox" value="1">
 		                            <label for="ma_main_flag0">기본 배송지로 저장</label>
 		                        </td>
 		                    </tr>
@@ -301,7 +302,7 @@ div.ec-base-help li {
 		        </div>
 		        <div class="ec-base-button">
 		            <span class="gRight">
-		                <a href="#" onclick="" style="text-decoration: none;">
+		                <a href="#" onclick="btnAddrInst" style="text-decoration: none;">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register2.gif" alt="등록">
 		                </a>
 		                <a href="#"  style="text-decoration: none;">
@@ -321,7 +322,7 @@ div.ec-base-help li {
 		    </div>
 		</div>
 	</div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	
@@ -376,7 +377,10 @@ div.ec-base-help li {
 	            }
 	        }).open();
 	    }
-</script>
+	    
+	    btnAddrInst = function() {
+	    	form.attr("action", "/member/addrInst").submit();
+	    }
 	</script>	
 </body>
 </html>

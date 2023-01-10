@@ -374,12 +374,8 @@ table {
 	</style>
 </head>
 <body>
-	<br>sessSeq: <c:out value="${sessSeq }"/><br>
-		sessName: <c:out value="${sessName }"/><br>
-		sessId: <c:out value="${sessId }"/><br>
-		sessAdmin <c:out value="${sessAdmin }"></c:out>
 	<form method="post" id="mainForm" >	
-	<input type="hidden" name="mmSeq" id="mmSeq" value="">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -388,7 +384,7 @@ table {
     		<div class="xans-element- xans-layout xans-layout-statelogon my_level">
     			<div class="level_summ ">
     				<div class="member_txt2">
-						<strong style="font-weight: bold;"><span class="xans-member-var-name">김민수</span> 회원</strong>님은<br>
+						<strong style="font-weight: bold;"><span class="xans-member-var-name"><c:out value="${item.mmName }"></c:out></span> 회원</strong>님은<br>
 						<span class="color" id="group_name"><span class="xans-member-var-group_name">웰컴</span></span> 등급입니다.
 					</div>
     			</div>
@@ -454,7 +450,7 @@ table {
 							</a>
     					</li>
     					<li>
-    						<a href="#"><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
+    						<a href="/member/addrList"><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
     					</li>
     				</ul>
     			</div>

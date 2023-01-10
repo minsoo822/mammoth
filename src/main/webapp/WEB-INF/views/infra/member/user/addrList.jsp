@@ -12,6 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	<link href="/resources/css/index.css" rel="stylesheet">
 	
 
 	<style>
@@ -316,7 +317,7 @@ div.ec-base-help li {
 		                </a>
 		            </span>
 		            <span class="gRight">
-		                <a href="register.html">
+		                <a href="/member/addrListForm">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register.gif" alt="배송지 등록">
 		                </a>
 		            </span>

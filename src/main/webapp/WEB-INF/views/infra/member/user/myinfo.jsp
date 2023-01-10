@@ -271,8 +271,7 @@
 				sessId: <c:out value="${sessId }"/><br>
 				sessAdmin <c:out value="${sessAdmin }"></c:out>
 	<form method="post" id="mainForm">
-	<input type="hidden" name="mmSeq" id="mmSeq" value="${vo.mmSeq }">	
-	<input type="hidden" name="mmSeq" id="mmSeq" value="${item.mmSeq }">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq}">	
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	

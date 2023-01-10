@@ -434,8 +434,8 @@ table {
     						<a href="/myshop/order/list.html">
     							<img src="/resources/images/myicon_04.png" alt="">주문/배송현황
 								<span class="xans-element- xans-layout xans-layout-statelogon ">
-									<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value " style="display: none;">
-										<span id="xans_myshop_total_orders">0</span>
+									<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value ">
+										<span id="xans_myshop_total_orders">1</span>
 									</span>
 								</span>
 							</a>
@@ -443,7 +443,7 @@ table {
     					<li>
     						<a href="/myshop/order/list.html?mode=cs"><img src="/resources/images/myicon_05.png" alt="">취소/교환/반품 내역
 							<span class="xans-element- xans-layout xans-layout-statelogon ">
-								<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value " style="display: none;">
+								<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value ">
 									<span id="xans_myshop_total_orders_cs">0</span>
 								</span>
 							</span>
@@ -532,7 +532,7 @@ table {
 	<script>
 		
 	btnAddrList = function(key) {
-		form.attr("action", "/member/addrList").submit(); 
+		form.attr("action", addrList).submit(); 
 	}
 	
 	

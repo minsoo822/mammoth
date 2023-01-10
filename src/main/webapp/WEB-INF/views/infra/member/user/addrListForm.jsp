@@ -302,7 +302,7 @@ div.ec-base-help li {
 		        </div>
 		        <div class="ec-base-button">
 		            <span class="gRight">
-		                <a href="#" onclick="btnAddrInst" style="text-decoration: none;">
+		                <a href="#" onclick="btnAddrInst()" style="text-decoration: none;">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register2.gif" alt="등록">
 		                </a>
 		                <a href="#"  style="text-decoration: none;">

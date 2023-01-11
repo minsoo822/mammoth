@@ -137,7 +137,7 @@
 		  	,#{adrAddressDetail}
 		  	,#{adrPhoneNumber}
 		  	,#{adrTel}
-		  	,0
+		  	,#{adrdefaultNy}
 		  	,#{mmSeq}
 		)
 		<selectKey resultType="Integer" keyProperty="adrSeq" order="AFTER">

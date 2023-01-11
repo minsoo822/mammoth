@@ -293,7 +293,8 @@ div.ec-base-help li {
 		                    </tr>
 		                    <tr class="right">
 		                        <td colspan="2">
-		                            <input id="" name="adrdefaultNy" type="checkbox" value="1">
+		                            <input id="adrdefault" name="adrdefaultNy" type="checkbox" value="1">
+		                            <input id="adrdefault_hidden" name="adrdefaultNy" type="hidden" value="0">
 		                            <label for="ma_main_flag0">기본 배송지로 저장</label>
 		                        </td>
 		                    </tr>
@@ -376,11 +377,15 @@ div.ec-base-help li {
 	                document.getElementById("sample6_detailAddress").focus();
 	            }
 	        }).open();
-	    }
+	    };
+	    
+	    if($("#adrdefault").checked) {
+	    	$("#adrdefault_hidden").disabled = true;
+	    };
 	    
 	    btnAddrInst = function() {
 	    	form.attr("action", "/member/addrInst").submit();
-	    }
+	    };
 	</script>	
 </body>
 </html>

@@ -46,7 +46,7 @@
     	)
     </insert>
     
-    <!-- <insert id="insertUpload">
+    <insert id="insertUpload">
     	INSERT INTO productUploaded (
     		upType
     		,upDefaultNy
@@ -68,8 +68,7 @@
     		,#{upSize}
     		,#{up_prSeq}
     	)
-    	
-    </insert> -->
+    </insert>
     
     <select id="selectOne" resultMap="resultMapObj">
     	SELECT

@@ -53,6 +53,12 @@
 					<label for="itemImg" class="form-label">상품 기본 이미지</label>
 					<div class="d-flex flex-row">
 						<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative;" id="basiciImgContainer">
+							<!-- <div style="margin-right:10px; position:relative;" name="" id="">
+								<div class="justify-content-center text-center"
+									style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">
+									<img alt="" src="" style="width:100%; height:100%; border-radius:10px;">
+								</div>
+							</div> -->
 		    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
 							<input class="form-control" type="file" onChange="upload(basicImg, 1)" id="basicImg" name="basicImg" style="position:absolute; opacity:0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;" >
 						</div>
@@ -219,27 +225,11 @@
 				var file = $("#" + objName +"").file;
 				console.log(file);
 				
-				var txt = "";
+				var picReader = new FileReader();
 				
-				
+			    picReader.addEventListener("load", addBICListenerCustom (file));
+			    picReader.readAsDataURL(file);
 			}
-			
-			/* 한개의 첨부파일시 append 되는 div부분 */
-		    addEventListenerCustom = function (i, file) { 
-				return function(event) {
-					var imageFile = event.target;
-					var sort = i;
-					var txt = "";
-					
-					txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
-					txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
-					txt += '<img alt="" src="'; 
-					txt += imageFile.result;
-					txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
-					
-					$("#basiciImgContainer").append(txt);
-			    };
-			};
 			
 			/* 상품 상세 이미지 여러장 */
 			if(uiType == 2) {
@@ -263,6 +253,9 @@
 							console.log("파일 이름 : " + files[i].name);
 							console.log("파일 순서 : " + (i+1) + "번째");
 							
+							/* alert("파일 이름 : " + files[i].name);
+							alert("파일 순서 : " + (i+1) + "번째"); */
+							
 							var file = files[i];
 							var picReader = new FileReader();
 							
@@ -275,24 +268,44 @@
 				$("#imageCounter").html(files.length+"/5");
 			}
 			
-			/* 여러개의 첨부파일시 append 되는 div부분 */
-		    addEventListenerCustom = function (i, file) { 
-				return function(event) {
-					var imageFile = event.target;
-					var sort = i;
-					var txt = "";
-					
-					txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
-					txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
-					txt += '<img alt="" src="'; 
-					txt += imageFile.result;
-					txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
-					
-					$("#multImgContainer").append(txt);
-			    };
-			};
-			
+		}
+		
+	    /* 여러개의 첨부파일시 append 되는 div부분 */
+	    addEventListenerCustom = function (i, file) { 
+			return function(event) {
+				var imageFile = event.target;
+				var sort = i;
+				var txt = "";
+				
+				txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img alt="" src="'; 
+				txt += imageFile.result;
+				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+				txt += '</div>';
+				
+				$("#multImgContainer").append(txt);
+		    };
 		};
+		
+		addBICListenerCustom = function (file) {
+			return function(event) {
+				var imageFile = event.target;
+				var txt = "";
+				
+				txt += '<div style="margin-right:10px; position:relative;">';
+				txt += '<div class="justify-content-center text-center"';
+				txt += 'style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img src="';
+				txt += imageFile.result;
+				txt += '" style="width:100%; height:100%; border-radius:10px;">';
+				txt += '</div>';
+				txt += '</div>';
+				
+				$("#basicImgContainer").append(txt); 
+			}
+			 
+		}
 		
 	</script>
 </body>

@@ -50,8 +50,7 @@
 	
 	<insert id="myinfoAddrInst">
 		INSERT INTO address (
-			adrAddrName
-		  	,adrName
+		  	adrName
 		  	,adrZipcode
 		  	,adrAddress
 		  	,adrAddressDetail
@@ -61,8 +60,7 @@
 		  	,adr_mmSeq
 		)
 		VALUES (
-			#{adrAddrName}
-		  	,#{mmName}
+		  	#{mmName}
 		  	,#{mmZipcode}
 		  	,#{mmAddress}
 		  	,#{mmAddressDetail}
@@ -84,11 +82,19 @@
 		    ,mmGender
 		    ,mmCertNy
 		    ,mmBirth
-		FROM member 
+		FROM member
 		WHERE 1=1
 		AND mmSeq = #{mmSeq}
 	</select>
-	
+	<select id="adrselectOne" resultMap="resultMapObj">
+	SELECT
+		adrZipcode			AS mmZipcode
+		,adrAddress			AS mmAddress
+		,adrAddressDetail	AS mmAddressDetail
+	FROM address
+	WHERE adr_mmSeq = #{mmSeq}
+	AND adrdefaultNy = 1
+	</select>
 	
 	<select id="idCheck" resultType="Integer">
 		SELECT

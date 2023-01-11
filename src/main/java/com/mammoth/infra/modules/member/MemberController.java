@@ -82,12 +82,23 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo(MemberVo vo, Model model) throws Exception {
+	public String myinfo(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
 		Member myInfo = service.selectOne(vo);
 		model.addAttribute("item", myInfo);
+		Member adrselectOne = service.adrselectOne(vo);
+		model.addAttribute("adritem", adrselectOne);
 		
 		return "infra/member/user/myinfo";
+	}
+	@RequestMapping(value="myinfoUpda")
+	public String myinfoUpda(Member dto ,MemberVo vo ,RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		service.myinfoAddrInst(dto);
+		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/member/myinfo";
 	}
 	
 	@RequestMapping(value="mypage")

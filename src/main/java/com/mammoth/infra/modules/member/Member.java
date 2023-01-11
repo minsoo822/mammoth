@@ -22,6 +22,9 @@ public class Member extends Base{
 	private String mmModDate;
 	private Integer mmDelNy;
 	private Integer mmAdminNy;
+	private Integer mmZipcode;
+	private String mmAddress;
+	private String mmAddressDetail;
 	
 	//주소
 	private Integer adrSeq;
@@ -204,6 +207,24 @@ public class Member extends Base{
 	}
 	public void setAdrSeq(Integer adrSeq) {
 		this.adrSeq = adrSeq;
+	}
+	public Integer getMmZipcode() {
+		return mmZipcode;
+	}
+	public void setMmZipcode(Integer mmZipcode) {
+		this.mmZipcode = mmZipcode;
+	}
+	public String getMmAddress() {
+		return mmAddress;
+	}
+	public void setMmAddress(String mmAddress) {
+		this.mmAddress = mmAddress;
+	}
+	public String getMmAddressDetail() {
+		return mmAddressDetail;
+	}
+	public void setMmAddressDetail(String mmAddressDetail) {
+		this.mmAddressDetail = mmAddressDetail;
 	}
 	
 	

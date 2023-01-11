@@ -56,9 +56,14 @@ public class MemberServiceImpl implements MemberService{
 		return dao.adrdefaultNy(dto);
 	}
 	@Override
+	public Member adrselectOne(MemberVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.adrselectOne(vo);
+	}
+	@Override
 	public int myinfoAddrInst(Member dto) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.myinfoAddrInst(dto);
 	}
 	
 	

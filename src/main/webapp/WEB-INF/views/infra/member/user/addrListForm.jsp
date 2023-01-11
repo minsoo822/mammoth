@@ -244,7 +244,6 @@ div.ec-base-help li {
     		<h2>배송 주소록 관리</h2>
     		<p>자주 쓰는 배송지를 등록 관리하실 수 있습니다.</p>
     	</div>
-    	<form id="" name="" method="post" target="_self" enctype="multipart/form-data">
 		    <div class="xans-element- xans-myshop xans-myshop-addrregister ">
 		        <div class="ec-base-table typeWrite">
 		            <table border="1" summary="">
@@ -312,7 +311,6 @@ div.ec-base-help li {
 		            </span>
 		        </div>
 		    </div>
-		</form>
 		<div class="ec-base-help">
 		    <h3 style="margin: 0px;">배송주소록 유의사항</h3>
 		    <div class="inner">

@@ -1,4 +1,4 @@
-package com.mammoth.infra.modules.product;
+package com.mammoth.infra.modules.order;
 
 import java.util.List;
 
@@ -9,19 +9,19 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mammoth.infra.common.util.UtilUpload;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class OrderServiceImpl implements OrderService{
 	
 	@Autowired
-	ProductDao dao;
+	OrderDao dao;
 
 	@Override
-	public List<Product> selectList() throws Exception {
+	public List<Order> selectList() throws Exception {
 		
 		return dao.selectList();
 	}
 
 	@Override
-	public void insert(Product dto) throws Exception {
+	public void insert(Order dto) throws Exception {
 		
 		/*
 		 * int j = 0; for(MultipartFile myFile : dto.getMultipartFile()) {
@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product selectOne(Product dto) throws Exception {
+	public Order selectOne(Order dto) throws Exception {
 		
 		return dao.selectOne(dto);
 	}

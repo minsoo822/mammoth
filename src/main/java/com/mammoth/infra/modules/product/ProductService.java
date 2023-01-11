@@ -8,4 +8,6 @@ public interface ProductService {
 	
 	public void insert(Product dto) throws Exception;
 	
+	public Product selectOne(Product dto) throws Exception;
+	
 }

@@ -190,7 +190,7 @@
 		    border: 1px solid #d5d5d5;
 		    border-radius: 0px;
 		    position: relative;
-		    background: url(../../images/select_box_arrow.png) no-repeat 95% 50%;
+		    background: url(/resources/images/select_box_arrow.png) no-repeat 95% 50%;
 		    background-size: 14px 8px;
 		}
 		.xans-product-detail .infoArea select {
@@ -388,7 +388,7 @@
 		    right: 0;
 		    top: 50%;
 		    -webkit-transform: translateY(-50%);
-		    background: url(../../images/arrow_line.svg) no-repeat 100% 50%;
+		    background: url(/resources/images/arrow_line.svg) no-repeat 100% 50%;
 		    background-size: auto 10px;
 		}
 		#total_product_wrap .detail-amount-cell {
@@ -476,7 +476,7 @@
 		}
 		.btAction a.btn_action.wm_pc_cart::after {
 		    content: '';
-		    background: url(../../images/icot_cart.svg) no-repeat;
+		    background: url(/resources/images/icot_cart.svg) no-repeat;
 		    width: 20px;
 		    height: 26px;
 		    position: absolute;
@@ -645,26 +645,26 @@
     			<!-- 이미지 영역 s -->
     			<div class="xans-element- xans-product xans-product-image imgArea ">
     				<div style="display:none; font-size: 0;">
-    					<img src="../../images/item1.jpg" alt="" id="dtMain">
+    					<img src="/resources/images/item1.jpg" alt="" id="dtMain">
    					</div>
    					<div class="xans-element- xans-product xans-product-addimage large_img swiper-container-initialized swiper-container-horizontal">
-	    				<img alt="" src="../../images/item1.jpg" style="width: 100%;">
+	    				<img alt="" src="/resources/images/item1.jpg" style="width: 100%;">
    						<!-- <ul class="swiper-wrapper" style="transition-duration: 300ms; transform: translate3d(-5640px, 0px, 0px);">
-   							<li class="swiper-slide first xans-record- swiper-slide-duplicate" data-swiper-slide-index="0"><img src="../../images/item1.jpg" class="ThumbImage" alt=""></li>
-   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="1"><img src="../../images/item2.jpg" class="ThumbImage" alt=""></li>
-   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="../../images/item3.jpg" class="ThumbImage" alt=""></li>
-   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="../../images/item4.jpg" class="ThumbImage" alt=""></li>
-   							<li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="../../images/item5.jpg" class="ThumbImage" alt=""></li>
-							<li class="swiper-slide first xans-record- swiper-slide-duplicate-active" data-swiper-slide-index="0"><img src="../../images/item1.jpg" class="ThumbImage" alt=""></li>
-		                    <li class="swiper-slide xans-record- swiper-slide-duplicate-next" data-swiper-slide-index="1"><img src="../../images/item2.jpg" class="ThumbImage" alt=""></li>
-							<li class="swiper-slide xans-record-" data-swiper-slide-index="2"><img src="../../images/item3.jpg" class="ThumbImage" alt=""></li>
-							<li class="swiper-slide xans-record-" data-swiper-slide-index="3"><img src="../../images/item4.jpg" class="ThumbImage" alt=""></li>
-							<li class="swiper-slide xans-record- swiper-slide-prev" data-swiper-slide-index="4"><img src="../../images/item5.jpg" class="ThumbImage" alt=""></li>
-			                <li class="swiper-slide first xans-record- swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0"><img src="../../images/item1.jpg" class="ThumbImage" alt=""></li>
-			                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1"><img src="../../images/item2.jpg" class="ThumbImage" alt=""></li>
-			                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="../../images/item3.jpg" class="ThumbImage" alt=""></li>
-			                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="../../images/item4.jpg" class="ThumbImage" alt=""></li>
-			                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="../../images/item5.jpg" class="ThumbImage" alt=""></li>
+   							<li class="swiper-slide first xans-record- swiper-slide-duplicate" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
+   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
+   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
+   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
+   							<li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
+							<li class="swiper-slide first xans-record- swiper-slide-duplicate-active" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
+		                    <li class="swiper-slide xans-record- swiper-slide-duplicate-next" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
+							<li class="swiper-slide xans-record-" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
+							<li class="swiper-slide xans-record-" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
+							<li class="swiper-slide xans-record- swiper-slide-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
+			                <li class="swiper-slide first xans-record- swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
+			                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
+			                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
+			                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
+			                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
 		                </ul> -->
 		                <div class="swiper-pagination swiper-pagination-bullets">
 		                	<span class="swiper-pagination-bullet"></span>
@@ -682,7 +682,7 @@
 							    <li>
 							        <div class="circle">
 							            <div class="image">
-							            	<img src="../../images/subitem3.jpg" alt="">
+							            	<img src="/resources/images/subitem3.jpg" alt="">
 						            	</div>
 							        </div>
 							        <div class="item">
@@ -695,7 +695,7 @@
 							    <li>
 							        <div class="circle">
 							            <div class="image">
-							            	<img src="../../images/subitem4.jpg" alt="">
+							            	<img src="/resources/images/subitem4.jpg" alt="">
 						            	</div>
 							        </div>
 							        <div class="item">
@@ -709,7 +709,7 @@
 							    <li>
 							        <div class="circle">
 							            <div class="image">
-						            		<img src="../../images/subitem5.jpg" alt="">
+						            		<img src="/resources/images/subitem5.jpg" alt="">
 					            		</div>
 							        </div>
 							        <div class="item">
@@ -723,7 +723,7 @@
 							    <li>
 							        <div class="circle">
 							            <div class="image">
-							            	<img src="../../images/subitem6.jpg" alt="">
+							            	<img src="/resources/images/subitem6.jpg" alt="">
 						            	</div>
 							        </div>
 							        <div class="item">
@@ -803,7 +803,7 @@
 										    <div class="detail-option-section">
 										        <div class="thumb">
 										            <a href="#">
-										            	<img src="../../images/subitem1.jpg" alt="">
+										            	<img src="/resources/images/subitem1.jpg" alt="">
 									            	</a>
 										        </div>
 										        <div class="seperate add_prd">
@@ -846,7 +846,7 @@
 										    <div class="detail-option-section">
 										        <div class="thumb">
 										            <a href="#">
-										                <img src="../../images/subitem2.jpg" alt="">
+										                <img src="/resources/images/subitem2.jpg" alt="">
 										            </a>
 										        </div>
 										        <div class="seperate add_prd">
@@ -922,12 +922,12 @@
 							</table>
 							<div id="welcomCoupon" class="dtc_banner">
 					            <a href="#" style="text-decoration: none;">
-					            	<img src="../../images/ico_cp_won.svg" alt="" style="height: 15px;">지금 회원 가입 시 <strong>10,000원</strong> 쿠폰팩 
+					            	<img src="/resources/images/ico_cp_won.svg" alt="" style="height: 15px;">지금 회원 가입 시 <strong>10,000원</strong> 쿠폰팩 
 				            	</a>
 					        </div>
 					        <div class="dtc_banner kakao">
 					            <a href="#" target="_blank"  style="text-decoration: none;">
-					            	<img src="../../images/ico_plus.svg" alt=""> 카카오톡 채널 추가시 1천원 쿠폰증정
+					            	<img src="/resources/images/ico_plus.svg" alt=""> 카카오톡 채널 추가시 1천원 쿠폰증정
 				            	</a>
 					        </div>
 					        <div id="total_product_wrap">
@@ -979,7 +979,7 @@
 		            </ul>
 				</div>
 				<div class="detail_info_warp" style="padding-top: 30px; width: 800px; margin-left: auto; margin-right: auto;">
-					<img alt="" src="../../images/detailimg3.jpg" style="width: 100%;">
+					<img alt="" src="/resources/images/detailimg3.jpg" style="width: 100%;">
 					
 				</div>
 			</div>
@@ -987,7 +987,7 @@
 				<hr style="margin-bottom: 20px;">
 				<div class="reviewTitle" style="width: 70%; height: 50px;">
 					<h3 style="font-weight: 600; font-size: 13pt;">전체리뷰</h3>
-					<img alt="" src="../../images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;">
+					<img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;">
 				</div>
 				<div class="reviewBtn" style="position: relative;left: 950px; bottom:40px;">
 				<button id="reviewModal">리뷰작성&nbsp;<i class="fa-solid fa-pencil"></i></button>
@@ -1035,7 +1035,7 @@
 							</div>
 							<div class="row mb-3" >
 								<div class="col-2" style="padding-right: 0px;">
-									<img alt="" src="../../images/main/mainProduct1.jpg" class="reviewImg">
+									<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
 								</div>
 								<div class="col" style="padding-right: 0px;">
 									<p style="margin-top: 0px;">

@@ -32,4 +32,12 @@ public class ProductController {
 		
 		return "infra/product/user/productList";
 	}
+	
+	@RequestMapping(value="productView")
+	public String productView(Product dto) throws Exception {
+		
+		service.selectOne(dto);
+		
+		return "infra/product/user/productView";
+	}
 }

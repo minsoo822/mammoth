@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div class="row" style="margin: 20px 30px 50px 30px;">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
+				<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="location.href='/product/productView'">
 					<div class="row">
 						<div class="col">
 							<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;"> 

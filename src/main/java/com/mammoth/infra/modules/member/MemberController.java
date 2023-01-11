@@ -25,7 +25,6 @@ public class MemberController {
 	public String addrList(MemberVo vo, Model model) throws Exception {
 		
 		List<Member> adrList = service.adrList(vo);
-		System.out.println("------------" + adrList);
 		model.addAttribute("adrList", adrList);
 		
 		return "infra/member/user/addrList";
@@ -37,7 +36,7 @@ public class MemberController {
 	@RequestMapping(value="addrInst")
 	public String addrInst(Member dto) throws Exception {
 		service.addrInst(dto);
-		return "redirect:/member/addrList";
+		return "infra/member/user/addrList";
 	}
 
 	@RequestMapping(value="login")
@@ -91,9 +90,6 @@ public class MemberController {
         
         int idCheck = service.idCheck(dto);
         Member logInCd = service.logInCd(dto);
-        
-        
-        System.out.println("-----------------------" + idCheck);
         
         if(idCheck > 0 ) {
         	returnMap.put("rt", "success");

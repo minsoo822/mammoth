@@ -286,7 +286,7 @@ div.ec-base-help li {
 		                </tr>
 		            </thead>
 		            <c:choose>
-		            	<c:when test="${adrList ne null }">
+		            	<c:when test="${adrList eq null }">
 		            		<!-- 주소지 없을때 -->
 				            <tbody class="">
 				                <tr>
@@ -295,24 +295,26 @@ div.ec-base-help li {
 				            </tbody>
 		            	</c:when>
 		            	<c:otherwise>
-		            		<tbody class=" center">
-				                <tr class="xans-record-">
-				                    <td>
-				                        <input name="" value="" type="checkbox">
-				                    </td>
-				                    <td>
-				                        <span class="">-</span>
-				                    </td>
-				                    <td>
-				                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> <span>집</span>
-				                    </td>
-				                    <td><span>김민수</span></td>
-				                    <td><span>02--</span></td>
-				                    <td><span>010-4400-0161</span></td>
-				                    <td class="left">(<span>12110</span>)<span>경기도 남양주시 별내3로 23 (별내동)</span> <span>미리내마을4-4단지</span></td>
-				                    <td><a href=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정"></a></td>
-				                </tr>
-				            </tbody>
+		            		<c:forEach items="${adrList }" var="adrList" varStatus="status">
+			            		<tbody class=" center">
+					                <tr class="xans-record-">
+					                    <td>
+					                        <input name="" value="" type="checkbox">
+					                    </td>
+					                    <td>
+					                        <span class="">-</span>
+					                    </td>
+					                    <td>
+					                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> <span><c:out value="${adrList.adrAddrName }"/></span>
+					                    </td>
+					                    <td><span><c:out value="${adrList.adrName }"/></span></td>
+					                    <td><span><c:out value="${adrList.adrTel }"/></span></td>
+					                    <td><span><c:out value="${adrList.adrPhoneNumber }"/></span></td>
+					                    <td class="left">(<span><c:out value="${adrList.adrZipcode }"/></span>)<span><c:out value="${adrList.adrAddress }"/></span> <span><c:out value="${adrList.adrAddressDetail }"/></span></td>
+					                    <td><a href=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정"></a></td>
+					                </tr>
+					            </tbody>
+		            		</c:forEach>
 		            	</c:otherwise>
 		            </c:choose>
 		        </table>

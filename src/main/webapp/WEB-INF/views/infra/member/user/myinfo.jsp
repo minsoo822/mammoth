@@ -400,12 +400,12 @@
 			            <tr class="">
 							<th scope="row">주소</th>
 			                <td>
-			                    <input id="postcode1" name="postcode1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
+			                    <input id="postcode1" name="mmZipcode" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
 			                    <a href="#none" onclick="" id="postBtn">
 			                    	<img src="/resources/images/btn_zipcode.png" alt="우편번호">
 		                    	</a><br>
-			                    <input id="addr1" name="addr1" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
-			                    <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)                
+			                    <input id="addr1" name="mmAddress" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
+			                    <input id="addr2" name="mmAddressDetail" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)                
 		                    </td>
 			            </tr>
 			            <tr class="">
@@ -417,12 +417,12 @@
 			            <tr class="">
 							<th scope="row">휴대전화 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 			                <td>
-			                	<select id="moble1" name="">
+			                	<select id="mmTelecom" name="mmTelecom">
 									<option value="">SKT</option>
 									<option value="">KT</option>
 									<option value="">LGU+</option>
 								</select>
-								<input id="" name="" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
+								<input id="" name="mmPhoneNumber" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
 								<!-- <input id="" name="" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text"> -->
 							</td>
 			            </tr>
@@ -443,9 +443,9 @@
 			            <tr class="">
 							<th scope="row">이메일 수신여부 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 	      	         		<td>
-	      	         			<input id="is_news_mail0" name="is_news_mail" fw-filter="isFill" fw-label="is_news_mail" fw-msg="" value="T" type="radio">
+	      	         			<input id="is_news_mail0" name="is_news_mail" value="T" type="radio">
 	      	         			<label for="is_news_mail0">수신함</label>
-								<input id="is_news_mail1" name="is_news_mail" fw-filter="isFill" fw-label="is_news_mail" fw-msg="" value="F" type="radio" checked="checked">
+								<input id="is_news_mail1" name="is_news_mail" value="F" type="radio" checked="checked">
 								<label for="is_news_mail1">수신안함</label>
 								<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
 							</td>
@@ -464,12 +464,22 @@
 					<tbody>
 						<tr class="">
 							<th scope="row">성별 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
-							<td>
-								<input id="is_sex0" name="is_sex" fw-filter="isFill" fw-label="성별" fw-msg="" disabled="1" value="M" type="radio" checked="checked">
-								<label for="is_sex0">남자</label>
-								<input id="is_sex1" name="is_sex" fw-filter="isFill" fw-label="성별" fw-msg="" disabled="1" value="F" type="radio">
-								<label for="is_sex1">여자</label>
-							</td>
+							<c:if test="${item.mmGender eq 1 }">
+								<td>
+									<input id="is_sex0" name="is_sex" disabled="1" value="M" type="radio" checked="checked">
+									<label for="is_sex0">남자</label>
+									<input id="is_sex1" name="is_sex" disabled="1" value="F" type="radio">
+									<label for="is_sex1">여자</label>
+								</td>
+							</c:if>
+							<c:if test="${item.mmGender eq 2 }">
+								<td>
+									<input id="is_sex0" name="is_sex" disabled="1" value="M" type="radio" >
+									<label for="is_sex0">남자</label>
+									<input id="is_sex1" name="is_sex" disabled="1" value="F" type="radio" checked="checked">
+									<label for="is_sex1">여자</label>
+								</td>
+							</c:if>
 			            </tr>
 			            <tr class="">
 							<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>

@@ -22,6 +22,9 @@ public class MemberDao {
 	public Member logInCd(Member dto) {return sqlSession.selectOne(namespace + ".logInCd", dto);}
 	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
 //	로그인&회원가입 e	
+//	회원정보수정 s
+	public int myinfoAddrInst(Member dto) { return sqlSession.insert(namespace + ".myinfoAddrInst", dto);}
+//	회원정보수정 e	
 //	배송지 s
 	public List<Member> adrList(MemberVo vo) { return sqlSession.selectList(namespace + ".adrList", vo);}
 	public int addrInst(Member dto) { return sqlSession.insert(namespace + ".addrInst", dto);}

@@ -38,8 +38,14 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int addrInst(Member dto) throws Exception {
 		// TODO Auto-generated method stub
+		return dao.addrInst(dto);
+	}
+	@Override
+	public int myinfoAddrInst(Member dto) throws Exception {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	
 	
 

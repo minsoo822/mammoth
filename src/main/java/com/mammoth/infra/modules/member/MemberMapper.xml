@@ -47,6 +47,35 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<insert id="myinfoAddrInst">
+		INSERT INTO address (
+			adrAddrName
+		  	,adrName
+		  	,adrZipcode
+		  	,adrAddress
+		  	,adrAddressDetail
+		  	,adrPhoneNumber
+		  	,adrTel
+		  	,adrdefaultNy
+		  	,adr_mmSeq
+		)
+		VALUES (
+			#{adrAddrName}
+		  	,#{mmName}
+		  	,#{mmZipcode}
+		  	,#{mmAddress}
+		  	,#{mmAddressDetail}
+		  	,#{mmPhoneNumber}
+		  	,#{adrTel}
+		  	,1
+		  	,#{mmSeq}
+		)
+		<selectKey resultType="Integer" keyProperty="adrSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			mmId
@@ -54,6 +83,7 @@
 		    ,mmEmail
 		    ,mmGender
 		    ,mmCertNy
+		    ,mmBirth
 		FROM member 
 		WHERE 1=1
 		AND mmSeq = #{mmSeq}

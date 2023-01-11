@@ -24,9 +24,15 @@ public class Member extends Base{
 	private Integer mmAdminNy;
 	
 	//주소
+	private Integer adrSeq;
+	
+	private String adrAddrName;
+	private String adrName;
 	private Integer  adrZipcode;
 	private String adrAddress;
 	private String adrAddressDetail;
+	private String adrPhoneNumber;
+	private String adrTel;
 	private Integer  adrdefaultNy;
 	private Integer  adrDelNy;
 	private Integer  adr_mmSeq;
@@ -168,6 +174,36 @@ public class Member extends Base{
 	}
 	public void setAdr_mmSeq(Integer adr_mmSeq) {
 		this.adr_mmSeq = adr_mmSeq;
+	}
+	public String getAdrAddrName() {
+		return adrAddrName;
+	}
+	public void setAdrAddrName(String adrAddrName) {
+		this.adrAddrName = adrAddrName;
+	}
+	public String getAdrName() {
+		return adrName;
+	}
+	public void setAdrName(String adrName) {
+		this.adrName = adrName;
+	}
+	public String getAdrPhoneNumber() {
+		return adrPhoneNumber;
+	}
+	public void setAdrPhoneNumber(String adrPhoneNumber) {
+		this.adrPhoneNumber = adrPhoneNumber;
+	}
+	public String getAdrTel() {
+		return adrTel;
+	}
+	public void setAdrTel(String adrTel) {
+		this.adrTel = adrTel;
+	}
+	public Integer getAdrSeq() {
+		return adrSeq;
+	}
+	public void setAdrSeq(Integer adrSeq) {
+		this.adrSeq = adrSeq;
 	}
 	
 	

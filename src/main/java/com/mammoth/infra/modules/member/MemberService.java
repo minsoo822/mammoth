@@ -10,4 +10,5 @@ public interface MemberService {
 	public Member logInCd(Member dto) throws Exception;
 	public List<Member> adrList(MemberVo vo) throws Exception;
 	public int addrInst(Member dto) throws Exception;
+	public int myinfoAddrInst(Member dto) throws Exception;
 }

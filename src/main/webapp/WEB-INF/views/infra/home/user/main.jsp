@@ -13,7 +13,13 @@
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
 	
-
+	<style type="text/css"> /* productList style */
+	
+		#productCard {
+			cursor: pointer;
+		}
+	
+	</style>
 	<style type="text/css"> /* basket modal style */
 	    .modal-content {
 		    width: 600px;
@@ -107,8 +113,8 @@
 				<span><b>MD's PICK</b></span> 
 			</div>
 		</div>
-		<div class="row" style="margin: 20px 30px 50px 30px;" id="productCard">
-			<div class="col col-3" style="font-size: 10pt;" onclick="location.href='/product/productView'">
+		<div class="row" style="margin: 20px 30px 50px 30px;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="location.href='/product/productView'">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
@@ -139,7 +145,7 @@
 				<span class="bombTag">주문폭주</span>
 				<span class="limitedTag">LIMITED</span>
 			</div>
-			<div class="col col-3" style="font-size: 10pt;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct7.jpg" " style="height: 100%; width: 100%;">
@@ -169,7 +175,7 @@
 				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="newTag">NEW</span>
 			</div>
-			<div class="col col-3" style="font-size: 10pt;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
@@ -199,7 +205,7 @@
 				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 				<span class="bestTag">BEST</span>
 			</div>
-			<div class="col col-3" style="font-size: 10pt;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
@@ -230,8 +236,8 @@
 				<span class="limitedTag">LIMITED</span>
 			</div>
 		</div>
-		<div class="row" style="margin: 0 30px -30px 30px;" id="productCard">
-			<div class="col col-3" style="font-size: 10pt;">
+		<div class="row" style="margin: 0 30px -30px 30px;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
@@ -260,7 +266,7 @@
 				</div>
 				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
-			<div class="col col-3" style="font-size: 10pt;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
@@ -289,7 +295,7 @@
 				</div>
 				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
 			</div>
-			<div class="col col-3" style="font-size: 10pt;">
+			<div class="col col-3" style="font-size: 10pt;" id="productCard">
 				<div class="row">
 					<div class="col">
 						<img src="/resources/images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">

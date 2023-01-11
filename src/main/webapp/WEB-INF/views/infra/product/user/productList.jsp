@@ -51,6 +51,11 @@
 			font-size: 9pt;
 		}
     </style>
+    <style type="text/css">
+    	#productCard {
+    		cursor: pointer;
+    	}
+    </style>
 </head>
 <body>
 

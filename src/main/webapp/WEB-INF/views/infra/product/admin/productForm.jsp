@@ -48,21 +48,33 @@
 		<div class="container" style=" margin-bottom: 150px;">
 			<h3>상품등록</h3>
 			<div class="row">
-				<div class="col-6">
+				<div class="col-3">
 					<br>
 					<label for="itemImg" class="form-label">상품 기본 이미지</label>
-					<input class="form-control" type="file">
-					<div id="ifmmUploadedImagePreview" class="addScroll">
-		
+					<div class="d-flex flex-row">
+						<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative;" id="basiciImgContainer">
+		    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
+							<input class="form-control" type="file" onChange="upload(basicImg, 1)" id="basicImg" name="basicImg" style="position:absolute; opacity:0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;" >
+						</div>
 					</div>
 				</div>
-				<div class="col-6">
+				<div class="col-9">
 					<br>
-					<label for="itemImg" class="form-label">상품 상세 이미지</label>
-					<input class="form-control" type="file">
-					<div id="ifmmUploadedImagePreview" class="addScroll">
-		
-					</div>
+					<label for="itemImg" class="form-label">상품 상세 이미지</label> 
+					<div class="d-flex flex-row">  
+			    		<div style="margin-right:25px;"> 
+			    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative; ">
+			    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
+			    				<br>
+			    				<span id="imageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/5</span>
+			    				<input class="form-control" type="file" multiple="multiple"  id="multipartFile" name="multipartFile" onChange="upload('multipartFile', 2);" style="position:absolute; opacity: 0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;">    
+			    			</div>
+			    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
+			    		</div> 
+			    		<div class="d-flex flex-row slimscroll" style="width: 100%; background: white; border-radius: 10px; border: 1px solid #ced4da; overflow:auto;" id="multImgContainer">			     		
+				    		<!-- 첨부 이미지들 들어오는 곳 -->
+			    		</div>  
+			    	</div>
 				</div>
 				<div class="col-12">
 					<br>
@@ -197,73 +209,91 @@
 			alert("back");
 			location.href='/product/productList';
 		}
-	
-		upload = function (objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
-	        //		objName 과 seq 는 jsp 내에서 유일 하여야 함.
-	        //		memberProfileImage: 1
-	        //		memberImage: 2
-	        //		memberFile : 3
-	
-	        var totalFileSize = 0;
-	        var obj = $("#" + objName + "")[0].files;
-	        var fileCount = obj.length;
-	        
-	        if (uiType == 1) {
-	            /* 			
-	                        $("#ulFile" + seq).children().remove();
-	                    	
-	                        for (var i = 0 ; i < fileCount ; i++) {
-	                            addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name);
-	                        }
-	             */
-	            for (var i = 0; i < fileCount; i++) {
-	
-	                var divImage = "";
-	                divImage += '<div style="display: inline-block; height: 95px;">';
-	                /*divImage += '	<img src="' + obj[i] + '" class="rounded" width= "85px" height="85px">';*/
-	                divImage += '<img id="aaa' + i + '" src="" class="rounded" width= "85px" height="85px">';
-	                divImage += '<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>';
-	                divImage += '</div> ';
-	
-	                $("#ifmmUploadedImage1View").append(divImage);
-	
-	                var fileReader = new FileReader();
-	                fileReader.readAsDataURL($("#" + objName + "")[0].files[i]);
-	                //alert($("#" + objName + "")[0].files[i]);
-	                fileReader.onload = function () {
-	                    /* alert(i + " : " + fileReader.result); */
-	                    //alert($("#aaa" + i + ""));
-	
-	                    if (i == 0) {
-	                        $("#aaa0").attr("src", fileReader.result);		/* #-> */
-	                    } else if (i == 1) {
-	                        $("#aaa0").attr("src", fileReader.result);		/* #-> */
-	                    } else {
-	
-	                    }
-	                    /* $("#aaa"+i+"").attr("src", fileReader.result);		/* #-> */
-	                    /* $("#aaa1").attr("src", fileReader.result);		/* #-> */
-	                }
-	            }
-	
-	        } else if (uiType == 2) {
-	            $("#ulFile" + seq).children().remove();
-	
-	            for (var i = 0; i < fileCount; i++) {
-	                addUploadLi(seq, i, $("#" + objName + "")[0].files[i].name);
-	            }
-	        } else if (uiType == 3) {
-	            var fileReader = new FileReader();
-	            fileReader.readAsDataURL($("#" + objName + "")[0].files[0]);
-	
-	            fileReader.onload = function () {
-	                $("#imgProfile").attr("src", fileReader.result);		/* #-> */
-	            }
-	        } else {
-	            return false;
-	        }
-	        return false;
-	    }
+	</script>
+	<script>
+		/* 이미지 파일 첨부 */
+	    upload = function(objName, uiType) {
+			
+			/* 상품 기본 이미지 한장 */
+			if(uiType == 1) {
+				var file = $("#" + objName +"").file;
+				console.log(file);
+				
+				var txt = "";
+				
+				
+			}
+			
+			/* 한개의 첨부파일시 append 되는 div부분 */
+		    addEventListenerCustom = function (i, file) { 
+				return function(event) {
+					var imageFile = event.target;
+					var sort = i;
+					var txt = "";
+					
+					txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+					txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+					txt += '<img alt="" src="'; 
+					txt += imageFile.result;
+					txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+					
+					$("#basiciImgContainer").append(txt);
+			    };
+			};
+			
+			/* 상품 상세 이미지 여러장 */
+			if(uiType == 2) {
+				
+		    	$("#multImgContainer").empty();	
+				
+				var files = $("#" + objName +"")[0].files;
+				console.log(files);
+				
+				if(files.length == 0 ) {
+					$("#multImgContainer").empty();	
+				} else {
+					
+					if(files.length > 5) {
+						alert("상품 이미지는 최대 5장까지만 등록 가능합니다.");
+						return false;
+					} else {
+						
+						for(var i = 0; i<files.length; i++){
+							
+							console.log("파일 이름 : " + files[i].name);
+							console.log("파일 순서 : " + (i+1) + "번째");
+							
+							var file = files[i];
+							var picReader = new FileReader();
+							
+						    picReader.addEventListener("load", addEventListenerCustom (i, file));
+						    picReader.readAsDataURL(file);
+						}
+					}
+				}
+				
+				$("#imageCounter").html(files.length+"/5");
+			}
+			
+			/* 여러개의 첨부파일시 append 되는 div부분 */
+		    addEventListenerCustom = function (i, file) { 
+				return function(event) {
+					var imageFile = event.target;
+					var sort = i;
+					var txt = "";
+					
+					txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+					txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+					txt += '<img alt="" src="'; 
+					txt += imageFile.result;
+					txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+					
+					$("#multImgContainer").append(txt);
+			    };
+			};
+			
+		};
+		
 	</script>
 </body>
 </html>

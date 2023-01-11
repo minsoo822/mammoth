@@ -23,6 +23,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void insert(Product dto) throws Exception {
 		
+		
 		/*
 		 * int j = 0; for(MultipartFile myFile : dto.getMultipartFile()) {
 		 * 
@@ -39,6 +40,7 @@ public class ProductServiceImpl implements ProductService{
 		 * 
 		 * }
 		 */
+		 
 		dao.insert(dto);
 	}
 

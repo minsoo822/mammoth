@@ -222,7 +222,7 @@ div.ec-base-help li {
 <body>
 <form method="post" id="mainForm">
 <input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
-<input type="hidden" name="adrSeq" id="adrSeq" value="${vo.adrSeq }">
+<input type="hidden" name="adrSeq" id="adrSeq" value="${adritem.adrSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -257,24 +257,24 @@ div.ec-base-help li {
 		                    <tr>
 		                        <th scope="row">배송지명 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 		                        <td>
-		                            <input id="" name="adrAddrName" class="inputTypeText" placeholder="" value="" type="text">
+		                            <input id="" name="adrAddrName" class="inputTypeText" placeholder="" value="${adritem.adrAddrName }" type="text">
 		                        </td>
 		                    </tr>
 		                    <tr>
 		                        <th scope="row">성명 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 		                        <td>
-		                            <input id="" name="adrName" class="ec-member-name" placeholder="" value="" type="text">
+		                            <input id="" name="adrName" class="ec-member-name" placeholder="" value="${adritem.adrName }" type="text">
 		                        </td>
 		                    </tr>
 		                    <tr>
 		                        <th scope="row">주소 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 		                        <td>
-		                            <input id="sample6_postcode" name="adrZipcode" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                        
+		                            <input id="sample6_postcode" name="adrZipcode" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="${adritem.adrZipcode }" type="text">                        
 		                            <a href="#" onclick="sample6_execDaumPostcode()" id="SearchAddress">
 		                                <img src="/resources/images/btn_zipcode.png" alt="우편번호">
 		                            </a><br>
-		                            <input id="sample6_address" name="adrAddress" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
-		                            <input id="sample6_detailAddress" name="adrAddressDetail" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소
+		                            <input id="sample6_address" name="adrAddress" class="inputTypeText" placeholder="" readonly="readonly" value="${adritem.adrAddress }" type="text"> 기본주소<br>
+		                            <input id="sample6_detailAddress" name="adrAddressDetail" class="inputTypeText" placeholder="" value="${adritem.adrAddressDetail }" type="text"> 나머지주소
 		                        </td>
 		                    </tr>
 		                    <tr>
@@ -288,14 +288,23 @@ div.ec-base-help li {
 		                            <span class=""><img src="/resources/images/ico_required.gif" alt="필수"></span>
 		                        </th>
 		                        <td>
-		                            <input id="" name="adrPhoneNumber" maxlength="11" value="" type="text" placeholder="-를뺀 숫자만입력해주세요">
+		                            <input id="" name="adrPhoneNumber" maxlength="11" value="${adritem.adrPhoneNumber }" type="text" placeholder="-를뺀 숫자만입력해주세요">
 		                        </td>
 		                    </tr>
 		                    <tr class="right">
 		                        <td colspan="2">
-		                            <input id="adrdefault" name="adrdefaultNy" type="checkbox" value="1">
-		                            <input id="adrdefault_hidden" name="adrdefaultNy" type="hidden" value="0">
-		                            <label for="ma_main_flag0">기본 배송지로 저장</label>
+		                        	<c:choose>
+		                        		<c:when test="${adritem.adrdefaultNy eq 1  }">
+											<input id="adrdefault" name="adrdefaultNy" type="checkbox" value="1" checked="checked">
+				                            <input id="adrdefault_hidden" name="adrdefaultNy" type="hidden" value="0">
+				                            <label for="ma_main_flag0">기본 배송지로 저장</label>	
+		                        		</c:when>
+		                        		<c:otherwise>
+				                            <input id="adrdefault" name="adrdefaultNy" type="checkbox" value="1">
+				                            <input id="adrdefault_hidden" name="adrdefaultNy" type="hidden" value="0">
+				                            <label for="ma_main_flag0">기본 배송지로 저장</label>
+		                        		</c:otherwise>
+		                        	</c:choose>
 		                        </td>
 		                    </tr>
 		                </tbody>
@@ -303,7 +312,7 @@ div.ec-base-help li {
 		        </div>
 		        <div class="ec-base-button">
 		            <span class="gRight">
-		                <a href="#" onclick="btnAddrInst()" style="text-decoration: none;">
+		                <a href="#" onclick="btnAdrSave()" style="text-decoration: none;">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register2.gif" alt="등록">
 		                </a>
 		                <a href="#" onclick="btnBack(${sessSeq})"  style="text-decoration: none;">
@@ -382,11 +391,19 @@ div.ec-base-help li {
 	    	$("#adrdefault_hidden").disabled = true;
 	    };
 	    
-	    btnAddrInst = function() {
-	    	form.attr("action", "/member/addrInst").submit();
+	    btnAdrSave = function() {
+	    	
+	    	var adrSeq = $("#adrSeq").val();
+	    	
+	    	if(adrSeq == null || adrSeq == "") {
+		    	form.attr("action", "/member/adrInst").submit();
+	    	} else {
+	    		form.attr("action", "/member/adrUpdt").submit();
+	    	}
 	    };
+	    
 	    btnBack = function(key) {
-	    	form.attr("action", "/member/addrList").submit();
+	    	form.attr("action", "/member/adrList").submit();
 	    };
 	</script>	
 </body>

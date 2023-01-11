@@ -36,14 +36,19 @@ public class MemberServiceImpl implements MemberService{
 		return dao.adrList(vo);
 	}
 	@Override
-	public int addrInst(Member dto) throws Exception {
+	public int adrInst(Member dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.addrInst(dto);
+		return dao.adrInst(dto);
 	}
 	@Override
-	public Member addrSelctOne(MemberVo vo) throws Exception {
+	public Member adrSelectOne(MemberVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.addrSelctOne(vo);
+		return dao.adrSelectOne(vo);
+	}
+	@Override
+	public int adrUpdt(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.adrUpdt(dto);
 	}
 	@Override
 	public int myinfoAddrInst(Member dto) throws Exception {

@@ -117,7 +117,7 @@
 		WHERE 1=1 
 		AND adr_mmSeq = #{mmSeq}
 	</select>
-	<insert id="addrInst">
+	<insert id="adrInst">
 		INSERT INTO address (
 			adrAddrName
 		  	,adrName
@@ -144,7 +144,20 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
-	<select id="addrSelctOne">
+	<update id="adrUpdt">
+		UPDATE address
+		SET
+			adrAddrName			= #{adrAddrName}
+		  	,adrName			= #{adrName}
+		  	,adrZipcode			= #{adrZipcode}
+		  	,adrAddress			= #{adrAddress}
+		  	,adrAddressDetail	= #{adrAddressDetail}
+		  	,adrPhoneNumber		= #{adrPhoneNumber}
+		  	,adrTel				= #{adrTel}
+		  	,adrdefaultNy		= #{adrdefaultNy}
+		WHERE adrSeq = #{adrSeq}
+	</update>
+	<select id="adrSelectOne" resultMap="resultMapObj">
 		SELECT
 			*
 		FROM address

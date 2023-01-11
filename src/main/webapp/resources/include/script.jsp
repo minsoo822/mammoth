@@ -23,8 +23,8 @@
 	var orderList = "/member/orderList";
 	var basket = "member/basket";
 	var mypage = "/member/mypage";
-	var addrList = "/member/addrList";
-	var addrListForm = "/member/addrListForm";
+	var adrList = "/member/adrList";
+	var adrListForm = "/member/adrListForm";
 	
 	
 	

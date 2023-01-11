@@ -23,7 +23,7 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl service;
 	
-	@RequestMapping(value="addrList")
+	@RequestMapping(value="adrList")
 	public String addrList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
 		List<Member> adrList = service.adrList(vo);
@@ -31,20 +31,27 @@ public class MemberController {
 		
 		return "infra/member/user/addrList";
 	}
-	@RequestMapping(value="addrListForm")
+	@RequestMapping(value="adrForm")
 	public String addrListForm(MemberVo vo, Model model) throws Exception {
 		
-		Member addrSelctOne = service.addrSelctOne(vo);
-		model.addAttribute("addritem", addrSelctOne);
+		Member adrSelectOne = service.adrSelectOne(vo);
+		model.addAttribute("adritem", adrSelectOne);
 		
 		return "infra/member/user/addrListForm";
 	}
-	@RequestMapping(value="addrInst")
-	public String addrInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		service.addrInst(dto);
+	@RequestMapping(value="adrInst")
+	public String adrInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.adrInst(dto);
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/member/addrList";
+		return "redirect:/member/adrList";
+	}
+	@RequestMapping(value="adrUpdt")
+	public String adrUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.adrUpdt(dto);
+		vo.setMmSeq(dto.getMmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/adrList";
 	}
 
 	@RequestMapping(value="login")

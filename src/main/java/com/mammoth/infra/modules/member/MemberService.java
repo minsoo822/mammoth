@@ -9,7 +9,8 @@ public interface MemberService {
 	public int idCheck(Member dto) throws Exception;
 	public Member logInCd(Member dto) throws Exception;
 	public List<Member> adrList(MemberVo vo) throws Exception;
-	public int addrInst(Member dto) throws Exception;
+	public int adrInst(Member dto) throws Exception;
+	public int adrUpdt(Member dto) throws Exception;
 	public int myinfoAddrInst(Member dto) throws Exception;
-	public Member addrSelctOne(MemberVo vo) throws Exception;
+	public Member adrSelectOne(MemberVo vo) throws Exception;
 }

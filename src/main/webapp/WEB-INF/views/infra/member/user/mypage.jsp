@@ -450,7 +450,7 @@ table {
 							</a>
     					</li>
     					<li>
-    						<a href="#" onclick="btnAddrList(${sessSeq})" ><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
+    						<a href="#" onclick="btnAdrList(${sessSeq})" ><img src="/resources/images/myicon_06.png" alt="">배송지 수정</a>
     					</li>
     				</ul>
     			</div>
@@ -531,8 +531,8 @@ table {
 	
 	<script>
 		
-	btnAddrList = function(key) {
-		form.attr("action", addrList).submit(); 
+	btnAdrList = function(key) {
+		form.attr("action", adrList).submit(); 
 	}
 	
 	

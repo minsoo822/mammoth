@@ -233,6 +233,7 @@ div.ec-base-help li {
 <body>
 	<form method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" name="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="adrSeq" id="adrSeq" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -312,7 +313,7 @@ div.ec-base-help li {
 					                    <td><span><c:out value="${adrList.adrPhoneNumber }"/></span></td>
 					                    <td class="left">(<span><c:out value="${adrList.adrZipcode }"/></span>)<span><c:out value="${adrList.adrAddress }"/></span> <span><c:out value="${adrList.adrAddressDetail }"/></span></td>
 					                    <td>
-					                    	<a href="" onclick="btnAddrForm(${adrList.adrSeq})">
+					                    	<a href="#" onclick="btnAdrForm(${adrList.adrSeq})">
 					                    		<img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정">
 				                    		</a>
 			                    		</td>
@@ -330,7 +331,7 @@ div.ec-base-help li {
 		                </a>
 		            </span>
 		            <span class="gRight">
-		                <a href="/member/addrListForm">
+		                <a href="/member/adrForm">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register.gif" alt="배송지 등록">
 		                </a>
 		            </span>
@@ -355,8 +356,11 @@ div.ec-base-help li {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-	btnAddrForm = function(key) {
-		form.attr("action", "/member/addListForm").submit();
+	var adrSeq = $("#adrSeq");
+	
+	btnAdrForm = function(key) {
+		adrSeq.attr("value", key);
+		form.attr("action", "/member/adrForm").submit();
 	};
 		
 	</script>	

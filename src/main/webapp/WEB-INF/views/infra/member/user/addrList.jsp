@@ -286,7 +286,7 @@ div.ec-base-help li {
 		                </tr>
 		            </thead>
 		            <c:choose>
-		            	<c:when test="${adrList eq null }">
+		            	<c:when test="${fn:length(adrList) eq 0}">
 		            		<!-- 주소지 없을때 -->
 				            <tbody class="">
 				                <tr>

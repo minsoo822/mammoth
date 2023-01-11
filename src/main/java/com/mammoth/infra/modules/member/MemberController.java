@@ -41,6 +41,7 @@ public class MemberController {
 	}
 	@RequestMapping(value="adrInst")
 	public String adrInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.adrdefaultNy(dto);
 		service.adrInst(dto);
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
@@ -48,6 +49,7 @@ public class MemberController {
 	}
 	@RequestMapping(value="adrUpdt")
 	public String adrUpdt(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		service.adrdefaultNy(dto);
 		service.adrUpdt(dto);
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);

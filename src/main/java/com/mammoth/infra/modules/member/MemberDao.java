@@ -29,6 +29,7 @@ public class MemberDao {
 	public List<Member> adrList(MemberVo vo) { return sqlSession.selectList(namespace + ".adrList", vo);}
 	public Member adrSelectOne(MemberVo vo ) { return sqlSession.selectOne(namespace + ".adrSelectOne", vo);}
 	public int adrInst(Member dto) { return sqlSession.insert(namespace + ".adrInst", dto);}
+	public int adrdefaultNy(Member dto) { return sqlSession.update(namespace + ".adrdefaultNy", dto);}
 	public int adrUpdt(Member dto) { return sqlSession.update(namespace + ".adrUpdt", dto);}
 //	배송지 e	
 

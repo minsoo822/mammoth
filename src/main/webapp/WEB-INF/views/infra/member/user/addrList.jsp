@@ -306,7 +306,10 @@ div.ec-base-help li {
 					                        <span class="">-</span>
 					                    </td>
 					                    <td>
-					                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> <span><c:out value="${adrList.adrAddrName }"/></span>
+					                       <c:if test="${adrList.adrdefaultNy eq 1 }">
+						                       <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="" alt="기본"> 
+					                       </c:if> 
+						                       <span><c:out value="${adrList.adrAddrName }"/></span>
 					                    </td>
 					                    <td><span><c:out value="${adrList.adrName }"/></span></td>
 					                    <td><span><c:out value="${adrList.adrTel }"/></span></td>

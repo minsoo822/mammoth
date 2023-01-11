@@ -144,6 +144,12 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	<update id="adrdefaultNy">
+		UPDATE address 
+			SET 
+				adrdefaultNy = 0
+		WHERE adr_mmSeq = #{mmSeq}
+	</update>
 	<update id="adrUpdt">
 		UPDATE address
 		SET

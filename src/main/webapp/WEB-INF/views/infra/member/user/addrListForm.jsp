@@ -398,6 +398,7 @@ div.ec-base-help li {
 	    	if(adrSeq == null || adrSeq == "") {
 		    	form.attr("action", "/member/adrInst").submit();
 	    	} else {
+	    		alert("배송주소록이 수정되었습니다.");
 	    		form.attr("action", "/member/adrUpdt").submit();
 	    	}
 	    };

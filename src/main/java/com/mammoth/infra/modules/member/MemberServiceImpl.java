@@ -41,10 +41,16 @@ public class MemberServiceImpl implements MemberService{
 		return dao.addrInst(dto);
 	}
 	@Override
+	public Member addrSelctOne(MemberVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.addrSelctOne(vo);
+	}
+	@Override
 	public int myinfoAddrInst(Member dto) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	
 	
 	

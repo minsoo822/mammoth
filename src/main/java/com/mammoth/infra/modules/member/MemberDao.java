@@ -27,6 +27,7 @@ public class MemberDao {
 //	회원정보수정 e	
 //	배송지 s
 	public List<Member> adrList(MemberVo vo) { return sqlSession.selectList(namespace + ".adrList", vo);}
+	public Member addrSelctOne(MemberVo vo ) { return sqlSession.selectOne(namespace + ".addrSelctOne", vo);}
 	public int addrInst(Member dto) { return sqlSession.insert(namespace + ".addrInst", dto);}
 //	배송지 e	
 

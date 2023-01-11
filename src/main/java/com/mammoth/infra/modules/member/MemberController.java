@@ -32,7 +32,11 @@ public class MemberController {
 		return "infra/member/user/addrList";
 	}
 	@RequestMapping(value="addrListForm")
-	public String addrListForm() throws Exception {
+	public String addrListForm(MemberVo vo, Model model) throws Exception {
+		
+		Member addrSelctOne = service.addrSelctOne(vo);
+		model.addAttribute("addritem", addrSelctOne);
+		
 		return "infra/member/user/addrListForm";
 	}
 	@RequestMapping(value="addrInst")

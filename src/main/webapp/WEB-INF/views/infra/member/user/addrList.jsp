@@ -311,7 +311,11 @@ div.ec-base-help li {
 					                    <td><span><c:out value="${adrList.adrTel }"/></span></td>
 					                    <td><span><c:out value="${adrList.adrPhoneNumber }"/></span></td>
 					                    <td class="left">(<span><c:out value="${adrList.adrZipcode }"/></span>)<span><c:out value="${adrList.adrAddress }"/></span> <span><c:out value="${adrList.adrAddressDetail }"/></span></td>
-					                    <td><a href=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정"></a></td>
+					                    <td>
+					                    	<a href="" onclick="btnAddrForm(${adrList.adrSeq})">
+					                    		<img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_modify.gif" class="" alt="수정">
+				                    		</a>
+			                    		</td>
 					                </tr>
 					            </tbody>
 		            		</c:forEach>
@@ -351,6 +355,9 @@ div.ec-base-help li {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	btnAddrForm = function(key) {
+		form.attr("action", "/member/addListForm").submit();
+	};
 		
 	</script>	
 </body>

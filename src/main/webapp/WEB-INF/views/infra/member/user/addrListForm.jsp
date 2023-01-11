@@ -222,6 +222,7 @@ div.ec-base-help li {
 <body>
 <form method="post" id="mainForm">
 <input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+<input type="hidden" name="adrSeq" id="adrSeq" value="${vo.adrSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -305,7 +306,7 @@ div.ec-base-help li {
 		                <a href="#" onclick="btnAddrInst()" style="text-decoration: none;">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register2.gif" alt="등록">
 		                </a>
-		                <a href="#"  style="text-decoration: none;">
+		                <a href="#" onclick="btnBack(${sessSeq})"  style="text-decoration: none;">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_cancel.gif" alt="취소">
 		                </a>
 		            </span>
@@ -383,6 +384,9 @@ div.ec-base-help li {
 	    
 	    btnAddrInst = function() {
 	    	form.attr("action", "/member/addrInst").submit();
+	    };
+	    btnBack = function(key) {
+	    	form.attr("action", "/member/addrList").submit();
 	    };
 	</script>	
 </body>

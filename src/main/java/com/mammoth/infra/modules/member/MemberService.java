@@ -11,4 +11,5 @@ public interface MemberService {
 	public List<Member> adrList(MemberVo vo) throws Exception;
 	public int addrInst(Member dto) throws Exception;
 	public int myinfoAddrInst(Member dto) throws Exception;
+	public Member addrSelctOne(MemberVo vo) throws Exception;
 }

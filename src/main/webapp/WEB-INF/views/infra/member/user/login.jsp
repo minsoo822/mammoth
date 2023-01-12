@@ -66,7 +66,7 @@
 	    vertical-align: top;
 	}
 	.join_intro .snsSync {
-	    padding: 100px 0 21px;
+	    padding: 14px 0 21px;
 	    margin: 0 0;
 	}
 	.join_intro .snsSync a.sync {
@@ -107,47 +107,116 @@
 	    font-weight: 500;
 	    letter-spacing: -0.8px;
 	}
+	.loginbox {
+		position: relative;
+	    margin: 0px 0 0;
+	    font-size: 13px;
+	}
+	.loginbox .box {
+		margin: 0 0px 0 0;
+	}
+	.join_intro .loginbox .box input[type="text"] {
+	    margin: 0 0 7px;
+	}
+	.join_intro .loginbox .box input[type="text"], .join_intro .loginbox .box input[type="password"] {
+	    font-size: 16px;
+	    width: 100%;
+	    text-indent: 5px;
+	    margin: 0;
+	    padding: 0;
+	    height: 54px;
+	    line-height: 54px;
+	    background: #ffffff;
+	    border: 1px solid #d4d4d4;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	}
+	.btn_wrap.ptmore {
+	    padding: 20px 0 0 0;
+	}
+	button.btnSubmit {
+	    display: block;
+	    background: #000000;
+	    border: none;
+	    text-align: center;
+	    width: 100%;
+	    color: #fff;
+	    height: 61px;
+	    line-height: 61px;
+	    font-size: 18px;
+	    letter-spacing: -1px;
+	}
+	.typeLogin {
+	    height: 43px;
+	    margin: 0 auto;
+	    font-size: 13px;
+	    line-height: 43px;
+	    text-align: right;
+	}
+	.typeLogin .btnLogin {
+	    position: relative;
+	    display: inline-block;
+	    padding: 0 8px 0 0;
+	    color: #000000;
+	    font-weight: normal;
+	    font-size: 14px;
+	}
+	.typeLogin .btnLogin.bar {
+	    padding: 0 0 0 8px;
+	}
+	.typeLogin .btnLogin.bar:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 1px;
+    height: 13px;
+    background: #848484;
+}
 	</style>
 </head>
 <body>
-
-	<!-- header  -->
-	<%@include file="/resources/include/header.jsp"%>
-	
+	<form id="" name="" action="" method="post" enctype="multipart/form-data">
+		<!-- header  -->
+		<%@include file="/resources/include/header.jsp" %>
 		<div class="container">
-		<div class="join_intro">
-			<div class="join_title">
-				<h2>로그인</h2>
-			</div>
-			<div class="message">
-				<span>
-					<img src="/resources/images/로고&배너/메인로고.png" alt="" style="height: 38px; width:180px; margin: 0 0 6px 0;">
-				</span>
-				<br>
-					당신이 가장 빛나는 순간	
-			</div>
-			<form id="member_form_7671323102" name="" action="/exec/front/Member/login/" method="post" target="_self" enctype="multipart/form-data">
-			<!-- <input id="returnUrl" name="returnUrl" value="https://theforment.com/member/privacy.html" type="hidden">
-			<input id="forbidIpUrl" name="forbidIpUrl" value="/" type="hidden">
-			<input id="certificationUrl" name="certificationUrl" value="/intro/adult_certification.html" type="hidden">
-			<input id="sIsSnsCheckid" name="sIsSnsCheckid" value="" type="hidden">
-			<input id="sProvider" name="sProvider" value="" type="hidden"> -->
-			<div class="xans-element- xans-member xans-member-login snsSync ">
-				<a href="#none" id="kakaoBtn" class=" sync kakao" style="text-decoration: none;">
-					<img src="/resources/images/log_sns_kakao.png" alt="">카카오로 로그인 하기
-				</a>
-				<a href="" class="sync" style="text-decoration: none;">다른 방법으로 시작 하기</a>
-			</div>
-			</form>
-			<div class="guest_order_wrap">
-				<div class="guest_order">
-					<a href="">비회원 주문배송조회 &gt;</a>
-					
+			<div class="join_intro">
+				<div class="join_title">
+					<h2>로그인</h2>
+				</div>
+				<div class="loginbox">
+					<div class="box">
+						<label class="ePlaceholder " title="아이디" style="width: 100%; margin: 0 0 7px;">
+							<input id="member_id" name="member_id" class="inputTypeText" placeholder="아이디" value=""
+								type="text">
+						</label>
+						<label class="ePlaceholder " title="비밀번호" style="width: 100%;">
+							<input id="member_passwd" name="member_passwd" value="" type="password" placeholder="비밀번호">
+						</label>
+					</div>
+					<div class="btn_wrap ptmore">
+						<button type="button" class="btnSubmit"
+							onclick="MemberAction.login('member_form_9151731086'); return false;">로그인</button>
+					</div>
+					<div class=" typeLogin">
+						<a href="#" class="btnLogin">아이디찾기</a>
+						<a href="#" class="btnLogin bar">비밀번호찾기</a>
+					</div>
+					<div class="xans-element- xans-member xans-member-login snsSync ">
+						<a href="#" id="kakaoBtn" class=" sync kakao" style="text-decoration: none;">
+							<img src="/resources/images/log_sns_kakao.png" alt="">카카오로 로그인 하기
+						</a>
+						<a href="#" id="naverBtn" class="sync" style="text-decoration: none; background: #03C75A;">
+							<img src="/resources/images/log_sns_naver.png" alt="" style="width: 50px;height: 50px;">네이버로
+							로그인 하기
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</form>
 	<!-- footer -->
 	<%-- <%@include file="/resources/include/footer.jsp"%> --%>
 	

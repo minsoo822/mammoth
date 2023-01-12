@@ -312,7 +312,7 @@
 	/* 네이버 로그인 s */
 	$("#naverBtn").on("click", function() {
 		
-	}
+	});
 	
 	
 	

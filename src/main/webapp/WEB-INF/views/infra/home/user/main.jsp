@@ -69,6 +69,247 @@
 			font-size: 9pt;
 		}
     </style>
+    <style type="text/css">
+    /* 모달css */
+    #popup {
+    min-width: 0;
+}
+#popup .xans-product-optionselectlayer {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    height: auto;
+}
+#popup .ec-base-layer {
+    position: relative;
+    border: 0;
+}
+.ec-base-layer {
+    position: absolute;
+    z-index: 100;
+    border: 1px solid #757575;
+    background: #fff;
+}
+.xans-product-optionselectlayer {
+    width: 600px;
+}
+#popup .ec-base-layer .header {
+    padding: 12px 35px 12px 19px;
+}
+.ec-base-layer .header {
+    padding: 7px 35px 7px 19px;
+    color: #fff;
+    background: #495164;
+}
+.ec-base-layer .header > h1, .ec-base-layer .header > h3 {
+    font-size: 14px;
+    line-height: 1.5;
+}
+.xans-product-optionselectlayer.ec-base-layer .content {
+    position: relative;
+    min-height: 434px;
+    padding: 0;
+}
+.ec-base-layer .content {
+    padding: 20px;
+    font-size: 12px;
+}
+.xans-product-optionselectlayer .inner {
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 359px;
+    padding: 20px 25px 14px;
+}
+.xans-product-optionselectlayer .inner .name {
+    padding: 0 0 20px;
+    font-size: 12px;
+    border-bottom: 1px dotted #000;
+}
+.xans-product-optionselectlayer .productNormal {
+    margin: 20px 0 0;
+    min-height: 82px;
+    position: relative;
+    padding: 0 0 0 100px;
+}
+.xans-product-optionselectlayer .productNormal .imgArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    min-height: 82px;
+}
+.xans-product-optionselectlayer .productNormal .imgArea img {
+    width: 82px;
+    height: 82px;
+    border: 1px solid #ddd;
+}
+.xans-product-optionselectlayer.ec-base-layer .content table {
+    color: #353535;
+    clear: both;
+    text-align: left;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+caption {
+    display: none;
+}
+colgroup {
+    display: table-column-group;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.xans-product-optionselectlayer.ec-base-layer .content table {
+    color: #353535;
+    clear: both;
+    text-align: left;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.xans-product-optionselectlayer.ec-base-layer .content table {
+    color: #353535;
+    clear: both;
+    text-align: left;
+}
+.xans-product-optionselectlayer .productNormal table th:first-child {
+    border-left: 0;
+}
+.xans-product-optionselectlayer .productNormal table th {
+    padding: 2px 0 5px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+}
+.xans-product-optionselectlayer .productNormal table td {
+    padding: 0 9px 8px;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+.xans-product-optionselectlayer select {
+    width: 100%;
+}
+select {
+    height: 24px;
+    border: 1px solid #d5d5d5;
+    font-size: 100%;
+    color: #353535;
+    vertical-align: middle;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+#totalProducts {
+    margin: 20px 0;
+    clear: both;
+}
+span.ec-base-help, p.ec-base-help, ul.ec-base-help li {
+    margin: 2px 9px;
+    padding: 1px 0 1px 20px;
+    line-height: 1.4;
+    background: url(/resources/images/ico_info.gif) no-repeat 0 2px;
+}
+.txt11 {
+    font-size: 11px;
+}
+.txtWarn {
+    color: #f76560;
+}
+#totalProducts table {
+    margin: 0;
+    font-size: 12px;
+}
+#totalProducts tbody tr:first-child td {
+    border-top: 1px solid #9a9ba0;
+}
+#totalProducts tbody tr td:first-child {
+    padding-left: 4px;
+}
+input, select, textarea {
+    font-size: 100%;
+    color: #353535;
+    vertical-align: middle;
+}
+#totalProducts tbody td p {
+    padding: 0 10px 0 0;
+    font-weight: bold;
+    line-height: 21px;
+}
+#totalProducts tbody td .quantity {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    vertical-align: top;
+    *margin: 0 4px 0 0;
+}
+#totalProducts tbody.option_products tr td .quantity input, #totalProducts tbody.add_products tr td .quantity input {
+    height: 19px;
+    line-height: 19px;
+}
+#totalProducts tbody td .quantity input {
+    width: 29px;
+    height: 25px;
+    padding: 0 2px 0 3px;
+    line-height: 25px;
+    border: 1px solid #d4d8d9;
+    border-radius: 3px 0 0 3px;
+    *margin-top: -1px;
+}
+.xans-product-optionselectlayer input[type=text] {
+    width: 75%;
+}
+input[type=text], input[type=password] {
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+}
+#totalProducts tbody td .quantity .up {
+    position: absolute;
+    left: 28px;
+    top: 0;
+}
+#totalProducts tbody.option_products tr td .quantity .down, #totalProducts tbody.add_products tr td .quantity .down {
+    bottom: 0;
+    top: auto;
+}
+#totalProducts tbody td .quantity .down {
+    position: absolute;
+    left: 28px;
+    top: 14px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#totalProducts table .right {
+    padding-right: 9px;
+    font-weight: bold;
+    color: #008bcc;
+    text-align: right;
+}
+    </style>
 </head>
 <body>
 			<%-- <br>sessSeq: <c:out value="${sessSeq }"/><br>
@@ -393,83 +634,97 @@
 	</div>
 	
 	<!-- modal section -->
+		
 		<!-- 장바구니 modal -->
-		<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		    
-		      <div class="modal-header">
-		        <span class="modal-title" id="exampleModalLabel">옵션 선택</span>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      
-		      <div class="modal-body">
-		        <div class="row">
-		        	<div class="col">
-		        		<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>		        	
-		        	</div>
-		        </div>
-		        <hr>
-		        <div class="row">
-		        	<div class="col-4" style="width: 82px; height: 82px;">
-		        		<img src="/resources/images/modal/productModalImg1.jpg" style="width: 100%; height: 100%;">
-		        	</div>
-		        	<div class="col-8">
-		        		<div class="row">
-		        			<div class="col">
-		        				<span>옵션 선택</span>
-		        				<span>향 선택</span>
-		        				<span>세트 선택</span>
-		        			</div>
-		        			<div class="col">
-		        				<select>
-		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
-		        					<option></option>
-		        					<option></option>
-		        					<option></option>
-		        				</select>
-		        				<select>
-		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
-		        					<option></option>
-		        					<option></option>
-		        					<option></option>
-		        				</select>
-		        				<select>
-		        					<option>- [필수] 옵션을 선택해 주세요 -</option>
-		        					<option></option>
-		        					<option></option>
-		        					<option></option>
-		        				</select>
-		        			</div>
-		        		</div>
-		        	</div>
-		        </div>
-		        <div class="row">
-		        	<div class="col">
-		        		<p style="color: red;">
-		        			<img src="/resources/images/ico_info.gif" style="width: 20px; height: 20px;">
-		        			위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.
-		        		</p>
-		        	</div>
-		        </div>
-		        <hr>
-		        <div class="row">
-		        	<div class="col">
-		        		<span>총 상품금액(수량) : </span>
-		        		<span style="color: blue;"><strong>0원</strong>(0개)</span>
-		        	</div>
-		        </div>
-		      </div>
-		      
-		      <div class="modal-footer justify-content-center">
-		        <button type="button" class="btn btn-dark">바로 구매하기</button>
-		        <button type="button" class="btn btn-dark">장바구니 담기</button>
-		        <button type="button" class="btn btn-light" style="border: 1px solid black; " data-bs-dismiss="modal">닫기</button>
-		      </div>
-		      
-		    </div>
-		  </div>
-		</div> -->
+		<div id="popup">
+			<div class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer ">
+				<div class="header">
+					<h1 style="margin: 0px; font-weight: 600;">옵션 선택</h1>
+				</div>
+				<div class="content">
+					<div class="xans-element- xans-product xans-product-detail inner">
+						<h2 class="name">
+							<strong>포맨트 시그니처 퍼퓸 코튼허그</strong>
+						</h2>
+						<div class="productNormal  ">
+							<div class="xans-element- xans-product xans-product-image imgArea ">
+								<img src="" class="" style="background: #000;">
+				                &nbsp;
+							</div>
+							<table border="1" summary="">
+								<caption>상품 옵션</caption>
+								<colgroup>
+									<col width="120px">
+									<col width="auto">
+								</colgroup>
+								<tbody class="xans-element- xans-product xans-product-option xans-record-">
+								<tr class="xans-element- xans-product xans-product-option xans-record-">
+									<th scope="row">세트 선택</th>
+									<td>
+										<select name="option1" id="product_option_id1" class="ProductOption0" option_style="select" required="true">
+											<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
+											<option value="**" disabled="" link_image="">-------------------</option>
+											<option value="향수 단품" link_image="">향수 단품</option>
+											<option value="코튼허그 세트" link_image="">코튼허그 세트</option>
+											<option value="[레이어링추천] 향수 세트" link_image="">[레이어링추천] 향수 세트</option>
+										</select>
+									</td>
+								</tr>
+								<tr class="xans-element- xans-product xans-product-option xans-record-">
+									<th scope="row">수량 선택</th>
+									<td>
+										<select name="option2" id="product_option_id2" class="ProductOption0" option_style="select" required="true">
+											<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
+											<option value="**" disabled="" link_image="">-------------------</option>
+										</select>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="totalProducts" class=" ">
+							<p class="ec-base-help txtWarn txt11 "> 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.</p>
+							<table blrder="0" summary>
+								<caption>상품 목록</caption>
+								<colgroup>
+									<col style="width:284px;">
+									<col style="width:80px;;">
+									<col style="width:110px;">
+								</colgroup>
+								<tbody class="option_products">
+									<tr class="option_product " data-option-index="1" target-key="79">
+										<td>
+											<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="item_code[]">
+											<p class="product">포맨트 시그니처 퍼퓸 코튼허그<br> 
+											- <span>향수 단품/코튼허그 1개</span></p>
+										</td>
+										<td>
+											<span class="quantity" style="width:65px;"><input type="text" id="option_box1_quantity" name="quantity_opt[]" class="quantity_opt eProductQuantityClass" value="1">
+												<a href="#none" class="up eProductQuantityUpClass" "="" data-target="option_box1_up">
+													<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">
+												</a>
+												<a href="#none" class="down eProductQuantityDownClass" data-target="option_box1_down">
+													<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
+												</a>
+											</span>
+											<a href="#none" class="delete">
+												<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del">
+											</a>
+										</td>
+										<td class="right">
+											<span id="option_box1_price">
+												<input type="hidden" class="option_box_price" value="39000" product-no="79" item_code="P00000DB000A">
+												<span class="ec-front-product-item-price" code="P00000DB000A" product-no="79">39,000원</span>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
         
         

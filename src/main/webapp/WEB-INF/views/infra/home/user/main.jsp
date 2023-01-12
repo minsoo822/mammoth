@@ -12,7 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
-	
+	<link href="/resources/css/modal.css" rel="stylesheet">
 	<style type="text/css"> /* productList style */
 	
 		#productCard {
@@ -68,247 +68,6 @@
 			bottom: 119px;
 			font-size: 9pt;
 		}
-    </style>
-    <style type="text/css">
-    /* 모달css */
-    #popup {
-    min-width: 0;
-}
-#popup .xans-product-optionselectlayer {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    height: auto;
-}
-#popup .ec-base-layer {
-    position: relative;
-    border: 0;
-}
-.ec-base-layer {
-    position: absolute;
-    z-index: 100;
-    border: 1px solid #757575;
-    background: #fff;
-}
-.xans-product-optionselectlayer {
-    width: 600px;
-}
-#popup .ec-base-layer .header {
-    padding: 12px 35px 12px 19px;
-}
-.ec-base-layer .header {
-    padding: 7px 35px 7px 19px;
-    color: #fff;
-    background: #495164;
-}
-.ec-base-layer .header > h1, .ec-base-layer .header > h3 {
-    font-size: 14px;
-    line-height: 1.5;
-}
-.xans-product-optionselectlayer.ec-base-layer .content {
-    position: relative;
-    min-height: 434px;
-    padding: 0;
-}
-.ec-base-layer .content {
-    padding: 20px;
-    font-size: 12px;
-}
-.xans-product-optionselectlayer .inner {
-    overflow: auto;
-    overflow-x: hidden;
-    max-height: 359px;
-    padding: 20px 25px 14px;
-}
-.xans-product-optionselectlayer .inner .name {
-    padding: 0 0 20px;
-    font-size: 12px;
-    border-bottom: 1px dotted #000;
-}
-.xans-product-optionselectlayer .productNormal {
-    margin: 20px 0 0;
-    min-height: 82px;
-    position: relative;
-    padding: 0 0 0 100px;
-}
-.xans-product-optionselectlayer .productNormal .imgArea {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 80px;
-    height: 80px;
-    min-height: 82px;
-}
-.xans-product-optionselectlayer .productNormal .imgArea img {
-    width: 82px;
-    height: 82px;
-    border: 1px solid #ddd;
-}
-.xans-product-optionselectlayer.ec-base-layer .content table {
-    color: #353535;
-    clear: both;
-    text-align: left;
-}
-table {
-    width: 100%;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-caption {
-    display: none;
-}
-colgroup {
-    display: table-column-group;
-}
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-.xans-product-optionselectlayer.ec-base-layer .content table {
-    color: #353535;
-    clear: both;
-    text-align: left;
-}
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-}
-.xans-product-optionselectlayer.ec-base-layer .content table {
-    color: #353535;
-    clear: both;
-    text-align: left;
-}
-.xans-product-optionselectlayer .productNormal table th:first-child {
-    border-left: 0;
-}
-.xans-product-optionselectlayer .productNormal table th {
-    padding: 2px 0 5px;
-    font-weight: normal;
-    text-align: left;
-    vertical-align: top;
-}
-.xans-product-optionselectlayer .productNormal table td {
-    padding: 0 9px 8px;
-    line-height: 1.5;
-    vertical-align: middle;
-}
-.xans-product-optionselectlayer select {
-    width: 100%;
-}
-select {
-    height: 24px;
-    border: 1px solid #d5d5d5;
-    font-size: 100%;
-    color: #353535;
-    vertical-align: middle;
-}
-option {
-    font-weight: normal;
-    display: block;
-    white-space: nowrap;
-    min-height: 1.2em;
-    padding: 0px 2px 1px;
-}
-#totalProducts {
-    margin: 20px 0;
-    clear: both;
-}
-span.ec-base-help, p.ec-base-help, ul.ec-base-help li {
-    margin: 2px 9px;
-    padding: 1px 0 1px 20px;
-    line-height: 1.4;
-    background: url(/resources/images/ico_info.gif) no-repeat 0 2px;
-}
-.txt11 {
-    font-size: 11px;
-}
-.txtWarn {
-    color: #f76560;
-}
-#totalProducts table {
-    margin: 0;
-    font-size: 12px;
-}
-#totalProducts tbody tr:first-child td {
-    border-top: 1px solid #9a9ba0;
-}
-#totalProducts tbody tr td:first-child {
-    padding-left: 4px;
-}
-input, select, textarea {
-    font-size: 100%;
-    color: #353535;
-    vertical-align: middle;
-}
-#totalProducts tbody td p {
-    padding: 0 10px 0 0;
-    font-weight: bold;
-    line-height: 21px;
-}
-#totalProducts tbody td .quantity {
-    display: inline-block;
-    position: relative;
-    width: 50px;
-    vertical-align: top;
-    *margin: 0 4px 0 0;
-}
-#totalProducts tbody.option_products tr td .quantity input, #totalProducts tbody.add_products tr td .quantity input {
-    height: 19px;
-    line-height: 19px;
-}
-#totalProducts tbody td .quantity input {
-    width: 29px;
-    height: 25px;
-    padding: 0 2px 0 3px;
-    line-height: 25px;
-    border: 1px solid #d4d8d9;
-    border-radius: 3px 0 0 3px;
-    *margin-top: -1px;
-}
-.xans-product-optionselectlayer input[type=text] {
-    width: 75%;
-}
-input[type=text], input[type=password] {
-    height: 18px;
-    line-height: 20px;
-    padding: 2px 4px;
-    border: 1px solid #d5d5d5;
-    color: #353535;
-    font-size: 12px;
-}
-#totalProducts tbody td .quantity .up {
-    position: absolute;
-    left: 28px;
-    top: 0;
-}
-#totalProducts tbody.option_products tr td .quantity .down, #totalProducts tbody.add_products tr td .quantity .down {
-    bottom: 0;
-    top: auto;
-}
-#totalProducts tbody td .quantity .down {
-    position: absolute;
-    left: 28px;
-    top: 14px;
-}
-a {
-    text-decoration: none;
-    color: #000;
-}
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
-}
-#totalProducts table .right {
-    padding-right: 9px;
-    font-weight: bold;
-    color: #008bcc;
-    text-align: right;
-}
     </style>
 </head>
 <body>
@@ -382,7 +141,7 @@ a:-webkit-any-link {
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" id="openPopup"></a>
 				<span class="bombTag">주문폭주</span>
 				<span class="limitedTag">LIMITED</span>
 			</div>
@@ -413,7 +172,7 @@ a:-webkit-any-link {
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="btnProduc()"></a>
 				<span class="newTag">NEW</span>
 			</div>
 			<div class="col col-3" style="font-size: 10pt;" id="productCard">
@@ -634,10 +393,9 @@ a:-webkit-any-link {
 	</div>
 	
 	<!-- modal section -->
-		
-		<!-- 장바구니 modal -->
+		<!-- 장바구니 modal s -->
 		<div id="popup">
-			<div class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer ">
+			<div class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer " style="border: 1px solid #000;">
 				<div class="header">
 					<h1 style="margin: 0px; font-weight: 600;">옵션 선택</h1>
 				</div>
@@ -695,20 +453,20 @@ a:-webkit-any-link {
 									<tr class="option_product " data-option-index="1" target-key="79">
 										<td>
 											<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="item_code[]">
-											<p class="product">포맨트 시그니처 퍼퓸 코튼허그<br> 
+											<p class="product" style="margin: 0px;">포맨트 시그니처 퍼퓸 코튼허그<br> 
 											- <span>향수 단품/코튼허그 1개</span></p>
 										</td>
 										<td>
 											<span class="quantity" style="width:65px;"><input type="text" id="option_box1_quantity" name="quantity_opt[]" class="quantity_opt eProductQuantityClass" value="1">
 												<a href="#none" class="up eProductQuantityUpClass" "="" data-target="option_box1_up">
-													<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">
+													<img src="/resources/images/btn_quantity_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">
 												</a>
 												<a href="#none" class="down eProductQuantityDownClass" data-target="option_box1_down">
-													<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
+													<img src="/resources/images/btn_quantity_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
 												</a>
 											</span>
 											<a href="#none" class="delete">
-												<img src="//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del">
+												<img src="/resources/images/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del" style="vertical-align: middle;">
 											</a>
 										</td>
 										<td class="right">
@@ -719,13 +477,28 @@ a:-webkit-any-link {
 										</td>
 									</tr>
 								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3">
+											<strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>39,000원</em></strong> (1개)</span>
+										</td>
+			                        </tr>
+		                        </tfoot>
 							</table>
 						</div>
 					</div>
 				</div>
+				<div class="xans-element- xans-product xans-product-action ec-base-button">
+					<a href="#none" onclick="" class="btn_apr  ">바로구매하기</a>
+					<a href="#none" onclick="" class="btn_apr  ">장바구니 담기</a>
+					<a href="#none" class="btn_apr white close">닫기</a>
+				</div>
+				<a class="close" id="closeModal" style="position: absolute; left: 560px; top:15px;">
+					<img src="/resources/images/btn_close.gif" alt="닫기">
+				</a>
 			</div>
 		</div>
-		
+		<!-- 장바구니 modal e -->
         
         
         
@@ -738,6 +511,23 @@ a:-webkit-any-link {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	const modal = document.getElementById("popup");
+    const buttonAddFeed = document.getElementById("openPopup");
+	
+    buttonAddFeed.addEventListener("click", e => {
+		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+    	modal.style.display = "flex";
+        
+		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+    
+	}); 
+ 	// 모달 닫기 코드
+    const buttonCloseModal = document.getElementById("closeModal");
+    		
+	buttonCloseModal.addEventListener("click", e => {
+		modal.style.display = "none";
+		document.body.style.overflowY = "visible";
+	});
 	
 	</script>	
 </body>

@@ -198,7 +198,7 @@
 					</div>
 					<div class="btn_wrap ptmore">
 						<button type="button" class="btnSubmit"
-							onclick="MemberAction.login('member_form_9151731086'); return false;">로그인</button>
+							onclick="">로그인</button>
 					</div>
 					<div class=" typeLogin">
 						<a href="#" class="btnLogin">아이디찾기</a>
@@ -228,6 +228,7 @@
 	Kakao.init('c1205ed10c6257b76d998633147ec125'); //발급받은 키 중 javascript키를 사용해준다.
 	console.log(Kakao.isInitialized()); // sdk초기화여부판단
 	
+	/* 카카오 로그인 s */
 	$("#kakaoBtn").on("click", function() {
 		/* Kakao.Auth.authorize({
 		redirectUri: 'http://localhost:8080/member/kakaoCallback',
@@ -267,7 +268,6 @@
 									.then(function() {
 										location.href="/";
 									});
-									
 								} else {
 									$.ajax({
 										async: true
@@ -308,7 +308,11 @@
 			},
 		})
 	});
-	
+	/* 카카오 로그인 e */
+	/* 네이버 로그인 s */
+	$("#naverBtn").on("click", function() {
+		
+	}
 	
 	
 	

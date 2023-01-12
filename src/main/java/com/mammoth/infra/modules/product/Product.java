@@ -1,5 +1,6 @@
 package com.mammoth.infra.modules.product;
 
+
 import com.mammoth.infra.modules.base.Base;
 
 public class Product extends Base{
@@ -10,6 +11,7 @@ public class Product extends Base{
 	private Integer prPrice;
 	private String prInfo;
 	private Integer prKind;
+	private Integer prFragrance;
 	private Integer prUseNy;
 	private Integer prDelNy;
 	private String prCreDate;
@@ -75,6 +77,12 @@ public class Product extends Base{
 	}
 	public void setPrModDate(String prModDate) {
 		this.prModDate = prModDate;
+	}
+	public Integer getPrFragrance() {
+		return prFragrance;
+	}
+	public void setPrFragrance(Integer prFragrance) {
+		this.prFragrance = prFragrance;
 	}
 	
 	

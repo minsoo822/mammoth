@@ -27,7 +27,7 @@ public class ProductController {
 	
 	@RequestMapping(value="productInst")
 	public String insert(Product dto) throws Exception {
-		
+		System.out.println("ProductController로 들어옵니다.");
 		service.insert(dto);
 		
 		return "infra/product/user/productList";

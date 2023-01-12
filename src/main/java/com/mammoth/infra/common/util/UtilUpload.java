@@ -82,7 +82,7 @@ public class UtilUpload {
 		
 //		local 이미지 업로드 경로
 //		우경이 경로
-		String path = "C://factory/WS_STS_4151/propolis/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+		String path = "C://factory/WS_STS_4151/mammoth/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		
 //		EC2 이미지 업로드 경로
 //		String path = "/factory/workspace/propolis/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
@@ -104,6 +104,7 @@ public class UtilUpload {
 		dto.setUpExt(ext);
 		String size = ""+ multipartFile.getSize();
 		dto.setUpSize(size); 
+		
 	}
 
 

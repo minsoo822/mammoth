@@ -38,58 +38,60 @@
 	
 </head>
 <body>
+	<form id="mainForm" method="post" enctype="multipart/form-data">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<form id="mainForm">
 	
 		<!-- section1 -->
-		<div class="container" style=" margin-bottom: 150px;">
-			<h3>상품등록</h3>
+		<div class="container" style="margin-top: 50px; margin-bottom: 150px;"> 
+			<h3>상품등록</h3> 
 			<div class="row">
-				<div class="col-3">
+				<div class="col-12">
 					<br>
-					<label for="itemImg" class="form-label">상품 기본 이미지</label>
-					<div class="d-flex flex-row">
-						<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative;" id="basiciImgContainer">
-							<!-- <div style="margin-right:10px; position:relative;" name="" id="">
-								<div class="justify-content-center text-center"
-									style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">
-									<img alt="" src="" style="width:100%; height:100%; border-radius:10px;">
-								</div>
-							</div> -->
-		    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
-							<input class="form-control" type="file" onChange="upload(basicImg, 1)" id="basicImg" name="basicImg" style="position:absolute; opacity:0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;" >
-						</div>
-					</div>
-				</div>
-				<div class="col-9">
-					<br>
-					<label for="itemImg" class="form-label">상품 상세 이미지</label> 
+					<label for="itemImg" class="form-label">상품 이미지<span style="color: red;">*</span></label>  
 					<div class="d-flex flex-row">  
 			    		<div style="margin-right:25px;"> 
 			    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative; ">
 			    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
 			    				<br>
-			    				<span id="imageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/5</span>
-			    				<input class="form-control" type="file" multiple="multiple"  id="multipartFile" name="multipartFile" onChange="upload('multipartFile', 2);" style="position:absolute; opacity: 0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;">    
+			    				<span id="prImageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/5</span>
+			    				<input class="form-control" type="file" multiple="multiple" id="prImg" name="prImg" onChange="upload('prImg', 1);" style="position:absolute; opacity: 0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;">    
 			    			</div>
 			    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
 			    		</div> 
-			    		<div class="d-flex flex-row slimscroll" style="width: 100%; background: white; border-radius: 10px; border: 1px solid #ced4da; overflow:auto;" id="multImgContainer">			     		
+			    		<div class="d-flex flex-row slimscroll" style="width: 100%; background: white; border-radius: 10px; border: 1px solid #ced4da; overflow:auto;" id="prImgContainer">			     		
 				    		<!-- 첨부 이미지들 들어오는 곳 -->
 			    		</div>  
 			    	</div>
 				</div>
 				<div class="col-12">
 					<br>
-					<label for="name" class="form-label">상품명</label>
+					<label for="itemImg" class="form-label">상세 이미지<span style="color: red;">*</span></label>  
+					<div class="d-flex flex-row">  
+			    		<div style="margin-right:25px;"> 
+			    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background: white; border: 1px solid #ced4da; position:relative; ">
+			    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
+			    				<br>
+			    				<span id="prdtImageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/5</span>
+			    				<input class="form-control" type="file" multiple="multiple"  id="prDetailImg" name="prDetailImg" onChange="upload('prDetailImg', 2);" style="position:absolute; opacity: 0%; width:50px; height:50px; top:30%; right:37%; cursor:pointer;">    
+			    			</div>
+			    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
+			    		</div> 
+			    		<div class="d-flex flex-row slimscroll" style="width: 100%; background: white; border-radius: 10px; border: 1px solid #ced4da; overflow:auto;" id="prdtImgContainer">			     		
+				    		<!-- 첨부 이미지들 들어오는 곳 -->
+			    		</div>  
+			    	</div>
+				</div>
+				<div class="col-12">
+					<br>
+					<label for="name" class="form-label">상품명<span style="color: red;">*</span></label>
 					<input type="text" class="form-control" id="prName" name="prName" value="">
 				</div>
 				<div class="col-6">
 					<br>
-					<label for="price" class="form-label">가격</label>
+					<label for="price" class="form-label">가격<span style="color: red;">*</span></label>
 					<input type="text" class="form-control" id="prPrice" name="prPrice" placeholder="\">
 				</div>
 				<div class="col-6">
@@ -99,10 +101,10 @@
 				</div>
 				<div class="col-12">
 					<br>
-					<label for="info_item" class="form-label">상품 설명</label>
+					<label for="info_item" class="form-label">상품 설명<span style="color: red;">*</span></label>
 					<textarea class="form-control" id="prInfo" name="prInfo"  placeholder="내용을 입력해주세요."></textarea>
 				</div>
-				<div class="col-12">
+				<!-- <div class="col-12">
 					<br>
 					<label for="option_item" class="form-label">옵션</label>
 					<button type="button" class="btn btn-space btn-light btn-sm" id="btnSave" style="margin-bottom: 0.25rem;"><i class="fa-solid fa-plus"></i></button>
@@ -122,6 +124,34 @@
 							<button type="button" class="btn btn-space btn-light btn-sm" id=""><i class="fa-solid fa-minus"></i></button>
 						</div>
 					</div>
+				</div> -->
+				<div class="col-6">
+					<br>
+					<label for="useNY2" class="form-label">상품 종류<span style="color: red;">*</span></label>
+					<select class="form-select" aria-label="Default select example" id="prKind" name="prKind">
+						<option value=""selected>선택하기</option>
+						<option value="1">PERFUME(향수)</option>
+						<option value="2">BODY & HAND(바디워시,핸드크림)</option>
+						<option value="3">HAIR(헤어샴푸)</option>
+						<option value="4">LIP(립스틱)</option>
+						<option value="5">LIFE STYLE(기타용품)</option>
+						<option value="6">MEN'S SKIN(남성용)</option>
+					</select>
+				</div>
+				<div class="col-6">
+					<br>
+					<label for="useNY2" class="form-label">향<span style="color: red;">*</span></label>
+					<select class="form-select" aria-label="Default select example" id="prFragrance" name="prFragrance">
+						<option value="" selected>선택하기</option>
+						<option value="1">HUG(코튼 허그)</option>
+						<option value="2">KISS(코튼 키스)</option>
+						<option value="3">SUCCESS(코튼 석세스)</option>
+						<option value="4">MEMORY(코튼 메모리)</option>
+						<option value="5">BREEZE(코튼 브리즈)</option>
+						<option value="6">DEAR NIGHT(코튼 디어나잇)</option>
+						<option value="7">DELIGHT BOUQUET(코튼 딜라이트부케)</option>
+						<option value="8">VELVET HUG(코튼 벨벳허그)</option>
+					</select>
 				</div>
 				<div class="col-6">
 					<br>
@@ -205,14 +235,11 @@
 		
 		/* 상품등록 버튼 */
 		save = function() {
-			alert("save");
 			form.attr("action", "/product/productInst").submit();
-			
 		}
 		
 		/* 뒤로가기 버튼 */
 		back = function() {
-			alert("back");
 			location.href='/product/productList';
 		}
 	</script>
@@ -220,27 +247,15 @@
 		/* 이미지 파일 첨부 */
 	    upload = function(objName, uiType) {
 			
-			/* 상품 기본 이미지 한장 */
+			/* 상품 이미지 */
 			if(uiType == 1) {
-				var file = $("#" + objName +"").file;
-				console.log(file);
-				
-				var picReader = new FileReader();
-				
-			    picReader.addEventListener("load", addBICListenerCustom (file));
-			    picReader.readAsDataURL(file);
-			}
-			
-			/* 상품 상세 이미지 여러장 */
-			if(uiType == 2) {
-				
-		    	$("#multImgContainer").empty();	
+				$("#prImgContainer").empty();	
 				
 				var files = $("#" + objName +"")[0].files;
 				console.log(files);
 				
 				if(files.length == 0 ) {
-					$("#multImgContainer").empty();	
+					$("#prImgContainer").empty();	
 				} else {
 					
 					if(files.length > 5) {
@@ -259,19 +274,56 @@
 							var file = files[i];
 							var picReader = new FileReader();
 							
-						    picReader.addEventListener("load", addEventListenerCustom (i, file));
+						    picReader.addEventListener("load", addEventListenerCustom1 (i, file));
 						    picReader.readAsDataURL(file);
 						}
 					}
 				}
 				
-				$("#imageCounter").html(files.length+"/5");
+				$("#prImageCounter").html(files.length+"/5");
+			}
+			
+			/* 상세 이미지 */
+			if(uiType == 2) {
+				
+		    	$("#prdtImgContainer").empty();	
+				
+				var files = $("#" + objName +"")[0].files;
+				console.log(files);
+				
+				if(files.length == 0 ) {
+					$("#prdtImgContainer").empty();	
+				} else {
+					
+					if(files.length > 5) {
+						alert("상품 이미지는 최대 5장까지만 등록 가능합니다.");
+						return false;
+					} else {
+						
+						for(var i = 0; i<files.length; i++){
+							
+							console.log("파일 이름 : " + files[i].name);
+							console.log("파일 순서 : " + (i+1) + "번째");
+							
+							/* alert("파일 이름 : " + files[i].name);
+							alert("파일 순서 : " + (i+1) + "번째"); */
+							
+							var file = files[i];
+							var picReader = new FileReader();
+							
+						    picReader.addEventListener("load", addEventListenerCustom2 (i, file));
+						    picReader.readAsDataURL(file);
+						}
+					}
+				}
+				
+				$("#prdtImageCounter").html(files.length+"/5");
 			}
 			
 		}
 		
 	    /* 여러개의 첨부파일시 append 되는 div부분 */
-	    addEventListenerCustom = function (i, file) { 
+	    addEventListenerCustom1 = function (i, file) { 
 			return function(event) {
 				var imageFile = event.target;
 				var sort = i;
@@ -284,28 +336,28 @@
 				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
 				txt += '</div>';
 				
-				$("#multImgContainer").append(txt);
+				$("#prImgContainer").append(txt);
 		    };
 		};
 		
-		addBICListenerCustom = function (file) {
+		/* 여러개의 첨부파일시 append 되는 div부분 */
+	    addEventListenerCustom2 = function (i, file) { 
 			return function(event) {
 				var imageFile = event.target;
+				var sort = i;
 				var txt = "";
 				
-				txt += '<div style="margin-right:10px; position:relative;">';
-				txt += '<div class="justify-content-center text-center"';
-				txt += 'style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
-				txt += '<img src="';
+				txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img alt="" src="'; 
 				txt += imageFile.result;
-				txt += '" style="width:100%; height:100%; border-radius:10px;">';
-				txt += '</div>';
+				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
 				txt += '</div>';
 				
-				$("#basicImgContainer").append(txt); 
-			}
-			 
-		}
+				$("#prdtImgContainer").append(txt);
+		    };
+		};
+		
 		
 	</script>
 </body>

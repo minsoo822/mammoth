@@ -14,7 +14,15 @@ public class Base {
 	private Integer upDefaultNy;
 	private Integer upSort;
 	private Integer upDelNy;
-	private MultipartFile[] multipartFile;
+	private Integer upType;
+	private MultipartFile[] prImg; //상품 이미지
+	private MultipartFile[] prDetailImg; //상세 이미지
+	
+	private Integer up_prSeq;
+	private Integer up_mmSeq;
+	
+
+	
 
 	
 	
@@ -90,14 +98,46 @@ public class Base {
 		this.upDelNy = upDelNy;
 	}
 
-	public MultipartFile[] getMultipartFile() {
-		return multipartFile;
+	public Integer getUpType() {
+		return upType;
 	}
 
-	public void setMultipartFile(MultipartFile[] multipartFile) {
-		this.multipartFile = multipartFile;
+	public void setUpType(Integer upType) {
+		this.upType = upType;
 	}
-	
+
+	public Integer getUp_prSeq() {
+		return up_prSeq;
+	}
+
+	public void setUp_prSeq(Integer up_prSeq) {
+		this.up_prSeq = up_prSeq;
+	}
+
+	public Integer getUp_mmSeq() {
+		return up_mmSeq;
+	}
+
+	public void setUp_mmSeq(Integer up_mmSeq) {
+		this.up_mmSeq = up_mmSeq;
+	}
+
+	public MultipartFile[] getPrImg() {
+		return prImg;
+	}
+
+	public void setPrImg(MultipartFile[] prImg) {
+		this.prImg = prImg;
+	}
+
+	public MultipartFile[] getPrDetailImg() {
+		return prDetailImg;
+	}
+
+	public void setPrDetailImg(MultipartFile[] prDetailImg) {
+		this.prDetailImg = prDetailImg;
+	}
+
 	
 	
 	

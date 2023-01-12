@@ -31,8 +31,9 @@
     		,prPrice
     		,prInfo
     		,prKind
-    		,prDelNy
+    		,prFragrance
     		,prUseNy
+    		,prDelNy
     	)
     	
     	VALUES (
@@ -41,9 +42,13 @@
     		,#{prPrice}
     		,#{prInfo}
     		,#{prKind}
-    		,#{prDelNy}
+    		,#{prFragrance}
     		,#{prUseNy}
+    		,#{prDelNy}
     	)
+    	<selectKey resultType="Integer" keyProperty="prSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
     </insert>
     
     <insert id="insertUpload">

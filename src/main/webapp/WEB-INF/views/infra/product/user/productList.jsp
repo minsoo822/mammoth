@@ -58,11 +58,11 @@
     </style>
 </head>
 <body>
+	<form id="mainForm">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<form id="mainForm">
 	
 		<!-- 상품 카테고리 -->
 		<div class="container" style="padding: 50px 0 0 20px;">
@@ -89,483 +89,41 @@
 				</div>
 			</div>
 			<div class="row" style="margin: 20px 30px 50px 30px;">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="location.href='/product/productView'">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;"> 
+				<c:forEach items="${list}" var="prList">
+					<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="productView()">
+						<div class="row">
+							<div class="col">
+								<img src="${prList.upPath}${prList.upUuidName}" style="height: 100%; width: 100%;"> 
+							</div>
 						</div>
+						<div class="row mt-3">
+							<div class="col">
+								<span><c:out value="${prList.prName}"/></span>
+							</div>
+						</div>
+						<div class="row  mt-1">
+							<div class="col col-4" style="width: 50px; color: red;">
+							<c:out value="${prList.prDiscount}"/>%
+							</div>
+							<div class="col col-4" style="width: 100px;">
+							<b><c:out value="${prList.prPrice}"/>원</b>
+							</div>
+							<div class="col col-4" style="width: 100px;">
+							<s><c:out value="${prList.prPrice}"/>원</s>
+							</div>
+						</div>
+						<div class="row mt-1">
+							<div class="col">
+								<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+							</div>
+						</div>
+						<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
+						<!-- <span class="bombTag">주문폭주</span> -->
+						<!-- <span class="limitedTag">LIMITED</span> -->
 					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-					<span class="bombTag">주문폭주</span>
-					<span class="limitedTag">LIMITED</span>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct7.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-					<span class="newTag">NEW</span>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-					<span class="bestTag">BEST</span>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-					<span class="limitedTag">LIMITED</span>
-				</div>
+				</c:forEach>
 			</div>
-			<div class="row" style="margin: 0 30px 80px 30px;">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;"> 
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-			</div>
-			<div class="row" style="margin: 0px 30px 80px 30px;">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct8.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct7.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct6.jpeg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct5.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-			</div>
-			<div class="row" style="margin: 0 30px -30px 30px;">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct4.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct3.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct2.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-				<div class="col col-3" style="font-size: 10pt;" id="productCard">
-					<div class="row">
-						<div class="col">
-							<img src="/resources/images/main/mainProduct1.jpg" style="height: 100%; width: 100%;">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<span>포맨트 시그니처 퍼퓸 코튼허그 에디션 '첫 눈'</span>
-						</div>
-					</div>
-					<div class="row  mt-1">
-						<div class="col col-4" style="width: 50px; color: red;">
-						20%
-						</div>
-						<div class="col col-4" style="width: 100px;">
-						<b>49,000원</b>
-						</div>
-						<div class="col col-4" style="width: 100px;"> 
-						<s>61,000원</s>
-						</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col">
-							<span><i class="fa-solid fa-star"></i>4.9(378)</span>
-						</div>
-					</div>
-					<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>
-				</div>
-			</div>
-			
+			 
 			<!-- pagination -->
 			<%@include file="/resources/include/pagination.jsp"%>
 			

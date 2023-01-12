@@ -1,8 +1,12 @@
 package com.mammoth.infra.modules.product;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value="/product/")
@@ -12,9 +16,10 @@ public class ProductController {
 	ProductServiceImpl service;
 	
 	@RequestMapping(value="productList")
-	public String productList() throws Exception {
+	public String productList(Model model) throws Exception {
 		
-		service.selectList();
+		List<Product> list = service.selectList();
+		model.addAttribute("list", list);
 		
 		return "infra/product/user/productList";
 	}
@@ -26,11 +31,11 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productInst")
-	public String insert(Product dto) throws Exception {
-		System.out.println("ProductController로 들어옵니다.");
+	public String insert(Product dto, RedirectAttributes redirectAttributes) throws Exception {
+		
 		service.insert(dto);
 		
-		return "infra/product/user/productList";
+		return "redirect:/product/user/productList";
 	}
 	
 	@RequestMapping(value="productView")

@@ -15,6 +15,7 @@
     		,pr.prPrice
     		,pr.prInfo
     		,pr.prKind
+    		,pr.prFragrance
     		,prup.upPath
     		,prup.upUuidName
     	FROM product pr
@@ -22,6 +23,9 @@
     	WHERE 1=1
     		AND pr.prUseNy = 1
     		AND pr.prDelNy = 0
+    		AND prup.upType = 1
+    		AND prup.upDefaultNy = 1
+    	ORDER BY prSeq DESC 
     </select>
     
     <insert id="insert">

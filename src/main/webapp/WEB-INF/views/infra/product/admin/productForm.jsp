@@ -46,9 +46,13 @@
 	
 		<!-- section1 -->
 		<div class="container" style="margin-top: 50px; margin-bottom: 150px;"> 
-			<h3>상품등록</h3> 
+			<h3>상품등록</h3>
 			<div class="row">
 				<div class="col-12">
+					<br>
+					<span>[이미지 등록시 <span style="color: red;">주의사항</span>]</span><br>
+					<span>- 순서에 맞게 파일이름을 넘버링하고 첨부해주세요!</span><br>
+					<span>- 맨 앞 이미지는 대표 이미지로 선택됩니다!</span><br>
 					<br>
 					<label for="itemImg" class="form-label">상품 이미지<span style="color: red;">*</span></label>  
 					<div class="d-flex flex-row">  

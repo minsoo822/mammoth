@@ -37,10 +37,10 @@
 	    max-width: 393px;
 	}
 	.join_intro .join_title {
-	    margin: 0 0 40px 0;
+	    margin: 0 0 35px 0;
 	    text-align: center;
-	    border-bottom: 1px solid #d4d4d4;
-	    padding: 0 0 40px 0;
+	    border-bottom: 1px solid #000;
+	    padding: 0 0 23px 0;
 	}
 	.join_intro .join_title h2 {
 	    font-size: 26px;

@@ -10,4 +10,8 @@ public interface ProductService {
 	
 	public Product selectOne(Product dto) throws Exception;
 	
+	public List<Product> selectListPrImg() throws Exception;
+	
+	public List<Product> selectListPrDtImg() throws Exception;
+	
 }

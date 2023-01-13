@@ -81,5 +81,20 @@ public class ProductServiceImpl implements ProductService{
 		return dao.selectOne(dto);
 	}
 
+	@Override
+	public List<Product> selectListPrImg() throws Exception {
+		
+		return dao.selectListPrImg();
+	}
+
+	@Override
+	public List<Product> selectListPrDtImg() throws Exception {
+		
+		return dao.selectListPrDtImg();
+	}
+
+	
+	
+	
 
 }

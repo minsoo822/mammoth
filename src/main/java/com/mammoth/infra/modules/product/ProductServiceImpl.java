@@ -93,6 +93,12 @@ public class ProductServiceImpl implements ProductService{
 		return dao.selectListPrDtImg();
 	}
 
+	@Override
+	public Product bsketSelectOne(Product dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.bsketSelectOne(dto);
+	}
+
 	
 	
 	

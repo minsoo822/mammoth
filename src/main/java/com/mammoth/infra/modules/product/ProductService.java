@@ -14,4 +14,6 @@ public interface ProductService {
 	
 	public List<Product> selectListPrDtImg() throws Exception;
 	
+	public Product bsketSelectOne(Product dto) throws Exception;
+	
 }

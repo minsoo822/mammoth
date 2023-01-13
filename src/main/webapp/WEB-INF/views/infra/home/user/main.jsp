@@ -141,7 +141,7 @@
 						<span><i class="fa-solid fa-star"></i>4.9(378)</span>
 					</div>
 				</div>
-				<a><img src="/resources/images/ico_cart.svg" class="basket" id="openPopup"></a>
+				<a><img src="/resources/images/ico_cart.svg" class="basket" id="openPopup"  onclick="javascript:event.stopPropagation();"></a>
 				<span class="bombTag">주문폭주</span>
 				<span class="limitedTag">LIMITED</span>
 			</div>
@@ -491,7 +491,7 @@
 				<div class="xans-element- xans-product xans-product-action ec-base-button">
 					<a href="#none" onclick="" class="btn_apr  ">바로구매하기</a>
 					<a href="#none" onclick="" class="btn_apr  ">장바구니 담기</a>
-					<a href="#none" class="btn_apr white close">닫기</a>
+					<a href="#none" class="btn_apr white close" >닫기</a>
 				</div>
 				<a class="close" id="closeModal" style="position: absolute; left: 560px; top:15px;">
 					<img src="/resources/images/btn_close.gif" alt="닫기">

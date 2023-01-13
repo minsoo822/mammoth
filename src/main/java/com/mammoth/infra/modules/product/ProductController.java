@@ -39,9 +39,16 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productView")
-	public String productView(Product dto) throws Exception {
+	public String productView(Model model, Product dto) throws Exception {
 		
-		service.selectOne(dto);
+		Product one = service.selectOne(dto);
+		model.addAttribute("one", one);
+		
+		List<Product> prImglist = service.selectListPrImg();
+		model.addAttribute("prImglist", prImglist);
+		
+		List<Product> prdtImglist = service.selectListPrDtImg();
+		model.addAttribute("prdtImglist", prdtImglist);
 		
 		return "infra/product/user/productView";
 	}

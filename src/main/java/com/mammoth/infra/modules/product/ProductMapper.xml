@@ -95,6 +95,8 @@
     	WHERE 1=1
     		AND pr.prUseNy = 1
     		AND pr.prDelNy = 0
+			AND prup.upType = 1
+            AND prup.upDefaultNy = 1
     		AND prSeq = #{prSeq}
     </select>
     

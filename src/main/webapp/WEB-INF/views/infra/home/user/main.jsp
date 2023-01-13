@@ -77,6 +77,7 @@
 				sessAdmin: <c:out value="${sessAdmin }"/><br> --%>
 	<form action="" method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -115,7 +116,7 @@
 		</div>
 		<div class="row" style="margin: 20px 30px 50px 30px;">
 			<c:forEach items="${list}" var="prList">
-				<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="">
+				<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="productView(${prList.prSeq})">
 					<div class="row">
 						<div class="col">
 							<img src="${prList.upPath}${prList.upUuidName}" style="height: 100%; width: 100%;">
@@ -201,7 +202,7 @@
 				<div class="content">
 					<div class="xans-element- xans-product xans-product-detail inner">
 						<h2 class="name">
-							<strong id="basketName">포맨트 시그니처 퍼퓸 코튼허그</strong>
+							<strong id="basketName1">포맨트 시그니처 퍼퓸 코튼허그</strong>
 						</h2>
 						<div class="productNormal  ">
 							<div class="xans-element- xans-product xans-product-image imgArea ">
@@ -310,6 +311,15 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	
+	productView = function(key) {
+		
+		var prSeq = $("#prSeq");
+		
+		prSeq.val(key);
+		form.attr("action", "/product/productView").submit();
+	};
+	
 	const modal = document.getElementById("popup");
     const buttonAddFeed = document.getElementById("openPopup");
 	
@@ -345,7 +355,8 @@
 			success : function(resultMap) {
 				//장바구니 모달 불러오는 정보들
 				$("#prSeq").attr("value", resultMap.basketSeq);
-				$("#basketName").html(resultMap.basketName);
+				$("#basketName1").html(resultMap.basketName);
+				$("#basketName2").html(resultMap.basketName);
 				$("#basketImg").attr("src", resultMap.basketImg);
 				
 				modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
@@ -357,17 +368,7 @@
 				alert("ajax error..!");
 			}
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+	};
 	
 	</script>	
 </body>

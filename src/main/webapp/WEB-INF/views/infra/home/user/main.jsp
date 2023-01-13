@@ -491,9 +491,9 @@
 				<div class="xans-element- xans-product xans-product-action ec-base-button">
 					<a href="#none" onclick="" class="btn_apr  ">바로구매하기</a>
 					<a href="#none" onclick="" class="btn_apr  ">장바구니 담기</a>
-					<a href="#none" class="btn_apr white close" >닫기</a>
+					<a href="#none" class="btn_apr white close" id="closeModal1" >닫기</a>
 				</div>
-				<a class="close" id="closeModal" style="position: absolute; left: 560px; top:15px;">
+				<a class="close" id="closeModal2" style="position: absolute; left: 560px; top:15px; cursor: pointer;">
 					<img src="/resources/images/btn_close.gif" alt="닫기">
 				</a>
 			</div>
@@ -522,12 +522,18 @@
     
 	}); 
  	// 모달 닫기 코드
-    const buttonCloseModal = document.getElementById("closeModal");
+    const buttonCloseModal1 = document.getElementById("closeModal1");
+    const buttonCloseModal2 = document.getElementById("closeModal2");
     		
-	buttonCloseModal.addEventListener("click", e => {
+	buttonCloseModal1.addEventListener("click", e => {
 		modal.style.display = "none";
 		document.body.style.overflowY = "visible";
 	});
+	buttonCloseModal2.addEventListener("click", e => {
+		modal.style.display = "none";
+		document.body.style.overflowY = "visible";
+	});
+
 	
 	</script>	
 </body>

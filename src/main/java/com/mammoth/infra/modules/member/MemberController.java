@@ -66,11 +66,6 @@ public class MemberController {
 		return "infra/member/user/orderList";
 	}
 	
-	@RequestMapping(value="basket")
-	public String basket() throws Exception {
-		return "infra/member/user/basket";
-	}
-	
 	@RequestMapping(value="guest_order")
 	public String guest_order() throws Exception {
 		return "infra/member/user/guest_order";

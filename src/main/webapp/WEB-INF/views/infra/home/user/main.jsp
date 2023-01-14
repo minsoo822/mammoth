@@ -144,7 +144,7 @@
 						</div>
 					</div>
 					<div id="openPopup">
-						<a class="basket" href="javascript:goProduct(${prList.prSeq})" >
+						<a class="basket" onclick="javascript:event.stopPropagation();goProduct(${prList.prSeq})" >
 							<img src="/resources/images/ico_cart.svg" >
 						</a>
 					</div>
@@ -194,7 +194,7 @@
 	<!-- modal section -->
 		<!-- 장바구니 modal s -->
 		<div id="popup">
-			<input type="hidden" id="prSeq" name="prSeq" value="${dto.prSeq }">
+			<input type="hidden" id="modalprSeq" name="prSeq" value="${dto.prSeq }">
 			<div class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer " style="border: 1px solid #000;">
 				<div class="header">
 					<h1 style="margin: 0px; font-weight: 600;">옵션 선택</h1>
@@ -290,7 +290,7 @@
 				</div>
 				<div class="xans-element- xans-product xans-product-action ec-base-button">
 					<a href="#none" onclick="" class="btn_apr  ">바로구매하기</a>
-					<a href="#none" onclick="" class="btn_apr  ">장바구니 담기</a>
+					<a href="#none" onclick="" class="btn_apr  " id="basketInst">장바구니 담기</a>
 					<a href="#none" class="btn_apr white close" id="closeModal1" >닫기</a>
 				</div>
 				<a class="close" id="closeModal2" style="position: absolute; left: 560px; top:15px; cursor: pointer;">
@@ -354,7 +354,7 @@
 			},
 			success : function(resultMap) {
 				//장바구니 모달 불러오는 정보들
-				$("#prSeq").attr("value", resultMap.basketSeq);
+				$("#modalprSeq").attr("value", resultMap.basketSeq);
 				$("#basketName1").html(resultMap.basketName);
 				$("#basketName2").html(resultMap.basketName);
 				$("#basketImg").attr("src", resultMap.basketImg);
@@ -369,7 +369,26 @@
 			}
 		});
 	};
-	
+	$("#basketInst").on("click", function(){
+
+		$.ajax({
+			url: '/basketInst',
+			type: 'POST',
+			datatype: 'json',
+			data: {
+				mmSeq : $("#mmSeq").val()
+				,prSeq : $("#modalprSeq").val()
+			},
+			success : function(result) {
+				if(result.rt == "success") {
+					alert("장바구니에 상품이 등록되었습니다.");
+				}
+			},
+			error : function() {
+				alert("ajax error..!");	
+			}
+		})
+	});
 	</script>	
 </body>
 </html>

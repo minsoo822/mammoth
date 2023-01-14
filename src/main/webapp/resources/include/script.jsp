@@ -21,7 +21,7 @@
 	
 	var goMyinfo = "/member/myinfo";
 	var orderList = "/member/orderList";
-	var basket = "member/basket";
+	var basket = "/basket/basketList";
 	var mypage = "/member/mypage";
 	var adrList = "/member/adrList";
 	var adrListForm = "/member/adrListForm";

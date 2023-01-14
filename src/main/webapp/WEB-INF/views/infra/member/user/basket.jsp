@@ -12,6 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	<link href="/resources/css/index.css" rel="stylesheet">
 	
 
 	<style>
@@ -449,7 +450,8 @@ tfoot {
 	</style>
 </head>
 <body>
-
+	<form method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" id="mmSeq">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -492,7 +494,7 @@ tfoot {
     		<div class="xans-element- xans-order xans-order-tabinfo ec-base-tab typeLight ">
     			<ul class="menu" style="padding-left: 0px;">
     				<li class="selected ">
-    					<a href="#">국내배송상품 (0)</a>
+    					<a href="#">국내배송상품 (<c:out value="${selectListCount }"/>)</a>
     				</li>
     				<!-- <li class=" ">
     					<a href="#">해외배송상품 (0)</a>
@@ -539,78 +541,80 @@ tfoot {
 		                </tr>
 	                </thead>
 	                 <tbody class="xans-element- xans-order xans-order-list center">
-	                	<tr class="xans-record-">
-	                		<td><input type="checkbox" id="basket_chk_id_0" name="basket_product_normal_type_normal"></td>
-	                		<td class="thumb gClearLine">
-	                			<a href="#" id="param1" style="text-decoration: none;">
-	                				<img src="/resources/images/pum.jpg" alt="포맨트 시그니처 퍼퓸 코튼 브리즈">
-                				</a>
-               				</td>
-	                		<td class="left gClearLine">
-								<a href="#" style="text-decoration: none; color: #000;">
-									<strong>포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
-								</a>
-								<ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
-									<li class="xans-record-">
-										<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
-										[옵션: 향수 단품/코튼브리즈 1개] 
-										<span class="displaynone">(1개)</span>
-										<br>
-										<span class="">
-											<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
-												<img src="/resources/images/btn_option.gif" alt="옵션변경">
-											</a>
-										</span>
-									</li>
-								</ul>
-	                		</td>
-	                		<td class="right">
-	                	        <div class="">
-									<strong>49,000원</strong>
-									<p class="displaynone"></p>
-								</div>
-		                        <div class="displaynone">
-									<strong>49,000원</strong>
-									<p class="displaynone"></p>
+	                	<c:forEach items="${list }" var="bskList" varStatus="status">
+		                	<tr class="xans-record-">
+		                		<td><input type="checkbox" id="basket_chk_id_0" name="basket_product_normal_type_normal"></td>
+		                		<td class="thumb gClearLine">
+		                			<a href="#" id="param1" style="text-decoration: none;">
+		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="포맨트 시그니처 퍼퓸 코튼 브리즈">
+	                				</a>
+	               				</td>
+		                		<td class="left gClearLine">
+									<a href="#" style="text-decoration: none; color: #000;">
+										<strong><c:out value="${bskList.prName }"></c:out></strong>
+									</a>
+									<ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
+										<li class="xans-record-">
+											<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
+											[옵션: 향수 단품/코튼브리즈 1개] 
+											<span class="displaynone">(1개)</span>
+											<br>
+											<span class="">
+												<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
+													<img src="/resources/images/btn_option.gif" alt="옵션변경">
+												</a>
+											</span>
+										</li>
+									</ul>
+		                		</td>
+		                		<td class="right">
+		                	        <div class="">
+										<strong>49,000원</strong>
+										<p class="displaynone"></p>
 									</div>
+			                        <div class="displaynone">
+										<strong>49,000원</strong>
+										<p class="displaynone"></p>
+										</div>
+				                    </td>
+		                		<td>
+		                			<span class="">
+		                				<span class="ec-base-qty">
+		                					<input id="" name="" size="2" value="1" type="text" style="width: 28px;">
+		                					<a href="" onclick="" style="text-decoration: none;">
+		                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
+	                						</a>
+	                						<a href="javascript:;" onclick="" style="text-decoration: none;">
+	                							<img src="/resources/images/btn_quantity_down.gif" alt="수량감소" class="down">
+	                						</a>
+	               						</span>
+		                			</span>
+		                		</td>
+		                		<td>
+		                			<span class="txtInfo">-</span>
+		                		</td>
+		                		<td>
+		                			<div class="txtInfo">기본배송<br></div>
+		                		</td>
+		                		<td rowspan="1" class="">
+									<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
+								</td>
+		                		<td class="right">
+									<strong>49,000원</strong><div class="displaynone"></div>
+								</td>
+		                		<td class="button">
+			                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
+			                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
+		                        	</a>
+			                        <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
+			                        	<img src="/resources/images/btn_wish.gif" alt="관심상품등록">
+			                        </a>
+			                        <a href="javascript:;" onclick="Basket.deleteBasketItem(0);" style="text-decoration: none; color: #000;">
+			                        	<img src="/resources/images/btn_delete.gif" alt="삭제">
+			                        </a>
 			                    </td>
-	                		<td>
-	                			<span class="">
-	                				<span class="ec-base-qty">
-	                					<input id="" name="" size="2" value="1" type="text" style="width: 28px;">
-	                					<a href="" onclick="" style="text-decoration: none;">
-	                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
-                						</a>
-                						<a href="javascript:;" onclick="" style="text-decoration: none;">
-                							<img src="/resources/images/btn_quantity_down.gif" alt="수량감소" class="down">
-                						</a>
-               						</span>
-	                			</span>
-	                		</td>
-	                		<td>
-	                			<span class="txtInfo">-</span>
-	                		</td>
-	                		<td>
-	                			<div class="txtInfo">기본배송<br></div>
-	                		</td>
-	                		<td rowspan="1" class="">
-								<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
-							</td>
-	                		<td class="right">
-								<strong>49,000원</strong><div class="displaynone"></div>
-							</td>
-	                		<td class="button">
-		                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
-		                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
-	                        	</a>
-		                        <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
-		                        	<img src="/resources/images/btn_wish.gif" alt="관심상품등록">
-		                        </a>
-		                        <a href="javascript:;" onclick="Basket.deleteBasketItem(0);" style="text-decoration: none; color: #000;">
-		                        	<img src="/resources/images/btn_delete.gif" alt="삭제">
-		                        </a>
-		                    </td>
-	                	</tr>
+		                	</tr>
+		                </c:forEach>    
 	                </tbody>
 	                <tfoot class="right">
 		                <tr>
@@ -733,7 +737,7 @@ tfoot {
     		</div>
     	</div>
     </div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

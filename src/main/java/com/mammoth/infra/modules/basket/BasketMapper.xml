@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mammoth.infra.modules.basket.BasketMapper">
+
+	<resultMap id="resultMapObj" type="com.mammoth.infra.modules.basket.Basket"></resultMap>
+	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			pr.prName
+		    ,prup.upPath
+		    ,prup.upUuidName
+		FROM basket bsk
+		JOIN product pr
+		ON bsk.bsk_prSeq = pr.prSeq
+		JOIN productUploaded prup
+		ON bsk.bsk_prSeq = prup.up_prSeq
+		WHERE bsk.bsk_mmSeq = #{mmSeq}
+		AND prup.upType = 1
+		AND	prup.upDefaultNy = 1
+	</select>
+	<select id="selectListCount" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM basket bsk
+		WHERE bsk.bsk_mmSeq = #{mmSeq}
+	</select>
+	
+	<select id="basketCount" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM basket 
+		WHERE 1=1
+		AND bsk_mmSeq = #{mmSeq}
+		AND bsk_prSeq = #{prSeq}
+	</select>
+	<insert id="basketInst">
+		INSERT INTO basket (
+			bsk_mmSeq
+			,bsk_prSeq
+		)
+		VALUES (
+			#{mmSeq}
+			,#{prSeq}
+		)
+		<selectKey resultType="Integer" keyProperty="bskSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	</insert>
+
+
+</mapper>

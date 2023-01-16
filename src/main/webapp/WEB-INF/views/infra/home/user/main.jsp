@@ -381,7 +381,12 @@
 			},
 			success : function(result) {
 				if(result.rt == "success") {
-					alert("장바구니에 상품이 등록되었습니다.");
+					swal("장바구니에 상품이 등록되었습니다.", {
+					      icon: "success",
+					    })
+					    .then(function() {
+					    	window.location = "/";
+					    });
 				}
 			},
 			error : function() {

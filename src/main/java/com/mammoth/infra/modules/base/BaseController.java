@@ -33,6 +33,8 @@ public class BaseController {
 		List<Product> list = prService.selectList();
 		model.addAttribute("list", list);
 		
+		
+		
 		return "infra/home/user/main";
 	}
 	
@@ -43,7 +45,6 @@ public class BaseController {
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		int basketCount = bskService.basketCount(dto);
-		System.out.println("---------------------" + basketCount);
 		if(basketCount == 0) {
 			bskService.basketInst(dto);
 			result.put("rt", "success");

@@ -13,6 +13,7 @@
     		pr.prSeq
     		,pr.prName
     		,pr.prDiscount
+    		,pr.prTotalPrice
     		,pr.prPrice
     		,pr.prKind
     		,pr.prFragrance

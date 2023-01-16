@@ -8,4 +8,64 @@
 
     <resultMap id="resultMapObj" type="com.mammoth.infra.modules.review.Review"></resultMap>
     
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		rv.rvContents
+    		,rv.rv_prSeq
+    		,rv.rv_mmSeq
+    		,rv.rvStar
+    		,rv.rvCreDate
+    		,mm.mmName
+    		,mm.mmGrade
+    		,pr.prName
+    	FROM review rv
+    	JOIN product pr ON pr.prSeq = rv.rv_prSeq
+    	JOIN memmber mm ON mm.mmSeq = rv.rv_mmSeq
+    	WHERE 1=1
+    		AND rv_prSeq = #{prSeq} 
+    </select>
+    
+    <insert id="insert">
+    	INSERT INTO (
+    		rvContents
+    		,rv_prSeq
+    		,rv_mmSeq
+    		,rvStar
+    	)
+    	
+    	VALUES(
+    		#{rvContents}
+    		,#{rv_prSeq}
+    		,#{rv_mmSeq}
+    		,#{rvStar}
+    	)
+    	<selectKey resultType="Integer" keyProperty="rvSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+    </insert>
+    
+    <insert id="insertUpload">
+	    INSERT INTO reviewUploaded (
+    		upType
+    		,upDefaultNy
+    		,upPath
+    		,upOriginalName
+    		,upUuidName
+    		,upExt
+    		,upSize
+    		,up_rvSeq
+    	)
+    	
+    	VALUES (
+    		#{upType}
+    		,#{upDefaultNy}
+    		,#{upPath}
+    		,#{upOriginalName}
+    		,#{upUuidName}
+    		,#{upExt}
+    		,#{upSize}
+    		,#{rvSeq}
+    	)
+    </insert>
+    
 </mapper>

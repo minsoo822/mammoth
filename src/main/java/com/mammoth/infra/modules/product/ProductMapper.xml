@@ -14,7 +14,6 @@
     		,pr.prName
     		,pr.prDiscount
     		,pr.prPrice
-    		,pr.prInfo
     		,pr.prKind
     		,pr.prFragrance
     		,prup.upPath

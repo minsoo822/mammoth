@@ -759,17 +759,15 @@
 							<li class="selected"style="width: 580px;">
 								<a href="#" style="text-decoration: none;">상세 정보</a>
 							</li>
-			               <!--  <li class="">
-			               	 <a href="#" style="text-decoration: none;">상품 안내</a>
-			                </li> -->
 			                <li class="" style="width: 580px;">
 			                	<a href="#" id="go_review" style="text-decoration: none;">리뷰 (<span class="snap_review_count noset">100</span>)</a>
 			                </li>
 			            </ul>
 					</div>
 					<div class="detail_info_warp" style="padding-top: 30px; width: 800px; margin-left: auto; margin-right: auto;">
-						<img alt="" src="/resources/images/detailimg3.jpg" style="width: 100%;">
-						
+						<c:forEach items="${prdtImglist}" var="prdtImglist">
+							<img src="${prdtImglist.upPath}${prdtImglist.upUuidName}" style="width: 100%;">
+						</c:forEach>
 					</div>
 				</div>
 				<div class="prdReview" style="margin-top: 50px; width: 90%; margin-left: auto; margin-right: auto;">

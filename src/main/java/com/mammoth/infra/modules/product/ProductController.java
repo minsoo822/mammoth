@@ -47,8 +47,6 @@ public class ProductController {
 		Product one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
-		System.out.println("dto.getPrSeq : " + dto.getUp_prSeq());
-		
 		List<Product> prImglist = service.selectListPrImg(dto);
 		model.addAttribute("prImglist", prImglist);
 		

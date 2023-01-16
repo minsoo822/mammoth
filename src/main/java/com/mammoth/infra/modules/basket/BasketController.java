@@ -28,9 +28,25 @@ public class BasketController {
 	
 	@RequestMapping(value="oneDel")
 	public String oneDel(Basket dto , RedirectAttributes redirectAttributes) throws Exception {
-		service.oneDel(dto);
+		
+		service.Delete(dto);
 		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);
+		
 		return "redirect:/basket/basketList";
 	}
+	
+	
+	@RequestMapping(value = "checkDel")
+	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
+			dto.setPrSeq(checkboxSeq);
+			service.Delete(dto);
+		}
+		redirectAttributes.addFlashAttribute("dto", dto);
+
+		return "redirect:/basket/basketList";
+	}
+	
 }

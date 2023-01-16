@@ -53,7 +53,7 @@
 		</selectKey>
 	</insert>
 	
-	<delete id="oneDel">
+	<delete id="Delete">
 	DELETE
 	FROM basket 
     WHERE bsk_mmSeq = #{mmSeq}

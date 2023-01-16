@@ -453,6 +453,7 @@ tfoot {
 	<form method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
+	<input type="hidden" name="checkboxSeqArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -544,7 +545,7 @@ tfoot {
 	                 <tbody class="xans-element- xans-order xans-order-list center">
 	                	<c:forEach items="${list }" var="bskList" varStatus="status">
 		                	<tr class="xans-record-">
-		                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;"></td>
+		                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>"></td>
 		                		<td class="thumb gClearLine">
 		                			<a href="#" id="param1" style="text-decoration: none;">
 		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="포맨트 시그니처 퍼퓸 코튼 브리즈">
@@ -635,7 +636,7 @@ tfoot {
 				<div class="xans-element- xans-order xans-order-selectorder ec-base-button ">
 					<span class="gLeft">
 			            <strong class="text">선택상품을</strong>
-			            <a href="#none" onclick="Basket.deleteBasket()">
+			            <a href="#none" onclick="" id="MultiDel">
 			          	  <img src="/resources/images/btn_delete2.gif" alt="삭제하기">
 			            </a>
 			        </span>
@@ -763,10 +764,12 @@ tfoot {
 	
 	var prSeq = $("#prSeq");
 	
+	var checkboxSeqArray = [];
+	
 	oneDel = function(key) {
 		swal({
 			  title: "상품을 삭제하시겠습니까?",
-			  text: "장바구니에 담신 제품이 삭제될수있습니다!",
+			  text: "장바구니에 담긴 제품이 삭제될수있습니다!",
 			  icon: "warning",
 			  buttons: true,
 			  dangerMode: true,
@@ -784,8 +787,34 @@ tfoot {
 			    swal("변동사항 없습니다");
 			  }
 			});
-		
 	};
+	
+	$("#MultiDel").on("click", function() {
+		swal({
+			  title: "선택하신 상품을 삭제하시겠습니까?",
+			  text: "선택하신 제품이 삭제될수있습니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("선택하신 제품이 삭제되었습니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+			    		$("input[name=checkboxSeq]:checked").each(function() { 
+			    			checkboxSeqArray.push($(this).val());
+			    		});
+			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			    		
+			    		form.attr("action", "/basket/checkDel").submit();
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
+	});
 	
 	</script>	
 </body>

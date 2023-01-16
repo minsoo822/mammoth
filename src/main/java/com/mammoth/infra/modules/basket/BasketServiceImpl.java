@@ -32,9 +32,9 @@ public class BasketServiceImpl implements BasketService{
 		return dao.basketCount(dto);
 	}
 	@Override
-	public int oneDel(Basket dto) throws Exception {
+	public int Delete(Basket dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.oneDel(dto);
+		return dao.Delete(dto);
 	}
 	
 

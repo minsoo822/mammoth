@@ -11,6 +11,9 @@ public class Basket {
 	private String upUuidName;
 	private String prName;
 	
+	private Integer[] checkboxSeqArray;
+	
+	
 	public Integer getBskSeq() {
 		return bskSeq;
 	}
@@ -46,6 +49,12 @@ public class Basket {
 	}
 	public void setPrName(String prName) {
 		this.prName = prName;
+	}
+	public Integer[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+	public void setCheckboxSeqArray(Integer[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 	
 	

@@ -215,33 +215,33 @@
 									<col width="120px">
 									<col width="auto">
 								</colgroup>
-								<tbody class="xans-element- xans-product xans-product-option xans-record-">
-								<tr class="xans-element- xans-product xans-product-option xans-record-">
-									<th scope="row">세트 선택</th>
-									<td>
-										<select name="option1" id="product_option_id1" class="ProductOption0" option_style="select" required="true">
-											<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-											<option value="**" disabled="" link_image="">-------------------</option>
-											<option value="향수 단품" link_image="">향수 단품</option>
-											<option value="코튼허그 세트" link_image="">코튼허그 세트</option>
-											<option value="[레이어링추천] 향수 세트" link_image="">[레이어링추천] 향수 세트</option>
-										</select>
-									</td>
-								</tr>
-								<tr class="xans-element- xans-product xans-product-option xans-record-">
-									<th scope="row">수량 선택</th>
-									<td>
-										<select name="option2" id="product_option_id2" class="ProductOption0" option_style="select" required="true">
-											<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-											<option value="**" disabled="" link_image="">-------------------</option>
-										</select>
-									</td>
-								</tr>
-								</tbody>
+								<!-- <tbody class="xans-element- xans-product xans-product-option xans-record-">
+									<tr class="xans-element- xans-product xans-product-option xans-record-">
+										<th scope="row">세트 선택</th>
+										<td>
+											<select name="option1" id="product_option_id1" class="ProductOption0" option_style="select" required="true">
+												<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
+												<option value="**" disabled="" link_image="">-------------------</option>
+												<option value="향수 단품" link_image="">향수 단품</option>
+												<option value="코튼허그 세트" link_image="">코튼허그 세트</option>
+												<option value="[레이어링추천] 향수 세트" link_image="">[레이어링추천] 향수 세트</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="xans-element- xans-product xans-product-option xans-record-">
+										<th scope="row">수량 선택</th>
+										<td>
+											<select name="option2" id="product_option_id2" class="ProductOption0" option_style="select" required="true">
+												<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
+												<option value="**" disabled="" link_image="">-------------------</option>
+											</select>
+										</td>
+									</tr>
+								</tbody> -->
 							</table>
 						</div>
 						<div id="totalProducts" class=" ">
-							<p class="ec-base-help txtWarn txt11 "> 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.</p>
+							<!-- <p class="ec-base-help txtWarn txt11 "> 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.</p> -->
 							<table blrder="0" summary>
 								<caption>상품 목록</caption>
 								<colgroup>
@@ -252,9 +252,9 @@
 								<tbody class="option_products">
 									<tr class="option_product " data-option-index="1" target-key="79">
 										<td>
-											<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="item_code[]">
+											<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="">
 											<p class="product" style="margin: 0px;">포맨트 시그니처 퍼퓸 코튼허그<br> 
-											- <span>향수 단품/코튼허그 1개</span></p>
+											<!-- - <span>향수 단품/코튼허그 1개</span></p> -->
 										</td>
 										<td>
 											<span class="quantity" style="width:65px;"><input type="text" id="option_box1_quantity" name="quantity_opt[]" class="quantity_opt eProductQuantityClass" value="1">
@@ -271,8 +271,8 @@
 										</td>
 										<td class="right">
 											<span id="option_box1_price">
-												<input type="hidden" class="option_box_price" value="39000" product-no="79" item_code="P00000DB000A">
-												<span class="ec-front-product-item-price" code="P00000DB000A" product-no="79">39,000원</span>
+												<input type="hidden" class="option_box_price" value="">
+												<span class="ec-front-product-item-price" >39,000원</span>
 											</span>
 										</td>
 									</tr>

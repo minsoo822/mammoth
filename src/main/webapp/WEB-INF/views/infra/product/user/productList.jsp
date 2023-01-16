@@ -59,6 +59,8 @@
 </head>
 <body>
 	<form id="mainForm">
+	
+	<input type="hidden" name="prSeq" id="prSeq" value="">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -90,7 +92,7 @@
 			</div>
 			<div class="row" style="margin: 20px 30px 50px 30px;">
 				<c:forEach items="${list}" var="prList">
-					<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="productView()">
+					<div class="col col-3" style="font-size: 10pt;" id="productCard" onclick="productView(${prList.prSeq})">
 						<div class="row">
 							<div class="col">
 								<img src="${prList.upPath}${prList.upUuidName}" style="height: 100%; width: 100%;"> 
@@ -137,6 +139,14 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	
+		productView = function(key) {
+			
+			var prSeq = $("#prSeq");
+			
+			prSeq.val(key);
+			form.attr("action", "/product/productView").submit();
+		};
 		
 	</script>	
 </body>

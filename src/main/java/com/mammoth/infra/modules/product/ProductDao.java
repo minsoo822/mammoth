@@ -24,9 +24,9 @@ public class ProductDao {
 	
 	public Product selectOne(Product dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", dto);}
 	
-	public List<Product> selectListPrImg() throws Exception {return sqlSession.selectList(namespace + ".selectListPrImg", "");}
+	public List<Product> selectListPrImg(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectListPrImg", dto);}
 
-	public List<Product> selectListPrDtImg() throws Exception {return sqlSession.selectList(namespace + ".selectListPrDtImg", "");}
+	public List<Product> selectListPrDtImg(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectListPrDtImg", dto);}
 	
 	public Product bsketSelectOne(Product dto) { return sqlSession.selectOne(namespace + ".bsketSelectOne", dto);}
 

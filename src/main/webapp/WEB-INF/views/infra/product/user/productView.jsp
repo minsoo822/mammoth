@@ -645,101 +645,25 @@
 	    		<div class="detailArea">
 	    			<!-- 이미지 영역 s -->
 	    			<div class="xans-element- xans-product xans-product-image imgArea ">
-	    				<div style="display:none; font-size: 0;">
-	    					<img src="/resources/images/item1.jpg" alt="" id="dtMain">
-	   					</div>
 	   					<div class="xans-element- xans-product xans-product-addimage large_img swiper-container-initialized swiper-container-horizontal">
-		    				<img alt="" src="${one.upPath}${one.upUuidName }" style="width: 100%;">
-		    				<!-- 추후 사진 자동넘기기기능 추가할것 s -->
-	   						<!-- <ul class="swiper-wrapper" style="transition-duration: 300ms; transform: translate3d(-5640px, 0px, 0px);">
-	   							<li class="swiper-slide first xans-record- swiper-slide-duplicate" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
-	   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
-	   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
-	   							<li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
-	   							<li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
-								<li class="swiper-slide first xans-record- swiper-slide-duplicate-active" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
-			                    <li class="swiper-slide xans-record- swiper-slide-duplicate-next" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
-								<li class="swiper-slide xans-record-" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
-								<li class="swiper-slide xans-record-" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
-								<li class="swiper-slide xans-record- swiper-slide-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
-				                <li class="swiper-slide first xans-record- swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0"><img src="/resources/images/item1.jpg" class="ThumbImage" alt=""></li>
-				                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1"><img src="/resources/images/item2.jpg" class="ThumbImage" alt=""></li>
-				                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="2"><img src="/resources/images/item3.jpg" class="ThumbImage" alt=""></li>
-				                <li class="swiper-slide xans-record- swiper-slide-duplicate" data-swiper-slide-index="3"><img src="/resources/images/item4.jpg" class="ThumbImage" alt=""></li>
-				                <li class="swiper-slide xans-record- swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4"><img src="/resources/images/item5.jpg" class="ThumbImage" alt=""></li>
-			                </ul> -->
-			                <div class="swiper-pagination swiper-pagination-bullets">
-			                	<span class="swiper-pagination-bullet"></span>
-			                	<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-			                	<span class="swiper-pagination-bullet"></span>
-			                	<span class="swiper-pagination-bullet"></span>
-		                	</div>
-		                	<!-- 추후 사진 자동넘기기기능 추가할것 e -->
+	   						<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+							  <div class="carousel-inner">
+							  	<c:forEach items="${prImglist}" var="prImglist">
+								    <div class="carousel-item active">
+								      <img src="${prImglist.upPath}${prImglist.upUuidName}" class="d-block w-100">
+								    </div>
+							  	</c:forEach>
+							  </div>
+							  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Previous</span>
+							  </button>
+							  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Next</span>
+							  </button>
+							</div>
 	   					</div>
-		    			<div class="gift-list-per-price">
-		    				<div class="gtitle">
-	                   			<h3 style="font-weight: 600; margin: 0px;">구매금액별 사은품</h3>
-			                </div>
-			    			<div class="gift-list-wrap">
-			    				<ul class="gift-list">
-								    <li>
-								        <div class="circle">
-								            <div class="image">
-								            	<img src="/resources/images/subitem3.jpg" alt="">
-							            	</div>
-								        </div>
-								        <div class="item">
-								            <h4><span>첫 구매 고객</span></h4>
-								            <div class="explain">
-								                퍼퓸 2ml(랜덤1종)
-								            </div>
-								        </div>
-								    </li>
-								    <li>
-								        <div class="circle">
-								            <div class="image">
-								            	<img src="/resources/images/subitem4.jpg" alt="">
-							            	</div>
-								        </div>
-								        <div class="item">
-								            <h4><span>7만원 이상 구매시</span></h4>
-								            <div class="explain">
-								                    퍼퓸사쉐 코튼허그<br>
-								                +무료배송
-								            </div>
-								        </div>
-								    </li>
-								    <li>
-								        <div class="circle">
-								            <div class="image">
-							            		<img src="/resources/images/subitem5.jpg" alt="">
-						            		</div>
-								        </div>
-								        <div class="item">
-								            <h4><span>12만원 이상 구매시</span></h4>
-								            <div class="explain">
-								            퍼퓸사쉐 코튼허그 + 퍼퓸 샤워 코튼허그8ML 7매입 <br>
-								            + 무료배송
-								            </div>
-								        </div>
-								    </li>
-								    <li>
-								        <div class="circle">
-								            <div class="image">
-								            	<img src="/resources/images/subitem6.jpg" alt="">
-							            	</div>
-								        </div>
-								        <div class="item">
-								            <h4><span>20만원 이상 구매시</span></h4>
-								            <div class="explain">
-								                    퍼퓸사쉐 코튼허그 + 퍼퓸 샤워 코튼허그8ML 7매입 + 퍼퓸 핸드워시 <br>
-								                    + 무료배송
-								            </div>
-								        </div>
-								    </li>
-								</ul>
-			    			</div>
-		    			</div>
 	    			</div>
 	    			<!-- 이미지 영역 e -->
 	    			<!-- 상세정보 내역 s -->
@@ -767,134 +691,6 @@
 	            		</div>
 	            		<div class="order_button_wrap">
 	            			<div class="order_button_contents" class="static">
-		            			<div class="detail-options">
-						            <table border="1" summary="">
-										<caption>상품 옵션</caption>
-						                <tbody class="xans-element- xans-product xans-product-option xans-record-">
-						                	<tr class="xans-element- xans-product xans-product-option xans-record-">
-							                	<th scope="row" style="padding-bottom: 21px; padding-top: 10px; font-weight: 600;">옵션 선택</th>
-												<td>
-													<select option_product_no="226" option_select_element="ec-option-select-finder" option_sort_no="1" option_type="T" item_listing_type="S" option_title="옵션 선택" product_type="product_option" product_option_area="product_option_226_0" name="option1" id="product_option_id1" class="ProductOption0" option_style="select" required="true">
-														<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-														<option value="**" disabled="" link_image="">-------------------</option>
-														<option value="[GIFT] 코튼메모리 핸드크림 + 립밤" link_image="">[GIFT] 코튼메모리 핸드크림 + 립밤</option>
-														<option value="[GIFT] 코튼메모리 핸드크림 + 퍼퓸" link_image="">[GIFT] 코튼메모리 핸드크림 + 퍼퓸 [품절]</option>
-													</select>
-												</td>
-											</tr>
-											<tr class="xans-element- xans-product xans-product-option xans-record-">
-												<th scope="row" style="padding-bottom: 21px; padding-top: 10px; font-weight: 600;">카드 선택</th>
-												<td>
-													<select option_product_no="226" option_select_element="ec-option-select-finder" option_sort_no="2" option_type="T" item_listing_type="S" option_title="카드 선택" product_type="product_option" product_option_area="product_option_226_0" name="option2" id="product_option_id2" class="ProductOption0" option_style="select" required="true">
-														<option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
-														<option value="**" disabled="" link_image="">-------------------</option>
-													</select>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="xans-element- xans-product xans-product-addproduct productSet addprd_set">
-									<div id="add_product_slider_wrap" class="noSwiper swiper-container-initialized swiper-container-horizontal">
-										<div class="recommend">
-					                        <strong>추가구성상품</strong>
-					                    </div>
-					                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-											<div class="product swiper-slide xans-record- swiper-slide-active" style="width: 590px;">
-											    <div class="detail-option-section">
-											        <div class="thumb">
-											            <a href="#">
-											            	<img src="/resources/images/subitem1.jpg" alt="">
-										            	</a>
-											        </div>
-											        <div class="seperate add_prd">
-											            <table summary="">
-											                <caption>기본 정보</caption>
-											                <tbody>
-											                    <tr>
-											                        <th scope="row">상품명</th>
-											                        <td>포맨트 시그니처 퍼퓸 사쉐(2매입)</td>
-											                    </tr>
-											                    <tr class="">
-											                        <th scope="row">판매가</th>
-											                        <td class="price ">9,900원</td>
-											                    </tr>
-											                </tbody>
-											            </table>
-											        </div>
-											        <div class="option add_option">
-											            <table summary="">
-											                <caption>옵션 정보</caption>
-											                <tbody>
-											                    <tr class="xans-element- xans-product xans-product-option xans-record-"><th>향 선택</th>
-											                        <td>
-											                            <select>
-											                                <option value="*" selected="" link_image="">- [선택] 옵션을 선택해 주세요 -</option>
-											                                <option value="**" disabled="" link_image="">-------------------</option>
-											                                <optgroup label="향 선택">
-											                                    <option value="P00000EU000B" link_image="">Cotton Hug</option>
-											                                </optgroup>
-											                            </select>
-											                            <p class="value"></p>
-											                        </td>
-											                    </tr>
-											                </tbody>
-											            </table>
-											        </div>
-											    </div>
-											</div>
-											<div class="product swiper-slide xans-record- swiper-slide-next" style="width: 590px;">
-											    <div class="detail-option-section">
-											        <div class="thumb">
-											            <a href="#">
-											                <img src="/resources/images/subitem2.jpg" alt="">
-											            </a>
-											        </div>
-											        <div class="seperate add_prd">
-											            <table summary="">
-											                <caption>기본 정보</caption>
-											                <tbody>
-											                    <tr>
-											                        <th scope="row">상품명</th>
-											                        <td>포맨트 시그니처 퍼퓸 미니어처</td>
-											                    </tr>
-											                    <tr class="">
-											                        <th scope="row">판매가</th>
-											                        <td class="price ">15,000원</td>
-											                    </tr>
-											                </tbody>
-											            </table>
-											        </div>
-											        <div class="option add_option">
-											            <table summary="">
-											                <caption>옵션 정보</caption>
-											                <tbody>
-											                    <tr class="xans-element- xans-product xans-product-option xans-record-">
-											                        <th>옵션선택</th>
-											                        <td>
-											                            <select>
-											                                <option value="*" selected="" link_image="">- [선택] 옵션을 선택해 주세요 -</option>
-											                                <option value="**" disabled="" link_image="">-------------------</option>
-											                                <optgroup label="옵션선택">
-											                                    <option value="P00000KL000J" link_image="">코튼허그 미니어처</option>
-											                                    <option value="P00000KL000K" link_image="">코튼메모리 미니어처</option>
-											                                    <option value="P00000KL000L" link_image="">코튼 브리즈 미니어처</option>
-											                                    <option value="P00000KL000N" link_image="">코튼 디어 나잇 미니어처 [품절] </option>
-											                                    <option value="P00000KL000M" link_image="">코튼 딜라잇 부케 미니어처</option>
-											                                    <option value="P00000KL000O" link_image="">벨벳 허그 미니어처</option>
-											                                </optgroup>
-											                            </select>
-											                            <p class="value"></p>
-											                        </td>
-											                    </tr>
-											                </tbody>
-											            </table>
-											        </div>
-											    </div>
-											</div>
-										</div>
-									</div>
-								</div>
 								<table class="tbl_prd_info">
 								    <tbody>
 								        <tr>
@@ -911,14 +707,6 @@
 								            <th scope="row">배송 예정일</th>
 								            <td>평일 16시 이전 결제완료 시 당일출고</td>
 								        </tr>
-								        <tr class="summary_desc_wrap ">
-								            <th scope="row">상품 요약설명</th>
-								            <td id="summary_desc">*카드 디자인은 재고 상황에 따라 달라질 수 있습니다</td>
-								        </tr>
-								        <!-- <tr>
-								            <th scope="row">쇼핑팁</th>
-								            <td><a id="card_popup_open">무이자 할부 혜택 보기</a></td>
-								        </tr> -->
 								    </tbody>
 								</table>
 								<div id="welcomCoupon" class="dtc_banner">

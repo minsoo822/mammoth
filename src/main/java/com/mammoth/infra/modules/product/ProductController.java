@@ -47,10 +47,12 @@ public class ProductController {
 		Product one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
-		List<Product> prImglist = service.selectListPrImg();
+		System.out.println("dto.getPrSeq : " + dto.getUp_prSeq());
+		
+		List<Product> prImglist = service.selectListPrImg(dto);
 		model.addAttribute("prImglist", prImglist);
 		
-		List<Product> prdtImglist = service.selectListPrDtImg();
+		List<Product> prdtImglist = service.selectListPrDtImg(dto);
 		model.addAttribute("prdtImglist", prdtImglist);
 		
 		return "infra/product/user/productView";

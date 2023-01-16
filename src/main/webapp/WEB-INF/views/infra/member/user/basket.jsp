@@ -451,7 +451,8 @@ tfoot {
 </head>
 <body>
 	<form method="post" id="mainForm">
-	<input type="hidden" name="mmSeq" id="mmSeq">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -527,7 +528,7 @@ tfoot {
 					<thead>
 						<tr style="text-align: center;">
 							<th scope="col">
-								<input type="checkbox" onclick="">
+								<input type="checkbox" onclick="" id="checkboxAll" style="cursor: pointer;">
 							</th>
 		                    <th scope="col">이미지</th>
 		                    <th scope="col">상품정보</th>
@@ -543,7 +544,7 @@ tfoot {
 	                 <tbody class="xans-element- xans-order xans-order-list center">
 	                	<c:forEach items="${list }" var="bskList" varStatus="status">
 		                	<tr class="xans-record-">
-		                		<td><input type="checkbox" id="basket_chk_id_0" name="basket_product_normal_type_normal"></td>
+		                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;"></td>
 		                		<td class="thumb gClearLine">
 		                			<a href="#" id="param1" style="text-decoration: none;">
 		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="포맨트 시그니처 퍼퓸 코튼 브리즈">
@@ -558,12 +559,12 @@ tfoot {
 											<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
 											[옵션: 향수 단품/코튼브리즈 1개] 
 											<span class="displaynone">(1개)</span>
-											<br>
+											<!-- <br>
 											<span class="">
 												<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
 													<img src="/resources/images/btn_option.gif" alt="옵션변경">
 												</a>
-											</span>
+											</span> -->
 										</li>
 									</ul>
 		                		</td>
@@ -606,10 +607,10 @@ tfoot {
 			                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
 			                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
 		                        	</a>
-			                        <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
+			                        <!-- <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
 			                        	<img src="/resources/images/btn_wish.gif" alt="관심상품등록">
-			                        </a>
-			                        <a href="javascript:;" onclick="Basket.deleteBasketItem(0);" style="text-decoration: none; color: #000;">
+			                        </a> -->
+			                        <a href="javascript:;" onclick="oneDel(${bskList.prSeq})" style="text-decoration: none; color: #000;">
 			                        	<img src="/resources/images/btn_delete.gif" alt="삭제">
 			                        </a>
 			                    </td>
@@ -745,7 +746,47 @@ tfoot {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	$(document).ready(function() {
+		$("#checkboxAll").click(function() {
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
+	
+		$("input[name=checkboxSeq]").click(function() {
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+	
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
+	});
+	
+	var prSeq = $("#prSeq");
+	
+	oneDel = function(key) {
+		swal({
+			  title: "상품을 삭제하시겠습니까?",
+			  text: "장바구니에 담신 제품이 삭제될수있습니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("상품이 장바구니에서 삭제되었습니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+			    	prSeq.attr("value", key);
+					form.attr("action" , "/basket/oneDel").submit();
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
 		
+	};
+	
 	</script>	
 </body>
 </html>

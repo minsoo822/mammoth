@@ -8,4 +8,5 @@ public interface BasketService {
 	public int selectListCount(Basket dto) throws Exception;
 	public int basketInst(Basket dto) throws Exception;
 	public int basketCount(Basket dto) throws Exception;
+	public int oneDel(Basket dto) throws Exception;
 }

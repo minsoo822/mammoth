@@ -16,6 +16,7 @@ public class Product extends Base{
 	private Integer prDelNy;
 	private String prCreDate;
 	private String prModDate;
+	private Integer prTotalPrice;
 	
 	
 	public Integer getPrSeq() {
@@ -83,6 +84,12 @@ public class Product extends Base{
 	}
 	public void setPrFragrance(Integer prFragrance) {
 		this.prFragrance = prFragrance;
+	}
+	public Integer getPrTotalPrice() {
+		return prTotalPrice;
+	}
+	public void setPrTotalPrice(Integer prTotalPrice) {
+		this.prTotalPrice = prTotalPrice;
 	}
 	
 	

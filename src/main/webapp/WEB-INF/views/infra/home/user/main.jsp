@@ -129,13 +129,13 @@
 					</div>
 					<div class="row  mt-2">
 						<div class="col col-4" style="width: 50px; color: red;">
-						<c:out value="${prList.prDiscount}"/>%
+							<c:out value="${prList.prDiscount}"/>%
 						</div>
 						<div class="col col-4" style="width: 100px;">
-						<b><c:out value="${prList.prPrice}"/></b>
+							<b><fmt:formatNumber pattern="##,###원" value="${prList.prTotalPrice}"/></b>
 						</div>
 						<div class="col col-4" style="width: 100px;">
-						<s><fmt:formatNumber pattern="#,###원" value="${prList.prPrice}"/></s>
+							<s><fmt:formatNumber pattern="#,###원" value="${prList.prPrice}"/></s>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -390,7 +390,7 @@
 				}
 			},
 			error : function() {
-				alert("ajax error..!");	
+				alert("로그인후 이용해주세요.");	
 			}
 		})
 	});

@@ -132,10 +132,10 @@
 						<c:out value="${prList.prDiscount}"/>%
 						</div>
 						<div class="col col-4" style="width: 100px;">
-						<b><c:out value="${prList.prPrice}"/>원</b>
+						<b><c:out value="${prList.prPrice}"/></b>
 						</div>
 						<div class="col col-4" style="width: 100px;">
-						<s><c:out value="${prList.prPrice}"/>원</s>
+						<s><fmt:formatNumber pattern="#,###원" value="${prList.prPrice}"/></s>
 						</div>
 					</div>
 					<div class="row mt-1">

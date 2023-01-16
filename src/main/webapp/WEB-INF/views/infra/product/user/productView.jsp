@@ -635,8 +635,10 @@
 </head>
 <body>
 	<form method="post" id="mainForm" >
-		<!-- header  -->
 		<input type="hidden" name="prSeq" id="prSeq" value="">
+		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
+	
+		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
 		
 	    <div class="container">
@@ -774,10 +776,10 @@
 					<hr style="margin-bottom: 20px;">
 					<div class="reviewTitle" style="width: 70%; height: 50px;">
 						<h3 style="font-weight: 600; font-size: 13pt;">전체리뷰</h3>
-						<img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;">
+						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
 					<div class="reviewBtn" style="position: relative;left: 950px; bottom:40px;">
-					<button id="reviewModal">리뷰작성&nbsp;<i class="fa-solid fa-pencil"></i></button>
+					<button type="button" id="reviewModal">리뷰작성&nbsp;<i class="fa-solid fa-pencil"></i></button>
 					</div>
 					<div class="revireCategory" style="font-size: 10pt;	margin-bottom: 25px;">
 						<span style="padding:0 5px; border-right: 1px solid #353535;">추천순</span>
@@ -789,38 +791,32 @@
 					<div class=reviewDetail  style="margin-bottom: 20px;">
 						<div class="row">
 							<div class="col">
-								<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
-									<div class="col-2" >
-										<div style="font-size: 12pt;">
-											<!-- 벌점, 점수-->
-											<span>★★★★★</span> <strong>5.0</strong>
-										</div>
-									</div>
-									<div class="col-1">
-										<span style="font-size: 12pt;"><strong>김민수</strong></span>
-									</div>
-									<div class="col-1">
-										<span>2022-12-31</span>
-									</div>
-									<div class="col-1">
-										<span style="font-size: 12pt;"><strong>등급</strong></span>
-									</div>
-									<div class="col-1">
-										옵션선택 :
-									</div>
-									<div class="col">
-										[GIFT] 코튼메모리 핸드크림 + 퍼퓸  카드 선택 : LOVE YOU 
-									</div>
-									<div class="col-1">
-										 <div class="btnarea">
-											<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
-												<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
-											</button>
-										</div>
-									</div>
-								</div>
 								<div id="comment_area">
 									<!-- prepend -->
+									<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
+										<div class="col-2" >
+											<div style="font-size: 12pt;">
+												<!-- 벌점, 점수-->
+												<span>★★★★★</span> <strong>5.0</strong>
+											</div>
+										</div>
+										<div class="col-1">
+											<span style="font-size: 12pt;"><strong>김민수</strong></span>
+										</div>
+										<div class="col-2">
+											<span>2022-12-31</span>
+										</div>
+										<div class="col-1">
+											<span style="font-size: 12pt;"><strong>등급</strong></span>
+										</div>
+										<div class="col">
+											 <div class="btnarea text-end">
+												<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
+													<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
+												</button>
+											</div>
+										</div>
+									</div>
 									<div class="row mb-3" >
 										<div class="col-2" style="padding-right: 0px;">
 											<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
@@ -837,6 +833,7 @@
 									</div>
 									<!-- append -->
 								</div>
+								
 								<!-- 관리자 댓글내용 s -->
 								<div class="row mb-2" style="width: calc(70% + 55px); height:270px; border: 1px solid #DFDFDF;padding: 20px; margin-left: 5px; display: none;">
 									<strong>포맨트</strong>
@@ -897,17 +894,34 @@
 		</div> -->
 		<div class="messageWrap no-drag" id="modalDiv">
 			<div class="messageBack"></div>
-			<div class="messageBox" style="position: absolute; top: 294px;">
+			<div class="messageBox" style="position: absolute; top: 120px;"> 
 				<div class="messageInner">
-					<div class="messageTitle">리뷰작성</div>
+					<div class="messageTitle"><b>리뷰작성</b></div>
 					<div class="messageTextWrap">
-						<input type="file" style="margin-bottom: 5px;"><br>
-						<textarea rows="" cols="40"></textarea>
-						<input type="text" style="width: 250px; height: 30px;" placeholder="리뷰 내용을 입력해주세요" >
+						<div class="row mt-3 mb-3">
+							<div class="col">
+								<span>별점</span>
+								<select id="rvStar" name="rvStar">
+									<option value="0">선택</option>
+									<option value="1">1점</option>
+									<option value="2">2점</option>
+									<option value="3">3점</option>
+									<option value="4">4점</option>
+									<option value="5">5점</option>
+								</select>
+								<!-- <a class="rvStar"><i class="fa-solid fa-star"></i></a>
+								<a class="rvStar"><i class="fa-solid fa-star"></i></a>
+								<a class="rvStar"><i class="fa-solid fa-star"></i></a>
+								<a class="rvStar"><i class="fa-regular fa-star"></i></a>
+								<a class="rvStar"><i class="fa-regular fa-star"></i></a> -->
+							</div>
+						</div>
+						<textarea rows="10" cols="40" id="rvContents" placeholder="리뷰 내용을 입력해주세요"></textarea>
+						<input type="file" multiple="multiple" style="border: 1px solid #ced4da"><br>
 					</div>
 					<div class="messageButtons">
-						<button id="" class="messageButton messageSuccess">확인</button>
-						<button id="closeModal" class="messageButton messageSuccess">취소</button>
+						<button type="button" id="comment_input" class="messageButton messageSuccess">확인</button>
+						<button type="button" id="closeModal" class="messageButton messageSuccess">취소</button>
 					</div>
 				</div>
 			</div>
@@ -937,6 +951,68 @@
 	buttonCloseModal.addEventListener("click", e => {
 		modal.style.display = "none";
 		document.body.style.overflowY = "visible";
+	});
+	
+	// 리뷰작성 코드
+	$("#comment_input").on("click", function() {
+
+		$.ajax({
+			url: '/review/reviewInst',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				rv_mmSeq : $("#rv_mmSeq").val(),
+				rvContents :$("#rvContents").val(),
+				rv_prSeq :$("#prSeq").val()
+			},
+			success:function(result){
+				
+				//댓글을 입력하면 입력창에 글자 지우기
+				$("#contents").val("");
+				
+				var txt ="";
+				
+				txt += '<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">';
+				txt += '<div class="col-2" >';
+				txt += '<div style="font-size: 12pt;">';
+				txt += '<span>★★★★★</span> <strong>5.0</strong>';
+				txt += '</div>';
+				txt += '</div>';
+				txt += '<div class="col-1">';
+				txt += '<span style="font-size: 12pt;"><strong>' + result.writer + '</strong></span>';
+				txt += '</div>';
+				txt += '<div class="col-2">';
+				txt += '<span>' + result.creDate + '</span>';
+				txt += '</div>';
+				txt += '<div class="col-1">';
+				txt += '<span style="font-size: 12pt;"><strong>' + result.grade + '</strong></span>';
+				txt += '</div>';
+				txt += '<div class="col">';
+				txt += '<div class="btnarea text-end">';
+				txt += '<button class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> ';
+				txt += '<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> ';
+				txt += '</button>';
+				txt += '</div>';
+				txt += '</div>';
+				txt += '</div>';
+				txt += '<div class="row mb-3" >';
+				txt += '<div class="col-2" style="padding-right: 0px;">';
+				txt += '<img alt="'+ result.img +'" src="" class="reviewImg">';
+				txt += '</div>';
+				txt += '<div class="col" style="padding-right: 0px;">';
+				txt += '<p style="margin-top: 0px;">' + result.contents + '</p>';
+				txt += '</div>';
+				txt += '</div>';
+				
+				$("#comment_area").prepend(txt);
+				
+			},
+			error:function(){
+				alert("ajax.. error..");
+			}
+			
+		});
+		
 	});
 	
 	</script>	

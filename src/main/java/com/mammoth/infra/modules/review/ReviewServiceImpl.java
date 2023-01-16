@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mammoth.infra.common.util.UtilUpload;
+
 @Service
 public class ReviewServiceImpl implements ReviewService{
 	
@@ -21,14 +23,12 @@ public class ReviewServiceImpl implements ReviewService{
 	public void insert(Review dto) throws Exception {
 
 		dao.insert(dto);
-	}
-
-	@Override
-	public void insertUpload(Review dto) throws Exception {
-
+		
+		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+		
+		UtilUpload.uploadReviewImg(dto.getRvImg(), pathModule, dto);
+		
 		dao.insertUpload(dto);
 	}
-	
-	
 
 }

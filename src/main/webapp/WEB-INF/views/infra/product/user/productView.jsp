@@ -963,9 +963,19 @@
 			data: {
 				rv_mmSeq : $("#rv_mmSeq").val(),
 				rvContents :$("#rvContents").val(),
-				rv_prSeq :$("#prSeq").val()
+				rv_prSeq :$("#prSeq").val(),
+				rvStar : $("#rvStar").val()
 			},
 			success:function(result){
+				
+				if(result.rt == "success") {
+					swal("리뷰가 등록되었습니다.", {
+					      icon: "success",
+					    })
+					    .then(function() {
+					    	window.location = "/product/productView";
+					    });
+				}
 				
 				//댓글을 입력하면 입력창에 글자 지우기
 				$("#contents").val("");
@@ -1004,7 +1014,7 @@
 				txt += '</div>';
 				txt += '</div>';
 				
-				$("#comment_area").prepend(txt);
+				$("#review_area").prepend(txt);
 				
 			},
 			error:function(){

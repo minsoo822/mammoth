@@ -8,7 +8,4 @@ public interface ReviewService {
 	
 	public void insert(Review dto) throws Exception;
 	
-	public void insertUpload(Review dto) throws Exception;
-	
-
 }

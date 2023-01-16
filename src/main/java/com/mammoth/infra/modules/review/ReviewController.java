@@ -18,6 +18,13 @@ public class ReviewController {
 		return "";
 	}
 	
+	@RequestMapping(value="reviewInst")
+	public void reviewInst(Model model, Review dto) throws Exception {
+		
+		service.insert(dto);
+		
+	}
+	
 	
 
 }

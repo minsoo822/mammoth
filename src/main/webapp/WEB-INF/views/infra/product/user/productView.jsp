@@ -818,21 +818,24 @@
 											</button>
 										</div>
 									</div>
-								
 								</div>
-								<div class="row mb-3" >
-									<div class="col-2" style="padding-right: 0px;">
-										<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
+								<div id="comment_area">
+									<!-- prepend -->
+									<div class="row mb-3" >
+										<div class="col-2" style="padding-right: 0px;">
+											<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
+										</div>
+										<div class="col" style="padding-right: 0px;">
+											<p style="margin-top: 0px;">
+												인스타광고보고 얼마나 향이좋길래~~반신반의하며 구매해봤어요~~!! 택배박스열자마자 향기가 뿅!!!♡
+												같이들어있던 퍼퓸 사쉐_코튼허그 이거때문에 향이솔솔~~
+												차안에 두었는데 향기너무좋아요!!!!!
+												코튼메모리 핸드크림도 발림성도좋고 향은 말해뭐해~!!
+												앞으로 포맨트만 쓸꺼같아요!!!!♡♡♡♡♡
+											</p>
+										</div>
 									</div>
-									<div class="col" style="padding-right: 0px;">
-										<p style="margin-top: 0px;">
-											인스타광고보고 얼마나 향이좋길래~~반신반의하며 구매해봤어요~~!! 택배박스열자마자 향기가 뿅!!!♡
-											같이들어있던 퍼퓸 사쉐_코튼허그 이거때문에 향이솔솔~~
-											차안에 두었는데 향기너무좋아요!!!!!
-											코튼메모리 핸드크림도 발림성도좋고 향은 말해뭐해~!!
-											앞으로 포맨트만 쓸꺼같아요!!!!♡♡♡♡♡
-										</p>
-									</div>
+									<!-- append -->
 								</div>
 								<!-- 관리자 댓글내용 s -->
 								<div class="row mb-2" style="width: calc(70% + 55px); height:270px; border: 1px solid #DFDFDF;padding: 20px; margin-left: 5px; display: none;">

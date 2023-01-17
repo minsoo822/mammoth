@@ -548,26 +548,26 @@ tfoot {
 		                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>"></td>
 		                		<td class="thumb gClearLine">
 		                			<a href="#" id="param1" style="text-decoration: none;">
-		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="포맨트 시그니처 퍼퓸 코튼 브리즈">
+		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="">
 	                				</a>
 	               				</td>
 		                		<td class="left gClearLine">
 									<a href="#" style="text-decoration: none; color: #000;">
 										<strong><c:out value="${bskList.prName }"></c:out></strong>
 									</a>
-									<ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
+									<!-- <ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
 										<li class="xans-record-">
 											<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
 											[옵션: 향수 단품/코튼브리즈 1개] 
 											<span class="displaynone">(1개)</span>
-											<!-- <br>
+											<br>
 											<span class="">
 												<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
 													<img src="/resources/images/btn_option.gif" alt="옵션변경">
 												</a>
-											</span> -->
+											</span>
 										</li>
-									</ul>
+									</ul> -->
 		                		</td>
 		                		<td class="right">
 		                	        <div class="">

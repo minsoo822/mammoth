@@ -190,11 +190,11 @@
 			</div>
 		</div>
 	</div>
-	
 	<!-- modal section -->
 		<!-- 장바구니 modal s -->
 		<div id="popup">
-			<input type="hidden" id="modalprSeq" name="prSeq" value="${dto.prSeq }">
+			<input type="hidden" id="modalprSeq" name="prSeq" value="">
+			<input type="hidden" id="modalbskSell_Price" name="bskSell_Price" value="">
 			<div class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer " style="border: 1px solid #000;">
 				<div class="header">
 					<h1 style="margin: 0px; font-weight: 600;">옵션 선택</h1>
@@ -257,11 +257,12 @@
 											<!-- - <span>향수 단품/코튼허그 1개</span></p> -->
 										</td>
 										<td>
-											<span class="quantity" style="width:65px;"><input type="text" id="option_box1_quantity" name="quantity_opt[]" class="quantity_opt eProductQuantityClass" value="1">
-												<a href="#none" class="up eProductQuantityUpClass" "="" data-target="option_box1_up">
+											<span class="quantity" style="width:65px;">
+												<input type="text" id="amount" class="quantity_opt eProductQuantityClass" value="1">
+												<a href="#none" class="up eProductQuantityUpClass" id="add" data-target="option_box1_up">
 													<img src="/resources/images/btn_quantity_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">
 												</a>
-												<a href="#none" class="down eProductQuantityDownClass" data-target="option_box1_down">
+												<a href="#none" class="down eProductQuantityDownClass" id="minus" data-target="option_box1_down">
 													<img src="/resources/images/btn_quantity_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
 												</a>
 											</span>
@@ -272,7 +273,9 @@
 										<td class="right">
 											<span id="option_box1_price">
 												<input type="hidden" class="option_box_price" value="">
-												<span class="ec-front-product-item-price" >39,000원</span>
+												<span class="ec-front-product-item-price" >
+													<input id="basketTotalPrice" style="width: 80px; text-align: right; color: #008bcc; font-weight: 600; padding-bottom: 4px; border: none;" value=""/>원
+												</span>
 											</span>
 										</td>
 									</tr>
@@ -280,7 +283,7 @@
 								<tfoot>
 									<tr>
 										<td colspan="3">
-											<strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>39,000원</em></strong> (1개)</span>
+											<strong>총 상품금액</strong>(수량) : <span class="total"><strong><em><em id="finalPrice"></em>원</em></strong> (1개)</span>
 										</td>
 			                        </tr>
 		                        </tfoot>
@@ -299,11 +302,11 @@
 			</div>
 		</div>
 		<!-- 장바구니 modal e -->
-        
+</form>
         
         
 	
-	</form>
+	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	
@@ -353,16 +356,60 @@
 				prSeq : prSeq
 			},
 			success : function(resultMap) {
+				
+				//갯수 , 가격 비워주고 담아주기
+				
+				//$("#amount")
+				//$("#basketTotalPrice")
+				//$("#finalPrice")
+				
 				//장바구니 모달 불러오는 정보들
 				$("#modalprSeq").attr("value", resultMap.basketSeq);
+				$("#modalbskSell_Price").attr("value", resultMap.basketTotalPrice);
 				$("#basketName1").html(resultMap.basketName);
 				$("#basketName2").html(resultMap.basketName);
 				$("#basketImg").attr("src", resultMap.basketImg);
+				$("#basketTotalPrice").attr("value",resultMap.basketTotalPrice);
+				//$("#finalPrice").html(resultMap.basketTotalPrice);
 				
 				modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
 		    	modal.style.display = "flex";
 		        
-				document.body.style.overflowY = "hidden"; // 스크롤 없애기
+				document.body.style.overflowY = "hidden"; // 스크롤 없애기.
+				
+				
+				var basketTotalPrice = $("#basketTotalPrice").val();
+				
+				$("#add").on("click" , function(e){
+					var num = +$("#amount").val() + 1;
+					var basketTotalPriceAdd = basketTotalPrice * num;
+					
+					
+					$("#amount").val(num);
+					$("#basketTotalPrice").val(basketTotalPriceAdd.toLocaleString());
+					$("#finalPrice").html(basketTotalPriceAdd.toLocaleString());
+					//alert("수량을 추가합니다.");
+					
+				});
+				
+				$("#minus").on("click" , function(e){
+					var num = +$("#amount").val() - 1;
+					
+					if(num < 1) {
+						alert("수량을 1개 이하로 변경이 불가능합니다.")
+						$("#amount").val(1);
+					} else {
+						var basketTotalPriceminus = basketTotalPrice * num;
+						
+						$("#amount").val(num);
+						$("#basketTotalPrice").val(basketTotalPriceminus.toLocaleString());
+						$("#finalPrice").html(basketTotalPriceminus.toLocaleString());
+					}
+					
+					//alert("수량을 감소합니다.");
+				});
+				
+				
 			},
 			error : function() {
 				alert("ajax error..!");
@@ -394,6 +441,25 @@
 			}
 		})
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</script>	
 </body>
 </html>

@@ -24,11 +24,23 @@ public class ReviewServiceImpl implements ReviewService{
 
 		dao.insert(dto);
 		
-		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-		
-		UtilUpload.uploadReviewImg(dto.getRvImg(), pathModule, dto);
-		
-		dao.insertUpload(dto);
+		/*
+		 * String pathModule =
+		 * this.getClass().getSimpleName().toString().toLowerCase().replace(
+		 * "serviceimpl", "");
+		 * 
+		 * UtilUpload.uploadReviewImg(dto.getRvImg(), pathModule, dto);
+		 * 
+		 * dao.insertUpload(dto);
+		 */
 	}
+
+	@Override
+	public Review selectOne(Review dto) throws Exception {
+		
+		return dao.selectOne(dto);
+	}
+	
+	
 
 }

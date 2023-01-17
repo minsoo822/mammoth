@@ -15,6 +15,11 @@ public class Review extends Base{
 	
 	private MultipartFile rvImg;
 	
+	/* 리뷰 정보 */
+	private String mmName;
+	private Integer mmGrade;
+	private String prName;
+	
 	
 	public Integer getRvSeq() {
 		return rvSeq;
@@ -57,6 +62,24 @@ public class Review extends Base{
 	}
 	public void setRvImg(MultipartFile rvImg) {
 		this.rvImg = rvImg;
+	}
+	public String getMmName() {
+		return mmName;
+	}
+	public void setMmName(String mmName) {
+		this.mmName = mmName;
+	}
+	public Integer getMmGrade() {
+		return mmGrade;
+	}
+	public void setMmGrade(Integer mmGrade) {
+		this.mmGrade = mmGrade;
+	}
+	public String getPrName() {
+		return prName;
+	}
+	public void setPrName(String prName) {
+		this.prName = prName;
 	}
 	
 	

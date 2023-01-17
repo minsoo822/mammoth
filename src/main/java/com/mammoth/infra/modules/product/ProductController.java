@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mammoth.infra.modules.review.Review;
+import com.mammoth.infra.modules.review.ReviewServiceImpl;
+
 @Controller
 @RequestMapping(value="/product/")
 public class ProductController {
 	
 	@Autowired
 	ProductServiceImpl service;
+	
+	ReviewServiceImpl rvService;
 	
 	@RequestMapping(value="productList")
 	public String productList(Model model) throws Exception {
@@ -42,8 +47,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productView")
-	public String productView(Model model, Product dto) throws Exception {
+	public String productView(Model model, Product dto, Review rvDto) throws Exception {
 		
+		System.out.println("---------prSeq : " + dto.getPrSeq());
 		Product one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
@@ -58,6 +64,9 @@ public class ProductController {
 		
 		List<Product> prdtImglist = service.selectListPrDtImg(dto);
 		model.addAttribute("prdtImglist", prdtImglist);
+		
+		List<Review> rvList = rvService.selectList(rvDto);
+		model.addAttribute("rvList", rvList);
 		
 		return "infra/product/user/productView";
 	}

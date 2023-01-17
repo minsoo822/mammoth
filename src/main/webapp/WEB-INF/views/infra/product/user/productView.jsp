@@ -634,9 +634,10 @@
 	</style>
 </head>
 <body>
-	<form method="post" id="mainForm" >
-		<input type="hidden" name="prSeq" id="prSeq" value="">
-		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
+	<form id="mainForm">
+		
+		<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
 	
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
@@ -778,9 +779,15 @@
 						<h3 style="font-weight: 600; font-size: 13pt;">전체리뷰</h3>
 						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
-					<div class="reviewBtn" style="position: relative;left: 950px; bottom:40px;">
-					<button type="button" id="reviewModal">리뷰작성&nbsp;<i class="fa-solid fa-pencil"></i></button>
-					</div>
+					<c:choose>
+						<c:when test="${sessSeq eq null}">
+						</c:when>
+						<c:otherwise>
+							<div class="reviewBtn" style="position: relative;left: 950px; bottom:40px;">
+								<button type="button" id="reviewModal">리뷰작성&nbsp;<i class="fa-solid fa-pencil"></i></button>
+							</div>
+						</c:otherwise>
+					</c:choose>
 					<div class="revireCategory" style="font-size: 10pt;	margin-bottom: 25px;">
 						<span style="padding:0 5px; border-right: 1px solid #353535;">추천순</span>
 						<span style="padding:0 5px; border-right: 1px solid #353535;">최신순</span>
@@ -793,44 +800,42 @@
 							<div class="col">
 								<div id="comment_area">
 									<!-- prepend -->
-									<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
-										<div class="col-2" >
-											<div style="font-size: 12pt;">
-												<!-- 벌점, 점수-->
-												<span>★★★★★</span> <strong>5.0</strong>
+									<c:forEach items="${rvList}" var="rvList">
+										<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
+											<div class="col-2" >
+												<div style="font-size: 12pt;">
+													<!-- 벌점, 점수-->
+													<span>★★★★★</span> <strong><c:out value="${rvList.vrStar}"/></strong>
+												</div>
+											</div>
+											<div class="col-1">
+												<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmName}"/></strong></span>
+											</div>
+											<div class="col-2">
+												<span><c:out value="${rvList.vrCreDate }"/></span>
+											</div>
+											<div class="col-1">
+												<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmGrade}"/></strong></span>
+											</div>
+											<div class="col">
+												 <div class="btnarea text-end">
+													<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
+														<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
+													</button>
+												</div>
 											</div>
 										</div>
-										<div class="col-1">
-											<span style="font-size: 12pt;"><strong>김민수</strong></span>
-										</div>
-										<div class="col-2">
-											<span>2022-12-31</span>
-										</div>
-										<div class="col-1">
-											<span style="font-size: 12pt;"><strong>등급</strong></span>
-										</div>
-										<div class="col">
-											 <div class="btnarea text-end">
-												<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
-													<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
-												</button>
+										<div class="row mb-3" >
+											<div class="col-2" style="padding-right: 0px;">
+												<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
+											</div>
+											<div class="col" style="padding-right: 0px;">
+												<p style="margin-top: 0px;">
+													<c:out value="${rvList.rvContents}"/>
+												</p>
 											</div>
 										</div>
-									</div>
-									<div class="row mb-3" >
-										<div class="col-2" style="padding-right: 0px;">
-											<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
-										</div>
-										<div class="col" style="padding-right: 0px;">
-											<p style="margin-top: 0px;">
-												인스타광고보고 얼마나 향이좋길래~~반신반의하며 구매해봤어요~~!! 택배박스열자마자 향기가 뿅!!!♡
-												같이들어있던 퍼퓸 사쉐_코튼허그 이거때문에 향이솔솔~~
-												차안에 두었는데 향기너무좋아요!!!!!
-												코튼메모리 핸드크림도 발림성도좋고 향은 말해뭐해~!!
-												앞으로 포맨트만 쓸꺼같아요!!!!♡♡♡♡♡
-											</p>
-										</div>
-									</div>
+									</c:forEach>
 									<!-- append -->
 								</div>
 								
@@ -917,10 +922,10 @@
 							</div>
 						</div>
 						<textarea rows="10" cols="40" id="rvContents" placeholder="리뷰 내용을 입력해주세요"></textarea>
-						<input type="file" multiple="multiple" style="border: 1px solid #ced4da"><br>
+						<input type="file" id="rvImg" multiple="multiple" style="border: 1px solid #ced4da"><br>
 					</div>
 					<div class="messageButtons">
-						<button type="button" id="comment_input" class="messageButton messageSuccess">확인</button>
+						<button type="button" id="reviewInst" class="messageButton messageSuccess">등록</button>
 						<button type="button" id="closeModal" class="messageButton messageSuccess">취소</button>
 					</div>
 				</div>
@@ -954,28 +959,19 @@
 	});
 	
 	// 리뷰작성 코드
-	$("#comment_input").on("click", function() {
-
+	$("#reviewInst").on("click", function() {
+		
 		$.ajax({
 			url: '/review/reviewInst',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				rv_mmSeq : $("#rv_mmSeq").val(),
+				rv_mmSeq : $("#mmSeq").val(),
 				rvContents :$("#rvContents").val(),
 				rv_prSeq :$("#prSeq").val(),
-				rvStar : $("#rvStar").val()
+				rvStar : $("#rvStar").val(),
 			},
 			success:function(result){
-				
-				if(result.rt == "success") {
-					swal("리뷰가 등록되었습니다.", {
-					      icon: "success",
-					    })
-					    .then(function() {
-					    	window.location = "/product/productView";
-					    });
-				}
 				
 				//댓글을 입력하면 입력창에 글자 지우기
 				$("#contents").val("");
@@ -1022,6 +1018,18 @@
 			}
 			
 		});
+		
+		/* $.ajax({
+			url: '',
+			type: 'POST',
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			data: formData,
+			success: function(data) {
+				console.log("success");
+			}
+		}); */
 		
 	});
 	

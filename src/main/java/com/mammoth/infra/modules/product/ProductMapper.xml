@@ -82,7 +82,8 @@
     
     <select id="selectOne" resultMap="resultMapObj">
     	SELECT
-    		pr.prName
+    		pr.prSeq
+    		,pr.prName
     		,pr.prDiscount
     		,pr.prPrice
     		,pr.prInfo

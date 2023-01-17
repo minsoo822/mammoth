@@ -25,17 +25,25 @@ public class ReviewController {
 	
 	@ResponseBody
 	@RequestMapping(value="reviewInst")
-	public Map<String, Object> thumbUp(Review dto) throws Exception {
+	public Map<String, Object> reviewInst(Review dto) throws Exception {
 		
 		Map<String, Object> result = new HashMap<String, Object>();
 		
+		System.out.println("rv_prSeq : " + dto.getRv_prSeq());
+		System.out.println("rv_mmSeq : " + dto.getRv_mmSeq());
+		
 		service.insert(dto);
+		
+		Review review = service.selectOne(dto);
 		
 		List<Review> list = service.selectList(dto);
 		
 		if(list != null) {
 			result.put("rt", "success");
-			result.put("list", list);
+			result.put("writer", review.getMmName());
+			result.put("creDate", review.getRvCreDate());
+			result.put("grade", review.getMmGrade());
+			result.put("contents", review.getRvContents());
 			
 		} else {
 			result.put("rt", "fail");

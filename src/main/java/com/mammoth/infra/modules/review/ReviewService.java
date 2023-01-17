@@ -8,4 +8,6 @@ public interface ReviewService {
 	
 	public void insert(Review dto) throws Exception;
 	
+	public Review selectOne(Review dto) throws Exception;
+	
 }

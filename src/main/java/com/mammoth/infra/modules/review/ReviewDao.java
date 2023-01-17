@@ -21,5 +21,7 @@ public class ReviewDao {
 	public void insert(Review dto) throws Exception {sqlSession.insert(namespace + ".insert", dto);}
 	
 	public void insertUpload(Review dto) throws Exception {sqlSession.insert(namespace + ".insertUpload", dto);}
+	
+	public Review selectOne(Review dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", dto);}
 
 }

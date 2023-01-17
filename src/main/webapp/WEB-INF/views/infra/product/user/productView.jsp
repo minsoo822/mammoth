@@ -632,6 +632,16 @@
 		}
 		/* 모달 e */
 	</style>
+	<style type="text/css">
+		.noReviewAdd {
+			border: 1px solid #ced4da;
+			
+		}
+		.noReviewAdd:hover {
+			background: black;
+			color: white;
+		}
+	</style>
 </head>
 <body>
 	<form id="mainForm">
@@ -806,7 +816,7 @@
 							</div>
 							<div class="row">
 								<div class="col">
-									<button type="button" style="border: 1px solid #ced4da;">첫 리뷰 남기기</button>
+									<button type="button" class="noReviewAdd" style="border: 1px solid #ced4da;">첫 리뷰 남기기</button>
 								</div>
 							</div>
 						</c:when>

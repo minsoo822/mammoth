@@ -795,80 +795,98 @@
 					</div>
 					<hr>
 					<!-- 댓글 s -->
-					<div class=reviewDetail  style="margin-bottom: 20px;">
-						<div class="row">
-							<div class="col">
-								<div id="comment_area">
-									<!-- prepend -->
-									<c:forEach items="${rvList}" var="rvList">
-										<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
-											<div class="col-2" >
-												<div style="font-size: 12pt;">
-													<!-- 벌점, 점수-->
-													<span>★★★★★</span> <strong><c:out value="${rvList.vrStar}"/></strong>
+					
+					<c:choose>
+						<c:when test="${fn:length(rvList) eq 0}">
+							<div class="row text-center">
+								<div class="col text-center">
+									<p>첫 번째 리뷰를 작성해주세요.</p><br>
+									<p>리뷰를 작성시 최대 1,000원 적립금을 드려요.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<button type="button" style="border: 1px solid #ced4da;">첫 리뷰 남기기</button>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class=reviewDetail  style="margin-bottom: 20px;">
+								<div class="row">
+									<div class="col">
+										<div id="comment_area">
+											<!-- prepend -->
+											<c:forEach items="${rvList}" var="rvList">
+												<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">
+													<div class="col-2" >
+														<div style="font-size: 12pt;">
+															<!-- 벌점, 점수-->
+															<span>★★★★★</span> <strong><c:out value="${rvList.vrStar}"/></strong>
+														</div>
+													</div>
+													<div class="col-1">
+														<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmName}"/></strong></span>
+													</div>
+													<div class="col-2">
+														<span><c:out value="${rvList.vrCreDate }"/></span>
+													</div>
+													<div class="col-1">
+														<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmGrade}"/></strong></span>
+													</div>
+													<div class="col">
+														 <div class="btnarea text-end">
+															<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
+																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
+															</button>
+														</div>
+													</div>
 												</div>
-											</div>
-											<div class="col-1">
-												<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmName}"/></strong></span>
-											</div>
-											<div class="col-2">
-												<span><c:out value="${rvList.vrCreDate }"/></span>
-											</div>
-											<div class="col-1">
-												<span style="font-size: 12pt;"><strong><c:out value="${rvList.mmGrade}"/></strong></span>
-											</div>
-											<div class="col">
-												 <div class="btnarea text-end">
-													<button  class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> 
-														<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> 
-													</button>
+												<div class="row mb-3" >
+													<div class="col-2" style="padding-right: 0px;">
+														<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
+													</div>
+													<div class="col" style="padding-right: 0px;">
+														<p style="margin-top: 0px;">
+															<c:out value="${rvList.rvContents}"/>
+														</p>
+													</div>
 												</div>
-											</div>
+											</c:forEach>
+											<!-- append -->
 										</div>
-										<div class="row mb-3" >
-											<div class="col-2" style="padding-right: 0px;">
-												<img alt="" src="/resources/images/main/mainProduct1.jpg" class="reviewImg">
-											</div>
-											<div class="col" style="padding-right: 0px;">
-												<p style="margin-top: 0px;">
-													<c:out value="${rvList.rvContents}"/>
+										
+										<!-- 관리자 댓글내용 s -->
+										<div class="row mb-2" style="width: calc(70% + 55px); height:270px; border: 1px solid #DFDFDF;padding: 20px; margin-left: 5px; display: none;">
+											<strong>포맨트</strong>
+											<div class="col m-2" style="width: calc(70% + 55px); height:180px; border: 1px solid #DFDFDF; padding: 5px 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background: #DFDFDF; color: #575757;">
+												<p style="margin: 0px; font-size: 9pt; " >
+													안녕하세요, 당신이 가장 빛나는 순간 포맨트 입니다.<br><br>
+			
+													고객님! 소중한 후기 진심으로 감사드립니다.<br>
+													앞으로도 사용하시기 좋은 상품과 서비스를 제공해드릴 수 있도록 노력하는 포맨트가 되겠습니다.<br><br>
+													
+													제품 이용하시면서 궁금한 점이 있으시면 언제든지 Q&A 게시판에 글로 남겨주시거나<br>
+													고객센터 운영시간에 전화연락 주시면 친절히 상담 도와드리겠습니다.<br><br>
+													
+													감사합니다 : )
 												</p>
 											</div>
 										</div>
-									</c:forEach>
-									<!-- append -->
-								</div>
-								
-								<!-- 관리자 댓글내용 s -->
-								<div class="row mb-2" style="width: calc(70% + 55px); height:270px; border: 1px solid #DFDFDF;padding: 20px; margin-left: 5px; display: none;">
-									<strong>포맨트</strong>
-									<div class="col m-2" style="width: calc(70% + 55px); height:180px; border: 1px solid #DFDFDF; padding: 5px 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background: #DFDFDF; color: #575757;">
-										<p style="margin: 0px; font-size: 9pt; " >
-											안녕하세요, 당신이 가장 빛나는 순간 포맨트 입니다.<br><br>
-	
-											고객님! 소중한 후기 진심으로 감사드립니다.<br>
-											앞으로도 사용하시기 좋은 상품과 서비스를 제공해드릴 수 있도록 노력하는 포맨트가 되겠습니다.<br><br>
-											
-											제품 이용하시면서 궁금한 점이 있으시면 언제든지 Q&A 게시판에 글로 남겨주시거나<br>
-											고객센터 운영시간에 전화연락 주시면 친절히 상담 도와드리겠습니다.<br><br>
-											
-											감사합니다 : )
-										</p>
-									</div>
-								</div>
-								<!-- 관리자 댓글내용 e -->
-								<div class="row pb-2" style="border-bottom: 1px solid #DFDFDF;">
-									<div class="col">
-										<div class="cmShow" style="display: flex;justify-content: flex-end; cursor: pointer;">
-											<span style="font-size: 12pt; font-weight: 600;">
-												<i  class="fa-regular fa-comment-dots"></i>&nbsp;<span style="color: #ff1c1c;">1개</span>의 댓글이 있습니다
-											</span>
+										<!-- 관리자 댓글내용 e -->
+										<div class="row pb-2" style="border-bottom: 1px solid #DFDFDF;">
+											<div class="col">
+												<div class="cmShow" style="display: flex;justify-content: flex-end; cursor: pointer;">
+													<span style="font-size: 12pt; font-weight: 600;">
+														<i  class="fa-regular fa-comment-dots"></i>&nbsp;<span style="color: #ff1c1c;">1개</span>의 댓글이 있습니다
+													</span>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
+						</c:otherwise>
+					</c:choose>
 					<!-- 댓글 e -->
 					<br>
 					<br>

@@ -21,6 +21,7 @@ public class ProductController {
 	@Autowired
 	ProductServiceImpl service;
 	
+	@Autowired
 	ReviewServiceImpl rvService;
 	
 	@RequestMapping(value="productList")
@@ -65,6 +66,11 @@ public class ProductController {
 		List<Product> prdtImglist = service.selectListPrDtImg(dto);
 		model.addAttribute("prdtImglist", prdtImglist);
 		
+		
+		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
+		rvDto.setRv_prSeq(dto.getPrSeq());
+		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
+		
 		List<Review> rvList = rvService.selectList(rvDto);
 		model.addAttribute("rvList", rvList);
 		
@@ -82,7 +88,7 @@ public class ProductController {
 		resultMap.put("basketSeq", basketItem.getPrSeq());
 		resultMap.put("basketName", basketItem.getPrName());
 		resultMap.put("basketImg", basketItem.getUpPath() + basketItem.getUpUuidName());
-		
+		resultMap.put("basketTotalPrice", basketItem.getPrTotalPrice());
 		
 		return resultMap;
 	}

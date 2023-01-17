@@ -15,7 +15,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public List<Review> selectList(Review dto) throws Exception {
-
+		System.out.println("serviceImpl-----rv_prSeq : " + dto.getRv_prSeq());
 		return dao.selectList(dto);
 	}
 

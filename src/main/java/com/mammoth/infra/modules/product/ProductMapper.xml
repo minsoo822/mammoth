@@ -130,6 +130,7 @@
 	    SELECT
 			pr.prSeq
 		    ,pr.prName
+		    ,pr.prTotalPrice
 		    ,prup.upPath
 		    ,prup.upUuidName
 		FROM product pr

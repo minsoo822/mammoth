@@ -22,7 +22,7 @@
     	JOIN product pr ON pr.prSeq = rv.rv_prSeq
     	JOIN member mm ON mm.mmSeq = rv.rv_mmSeq
     	WHERE 1=1
-    		AND rv_prSeq = #{prSeq} 
+    		AND rv_prSeq = #{rv_prSeq} 
     </select>
     
     <insert id="insert">

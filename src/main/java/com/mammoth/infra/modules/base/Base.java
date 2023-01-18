@@ -15,8 +15,13 @@ public class Base {
 	private Integer upSort;
 	private Integer upDelNy;
 	private Integer upType;
+	
+	// 상품 업로드
 	private MultipartFile[] prImg; //상품 이미지
 	private MultipartFile[] prDetailImg; //상세 이미지
+	
+	// 리뷰 업로드
+	private MultipartFile rvImg; // 리뷰 이미지 1장만 넣을거
 	
 	private Integer up_prSeq;
 	private Integer up_mmSeq;
@@ -137,6 +142,15 @@ public class Base {
 	public void setPrDetailImg(MultipartFile[] prDetailImg) {
 		this.prDetailImg = prDetailImg;
 	}
+
+	public MultipartFile getRvImg() {
+		return rvImg;
+	}
+
+	public void setRvImg(MultipartFile rvImg) {
+		this.rvImg = rvImg;
+	}
+
 
 	
 	

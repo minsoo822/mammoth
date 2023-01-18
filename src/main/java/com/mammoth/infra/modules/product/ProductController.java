@@ -50,7 +50,7 @@ public class ProductController {
 	@RequestMapping(value="productView")
 	public String productView(Model model, Product dto, Review rvDto) throws Exception {
 		
-		System.out.println("---------prSeq : " + dto.getPrSeq());
+//		System.out.println("---------prSeq : " + dto.getPrSeq());
 		Product one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
@@ -67,9 +67,9 @@ public class ProductController {
 		model.addAttribute("prdtImglist", prdtImglist);
 		
 		
-		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
+//		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
 		rvDto.setRv_prSeq(dto.getPrSeq());
-		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
+//		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
 		
 		List<Review> rvList = rvService.selectList(rvDto);
 		model.addAttribute("rvList", rvList);

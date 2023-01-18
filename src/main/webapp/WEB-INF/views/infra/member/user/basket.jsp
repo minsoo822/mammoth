@@ -836,10 +836,6 @@ tfoot {
 		
 		
 		
-		
-		
-		
-		
 		add = function(key) {
 			
 			var num = +$("#amount"+key).val() + 1;

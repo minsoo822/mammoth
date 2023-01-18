@@ -21,7 +21,8 @@ public class BasketDao {
 	public int selectListCount(Basket dto) {return sqlSession.selectOne(namespace + ".selectListCount", dto);}
 	public int basketInst(Basket dto) {return sqlSession.insert(namespace + ".basketInst", dto);}
 	public int basketCount(Basket dto) {return sqlSession.selectOne(namespace + ".basketCount", dto);}
-	public int Delete(Basket dto) { return sqlSession.delete(namespace + ".Delete", dto);}
+	public int oneDel(Basket dto) { return sqlSession.delete(namespace + ".oneDel", dto);}
+	public int allDel(Basket dto) { return sqlSession.delete(namespace + ".allDel", dto);}
 
 	
 }

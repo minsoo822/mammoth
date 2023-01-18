@@ -503,209 +503,197 @@ tfoot {
     				</li> -->
     			</ul>
     		</div>
-    		<!-- 장바구니가 비어있을때 s -->
-    		<!-- <div class="xans-element- xans-order xans-order-empty ">
-    			<p>장바구니가 비어 있습니다.</p>
-    		</div> -->
-    		<!-- 장바구니가 비어있을때 e -->
-    		<div class="orderListArea ec-base-table typeList gBorder">
-    			<!-- <div class="xans-element- xans-order xans-order-normtitle title ">
-    				<h3 style="margin: 0px;">87% 이상의 고객님들이 함께 구매한 상품</h3>
-				</div> -->
-				<table border="1" summary class="xans-element- xans-order xans-order-normnormal xans-record-">
-					<caption>기본배송</caption>
-					<colgroup>
-						<col style="width:27px">
-						<col style="width:92px">
-						<col style="width:auto">
-						<col style="width:98px">
-						<col style="width:75px">
-						<col style="width:98px">
-						<col style="width:98px">
-						<col style="width:85px">
-						<col style="width:98px">
-						<col style="width:110px">
-					</colgroup>
-					<thead>
-						<tr style="text-align: center;">
-							<th scope="col">
-								<input type="checkbox" onclick="" id="checkboxAll" style="cursor: pointer;">
-							</th>
-		                    <th scope="col">이미지</th>
-		                    <th scope="col">상품정보</th>
-		                    <th scope="col">판매가</th>
-		                    <th scope="col">수량</th>
-		                    <th scope="col" class="mileage">적립금</th>
-		                    <th scope="col">배송구분</th>
-		                    <th scope="col">배송비</th>
-		                    <th scope="col">합계</th>
-		                    <th scope="col">선택</th>
-		                </tr>
-	                </thead>
-	                 <tbody class="xans-element- xans-order xans-order-list center">
-	                	<c:forEach items="${list }" var="bskList" varStatus="status">
-		                	<tr class="xans-record-">
-		                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>"></td>
-		                		<td class="thumb gClearLine">
-		                			<a href="#" id="param1" style="text-decoration: none;">
-		                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="">
-	                				</a>
-	               				</td>
-		                		<td class="left gClearLine">
-									<a href="#" style="text-decoration: none; color: #000;">
-										<strong><c:out value="${bskList.prName }"></c:out></strong>
-									</a>
-									<!-- <ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
-										<li class="xans-record-">
-											<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
-											[옵션: 향수 단품/코튼브리즈 1개] 
-											<span class="displaynone">(1개)</span>
-											<br>
-											<span class="">
-												<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
-													<img src="/resources/images/btn_option.gif" alt="옵션변경">
-												</a>
-											</span>
-										</li>
-									</ul> -->
-		                		</td>
-		                		<td class="right">
-		                	        <div class="">
-										<strong>49,000원</strong>
-										<p class="displaynone"></p>
-									</div>
-			                        <div class="displaynone">
-										<strong>49,000원</strong>
-										<p class="displaynone"></p>
-										</div>
-				                    </td>
-		                		<td>
-		                			<span class="">
-		                				<span class="ec-base-qty">
-		                					<input id="" name="" size="2" value="1" type="text" style="width: 28px;">
-		                					<a href="" onclick="" style="text-decoration: none;">
-		                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
-	                						</a>
-	                						<a href="javascript:;" onclick="" style="text-decoration: none;">
-	                							<img src="/resources/images/btn_quantity_down.gif" alt="수량감소" class="down">
-	                						</a>
-	               						</span>
-		                			</span>
-		                		</td>
-		                		<td>
-		                			<span class="txtInfo">-</span>
-		                		</td>
-		                		<td>
-		                			<div class="txtInfo">기본배송<br></div>
-		                		</td>
-		                		<td rowspan="1" class="">
-									<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
-								</td>
-		                		<td class="right">
-									<strong>49,000원</strong><div class="displaynone"></div>
-								</td>
-		                		<td class="button">
-			                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
-			                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
-		                        	</a>
-			                        <!-- <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
-			                        	<img src="/resources/images/btn_wish.gif" alt="관심상품등록">
-			                        </a> -->
-			                        <a href="javascript:;" onclick="oneDel(${bskList.prSeq})" style="text-decoration: none; color: #000;">
-			                        	<img src="/resources/images/btn_delete.gif" alt="삭제">
-			                        </a>
-			                    </td>
-		                	</tr>
-		                </c:forEach>    
-	                </tbody>
-	                <tfoot class="right">
-		                <tr>
-							<td colspan="10">
-							<span class="gLeft">[기본배송]</span> 상품구매금액 
-							<strong>49,000 <span class="displaynone">()</span></strong>
-							<span class="displaynone"> </span>
-							<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
-							<span class="displaynone"> </span> 
-							<span class="displaynone"> - 상품할인금액 0 </span> = 합계 : <strong class="txtEm gIndent10"><span class="txt18">49,000</span>원</strong> 
-							<span class="displaynone"> </span>
-							</td>
-	                	</tr>
-	                </tfoot>
-				</table>
-				<!-- 선택상품 제어 버튼 -->
-				<div class="xans-element- xans-order xans-order-selectorder ec-base-button ">
-					<span class="gLeft">
-			            <strong class="text">선택상품을</strong>
-			            <a href="#none" onclick="" id="MultiDel">
-			          	  <img src="/resources/images/btn_delete2.gif" alt="삭제하기">
-			            </a>
-			        </span>
-			        <span class="gRight">
-			            <a href="#none" onclick="Basket.emptyBasket()">
-			            	<img src="/resources/images/btn_clear.gif" alt="장바구니비우기">
-			            </a>
-			        </span>
-				</div>
-				<!-- 총 주문금액 : 국내배송상품 -->
-				<div class="xans-element- xans-order xans-order-totalsummary ec-base-table typeList gBorder total  ">
-					<table border="1" summary>
-						<caption>총 주문금액</caption>
-						<colgroup>
-							<col style="width:17%;">
-							<col style="width:17%;" class="displaynone">
-							<col style="width:19%;">
-							<col style="width:17%;" class="displaynone">
-							<col style="width:auto;">
-						</colgroup>
-						<thead>
-							<tr style="text-align: center;">
-								<th scope="col"><strong>총 상품금액</strong></th>
-			                    <th scope="col"><strong>총 배송비</strong></th>
-			                    <th scope="col"><strong>결제예정금액</strong></th>
-			                </tr>
-		                </thead>
-						<tbody class="center">
-							<tr>
-								<td>
-									<div class="box txt16">
-										<strong>
-											<span class="txt23"><span class="total_product_price_display_front">49,000</span></span>원
-										</strong> 
-									</div>
-								</td>	
-								<td>
-									<div class="box shipping txt16">
-										<strong class="txt23">+ </strong>
-										<strong>
-											<span class="txt23">
-												<span class="total_delv_price_front">0</span>
-											</span>원
-										</strong>
-									</div>
-								</td>	
-								<td>
-									<div class="box txtEm txt16">
-										<strong class="txt23">= </strong><strong><span class="txt23">108,000</span>원</strong> 
-									</div>
-								</td>			
-							</tr>
-						</tbody>		
-					</table>
-				</div>
-    		</div>
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
+			<c:choose>
+				<c:when test="${selectListCount eq 0 }">
+					<!-- 장바구니가 비어있을때 s -->
+		    		<div class="xans-element- xans-order xans-order-empty ">
+		    			<p>장바구니가 비어 있습니다.</p>
+		    		</div>
+		    		<!-- 장바구니가 비어있을때 e -->
+				</c:when>
+				<c:otherwise>
+					<div class="orderListArea ec-base-table typeList gBorder">
+		    			<!-- <div class="xans-element- xans-order xans-order-normtitle title ">
+		    				<h3 style="margin: 0px;">87% 이상의 고객님들이 함께 구매한 상품</h3>
+						</div> -->
+						<table border="1" summary class="xans-element- xans-order xans-order-normnormal xans-record-">
+							<caption>기본배송</caption>
+							<colgroup>
+								<col style="width:27px">
+								<col style="width:92px">
+								<col style="width:auto">
+								<col style="width:98px">
+								<col style="width:75px">
+								<col style="width:98px">
+								<col style="width:98px">
+								<col style="width:85px">
+								<col style="width:98px">
+								<col style="width:110px">
+							</colgroup>
+							<thead>
+								<tr style="text-align: center;">
+									<th scope="col">
+										<input type="checkbox" onclick="" id="checkboxAll" style="cursor: pointer;">
+									</th>
+				                    <th scope="col">이미지</th>
+				                    <th scope="col">상품정보</th>
+				                    <th scope="col">판매가</th>
+				                    <th scope="col">수량</th>
+				                    <th scope="col" class="mileage">적립금</th>
+				                    <th scope="col">배송구분</th>
+				                    <th scope="col">배송비</th>
+				                    <th scope="col">합계</th>
+				                    <th scope="col">선택</th>
+				                </tr>
+			                </thead>
+			                 <tbody class="xans-element- xans-order xans-order-list center">
+			                	<c:forEach items="${list }" var="bskList" varStatus="status">
+				                	<tr class="xans-record-">
+				                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>"></td>
+				                		<td class="thumb gClearLine">
+				                			<a href="#" id="param1" style="text-decoration: none;">
+				                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="">
+			                				</a>
+			               				</td>
+				                		<td class="left gClearLine">
+											<a href="#" style="text-decoration: none; color: #000;">
+												<strong><c:out value="${bskList.prName }"></c:out></strong>
+											</a>
+											<!-- <ul class="xans-element- xans-order xans-order-optionall option" style="padding-left: 0px;">
+												<li class="xans-record-">
+													<strong class="displaynone">포맨트 시그니처 퍼퓸 코튼 브리즈</strong>
+													[옵션: 향수 단품/코튼브리즈 1개] 
+													<span class="displaynone">(1개)</span>
+													<br>
+													<span class="">
+														<a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
+															<img src="/resources/images/btn_option.gif" alt="옵션변경">
+														</a>
+													</span>
+												</li>
+											</ul> -->
+				                		</td>
+				                		<td class="right">
+				                	        <div class="">
+												<strong><fmt:formatNumber pattern="##,###원" value="${bskList.prTotalPrice }"/></strong>
+											</div>
+					                    </td>
+				                		<td>
+				                			<span class="">
+				                				<span class="ec-base-qty">
+				                					<input id="" name="" size="2" value="${bskList.bskAmount }" type="text" style="width: 28px;">
+				                					<a href="" onclick="" style="text-decoration: none;">
+				                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
+			                						</a>
+			                						<a href="javascript:;" onclick="" style="text-decoration: none;">
+			                							<img src="/resources/images/btn_quantity_down.gif" alt="수량감소" class="down">
+			                						</a>
+			               						</span>
+				                			</span>
+				                		</td>
+				                		<td>
+				                			<span class="txtInfo">-</span>
+				                		</td>
+				                		<td>
+				                			<div class="txtInfo">기본배송<br></div>
+				                		</td>
+				                		<td rowspan="1" class="">
+											<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
+										</td>
+				                		<td class="right">
+											<strong><fmt:formatNumber value="${bskList.bskSell_Price }" pattern="##,###원"/></strong>
+										</td>
+				                		<td class="button">
+					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
+					                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
+				                        	</a>
+					                        <!-- <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
+					                        	<img src="/resources/images/btn_wish.gif" alt="관심상품등록">
+					                        </a> -->
+					                        <a href="javascript:;" onclick="oneDel(${bskList.prSeq})" style="text-decoration: none; color: #000;">
+					                        	<img src="/resources/images/btn_delete.gif" alt="삭제">
+					                        </a>
+					                    </td>
+				                	</tr>
+				                </c:forEach>    
+			                </tbody>
+			                <tfoot class="right">
+				                <tr>
+									<td colspan="10">
+									<span class="gLeft">[기본배송]</span> 상품구매금액 
+									<strong>49,000 <span class="displaynone">()</span></strong>
+									<span class="displaynone"> </span>
+									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
+									<span class="displaynone"> </span> 
+									<span class="displaynone"> - 상품할인금액 0 </span> = 합계 : <strong class="txtEm gIndent10"><span class="txt18">49,000</span>원</strong> 
+									<span class="displaynone"> </span>
+									</td>
+			                	</tr>
+			                </tfoot>
+						</table>
+						<!-- 선택상품 제어 버튼 -->
+						<div class="xans-element- xans-order xans-order-selectorder ec-base-button ">
+							<span class="gLeft">
+					            <strong class="text">선택상품을</strong>
+					            <a href="#none" onclick="" id="MultiDel">
+					          	  <img src="/resources/images/btn_delete2.gif" alt="삭제하기">
+					            </a>
+					        </span>
+					        <span class="gRight">
+					            <a href="#none" onclick="allDel()">
+					            	<img src="/resources/images/btn_clear.gif" alt="장바구니비우기">
+					            </a>
+					        </span>
+						</div>
+						<!-- 총 주문금액 : 국내배송상품 -->
+						<div class="xans-element- xans-order xans-order-totalsummary ec-base-table typeList gBorder total  ">
+							<table border="1" summary>
+								<caption>총 주문금액</caption>
+								<colgroup>
+									<col style="width:17%;">
+									<col style="width:17%;" class="displaynone">
+									<col style="width:19%;">
+									<col style="width:17%;" class="displaynone">
+									<col style="width:auto;">
+								</colgroup>
+								<thead>
+									<tr style="text-align: center;">
+										<th scope="col"><strong>총 상품금액</strong></th>
+					                    <th scope="col"><strong>총 배송비</strong></th>
+					                    <th scope="col"><strong>결제예정금액</strong></th>
+					                </tr>
+				                </thead>
+								<tbody class="center">
+									<tr>
+										<td>
+											<div class="box txt16">
+												<strong>
+													<span class="txt23"><span class="total_product_price_display_front">49,000</span></span>원
+												</strong> 
+											</div>
+										</td>	
+										<td>
+											<div class="box shipping txt16">
+												<strong class="txt23">+ </strong>
+												<strong>
+													<span class="txt23">
+														<span class="total_delv_price_front">0</span>
+													</span>원
+												</strong>
+											</div>
+										</td>	
+										<td>
+											<div class="box txtEm txt16">
+												<strong class="txt23">= </strong><strong><span class="txt23">108,000</span>원</strong> 
+											</div>
+										</td>			
+									</tr>
+								</tbody>		
+							</table>
+						</div>
+		    		</div>
+				</c:otherwise>
+			</c:choose>
     		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
     			<a href="#none" onclick=""  id="" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
     			<a href="#none" onclick="" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
@@ -788,6 +776,28 @@ tfoot {
 			  }
 			});
 	};
+	
+	allDel = function() {
+		swal({
+			  title: "장바구니를 비우시겠습니까?",
+			  text: "장바구니 목록이 전체 삭제됩니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("상품이 장바구니에서 삭제되었습니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+					form.attr("action" , "/basket/allDel").submit();
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
+	}
 	
 	$("#MultiDel").on("click", function() {
 		swal({

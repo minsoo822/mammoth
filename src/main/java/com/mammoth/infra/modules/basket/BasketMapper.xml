@@ -12,9 +12,12 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			pr.prSeq
-			,pr.prName
 		    ,prup.upPath
 		    ,prup.upUuidName
+			,pr.prName
+			,pr.prTotalPrice
+			,bsk.bskAmount
+			,bsk.bskSell_Price
 		FROM basket bsk
 		JOIN product pr
 		ON bsk.bsk_prSeq = pr.prSeq
@@ -57,11 +60,16 @@
 		</selectKey>
 	</insert>
 	
-	<delete id="Delete">
-	DELETE
-	FROM basket 
-    WHERE bsk_mmSeq = #{mmSeq}
-    AND bsk_prSeq = #{prSeq}
+	<delete id="oneDel">
+		DELETE
+		FROM basket 
+	    WHERE bsk_mmSeq = #{mmSeq}
+	    AND bsk_prSeq = #{prSeq}
+	</delete>
+	<delete id="allDel">
+		DELETE
+		FROM basket 
+	    WHERE bsk_mmSeq = #{mmSeq}
 	</delete>
 
 </mapper>

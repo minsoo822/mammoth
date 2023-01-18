@@ -10,12 +10,11 @@ public class Basket {
 	private String upPath;
 	private String upUuidName;
 	private String prName;
-	
-	private Integer[] checkboxSeqArray;
-	
+	private Integer prTotalPrice;
 	private Integer bskSell_Price;
 	private Integer bskAmount;
 	
+	private Integer[] checkboxSeqArray;
 	
 	public Integer getBskSeq() {
 		return bskSeq;
@@ -70,6 +69,12 @@ public class Basket {
 	}
 	public void setBskAmount(Integer bskAmount) {
 		this.bskAmount = bskAmount;
+	}
+	public Integer getPrTotalPrice() {
+		return prTotalPrice;
+	}
+	public void setPrTotalPrice(Integer prTotalPrice) {
+		this.prTotalPrice = prTotalPrice;
 	}
 	
 	

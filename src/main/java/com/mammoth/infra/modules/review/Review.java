@@ -16,8 +16,6 @@ public class Review extends Base{
 	private String mmName;
 	private Integer mmGrade;
 	private String prName;
-	
-	
 	public Integer getRvSeq() {
 		return rvSeq;
 	}
@@ -72,6 +70,8 @@ public class Review extends Base{
 	public void setPrName(String prName) {
 		this.prName = prName;
 	}
+	
+	
 	
 	
 	

@@ -23,6 +23,7 @@
     	JOIN member mm ON mm.mmSeq = rv.rv_mmSeq
     	WHERE 1=1
     		AND rv_prSeq = #{rv_prSeq} 
+    	ORDER BY rvSeq DESC
     </select>
     
     <insert id="insert">

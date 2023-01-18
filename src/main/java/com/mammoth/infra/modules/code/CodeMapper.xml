@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mammoth.infra.modules.code.CodeMapper">
+
+    <resultMap id="resultMapObj" type="com.mammoth.infra.modules.code.Code"></resultMap>
+    
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		ccSeq
+    		,ccName
+    		,ccOrder
+    		,ccUseNy
+    		,ccDelNy
+    		,ccCreDate
+    		,ccModDate
+    		,cc_ccgSeq
+    	FROM code
+    	WHERE 1=1
+    		AND ccUseNy = 1
+    		AND ccDelNy = 0
+    </select>
+    
+    <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT  
+			ccSeq
+			,ccName
+			,cc_ccgSeq
+			,ccOrder
+		FROM code
+		WHERE 1=1
+		    AND ccUseNy = 1
+    </select>
+</mapper>

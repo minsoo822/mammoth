@@ -87,7 +87,7 @@
 		<div class="container" style=" margin-bottom: 150px;">
 			<div class="row" style="margin: 30px 30px 0 30px;">
 				<div class="col">
-					<span style="font-size: 10pt;">총 <b>87</b>개의 상품이 있습니다</span> 
+					<span style="font-size: 10pt;">총 <b><c:out value="${fn:length(list)}"/></b>개의 상품이 있습니다</span> 
 				</div>
 			</div>
 			<div class="row" style="margin: 20px 30px 50px 30px;">

@@ -648,6 +648,9 @@
 		
 		<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
+		
+		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
+		<input type="hidden" name="rv_prSeq" id="rv_prSeq" value="${one.prSeq }">
 	
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
@@ -949,8 +952,8 @@
 								<a class="rvStar"><i class="fa-regular fa-star"></i></a> -->
 							</div>
 						</div>
-						<textarea rows="10" cols="40" id="rvContents" placeholder="리뷰 내용을 입력해주세요"></textarea>
-						<input type="file" id="rvImg" multiple="multiple" style="border: 1px solid #ced4da"><br>
+						<textarea rows="10" cols="40" id="rvContents" name="rvContents" placeholder="리뷰 내용을 입력해주세요"></textarea>
+						<input type="file" id="rvImg" style="border: 1px solid #ced4da"><br>
 					</div>
 					<div class="messageButtons">
 						<button type="button" id="reviewInst" class="messageButton messageSuccess">등록</button>
@@ -986,80 +989,12 @@
 		document.body.style.overflowY = "visible";
 	});
 	
-	// 리뷰작성 코드
 	$("#reviewInst").on("click", function() {
-		
-		$.ajax({
-			url: '/review/reviewInst',
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				rv_mmSeq : $("#mmSeq").val(),
-				rvContents :$("#rvContents").val(),
-				rv_prSeq :$("#prSeq").val(),
-				rvStar : $("#rvStar").val(),
-			},
-			success:function(result){
-				
-				//댓글을 입력하면 입력창에 글자 지우기
-				$("#contents").val("");
-				
-				var txt ="";
-				
-				txt += '<div class="row" style="display: flex; align-items: center; margin-bottom: 20px;">';
-				txt += '<div class="col-2" >';
-				txt += '<div style="font-size: 12pt;">';
-				txt += '<span>★★★★★</span> <strong>5.0</strong>';
-				txt += '</div>';
-				txt += '</div>';
-				txt += '<div class="col-1">';
-				txt += '<span style="font-size: 12pt;"><strong>' + result.writer + '</strong></span>';
-				txt += '</div>';
-				txt += '<div class="col-2">';
-				txt += '<span>' + result.creDate + '</span>';
-				txt += '</div>';
-				txt += '<div class="col-1">';
-				txt += '<span style="font-size: 12pt;"><strong>' + result.grade + '</strong></span>';
-				txt += '</div>';
-				txt += '<div class="col">';
-				txt += '<div class="btnarea text-end">';
-				txt += '<button class="recommend_btn" type="button"style="width: 67px; font-size: 10pt;"> ';
-				txt += '<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;0</span> ';
-				txt += '</button>';
-				txt += '</div>';
-				txt += '</div>';
-				txt += '</div>';
-				txt += '<div class="row mb-3" >';
-				txt += '<div class="col-2" style="padding-right: 0px;">';
-				txt += '<img alt="'+ result.img +'" src="" class="reviewImg">';
-				txt += '</div>';
-				txt += '<div class="col" style="padding-right: 0px;">';
-				txt += '<p style="margin-top: 0px;">' + result.contents + '</p>';
-				txt += '</div>';
-				txt += '</div>';
-				
-				$("#review_area").prepend(txt);
-				
-			},
-			error:function(){
-				alert("ajax.. error..");
-			}
-			
-		});
-		
-		/* $.ajax({
-			url: '',
-			type: 'POST',
-			enctype: 'multipart/form-data',
-			processData: false,
-			contentType: false,
-			data: formData,
-			success: function(data) {
-				console.log("success");
-			}
-		}); */
-		
+		alert("회원님의 소중한 리뷰가 등록되었습니다!");
+		form.attr("action", "/review/reviewInst").submit();
 	});
+	
+	
 	
 	</script>	
 </body>

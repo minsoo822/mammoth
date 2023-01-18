@@ -1,6 +1,5 @@
 package com.mammoth.infra.modules.review;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import com.mammoth.infra.modules.base.Base;
 
@@ -12,8 +11,6 @@ public class Review extends Base{
 	private Integer rv_mmSeq;
 	private Integer rvStar;
 	private String rvCreDate;
-	
-	private MultipartFile rvImg;
 	
 	/* 리뷰 정보 */
 	private String mmName;
@@ -56,12 +53,6 @@ public class Review extends Base{
 	}
 	public void setRvCreDate(String rvCreDate) {
 		this.rvCreDate = rvCreDate;
-	}
-	public MultipartFile getRvImg() {
-		return rvImg;
-	}
-	public void setRvImg(MultipartFile rvImg) {
-		this.rvImg = rvImg;
 	}
 	public String getMmName() {
 		return mmName;

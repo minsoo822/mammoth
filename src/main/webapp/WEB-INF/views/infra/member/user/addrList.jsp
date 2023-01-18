@@ -234,6 +234,7 @@ div.ec-base-help li {
 	<form method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" name="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="adrSeq" id="adrSeq" >
+	<input type="hidden" name="checkboxSeqArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -274,7 +275,7 @@ div.ec-base-help li {
 		                <tr style="text-align: center; font-weight: 600;">
 		                    <th scope="col">
 		                        <span class="">
-		                            <input id="allCheck" onclick="" value="" type="checkbox">
+		                            <input id="checkboxAll" value="" type="checkbox">
 		                        </span>
 		                    </th>
 		                    <th scope="col">주소록 고정</th>
@@ -300,7 +301,7 @@ div.ec-base-help li {
 			            		<tbody class=" center">
 					                <tr class="xans-record-">
 					                    <td>
-					                        <input name="" value="" type="checkbox">
+					                        <input name="checkboxSeq" type="checkbox" value="<c:out value="${adrList.adrSeq }"></c:out>">
 					                    </td>
 					                    <td>
 					                        <span class="">-</span>
@@ -329,7 +330,7 @@ div.ec-base-help li {
 		    </div>
 		    <div class="ec-base-button">
 		            <span class="gLeft ">
-		                <a href="#none" onclick="">
+		                <a href="#none" onclick="adrCheckDel()">
 		                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_delete.gif" alt="선택 주소록 삭제">
 		                </a>
 		            </span>
@@ -361,11 +362,55 @@ div.ec-base-help li {
 	<script>
 	var adrSeq = $("#adrSeq");
 	
+	var checkboxSeqArray = [];
+	
 	btnAdrForm = function(key) {
 		adrSeq.attr("value", key);
 		form.attr("action", "/member/adrForm").submit();
 	};
-		
+	
+	$(document).ready(function() {
+		$("#checkboxAll").click(function() {
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
+	
+		$("input[name=checkboxSeq]").click(function() {
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+	
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
+	});
+	
+	adrCheckDel = function() {
+		swal({
+			  title: "선택하신 주소를 삭제하시겠습니까?",
+			  text: "선택하신 주소가 삭제될수있습니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("선택하신 주소가 삭제되었습니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+			    		$("input[name=checkboxSeq]:checked").each(function() { 
+			    			checkboxSeqArray.push($(this).val());
+			    		});
+			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			    		
+			    		form.attr("action", "/member/checkDel").submit();
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
+	}
+	
 	</script>	
 </body>
 </html>

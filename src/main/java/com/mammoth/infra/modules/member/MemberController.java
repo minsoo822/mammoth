@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mammoth.infra.common.contants.Constants;
+import com.mammoth.infra.modules.basket.Basket;
 
 @Controller
 @RequestMapping(value="/member/")
@@ -53,6 +54,18 @@ public class MemberController {
 		service.adrUpdt(dto);
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/adrList";
+	}
+	@RequestMapping(value = "checkDel")
+	public String memberMultiDele(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
+			dto.setAdrSeq(checkboxSeq);
+			service.adrCheckDel(dto);
+		}
+		vo.setMmSeq(dto.getMmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+
 		return "redirect:/member/adrList";
 	}
 

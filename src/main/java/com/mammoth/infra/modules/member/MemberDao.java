@@ -34,6 +34,7 @@ public class MemberDao {
 	public int adrInst(Member dto) { return sqlSession.insert(namespace + ".adrInst", dto);}
 	public int adrdefaultNy(Member dto) { return sqlSession.update(namespace + ".adrdefaultNy", dto);}
 	public int adrUpdt(Member dto) { return sqlSession.update(namespace + ".adrUpdt", dto);}
+	public int adrCheckDel(Member dto) { return sqlSession.update(namespace + ".adrCheckDel", dto);}
 //	배송지 e	
 
 	

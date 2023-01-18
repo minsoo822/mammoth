@@ -40,6 +40,8 @@ public class Member extends Base{
 	private Integer  adrDelNy;
 	private Integer  adr_mmSeq;
 	
+	private Integer[] checkboxSeqArray;
+	
 	public Integer getMmSeq() {
 		return mmSeq;
 	}
@@ -225,6 +227,12 @@ public class Member extends Base{
 	}
 	public void setMmAddressDetail(String mmAddressDetail) {
 		this.mmAddressDetail = mmAddressDetail;
+	}
+	public Integer[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+	public void setCheckboxSeqArray(Integer[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 	
 	

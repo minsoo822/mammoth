@@ -169,6 +169,12 @@
 		  	,adrdefaultNy		= #{adrdefaultNy}
 		WHERE adrSeq = #{adrSeq}
 	</update>
+	<delete id="adrCheckDel">
+		DELETE
+		FROM address 
+	    WHERE adrSeq = #{adrSeq}
+	    AND adr_mmSeq = #{mmSeq}
+	</delete>
 	<select id="adrSelectOne" resultMap="resultMapObj">
 		SELECT
 			*

@@ -249,44 +249,9 @@
 									<col style="width:80px;;">
 									<col style="width:110px;">
 								</colgroup>
-								<tbody class="option_products">
-									<tr class="option_product " data-option-index="1" target-key="79">
-										<td>
-											<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="">
-											<p class="product" style="margin: 0px;">포맨트 시그니처 퍼퓸 코튼허그<br> 
-											<!-- - <span>향수 단품/코튼허그 1개</span></p> -->
-										</td>
-										<td>
-											<span class="quantity" style="width:65px;">
-												<input type="text" id="amount" class="quantity_opt eProductQuantityClass" value="1">
-												<a href="#none" class="up eProductQuantityUpClass" id="add" data-target="option_box1_up">
-													<img src="/resources/images/btn_quantity_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">
-												</a>
-												<a href="#none" class="down eProductQuantityDownClass" id="minus" data-target="option_box1_down">
-													<img src="/resources/images/btn_quantity_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">
-												</a>
-											</span>
-											<a href="#none" class="delete">
-												<img src="/resources/images/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del" style="vertical-align: middle;">
-											</a>
-										</td>
-										<td class="right">
-											<span id="option_box1_price">
-												<input type="hidden" class="option_box_price" value="">
-												<span class="ec-front-product-item-price" >
-													<input id="basketTotalPrice" style="width: 80px; text-align: right; color: #008bcc; font-weight: 600; padding-bottom: 4px; border: none;" value=""/>원
-												</span>
-											</span>
-										</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="3">
-											<strong>총 상품금액</strong>(수량) : <span class="total"><strong><em><em id="finalPrice"></em>원</em></strong> (1개)</span>
-										</td>
-			                        </tr>
-		                        </tfoot>
+								<div id="product_area">
+									
+		                        </div>
 							</table>
 						</div>
 					</div>
@@ -359,18 +324,65 @@
 				
 				//갯수 , 가격 비워주고 담아주기
 				
-				//$("#amount")
-				//$("#basketTotalPrice")
-				//$("#finalPrice")
-				
 				//장바구니 모달 불러오는 정보들
 				$("#modalprSeq").attr("value", resultMap.basketSeq);
 				$("#modalbskSell_Price").attr("value", resultMap.basketTotalPrice);
 				$("#basketName1").html(resultMap.basketName);
-				$("#basketName2").html(resultMap.basketName);
 				$("#basketImg").attr("src", resultMap.basketImg);
-				$("#basketTotalPrice").attr("value",resultMap.basketTotalPrice);
+				//$("#basketTotalPrice").attr("value",resultMap.basketTotalPrice);
 				//$("#finalPrice").html(resultMap.basketTotalPrice);
+				
+				$("#product_area").html("");  
+				
+				var txt = "";	
+				
+				txt += '<table blrder="0" summary>'
+					txt += '<caption>상품 목록</caption>'
+					txt += '<colgroup>'
+						txt += '<col style="width:284px;">'
+						txt += '<col style="width:80px;;">'
+						txt += '<col style="width:110px;">'
+					txt += '</colgroup>'
+					txt += '<tbody class="option_products" style="width: 100%;">'
+						txt += '<tr class="option_product " data-option-index="1" target-key="79">'
+							txt += '<td>'
+								txt += '<input type="hidden" class="option_box_id" id="option_box1_id" value="P00000DB000A" name="">'
+								txt += '<p class="product" style="margin: 0px;" id="basketName2">' + resultMap.basketName + '<br></p>'
+							txt += '</td>'
+							txt += '<td>'
+								txt += '<span class="quantity" style="width:65px;">'
+								txt += '<input type="text" id="amount" class="quantity_opt eProductQuantityClass" value="1">'
+								txt += '<a href="#none" class="up eProductQuantityUpClass" id="add" data-target="option_box1_up">'
+								txt += '<img src="/resources/images/btn_quantity_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">'
+								txt += '</a>'
+								txt += '<a href="#none" class="down eProductQuantityDownClass" id="minus" data-target="option_box1_down">'
+								txt += '<img src="/resources/images/btn_quantity_down.gif" id="option_box1_down" class="option_box_down" alt="수량감소">'
+								txt += '</a>'
+								txt += '</span>'
+								txt += '<a href="#none" class="delete">'
+								txt += '<img src="/resources/images/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del" style="vertical-align: middle;">'
+								txt += '</a>'
+							txt += '</td>'
+							txt += '<td class="right">'
+								txt += '<span id="option_box1_price">'
+								txt += '<input type="hidden" class="option_box_price" value="">'
+								txt += '<span class="ec-front-product-item-price" >'
+								txt += '<input id="basketTotalPrice" name="bskSell_Price" style="width: 80px; text-align: right; color: #008bcc; font-weight: 600; padding-bottom: 4px; border: none;" value=" ' + resultMap.basketTotalPrice + ' "/>원'
+								txt += '</span>'
+								txt += '</span>'
+							txt += '</td>'
+						txt += '</tr>'
+					txt += '</tbody>'
+					txt += '<tfoot>'
+						txt += '<tr>'
+							txt += '<td colspan="3">'
+								txt += '<strong>총 상품금액</strong>(수량) : <span class="total"><strong><em><em id="finalPrice">' + resultMap.basketTotalPrice + '</em>원</em></strong> (1개)</span>'
+							txt += '</td>'
+						txt += '</tr>'
+					txt += '</tfoot>'
+				txt += '</table>'
+				
+				$("#product_area").html(txt);  
 				
 				modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
 		    	modal.style.display = "flex";
@@ -384,12 +396,11 @@
 					var num = +$("#amount").val() + 1;
 					var basketTotalPriceAdd = basketTotalPrice * num;
 					
-					
 					$("#amount").val(num);
+					$("#modalbskSell_Price").val(basketTotalPriceAdd);
 					$("#basketTotalPrice").val(basketTotalPriceAdd.toLocaleString());
 					$("#finalPrice").html(basketTotalPriceAdd.toLocaleString());
 					//alert("수량을 추가합니다.");
-					
 				});
 				
 				$("#minus").on("click" , function(e){
@@ -402,6 +413,7 @@
 						var basketTotalPriceminus = basketTotalPrice * num;
 						
 						$("#amount").val(num);
+						$("#modalbskSell_Price").val(basketTotalPriceminus);
 						$("#basketTotalPrice").val(basketTotalPriceminus.toLocaleString());
 						$("#finalPrice").html(basketTotalPriceminus.toLocaleString());
 					}
@@ -425,6 +437,8 @@
 			data: {
 				mmSeq : $("#mmSeq").val()
 				,prSeq : $("#modalprSeq").val()
+				,bskAmount : $("#amount").val()
+				,bskSell_Price : $("#modalbskSell_Price").val()
 			},
 			success : function(result) {
 				if(result.rt == "success") {

@@ -43,10 +43,14 @@
 		INSERT INTO basket (
 			bsk_mmSeq
 			,bsk_prSeq
+			,bskAmount
+			,bskSell_Price
 		)
 		VALUES (
 			#{mmSeq}
 			,#{prSeq}
+			,#{bskAmount}
+			,#{bskSell_Price}
 		)
 		<selectKey resultType="Integer" keyProperty="bskSeq" order="AFTER">
 				SELECT last_insert_id()

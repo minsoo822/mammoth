@@ -13,6 +13,9 @@ public class Basket {
 	
 	private Integer[] checkboxSeqArray;
 	
+	private Integer bskSell_Price;
+	private Integer bskAmount;
+	
 	
 	public Integer getBskSeq() {
 		return bskSeq;
@@ -55,6 +58,18 @@ public class Basket {
 	}
 	public void setCheckboxSeqArray(Integer[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
+	}
+	public Integer getBskSell_Price() {
+		return bskSell_Price;
+	}
+	public void setBskSell_Price(Integer bskSell_Price) {
+		this.bskSell_Price = bskSell_Price;
+	}
+	public Integer getBskAmount() {
+		return bskAmount;
+	}
+	public void setBskAmount(Integer bskAmount) {
+		this.bskAmount = bskAmount;
 	}
 	
 	

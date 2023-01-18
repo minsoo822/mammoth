@@ -332,8 +332,6 @@
 				//$("#basketTotalPrice").attr("value",resultMap.basketTotalPrice);
 				//$("#finalPrice").html(resultMap.basketTotalPrice);
 				
-				$("#product_area").html("");  
-				
 				var txt = "";	
 				
 				txt += '<table blrder="0" summary>'

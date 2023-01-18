@@ -41,6 +41,11 @@ public class BasketServiceImpl implements BasketService{
 		// TODO Auto-generated method stub
 		return dao.allDel(dto);
 	}
+	@Override
+	public int TotalPrice(Basket dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.TotalPrice(dto);
+	}
 	
 
 	

@@ -10,4 +10,5 @@ public interface BasketService {
 	public int basketCount(Basket dto) throws Exception;
 	public int oneDel(Basket dto) throws Exception;
 	public int allDel(Basket dto) throws Exception;
+	public int TotalPrice(Basket dto) throws Exception;
 }

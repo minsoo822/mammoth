@@ -17,11 +17,15 @@ public class BasketController {
 	
 	@RequestMapping(value="basketList")
 	public String basketList(@ModelAttribute("dto") Basket dto, Model model) throws Exception {
-		
+		/* 장바구니 물품갯수 */
 		int selectListCount = service.selectListCount(dto);
 		model.addAttribute("selectListCount", selectListCount);
+		/* 장바구니 리스트 */
 		List<Basket> selectList = service.selectList(dto);
 		model.addAttribute("list", selectList);
+		/* 장바구니 상품들 총 가격 */
+		int totalPrice = service.TotalPrice(dto);
+		model.addAttribute("totalPrice", totalPrice);
 		
 		return "infra/member/user/basket";
 	}

@@ -11,7 +11,8 @@
 	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			pr.prSeq
+			bsk.bskSeq
+			,pr.prSeq
 		    ,prup.upPath
 		    ,prup.upUuidName
 			,pr.prName
@@ -32,6 +33,13 @@
 			COUNT(*)
 		FROM basket bsk
 		WHERE bsk.bsk_mmSeq = #{mmSeq}
+	</select>
+	<select id="TotalPrice" resultType="Integer">
+		SELECT
+			SUM(bskSell_Price)	AS total
+		FROM basket 
+		WHERE bsk_mmSeq = #{mmSeq}
+	
 	</select>
 	
 	<select id="basketCount" resultType="Integer">

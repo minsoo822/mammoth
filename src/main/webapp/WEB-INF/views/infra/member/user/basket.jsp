@@ -575,17 +575,17 @@ tfoot {
 				                		</td>
 				                		<td class="right">
 				                	        <div class="">
-												<strong><fmt:formatNumber pattern="##,###원" value="${bskList.prTotalPrice }"/></strong>
+												<strong><input id="productPrice" type="text" value="${bskList.prTotalPrice }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
 											</div>
 					                    </td>
 				                		<td>
 				                			<span class="">
 				                				<span class="ec-base-qty">
-				                					<input id="" name="" size="2" value="${bskList.bskAmount }" type="text" style="width: 28px;">
-				                					<a href="" onclick="" style="text-decoration: none;">
+				                					<input id="amount${bskList.bskSeq}" name="" size="2" value="${bskList.bskAmount }" type="text" style="width: 28px;">
+				                					<a onclick="add(${bskList.bskSeq })" style="text-decoration: none;">
 				                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
 			                						</a>
-			                						<a href="javascript:;" onclick="" style="text-decoration: none;">
+			                						<a onclick="minus(${bskList.bskSeq })" style="text-decoration: none;">
 			                							<img src="/resources/images/btn_quantity_down.gif" alt="수량감소" class="down">
 			                						</a>
 			               						</span>
@@ -601,7 +601,7 @@ tfoot {
 											<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
 										</td>
 				                		<td class="right">
-											<strong><fmt:formatNumber value="${bskList.bskSell_Price }" pattern="##,###원"/></strong>
+				                			<strong><input readonly id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -621,7 +621,7 @@ tfoot {
 				                <tr>
 									<td colspan="10">
 									<span class="gLeft">[기본배송]</span> 상품구매금액 
-									<strong>49,000 <span class="displaynone">()</span></strong>
+									<strong><c:out value="${totalPrice }"/><span class="displaynone">()</span></strong>
 									<span class="displaynone"> </span>
 									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
 									<span class="displaynone"> </span> 
@@ -668,7 +668,9 @@ tfoot {
 										<td>
 											<div class="box txt16">
 												<strong>
-													<span class="txt23"><span class="total_product_price_display_front">49,000</span></span>원
+													<span class="txt23">
+														<span class="total_product_price_display_front" id="">49,000</span>
+													</span>원
 												</strong> 
 											</div>
 										</td>	
@@ -797,7 +799,7 @@ tfoot {
 			    swal("변동사항 없습니다");
 			  }
 			});
-	}
+	};
 	
 	$("#MultiDel").on("click", function() {
 		swal({
@@ -825,6 +827,45 @@ tfoot {
 			  }
 			});
 	});
+	window.onload = function(){
+		
+		var productTotalPrice = $("#productTotalPrice").val();
+		var productPrice = $("#productPrice").val();
+		
+		var Total [];
+		
+		
+		
+		
+		
+		
+		
+		add = function(key) {
+			
+			var num = +$("#amount"+key).val() + 1;
+			var productTotalPriceAdd = productPrice * num;
+			
+			
+			$("#amount"+key).val(num);
+			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
+		};
+		
+		minus = function(key) {
+			var num = +$("#amount"+key).val() - 1;
+			
+			if(num < 1) {
+				alert("수량을 1개 이하로 변경이 불가능합니다.")
+				$("#amount"+key).val(1);
+			} else {
+				var basketTotalPriceminus = productPrice * num;
+				
+				$("#amount"+key).val(num);
+				$("#productTotalPrice"+key).val(basketTotalPriceminus.toLocaleString());
+			}
+		};
+		
+		
+	};
 	
 	</script>	
 </body>

@@ -13,6 +13,7 @@ public class Basket {
 	private Integer prTotalPrice;
 	private Integer bskSell_Price;
 	private Integer bskAmount;
+	private Integer total;
 	
 	private Integer[] checkboxSeqArray;
 	
@@ -75,6 +76,12 @@ public class Basket {
 	}
 	public void setPrTotalPrice(Integer prTotalPrice) {
 		this.prTotalPrice = prTotalPrice;
+	}
+	public Integer getTotal() {
+		return total;
+	}
+	public void setTotal(Integer total) {
+		this.total = total;
 	}
 	
 	

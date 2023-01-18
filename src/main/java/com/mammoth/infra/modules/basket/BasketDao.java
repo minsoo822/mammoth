@@ -23,6 +23,6 @@ public class BasketDao {
 	public int basketCount(Basket dto) {return sqlSession.selectOne(namespace + ".basketCount", dto);}
 	public int oneDel(Basket dto) { return sqlSession.delete(namespace + ".oneDel", dto);}
 	public int allDel(Basket dto) { return sqlSession.delete(namespace + ".allDel", dto);}
-
+	public int TotalPrice(Basket dto) {return sqlSession.selectOne(namespace + ".TotalPrice", dto);}
 	
 }

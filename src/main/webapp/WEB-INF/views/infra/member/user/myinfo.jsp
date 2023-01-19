@@ -336,20 +336,18 @@
 								<td>
 								<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
 								<div class="certifForm" id="mobileWrap" style="">
-									<select id="" name="" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
+									<!-- <select id="" name="" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
 										<option value="">SKT</option>
 										<option value="011">KT</option>
 										<option value="016">LGU+</option>
-									</select>
-									<input id="" name=""  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
+									</select> -->
+									<input id="phoneNumber" name=""  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
 									<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
-									<a href="#" onclick="">
+									<a href="#" id="phoneNumberButton" onclick="">
 										<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
 									</a><br>
-									<input id="" name="" value="" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
-									<a href="#" onclick="">
-										<button type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
-									</a>
+									<input id="confirmCode" name="" value="" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
+									<button id="confirmCodeButton" type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
 								    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
 								</div>
 								    </td>
@@ -544,7 +542,7 @@
                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
                     if(extraAddr !== ''){
                         extraAddr = ' (' + extraAddr + ')';
-                    }
+                    }[]
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     //document.getElementById("sample6_extraAddress").value = extraAddr;
                 
@@ -565,5 +563,80 @@
     	form.attr("action", "/member/myinfoUpda").submit();
     }
 	</script>	
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+		import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithPhoneNumber, RecaptchaVerifier  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyCuCoTR_yTOYzvWBvwF71zaRJpQImMRrj4",
+		  authDomain: "forment-1579e.firebaseapp.com",
+		  projectId: "forment-1579e",
+		  storageBucket: "forment-1579e.appspot.com",
+		  messagingSenderId: "535405719783",
+		  appId: "1:535405719783:web:1b0d388e43151cda557242",
+		  measurementId: "G-FZPS0215L0"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+
+		const provider = new GoogleAuthProvider();
+		const auth = getAuth();
+		auth.languageCode = 'ko';
+
+		window.recaptchaVerifier = new RecaptchaVerifier('phoneNumberButton', {
+		'size': 'invisible',
+		'callback': (response) => {
+			// reCAPTCHA solved, allow signInWithPhoneNumber.
+			onSignInSubmit();
+		}
+		}, auth);
+
+		document.getElementById('phoneNumberButton').
+		addEventListener('click', (event) => {
+			event.preventDefault()
+			
+			const phoneNumber = document.getElementById('phoneNumber').value;
+			const appVerifier = window.recaptchaVerifier;
+
+			signInWithPhoneNumber(auth, '+82'+phoneNumber, appVerifier)
+				.then((confirmationResult) => {
+				// SMS sent. Prompt user to type the code from the message, then sign the
+				// user in with confirmationResult.confirm(code).
+				window.confirmationResult = confirmationResult;
+				console.log(confirmationResult)
+				// ...
+				}).catch((error) => {
+				console.log(error)
+				// Error; SMS not sent
+				// ...
+				});
+		})
+
+		document.getElementById('confirmCodeButton').
+		addEventListener('click', (event) => {
+			event.preventDefault()
+
+			const code = document.getElementById('confirmCode').value;
+			confirmationResult.confirm(code).then((result) => {
+			// User signed in successfully.
+			const user = result.user;
+			console.log(result)
+			// ...
+			}).catch((error) => {
+				console.log(error);
+				alert("sss");
+			// User couldn't sign in (bad verification code?)
+			// ...
+			});
+		})
+	  </script>
 </body>
 </html>

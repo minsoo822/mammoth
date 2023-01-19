@@ -575,7 +575,7 @@ tfoot {
 				                		</td>
 				                		<td class="right">
 				                	        <div class="">
-												<strong><input id="productPrice" type="text" value="${bskList.prTotalPrice }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
+												<strong><input id="productPrice${bskList.bskSeq}" type="text" value="${bskList.prTotalPrice }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
 											</div>
 					                    </td>
 				                		<td>
@@ -621,7 +621,7 @@ tfoot {
 				                <tr>
 									<td colspan="10">
 									<span class="gLeft">[기본배송]</span> 상품구매금액 
-									<strong><c:out value="${totalPrice }"/><span class="displaynone">()</span></strong>
+									<strong><span id="productBuyPrice"><c:out value="${totalPrice }"/></span>원</strong>
 									<span class="displaynone"> </span>
 									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
 									<span class="displaynone"> </span> 
@@ -827,16 +827,16 @@ tfoot {
 			  }
 			});
 	});
+	
+
+	
 	window.onload = function(){
 		
 		var productTotalPrice = $("#productTotalPrice").val();
-		var productPrice = $("#productPrice").val();
-		
-		var Total [];
-		
-		
 		
 		add = function(key) {
+			
+			var productPrice = $("#productPrice"+key).val();
 			
 			var num = +$("#amount"+key).val() + 1;
 			var productTotalPriceAdd = productPrice * num;
@@ -847,6 +847,9 @@ tfoot {
 		};
 		
 		minus = function(key) {
+			
+			var productPrice = $("#productPrice"+key).val();
+			
 			var num = +$("#amount"+key).val() - 1;
 			
 			if(num < 1) {
@@ -859,6 +862,10 @@ tfoot {
 				$("#productTotalPrice"+key).val(basketTotalPriceminus.toLocaleString());
 			}
 		};
+		
+		var totalSum = [];
+		
+		//장바구니 리스트에 각 상품의 금액을 배열에다가 담아줘서 총합 구해주기.
 		
 		
 	};

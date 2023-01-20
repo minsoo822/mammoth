@@ -993,11 +993,15 @@ li {
 												<!-- prepend -->
 												<div class="row"
 													style="display: flex; align-items: center; margin-bottom: 20px;">
-													<div class="col-1">
-														<div style="font-size: 12pt;">
+													<div class="col-2">
+														<div style="font-size: 10pt;">
 															<!-- 벌점, 점수-->
-															<span>★</span><strong><c:out
-																	value="${rvList.rvStar}" /></strong>
+															<%-- <span>★</span><strong><c:out value="${rvList.rvStar}" /></strong> --%>
+															<c:if test="${rvList.rvStar == 1}"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
+															<c:if test="${rvList.rvStar == 2}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
+															<c:if test="${rvList.rvStar == 3}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
+															<c:if test="${rvList.rvStar == 4}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></c:if>
+															<c:if test="${rvList.rvStar == 5}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></c:if>
 														</div>
 													</div>
 													<div class="col-1">

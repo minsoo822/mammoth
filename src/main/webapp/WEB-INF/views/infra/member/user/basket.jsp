@@ -839,6 +839,8 @@ tfoot {
 	
 	window.onload = function(){
 		
+		var basketListCount = $("#basketList").val();
+		
 		var productTotalPrice = $("#productTotalPrice").val();
 		
 		add = function(key) {
@@ -852,6 +854,13 @@ tfoot {
 			$("#amount"+key).val(num);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
 			
+			
+			alert(key + "번 장바구니 상품의 수량 : " + num);
+			alert(key + "번 장바구니 상품의 total값 : " + productTotalPriceAdd);
+			
+			var tototal = $("#productBuyPrice").val() += productTotalPriceAdd;
+			
+			alert(tototal);
 			
 		};
 		

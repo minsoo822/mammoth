@@ -341,12 +341,12 @@
 										<option value="011">KT</option>
 										<option value="016">LGU+</option>
 									</select> -->
-									<input id="phoneNumber" name=""  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
+									<input id="phoneNumber"  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
 									<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
-									<a href="#" id="phoneNumberButton" onclick="">
+									<button type="button" id="phoneNumberButton" onclick="">
 										<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
-									</a><br>
-									<input id="confirmCode" name="" value="" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
+									</button><br>
+									<input id="confirmCode" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
 									<button id="confirmCodeButton" type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
 								    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
 								</div>
@@ -374,22 +374,22 @@
 						<tr>
 							<th scope="row">아이디 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 			                <td>
-			                    <input id="" name="mmId" readonly="readonly" value="${item.mmId }" type="text">(영문소문자/숫자, 4~16자)
+			                    <input name="mmId" readonly="readonly" value="${item.mmId }" type="text">(영문소문자/숫자, 4~16자)
 			                </td>
 			            </tr>
 						<tr>
 							<th scope="row">비밀번호 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
-			                <td><input id="" name="" maxlength="16" disabled="1" value="${item.mmPassword }" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)</td>
+			                <td><input name="" maxlength="16" disabled="1" value="${item.mmPassword }" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)</td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">비밀번호 확인 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 			                <td>
-			                	<input id="user_passwd_confirm" name="user_passwd_confirm" fw-filter="isMatch[passwd]" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off" maxlength="16" disabled="1" value="" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> <span id="pwConfirmMsg"></span>
+			                	<input name="user_passwd_confirm" fw-filter="isMatch[passwd]" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off" maxlength="16" disabled="1" value="" type="password" style="background-color: rgba(239, 239, 239, 0.3);"> <span id="pwConfirmMsg"></span>
 							</td>
 			            </tr>
 			            <tr style="display:1">
 							<th scope="row" id="nameTitle">이름 <img src="/resources/images/ico_required.gif" alt="필수"></th>
-			                <td><input id="" name="mmName"maxlength="30" readonly="readonly" value="${item.mmName }" type="text"></td>
+			                <td><input name="mmName"maxlength="30" readonly="readonly" value="${item.mmName }" type="text"></td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">주소</th>
@@ -405,7 +405,7 @@
 			            <tr class="">
 							<th scope="row">일반전화</th>
 							<td>
-								<input id="" name="" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
+								<input name="" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
 							</td>
 			            </tr>
 			            <tr class="">
@@ -416,7 +416,7 @@
 									<option value="">KT</option>
 									<option value="">LGU+</option>
 								</select>
-								<input id="" name="mmPhoneNumber" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
+								<input name="mmPhoneNumber" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
 								<!-- <input id="" name="" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text"> -->
 							</td>
 			            </tr>
@@ -628,11 +628,19 @@
 			confirmationResult.confirm(code).then((result) => {
 			// User signed in successfully.
 			const user = result.user;
-			console.log(result)
+			console.log(result);
+			alert("인증 성공!");
+
+			// 1. 전화번호를 받아오는값을 콘솔로 찍어보면서 확인하기.
+			// 2. 받아온 전화번호 값 '+8210' 국제번호로 받아오는값을 010 으로 변환하기.
+			// 3. 변환한 값을 인증 테이블에 인서트 시켜주기.
+			// 4. mmSeq 값으로 인증했는지 안했는지 카운터 받아오기.
+			// 5. myInfo에 넣어준 전화번호 selectOne에 조인시켜주기.
+
 			// ...
 			}).catch((error) => {
 				console.log(error);
-				alert("sss");
+				alert("인증번호를 다시한번 확인해주세요");
 			// User couldn't sign in (bad verification code?)
 			// ...
 			});

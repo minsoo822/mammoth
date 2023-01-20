@@ -97,8 +97,8 @@ public class MemberController {
 		Member adrselectOne = service.adrselectOne(vo);
 		model.addAttribute("adritem", adrselectOne);
 		
-		model.addAttribute("kakaoCheck", myInfo.getMmId().contains("@k"));
-		System.out.println("kakaocCheck : " + myInfo.getMmId().contains("@k"));
+		model.addAttribute("kakaoCheck", myInfo.getMmId().contains("@K"));
+		System.out.println("kakaocCheck : " + myInfo.getMmId().contains("@K"));
 		
 		return "infra/member/user/myinfo";
 	}

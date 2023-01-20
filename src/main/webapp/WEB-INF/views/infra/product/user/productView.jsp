@@ -766,6 +766,11 @@ li {
 	color: white;
 }
 </style>
+<style type="text/css">
+	.reviewTitle {
+		outline: none;
+	}
+</style>
 </head>
 <body>
 	<form id="mainForm">
@@ -924,10 +929,7 @@ li {
 						<ul id="product_detail_tab" class="" style="width: 1160px;">
 							<li class="selected" style="width: 580px;"><a href="#"
 								style="text-decoration: none;">상세 정보</a></li>
-							<li class="" style="width: 580px;"><a href="#"
-								id="go_review" style="text-decoration: none;">리뷰 (<span
-									class="snap_review_count noset">100</span>)
-							</a></li>
+							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"></c:out>)</a></li>
 						</ul>
 					</div>
 					<div class="detail_info_warp"
@@ -938,10 +940,9 @@ li {
 						</c:forEach>
 					</div>
 				</div>
-				<div class="prdReview"
-					style="margin-top: 50px; width: 90%; margin-left: auto; margin-right: auto;">
+				<div class="prdReview" style="margin-top: 50px; width: 90%; margin-left: auto; margin-right: auto;">
 					<hr style="margin-bottom: 20px;">
-					<div class="reviewTitle" style="width: 70%; height: 50px;">
+					<div class="reviewTitle" id="reviewTitle" style="width: 70%; height: 50px;">
 						<h3 style="font-weight: 600; font-size: 13pt;">전체리뷰</h3>
 						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
@@ -1006,17 +1007,9 @@ li {
 													<div class="col-3">
 														<span><c:out value="${rvList.rvCreDate }" /></span>
 													</div>
-													<div class="col-1">
-														<span style="font-size: 12pt;"><strong><c:out
-																	value="${rvList.mmGrade}" /></strong></span>
-													</div>
-													<c:forEach items="${ccgListGrade}" var="ccgListGrade"
-														varStatus="rvStatus">
+													<c:forEach items="${ccgListGrade}" var="listGrade" varStatus="rvStatus">
 														<div class="col-1">
-															<span style="font-size: 12pt;"><strong><c:if
-																		test="${ccgListGrade.ccOrder eq rvList.mmGrade}">
-																		<c:out value="${ccgListGrade.ccName}" />
-																	</c:if></strong></span>
+															<span style="font-size: 12pt;"><strong><c:if test="${listGrade.ccOrder eq rvList.mmGrade}"><c:out value="${listGrade.ccName}" /></c:if></strong></span>
 														</div>
 													</c:forEach>
 													<div class="col">
@@ -1154,6 +1147,7 @@ li {
 		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
     
 	}); 
+    
  	// 모달 닫기 코드
     const buttonCloseModal = document.getElementById("closeModal");
     		
@@ -1162,9 +1156,15 @@ li {
 		document.body.style.overflowY = "visible";
 	});
 	
+	// 리뷰 작성 코드
 	$("#reviewInst").on("click", function() {
 		alert("회원님의 소중한 리뷰가 등록되었습니다!");
 		form.attr("action", "/review/reviewInst").submit();
+	});
+	
+	// 리뷰 탭 클릭시 하단 리뷰로 focus
+	$("#go_review").on("click", function() {
+		$("#reviewTitle").attr("tabindex", -1).focus(); 
 	});
 	
 	

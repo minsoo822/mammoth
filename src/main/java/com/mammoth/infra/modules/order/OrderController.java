@@ -13,9 +13,7 @@ public class OrderController {
 	
 	@RequestMapping(value="orderList")
 	public String orderList() throws Exception {
-		
-		service.selectList();
-		
+				
 		return "infra/member/user/orderList";
 	}
 	
@@ -28,7 +26,6 @@ public class OrderController {
 	@RequestMapping(value="orderInst")
 	public String insert(Order dto) throws Exception {
 		
-		service.insert(dto);
 		
 		return "infra/member/user/orderList";
 	}

@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -451,6 +453,7 @@ tfoot {
 </head>
 <body>
 	<form method="post" id="mainForm">
+	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<input type="hidden" name="checkboxSeqArray" >
@@ -479,7 +482,11 @@ tfoot {
 		            <h3 class="title" style="width: 100px;">지금 고객님들이 가장 많이 구매한 상품</h3>
 		            <div class="description">
 		                <div class="member ">
-		                    <p><strong>김민수</strong> 님은, [웰컴] 회원이십니다.</p>
+		                    <p><strong><c:out value="${info.mmName }"></c:out></strong> 님은, [ <c:forEach items="${ccgListGrade}" var="ccgListGrade" varStatus="rvStatus">
+																								<c:if test="${ccgListGrade.ccOrder eq info.mmGrade}">
+																									<c:out value="${ccgListGrade.ccName}" />
+																								</c:if>
+																							  </c:forEach>] 회원이십니다.</p>
 						</div>
 		                <ul class="mileage">
 							<li>
@@ -621,7 +628,7 @@ tfoot {
 				                <tr>
 									<td colspan="10">
 									<span class="gLeft">[기본배송]</span> 상품구매금액 
-									<strong><span id="productBuyPrice"><c:out value="${totalPrice }"/></span>원</strong>
+									<strong><span id="productBuyPrice"><%-- <c:out value="${totalPrice }"/> --%></span>원</strong>
 									<span class="displaynone"> </span>
 									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
 									<span class="displaynone"> </span> 
@@ -844,6 +851,8 @@ tfoot {
 			
 			$("#amount"+key).val(num);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
+			
+			
 		};
 		
 		minus = function(key) {
@@ -863,9 +872,11 @@ tfoot {
 			}
 		};
 		
-		var totalSum = [];
-		
+		//var totalSum = [];
 		//장바구니 리스트에 각 상품의 금액을 배열에다가 담아줘서 총합 구해주기.
+
+		
+		
 		
 		
 	};

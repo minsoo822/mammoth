@@ -12,13 +12,535 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	<link href="/resources/css/index.css" rel="stylesheet">
 	
 
 	<style>
 		div	{
 			/* border: solid 1px orange; */
 		}
-		
+		.path {
+		    overflow: hidden;
+		    height: 60px;
+		    line-height: 30px;
+		    *zoom: 1;
+		}
+		.path ol {
+		    float: right;
+		    background: url(/resources/images/ico_home.png) no-repeat 0 8px;
+		    padding-left: 16px;
+		    background-size: 15px 14px;
+		    
+		}
+		.path li {
+		    float: left;
+		    padding: 0 0 0 12px;
+		    margin: 0 0 0 8px;
+		    color: #888888;
+		    background: url(/resources/images/ico_home_next.png) no-repeat 0 10px;
+		}
+		.path li:first-child {
+		    background: none;
+		    display: none;
+		}
+		.path span {
+		    overflow: hidden;
+		    position: absolute;
+		    width: 0;
+		    height: 0;
+		    white-space: nowrap;
+		    text-indent: 100%;
+		}
+		.path li a {
+		    color: #888888;
+		}
+		li {
+		    list-style: none;
+		}
+		.path li strong, .path li strong a {
+		    color: #333333;
+		}
+		.titleArea {
+		    min-height: 70px;
+		    margin: 0;
+		}
+		.titleArea h2 {
+		    display: block;
+		    padding: 0 0 0 0;
+		    margin-top: -55px;
+		    font-weight: 500;
+		    color: #0e0e0e;
+		    font-size: 18px;
+		    *display: inline;
+		    *zoom: 1;
+		}
+			.titleArea p {
+		    display: inline-block;
+		    margin: 0 0 0 6px;
+		    padding: 0 0 0 10px;
+		    color: #939393;
+		    background: url(/resources/images/ico_bar.gif) no-repeat 0 0;
+		    *display: inline;
+		    *zoom: 1;
+		}
+.ec-base-box.typeMember {
+    padding: 0;
+}
+.ec-base-box {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #e8e8e8;
+    color: #404040;
+}
+.xans-order-dcinfo {
+    margin: 20px 0;
+    color: #353535;
+    line-height: 1.5;
+}
+.ec-base-box.typeMember .information {
+    display: table;
+    table-layout: fixed;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ec-base-box.typeMember .information > .title {
+    vertical-align: middle;
+}
+.ec-base-box.typeMember .information > .title, .ec-base-box.typeMember .information > .thumbnail {
+    display: table-cell;
+    padding: 0 15px;
+    width: 70px;
+    text-align: center;
+    vertical-align: middle;
+}
+.xans-order-form .title {
+    margin: 40px 0 10px 10px;
+}
+.xans-order-dcinfo h3 {
+    font-size: 12px;
+}
+.ec-base-box.typeMember .information .description {
+    display: table-cell;
+    padding: 0 10px;
+    width: auto;
+    line-height: 1.5em;
+    border-left: 1px solid #e8e8e8;
+    vertical-align: middle;
+}
+.xans-order-dcinfo .description .mileage {
+    margin: 6px 0 0;
+    padding: 10px 0 0;
+    border-top: 1px solid #e8e8e8;
+    *zoom: 1;
+}
+.xans-order-dcinfo .description .mileage li {
+    float: left;
+    margin: 0 40px 0 0;
+}
+.xans-order-dcinfo .description .mileage li a {
+    text-decoration: none;
+}
+.xans-order-dcinfo .description .mileage li strong {
+    color: #008bcc;
+}
+.xans-order-form .controlInfo {
+    padding: 10px 0 8px 10px;
+    border-top: 1px solid #e8e5e4;
+    color: #f76560;
+    font-size: 11px;
+    line-height: 1.5;
+    background: #fff8f5;
+}
+.xans-order-form .controlInfo li {
+    padding: 0 0 0 23px;
+    background: url(../../images/ico_info.gif) no-repeat 0 1px;
+}
+.ec-base-table.typeList table {
+    border-top: 1px solid #d7d5d5;
+}
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border: 1px solid #d7d5d5;
+    border-top: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+caption {
+    display: none;
+}
+colgroup {
+    display: table-column-group;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border: 1px solid #d7d5d5;
+    border-top: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border: 1px solid #d7d5d5;
+    border-top: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+.ec-base-table th:first-child {
+    border-left: 0;
+}
+.ec-base-table thead th {
+    padding: 11px 0 10px;
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+    font-weight: normal;
+    background: #fbfafa;
+}
+.ec-base-table .right {
+    text-align: right;
+}
+tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.ec-base-table.gBorder td:first-child {
+    border-left: 0;
+}
+.ec-base-table.typeList tfoot td {
+    padding: 15px 10px 17px;
+    background: #fbfafa;
+}
+.ec-base-table.gBorder td {
+    border-left: 1px solid #dfdfdf;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+}
+.ec-base-table.typeList tfoot td {
+    padding: 15px 10px 17px;
+    background: #fbfafa;
+}
+.ec-base-table.gBorder td {
+    border-left: 1px solid #dfdfdf;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+}
+.xans-order-form .ec-base-table tfoot td .gLeft {
+    float: left;
+    margin: 6px 0 0;
+}
+.gIndent10 {
+    margin-left: 10px;
+}
+.txtEm {
+    color: #008bcc;
+}
+.txt18 {
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+.ec-base-table .center {
+    text-align: center;
+}
+.ec-base-table.gBorder td.gClearLine {
+    border-left: 0;
+}
+.xans-order-form .ec-base-table td.thumb img {
+    max-width: 75px;
+}
+.ec-base-table.typeList .center td.left {
+    padding-left: 10px;
+}
+.xans-order-form .ec-base-table td div.option, .xans-order-form .ec-base-table td ul.option > li {
+    margin: 9px 0 0;
+    color: #707070;
+    line-height: 16px;
+}
+.ec-base-table .left {
+    text-align: left;
+}
+.xans-order-form .controlInfo.typeBtm {
+    margin: -1px 0 0;
+    border-top: 0;
+    border-bottom: 1px solid #e8e5e4;
+}
+.xans-order-form .controlInfo {
+    padding: 10px 0 8px 10px;
+    border-top: 1px solid #e8e5e4;
+    color: #f76560;
+    font-size: 11px;
+    line-height: 1.5;
+    background: #fff8f5;
+}
+.xans-order-form .controlInfo li {
+    padding: 0 0 0 23px;
+    background: url(../../images/ico_info.gif) no-repeat 0 1px;
+}
+span.ec-base-help, p.ec-base-help, ul.ec-base-help li {
+    margin: 2px 9px;
+    padding: 1px 0 1px 20px;
+    line-height: 1.4;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_info.gif) no-repeat 0 2px;
+}
+.xans-order-form .ec-base-button {
+    padding: 10px 0 50px;
+    border-bottom: 1px solid #868686;
+}
+.ec-base-button {
+    padding: 10px 0;
+    text-align: center;
+}
+.ec-base-button .gLeft {
+    float: left;
+    text-align: left;
+}.ec-base-button .text {
+    margin: 0 6px 0 10px;
+    color: #353535;
+    line-height: 24px;
+}
+.xans-order-form .orderArea .title .required {
+    margin: -15px 0 0;
+    color: #353535;
+    text-align: right;
+}
+.xans-order-form .orderArea .title .required img {
+    vertical-align: middle;
+}
+.ec-base-table tbody th {
+    padding: 11px 0 10px 18px;
+    border: 1px solid #dfdfdf;
+    border-bottom-width: 0;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    background-color: #fbfafa;
+}
+.xans-order-form .ec-base-table.typeWrite td {
+    color: #707070;
+}
+.ec-base-table.typeWrite td {
+    padding: 8px 10px 7px;
+}
+.xans-order-form #oname, .xans-order-form #oname2, .xans-order-form #rname, .xans-order-form #fname, .xans-order-form #fname2, .xans-order-form #english_oname, .xans-order-form #pron_name, .xans-order-form #si_gun_dosi, .xans-order-form #ju_do, .xans-order-form #ocity, .xans-order-form #ostate {
+    width: 180px;
+}
+input[type=text], input[type=password] {
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+}
+input, select, textarea {
+    font-size: 100%;
+    color: #353535;
+    vertical-align: middle;
+}
+.xans-order-form .ec-base-table.typeWrite td {
+    color: #707070;
+}
+.ec-base-table.typeWrite td {
+    padding: 8px 10px 7px;
+}
+.gBlank5 {
+    display: block;
+    margin-top: 5px;
+}
+.txtInfo {
+    color: #707070;
+}
+.xans-order-form #oaddr1, .xans-order-form #oaddr2, .xans-order-form #raddr1, .xans-order-form #raddr2, .xans-order-form #faddress, .xans-order-form #faddress2 {
+    width: 450px;
+    margin: 5px 5px 0 0;
+}
+.xans-order-form .zipcode_red_em {
+    color: #f00;
+    margin: 0 0 0 10px;
+}
+textarea {
+    padding: 5px 6px;
+    border: 1px solid #d5d5d5;
+    line-height: 1.5;
+}
+.xans-order-form .payArea {
+    overflow: hidden;
+    position: relative;
+    padding: 0 241px 0 0;
+    border: 1px solid #777;
+    color: #353535;
+    line-height: 1.5;
+}
+.xans-order-form .payArea .payment {
+    float: left;
+    width: 100%;
+}.xans-order-form .payArea .method {
+    padding: 17px 20px 15px;
+    font-weight: bold;
+    border-bottom: 3px double #dedede;
+}
+.xans-order-form .payArea .method span {
+    display: inline-block;
+    margin: 0 15px 5px 0;
+}
+.xans-order-form .payArea .payment > .ec-base-table {
+    padding: 10px 20px;
+}
+.xans-order-form .payArea .payHelp {
+    margin: 0 0 0 130px;
+}
+span.ec-base-help, p.ec-base-help, ul.ec-base-help li {
+    margin: 2px 9px;
+    padding: 1px 0 1px 20px;
+    line-height: 1.4;
+    background: url(../../images/ico_info.gif) no-repeat 0 2px;
+}
+.xans-order-form .payArea .total {
+    float: right;
+    width: 240px;
+    margin: 0 -241px 0 0;
+    text-align: right;
+    background: #fbfafa;
+}
+.xans-order-form .payArea .total h4 {
+    margin: 17px 10px 0 0;
+    color: #353535;
+    font-size: 12px;
+}
+.xans-order-form .payArea .total .price {
+    margin: 20px 10px 0 0;
+    color: #008bcc;
+    font-size: 14px;
+}
+.xans-order-form .payArea .total .price input#total_price {
+    width: 190px;
+    height: auto;
+    padding: 0;
+    border: 0;
+    color: #008bcc;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: normal;
+    background: #fbfafa;
+}
+.xans-order-form .payArea .total .button {
+    margin: 16px 0 10px;
+    text-align: center;
+}
+.xans-order-form .payArea .total .mileage .ec-base-desc {
+    padding: 10px 10px 9px 0;
+    border-top: 1px solid #d7d5d5;
+}
+.ec-base-desc.gLarge dt, .ec-base-desc.gLarge .term {
+    width: 50%;
+}
+.ec-base-desc dt, .ec-base-desc .term {
+    float: left;
+    width: 100px;
+    margin: 0 0 2px;
+    padding: 0 4px 0 0;
+    line-height: 22px;
+    -webkit-box-sizing: border-box;
+    -moz-webkit-box: border-box;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+.xans-order-form .payArea .total .mileage .ec-base-desc + .ec-base-desc {
+    border-color: #e9e9e9;
+}
+.ec-base-desc.gLarge dd, .ec-base-desc.gLarge .desc {
+    padding: 0 0 0 50%;
+}
+.ec-base-desc dd, .ec-base-desc .desc {
+    display: block;
+    margin: 0 0 2px;
+    padding: 0 5px 0 100px;
+    min-height: 22px;
+    line-height: 22px;
+    word-wrap: break-word;
+}
+.ec-base-desc dd:after, .ec-base-desc .desc:after {
+    content: "";
+    display: block;
+    clear: left;
+}
+.xans-order-form .payArea:after {
+    position: absolute;
+    top: 0;
+    right: 240px;
+    display: block;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #777;
+}
+.xans-order-form .payArea .total .price strong, .xans-order-form .payArea .total .price span {
+    vertical-align: -5px;
+}
+div.ec-base-help {
+    margin: 20px 0;
+    border: 1px solid #d6d4d4;
+    line-height: 18px;
+}
+div.ec-base-help > h2, div.ec-base-help > h3 {
+    padding: 9px 0 6px 10px;
+    border-bottom: 1px solid #e8e7e7;
+    color: #101010;
+    font-size: 12px;
+    background: #fbfbfb;
+}
+div.ec-base-help .inner {
+    padding: 0 9px 12px;
+}
+div.ec-base-help h4:first-child {
+    margin-top: 13px;
+}
+div.ec-base-help h4 {
+    margin: 22px 0 -4px;
+    color: #404040;
+    font-size: 12px;
+    font-weight: normal;
+}
+div.ec-base-help ul, div.ec-base-help ol {
+    margin: 15px 0 0 11px;
+}
 	</style>
 </head>
 <body>
@@ -44,7 +566,7 @@
     		<div class="xans-element- xans-order xans-order-form xans-record-">
     			<div class="xans-element- xans-order xans-order-dcinfo ec-base-box typeMember  ">
     				<div class="information">
-					    <h3 class="title">혜택정보</h3>
+					    <h3 class="title" style="width: 80px;">혜택정보</h3>
 					    <div class="description">
 					        <div class="member ">
 					            <p><strong>김민수</strong> 님은, [웰컴] 회원이십니다.</p>

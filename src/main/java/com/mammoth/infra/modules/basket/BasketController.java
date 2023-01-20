@@ -8,15 +8,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.mammoth.infra.modules.member.Member;
+import com.mammoth.infra.modules.member.MemberServiceImpl;
+import com.mammoth.infra.modules.member.MemberVo;
 @Controller
 @RequestMapping(value="/basket/")
 public class BasketController {
 
 	@Autowired
 	BasketServiceImpl service;
+	@Autowired
+	MemberServiceImpl mmservice;
+	
 	
 	@RequestMapping(value="basketList")
-	public String basketList(@ModelAttribute("dto") Basket dto, Model model) throws Exception {
+	public String basketList(@ModelAttribute("dto") Basket dto, Model model, MemberVo vo) throws Exception {
+		/* 회원정보 */
+		Member info = mmservice.selectOne(vo);
+		model.addAttribute("info", info);
 		/* 장바구니 물품갯수 */
 		int selectListCount = service.selectListCount(dto);
 		model.addAttribute("selectListCount", selectListCount);
@@ -24,8 +34,8 @@ public class BasketController {
 		List<Basket> selectList = service.selectList(dto);
 		model.addAttribute("list", selectList);
 		/* 장바구니 상품들 총 가격 */
-		int totalPrice = service.TotalPrice(dto);
-		model.addAttribute("totalPrice", totalPrice);
+//		int totalPrice = service.TotalPrice(dto);
+//		model.addAttribute("totalPrice", totalPrice);
 		
 		return "infra/member/user/basket";
 	}

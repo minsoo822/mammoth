@@ -28,6 +28,7 @@
 		AND prup.upType = 1
 		AND	prup.upDefaultNy = 1
 	</select>
+	
 	<select id="selectListCount" resultType="Integer">
 		SELECT
 			COUNT(*)

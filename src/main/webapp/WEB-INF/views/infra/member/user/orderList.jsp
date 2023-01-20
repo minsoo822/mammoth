@@ -12,6 +12,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	<link href="/resources/css/index.css" rel="stylesheet">
 	
 
 	<style>

@@ -78,6 +78,7 @@
 		SELECT
 			mmId
 		    ,mmName
+		    ,mmGrade
 		    ,mmEmail
 		    ,mmGender
 		    ,mmCertNy

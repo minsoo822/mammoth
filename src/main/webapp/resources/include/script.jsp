@@ -21,7 +21,7 @@
 	var mmSeq = $("#mmSeq").val();
 	
 	var goMyinfo = "/member/myinfo";
-	var orderList = "/member/orderList";
+	var orderList = "/order/orderList";
 	var basket = "/basket/basketList";
 	var mypage = "/member/mypage";
 	var adrList = "/member/adrList";

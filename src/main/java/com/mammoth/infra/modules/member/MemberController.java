@@ -97,6 +97,11 @@ public class MemberController {
 		Member adrselectOne = service.adrselectOne(vo);
 		model.addAttribute("adritem", adrselectOne);
 		
+		// selectOne해서 가져온 myInfo에서 getMmId 값 안에 문자열 @K가 포함되어있으면 true 리턴 없으면 false 리턴
+		// kakaoCheck라는 이름으로 model에 담아 jsp에 넘겨줌
+		model.addAttribute("kakaoCheck", myInfo.getMmId().contains("@K"));
+		System.out.println("kakaocCheck : " + myInfo.getMmId().contains("@K"));
+		
 		return "infra/member/user/myinfo";
 	}
 	@RequestMapping(value="myinfoUpda")

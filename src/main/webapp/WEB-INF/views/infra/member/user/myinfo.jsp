@@ -484,20 +484,39 @@
 								</td>
 							</c:if>
 			            </tr>
-			            <tr class="">
-							<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
-			                <td>
-				                <input id="birth_year" name="birth_year" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
-				                <input id="birth_month" name="birth_month" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
-				                <input id="birth_day" name="birth_day" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 
-				                <!-- <span class="gIndent20 ">
-					                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
-					                <label for="is_solar_calendar0">양력</label>
-									<input id="is_solar_calendar1" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="F" type="radio">
-									<label for="is_solar_calendar1">음력</label>
-								</span> -->
-							</td>
-			            </tr>
+			            <c:choose>
+			            	<c:when test="${kakaoCheck == true}">
+			            		<tr class="">
+									<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
+					                <td>
+						                <input id="birth_month" name="birth_month" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
+						                <input id="birth_day" name="birth_day" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 
+						                <!-- <span class="gIndent20 ">
+							                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
+							                <label for="is_solar_calendar0">양력</label>
+											<input id="is_solar_calendar1" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="F" type="radio">
+											<label for="is_solar_calendar1">음력</label>
+										</span> -->
+									</td>
+					            </tr>
+			            	</c:when>
+			            	<c:otherwise>
+					            <tr class="">
+									<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
+					                <td>
+						                <input id="birth_year" name="birth_year" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
+						                <input id="birth_month" name="birth_month" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
+						                <input id="birth_day" name="birth_day" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 
+						                <!-- <span class="gIndent20 ">
+							                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
+							                <label for="is_solar_calendar0">양력</label>
+											<input id="is_solar_calendar1" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="F" type="radio">
+											<label for="is_solar_calendar1">음력</label>
+										</span> -->
+									</td>
+					            </tr>
+			            	</c:otherwise>
+			            </c:choose>
 					</tbody>
 				</table>
     		</div>

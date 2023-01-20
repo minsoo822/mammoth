@@ -457,6 +457,7 @@ tfoot {
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<input type="hidden" name="checkboxSeqArray" >
+	
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -609,6 +610,7 @@ tfoot {
 										</td>
 				                		<td class="right">
 				                			<strong><input readonly id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
+				                			<input type="hidden" id="productTotalSumPrice${bskList.bskSeq }" name="productTotalSumPrice${bskList.bskSeq }" value="">
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -839,9 +841,7 @@ tfoot {
 	
 	window.onload = function(){
 		
-		var basketListCount = $("#basketList").val();
-		
-		var productTotalPrice = $("#productTotalPrice").val();
+		var productBuyPrice = $("#productBuyPrice").val()
 		
 		add = function(key) {
 			
@@ -854,13 +854,11 @@ tfoot {
 			$("#amount"+key).val(num);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
 			
+			$("#productTotalSumPrice"+key).val(productTotalPriceAdd);
 			
+			alert($("#productTotalSumPrice"+key).val());
 			alert(key + "번 장바구니 상품의 수량 : " + num);
 			alert(key + "번 장바구니 상품의 total값 : " + productTotalPriceAdd);
-			
-			var tototal = $("#productBuyPrice").val() += productTotalPriceAdd;
-			
-			alert(tototal);
 			
 		};
 		
@@ -881,9 +879,22 @@ tfoot {
 			}
 		};
 		
-		//var totalSum = [];
+		
+		var totalSum = [
+			
+				for(var i=1; i < ${fn:length(list)}; i++) {
+					
+					$("#productTotalSumPrice"+ i).val();
+					
+				}
+				
+			
+			];
 		//장바구니 리스트에 각 상품의 금액을 배열에다가 담아줘서 총합 구해주기.
+		
+		console.log(totalSum);
 
+		
 		
 		
 		

@@ -565,7 +565,11 @@ table {
 	font-size: 0 !important;
 	position: relative;
 	flex: 0 0 80px;
-	min-width: 80px;
+	min-width: 150px;
+}
+
+.btAction a.btn_action.purchase {
+	min-width: 430px;
 }
 
 .btAction a.btn_action.white {
@@ -898,13 +902,10 @@ li {
 								<div class="xans-element- xans-product xans-product-action ">
 									<div class="btAction">
 										<a id="cartBtn" href="#none"
-											class="btn_action white  wm_pc_cart" onclick=""> <span>ADD
+											class="btn_action white  wm_pc_cart" style="width: 200px;" onclick=""> <span>ADD
 												TO CART</span>
 										</a> 
-										<a href="#none" class="wm_pc_gift_order btn_action white"
-											style="text-decoration: none;"> <span>선물하기</span>
-										</a> 
-										<a href="#none" class=" btn_action purchase" onclick=""
+										<a href="#none" class="btn_action purchase" onclick=""
 											style="text-decoration: none;"> <span id="btnBuy"
 											class="wm_pc_order">BUY NOW</span>
 										</a>
@@ -967,17 +968,17 @@ li {
 					<!-- 댓글 s -->
 					<c:choose>
 						<c:when test="${fn:length(rvList) eq 0}">
-							<div class="row text-center">
-								<div class="col text-center">
+							<div class="row text-center mt-3">
+								<div class="col-10 text-center" style="padding-left: 200px;">
 									<p>첫 번째 리뷰를 작성해주세요.</p>
 									<br>
-									<p>리뷰를 작성시 최대 1,000원 적립금을 드려요.</p>
+									<p>리뷰를 작성시 최대 <strong>1,000원</strong> 적립금을 드려요.</p>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<button type="button" class="noReviewAdd"
-										style="border: 1px solid #ced4da;">첫 리뷰 남기기</button>
+								<div class="col-2">
+									<button type="button" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
+									첫 리뷰<br>
+									남기기
+									</button>
 								</div>
 							</div>
 						</c:when>

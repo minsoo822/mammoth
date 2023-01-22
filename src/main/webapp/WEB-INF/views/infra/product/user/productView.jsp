@@ -773,7 +773,7 @@ li {
 </style>
 </head>
 <body>
-	<form id="mainForm">
+	<form id="mainForm" method="post" enctype="multipart/form-data">
 
 		<c:set var="ccgListGrade"
 			value="${CodeServiceImpl.selectListCachedCode(7)}" />

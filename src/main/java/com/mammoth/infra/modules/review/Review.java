@@ -16,6 +16,8 @@ public class Review extends Base{
 	private String mmName;
 	private Integer mmGrade;
 	private String prName;
+	
+	
 	public Integer getRvSeq() {
 		return rvSeq;
 	}

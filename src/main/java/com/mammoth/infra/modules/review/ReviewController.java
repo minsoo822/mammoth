@@ -17,6 +17,8 @@ public class ReviewController {
 	@RequestMapping(value="reviewInst")
 	public String reviewInst(Review dto, RedirectAttributes redirectAttributes) throws Exception {
 		
+		System.out.println("rvImg : " + dto.getRvImg());
+		
 		service.insert(dto);
 		
 		redirectAttributes.addFlashAttribute("dto", dto);

@@ -70,6 +70,12 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.adrCheckDel(dto);
 	}
+	@Override
+	public int certUpdt(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.certUpdt(dto);
+	}
+	
 	
 	
 	

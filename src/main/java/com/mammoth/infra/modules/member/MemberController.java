@@ -113,6 +113,18 @@ public class MemberController {
 		
 		return "redirect:/member/myinfo";
 	}
+
+	@ResponseBody
+    @RequestMapping(value = "certUpdt")
+    public Map<String, Object> certUpdt(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>(); 
+    	
+        service.certUpdt(dto);
+        
+        returnMap.put("rt", "succes");
+        
+        return returnMap;
+    }
 	
 	@RequestMapping(value="mypage")
 	public String mypage(MemberVo vo, Model model) throws Exception {

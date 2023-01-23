@@ -345,12 +345,15 @@
 								<td>
 								<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
 								<div class="certifForm" id="mobileWrap" style="margin-top: 10px;">
-									<!-- <select id="" name="" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
-										<option value="">SKT</option>
-										<option value="011">KT</option>
-										<option value="016">LGU+</option>
-									</select> -->
+									<select id="telecom" onchange="selectBoxChange(this.value);">
+										<option value="" selected hidden>선택</option>
+										<option value="3">SKT</option>
+										<option value="4">KT</option>
+										<option value="5">LGU+</option>
+									</select>
 									<input id="phoneNumber"  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
+									<input id="certTelecom" name="certTelecom" value="" type="text">
+									<input id="certPhone" name="certPhone" value="" type="text">
 									<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
 									<button type="button" id="phoneNumberButton" onclick="">
 										<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
@@ -421,9 +424,9 @@
 							<th scope="row">휴대전화 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 			                <td>
 			                	<select id="mmTelecom" name="mmTelecom">
-									<option value="">SKT</option>
-									<option value="">KT</option>
-									<option value="">LGU+</option>
+									<option value="3">SKT</option>
+									<option value="4">KT</option>
+									<option value="5">LGU+</option>
 								</select>
 								<input name="mmPhoneNumber" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
 								<!-- <input id="" name="" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text"> -->
@@ -590,6 +593,14 @@
     btnMyinfoSave = function() {
     	form.attr("action", "/member/myinfoUpda").submit();
     }
+    
+    $(document).ready(function(){
+    	$("#telecom").change(function(){
+    		$("#certTelecom").attr("value",$(this).val());
+    		console.log("Telecom : " + $(this).val());
+    	});
+    });
+    
 	</script>	
 	<script type="module">
 		// Import the functions you need from the SDKs you need
@@ -657,11 +668,41 @@
 			// User signed in successfully.
 			const user = result.user;
 			console.log(result);
-			alert("인증 성공!");
+			console.log(user.phoneNumber);
+			swal("인증 성공!", "휴대폰 인증이 완료되었습니다.", "success")
 
-			// 1. 전화번호를 받아오는값을 콘솔로 찍어보면서 확인하기.
-			// 2. 받아온 전화번호 값 '+8210' 국제번호로 받아오는값을 010 으로 변환하기.
-			// 3. 변환한 값을 인증 테이블에 인서트 시켜주기.
+			var phoneNum = user.phoneNumber;
+			var numResult = phoneNum.replace('+82','0');
+
+			console.log(numResult);
+			
+			
+			$("#certPhone").attr("value" , numResult);
+
+			$.ajax({
+				url : '/member/certUpdt',
+				type : 'POST',
+				datatype : 'json',
+				data : {
+					mmSeq : $("#mmSeq").val()
+				}
+				,success : function(result) {
+					if(result.rt == "success") {
+						alert("인증 업데이트 완료");
+					}
+				}
+				,error : function() {
+					alert("ajax error..!");
+				}
+			});
+			
+			// 1. 전화번호를 받아오는값을 콘솔로 찍어보면서 확인하기.  
+			//	==> user.phoneNumber로 전화번호를 가져옴
+			// 2. 받아온 전화번호 값 '+8210' 국제번호로 받아오는값을 010 으로 변환하기. 
+			//	==>		var test = user.phoneNumber;
+			//			var result = test.replace('+82','0');
+			//			console.log(result);
+			// 3. 변환한 값을 인증 테이블에 업데이트 시켜주기. ( 인증했을시 인증값도 1로)
 			// 4. mmSeq 값으로 인증했는지 안했는지 카운터 받아오기.
 			// 5. myInfo에 넣어준 전화번호 selectOne에 조인시켜주기.
 

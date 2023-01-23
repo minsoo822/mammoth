@@ -602,7 +602,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                <col style="width:98px">
 				            </colgroup>
 				            <thead>
-				                <tr>
+				                <tr style="text-align: center;">
 				                    <th scope="col" class="">
 				                	    <input type="checkbox" onclick="">
 				                    </th>

@@ -183,4 +183,16 @@
 		WHERE 1=1
 		AND adrSeq = #{adrSeq}
 	</select>
+	
+	<update id="certUpdt">
+		UPDATE member
+		SET
+			mmCertNy = 1
+			,mmPhoneNumber = #{certPhone}
+			,mmTelecom = #{certTelecom}
+		WHERE = #{mmSeq}
+	</update>
+	
+	
+	
 </mapper>

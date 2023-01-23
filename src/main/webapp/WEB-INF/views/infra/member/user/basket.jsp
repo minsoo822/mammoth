@@ -584,6 +584,7 @@ tfoot {
 				                		<td class="right">
 				                	        <div class="">
 												<strong><fmt:formatNumber value="${bskList.prTotalPrice }"/>원</strong>
+												<!-- 구매페이지로 넘길 상품가격 히든창 -->
 												<input id="productPrice${bskList.bskSeq}" class="productPrice" type="hidden" value="${bskList.prTotalPrice }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
 											</div>
 					                    </td>
@@ -612,7 +613,9 @@ tfoot {
 										</td>
 				                		<td class="right">
 				                			<input type="hidden" class="productTotalPrice" id="asd${bskList.bskSeq}" value="${bskList.bskSell_Price }">
-				                			<strong><input readonly class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
+				                			<strong><span id="poi${bskList.bskSeq }"><fmt:formatNumber pattern="#,###" value="${bskList.bskSell_Price }"/></span>원</strong>
+				                			<!-- 구매페이지로 넘길 히든창 -->
+				                			<input readonly class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -632,11 +635,11 @@ tfoot {
 				                <tr>
 									<td colspan="10">
 									<span class="gLeft">[기본배송]</span> 상품구매금액 
-									<strong><span id="productBuyPrice"></span>원</strong>
+									<strong><span id="productBuyPrice1"></span>원</strong>
 									<span class="displaynone"> </span>
 									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
 									<span class="displaynone"> </span> 
-									<span class="displaynone"> - 상품할인금액 0 </span> = 합계 : <strong class="txtEm gIndent10"><span class="txt18">49,000</span>원</strong> 
+									<span class="displaynone"> - 상품할인금액 0 </span> = 합계 : <strong class="txtEm gIndent10"><span class="txt18" id="productBuyPrice2">49,000</span>원</strong> 
 									<span class="displaynone"> </span>
 									</td>
 			                	</tr>
@@ -680,7 +683,7 @@ tfoot {
 											<div class="box txt16">
 												<strong>
 													<span class="txt23">
-														<span class="total_product_price_display_front" id="">49,000</span>
+														<span class="total_product_price_display_front" id="productBuyPrice3"></span>
 													</span>원
 												</strong> 
 											</div>
@@ -697,7 +700,9 @@ tfoot {
 										</td>	
 										<td>
 											<div class="box txtEm txt16">
-												<strong class="txt23">= </strong><strong><span class="txt23">108,000</span>원</strong> 
+												<strong class="txt23">= </strong><strong><span class="txt23" id="productBuyPrice4"></span>원</strong> 
+												<!-- 총가격 으로 넘길 히튼창 -->
+												<input type="hidden" id="lastPrice" value="">
 											</div>
 										</td>			
 									</tr>
@@ -845,6 +850,7 @@ tfoot {
 		
 		// 초기 총 금액
 		var productTotalPrice = $("#productTotalPrice").val();
+		
 		var defaultTotal = document.querySelectorAll('.sumTotal');
 		
 		var zxc = 0;
@@ -852,7 +858,11 @@ tfoot {
 			zxc += +defaultTotal[i].defaultValue;
 			
 		}
-		$("#productBuyPrice").html(zxc.toLocaleString());
+		$("#productBuyPrice1").html(zxc.toLocaleString());
+		$("#productBuyPrice2").html(zxc.toLocaleString());
+		$("#productBuyPrice3").html(zxc.toLocaleString());
+		$("#productBuyPrice4").html(zxc.toLocaleString());
+		$("#lastPrice").attr("value",zxc);
 		
 		add = function(key) {
 			
@@ -863,17 +873,11 @@ tfoot {
 			
 			
 			$("#amount"+key).val(num);
-			$("#hiddenAmount"+key).val(num);
-			$("#asd"+key).val(productTotalPriceAdd);
-			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
+			$("	#asd"+key).val(productTotalPriceAdd);
+			$("#productTotalPrice"+key).val(productTotalPriceAdd);
+			$("#poi"+key).html(productTotalPriceAdd.toLocaleString());
 			
 			var total = document.querySelectorAll('.productTotalPrice');
-			/* var productSum = document.querySelectorAll('.productPrice');
-			var acounT = document.querySelectorAll('.amount'); */
-			
-			console.log(total);
-			/* console.log(productSum);
-			console.log(acounT); */
 		
 			var sum = 0;
 			
@@ -881,9 +885,12 @@ tfoot {
 				sum += +total[i].defaultValue;	//total[i].defaultValue가 문자열로 출력이 되었지만 앞에 +를 붙여줌으로 숫자처리
 			}
 			
-			console.log("------------------총 금액은" + sum);
-			$("#productBuyPrice").html(sum.toLocaleString());
-				
+			$("#productBuyPrice1").html(sum.toLocaleString());
+			$("#productBuyPrice2").html(sum.toLocaleString());
+			$("#productBuyPrice3").html(sum.toLocaleString());
+			$("#productBuyPrice4").html(sum.toLocaleString());
+			$("#lastPrice").attr("value",sum);
+			
 		};
 		
 		minus = function(key) {
@@ -900,15 +907,12 @@ tfoot {
 				
 				$("#amount"+key).val(num);
 				$("#asd"+key).val(basketTotalPriceminus);
-				$("#productTotalPrice"+key).val(basketTotalPriceminus.toLocaleString());
-		
+				$("#productTotalPrice"+key).val(basketTotalPriceminus);
+				$("#poi"+key).html(basketTotalPriceminus.toLocaleString());
+				
 				var total = document.querySelectorAll('.productTotalPrice');
-				/* var productSum = document.querySelectorAll('.productPrice');
-				var acounT = document.querySelectorAll('.amount'); */
 				
 				console.log(total);
-				/* console.log(productSum);
-				console.log(acounT); */
 			
 				var sum = 0;
 				
@@ -916,40 +920,14 @@ tfoot {
 					sum += +total[i].defaultValue;	//total[i].defaultValue가 문자열로 출력이 되었지만 앞에 +를 붙여줌으로 숫자처리
 				}
 				
-				console.log("------------------총 금액은" + sum);
-				$("#productBuyPrice").html(sum.toLocaleString());
+				$("#productBuyPrice1").html(sum.toLocaleString());
+				$("#productBuyPrice2").html(sum.toLocaleString());
+				$("#productBuyPrice3").html(sum.toLocaleString());
+				$("#productBuyPrice4").html(sum.toLocaleString());
+				$("#lastPrice").attr("value",sum);
 			
 			}
 		};
-		
-
-		//var total = document.querySelectorAll('.productTotalPrice');
-		/* var productSum = document.querySelectorAll('.productPrice');
-		var acounT = document.querySelectorAll('.amount'); */
-		
-		//console.log(total);
-		/* console.log(productSum);
-		console.log(acounT); */
-	
-		//var sum = 0;
-		
-		//for(var i = 0; i < total.length; i++){
-		//	sum += +total[i].defaultValue;	//total[i].defaultValue가 문자열로 출력이 되었지만 앞에 +를 붙여줌으로 숫자처리
-		//}
-		
-		//console.log("------------------총 금액은" + sum);
-		////$("#productBuyPrice").html(sum.toLocaleString());
-		
-		
-		// + 버튼 클릭했을 때
-		/* if(){
-			
-		} */
-		// - 버튼 클릭했을 때
-		/* else{
-					
-		}
-		 */
 		
 	};
 	

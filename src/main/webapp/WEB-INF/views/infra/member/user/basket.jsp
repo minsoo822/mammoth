@@ -456,8 +456,8 @@ tfoot {
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
+	<input type="hidden" name="" id="" value="${fn:length(bskList) }"> 
 	<input type="hidden" name="checkboxSeqArray" >
-	
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -609,8 +609,7 @@ tfoot {
 											<p class="displaynone">0원<span class="displaynone"><br></span><br></p>무료
 										</td>
 				                		<td class="right">
-				                			<strong><input readonly id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
-				                			<input type="hidden" id="productTotalSumPrice${bskList.bskSeq }" name="productTotalSumPrice${bskList.bskSeq }" value="">
+				                			<strong><input readonly class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">원</strong>
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -630,7 +629,7 @@ tfoot {
 				                <tr>
 									<td colspan="10">
 									<span class="gLeft">[기본배송]</span> 상품구매금액 
-									<strong><span id="productBuyPrice"><%-- <c:out value="${totalPrice }"/> --%></span>원</strong>
+									<strong><span id="productBuyPrice"></span></strong>
 									<span class="displaynone"> </span>
 									<span class="displaynone"> + 부가세 <span class="displaynone"> </span></span> + 배송비 0 (무료)
 									<span class="displaynone"> </span> 
@@ -841,7 +840,7 @@ tfoot {
 	
 	window.onload = function(){
 		
-		var productBuyPrice = $("#productBuyPrice").val()
+		var productTotalPrice = $("#productTotalPrice").val();
 		
 		add = function(key) {
 			
@@ -854,11 +853,6 @@ tfoot {
 			$("#amount"+key).val(num);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd.toLocaleString());
 			
-			$("#productTotalSumPrice"+key).val(productTotalPriceAdd);
-			
-			alert($("#productTotalSumPrice"+key).val());
-			alert(key + "번 장바구니 상품의 수량 : " + num);
-			alert(key + "번 장바구니 상품의 total값 : " + productTotalPriceAdd);
 			
 		};
 		
@@ -879,27 +873,23 @@ tfoot {
 			}
 		};
 		
-		
-		var totalSum = [
-			
-				for(var i=1; i < ${fn:length(list)}; i++) {
-					
-					$("#productTotalSumPrice"+ i).val();
-					
-				}
-				
-			
-			];
-		//장바구니 리스트에 각 상품의 금액을 배열에다가 담아줘서 총합 구해주기.
-		
-		console.log(totalSum);
 
+		var total = document.querySelectorAll('.sumTotal');
+		console.log(total);
+	
+		var sum = 0;
 		
+		for(var i = 0; i < total.length; i++){
+			sum += +total[i].defaultValue;
+		}
 		
+		console.log("------------------총 금액은" + sum);
+		$("#productBuyPrice").html(sum);
 		
 		
 		
 	};
+	
 	
 	</script>	
 </body>

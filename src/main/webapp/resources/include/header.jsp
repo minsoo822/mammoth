@@ -88,9 +88,6 @@
 			    	<ul style="list-style: none;">
 			    		<a href="/member/login" style=" color: #000; text-decoration: none;"><li class="headerRightList">LOGIN</li></a>
 			    		<a href="/member/join" style=" color: #000; text-decoration: none;"><li class="headerRightList">JOIN</li></a>
-			    		<a href="/order/orderList" style=" color: #000; text-decoration: none;"><li class="headerRightList">ORDER</li></a>
-			    		<a href="/basket/basketList" style=" color: #000; text-decoration: none;"><li class="headerRightList">CART</li></a>
-			    		<a href="/member/mypage" style=" color: #000; text-decoration: none;"><li class="headerRightList">MY PAGE</li></a>
 			    	</ul>
 			    </div>
   			</c:when>

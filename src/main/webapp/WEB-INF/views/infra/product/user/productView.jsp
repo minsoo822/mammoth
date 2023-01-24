@@ -1104,8 +1104,9 @@ li {
 					<div class="messageTextWrap">
 						<div class="row mt-3 mb-3">
 							<div class="col">
-								<span>별점</span> <select id="rvStar" name="rvStar">
-									<option value="0">선택</option>
+								<span>별점</span>
+								<select id="rvStar" name="rvStar">
+									<option value="">선택</option>
 									<option value="1">1점</option>
 									<option value="2">2점</option>
 									<option value="3">3점</option>
@@ -1121,7 +1122,7 @@ li {
 						</div>
 						<textarea rows="10" cols="40" id="rvContents" name="rvContents"
 							placeholder="리뷰 내용을 입력해주세요"></textarea>
-						<input type="file" id="rvImg" style="border: 1px solid #ced4da"><br>
+						<input type="file" id="rvImg" name="rvImg" style="border: 1px solid #ced4da"><br>
 					</div>
 					<div class="messageButtons">
 						<button type="button" id="reviewInst"
@@ -1147,7 +1148,6 @@ li {
     buttonAddFeed.addEventListener("click", e => {
 		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
     	modal.style.display = "flex";
-        
 		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
     
 	}); 
@@ -1162,10 +1162,24 @@ li {
 	
 	// 리뷰 작성 코드
 	$("#reviewInst").on("click", function() {
+		
+		if($("#rvStar").val() == null || $("#rvStar").val() == ''){
+			alert("별점을 선택해주세요.");	
+			return false;
+		}
+		if($("#rvContents").val() == null || $("#rvContents").val() == ''){
+			alert("리뷰내용을 작성해주세요.");
+			return false;
+		}
+		if($("#rvImg").val() == null || $("#rvImg").val() == ''){
+			alert("첨부파일을 선택해주세요.");
+			return false;
+		}
+		
 		alert("회원님의 소중한 리뷰가 등록되었습니다!");
 		form.attr("action", "/review/reviewInst").submit();
 	});
-	
+	 
 	// 리뷰 탭 클릭시 하단 리뷰로 focus
 	$("#go_review").on("click", function() {
 		$("#reviewTitle").attr("tabindex", -1).focus(); 

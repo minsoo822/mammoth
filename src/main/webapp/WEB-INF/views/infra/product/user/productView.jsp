@@ -976,7 +976,7 @@ li {
 									<p>리뷰를 작성시 최대 <strong>1,000원</strong> 적립금을 드려요.</p>
 								</div>
 								<div class="col-2">
-									<button type="button" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
+									<button type="button" id="noReviewAdd" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
 									첫 리뷰<br>
 									남기기
 									</button>
@@ -1028,7 +1028,7 @@ li {
 												</div>
 												<div class="row mb-3">
 													<div class="col-2" style="padding-right: 0px;">
-														<img alt="" src="/resources/images/main/mainProduct1.jpg"
+														<img alt="" src="${rvList.upPath}${rvList.upUuidName}"
 															class="reviewImg">
 													</div>
 													<div class="col" style="padding-right: 0px;">
@@ -1143,9 +1143,17 @@ li {
 	<script>
 	// 모달 띄우기 코드
 	const modal = document.getElementById("modalDiv");
-    const buttonAddFeed = document.getElementById("reviewModal");
+    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
+    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
     
     buttonAddFeed.addEventListener("click", e => {
+		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+    	modal.style.display = "flex";
+		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+    
+	}); 
+    
+    buttonAddFeed2.addEventListener("click", e => {
 		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
     	modal.style.display = "flex";
 		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */

@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mammoth.infra.modules.product.Product;
-
 @Controller
 @RequestMapping(value="/review/")
 public class ReviewController {
@@ -17,13 +15,11 @@ public class ReviewController {
 	
 	
 	@RequestMapping(value="reviewInst")
-	public String reviewInst(Review dto, RedirectAttributes redirectAttributes, Product prdto) throws Exception {
+	public String reviewInst(Review dto, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insert(dto);
 		
-		redirectAttributes.addFlashAttribute("dto", prdto);
-		
-		return "redirect:/product/productView";
+		return "redirect:/product/productList";
 	}
 	
 	

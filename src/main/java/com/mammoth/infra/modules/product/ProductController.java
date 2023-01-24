@@ -48,7 +48,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productView")
-	public String productView(Model model, Product dto, Review rvDto) throws Exception {
+	public String productView(Model model, Product dto, Review rvdto) throws Exception {
 		
 //		System.out.println("---------prSeq : " + dto.getPrSeq());
 		Product one = service.selectOne(dto);
@@ -68,10 +68,10 @@ public class ProductController {
 		
 		
 //		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
-		rvDto.setRv_prSeq(dto.getPrSeq());
+		rvdto.setRv_prSeq(dto.getPrSeq());
 //		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
 		
-		List<Review> rvList = rvService.selectList(rvDto);
+		List<Review> rvList = rvService.selectList(rvdto);
 		model.addAttribute("rvList", rvList);
 		
 		return "infra/product/user/productView";

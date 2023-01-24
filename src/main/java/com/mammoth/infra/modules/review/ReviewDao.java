@@ -16,9 +16,7 @@ public class ReviewDao {
 	private SqlSession sqlSession;
 	private String namespace = "com.mammoth.infra.modules.review.ReviewMapper";
 	
-	public List<Review> selectList(Review dto) throws Exception {
-//		System.out.println("serviceImpl-----rv_prSeq : " + dto.getRv_prSeq());
-		return sqlSession.selectList(namespace + ".selectList", dto);}
+	public List<Review> selectList(Review dto) throws Exception {return sqlSession.selectList(namespace + ".selectList", dto);}
 	
 	public void insert(Review dto) throws Exception {sqlSession.insert(namespace + ".insert", dto);}
 	

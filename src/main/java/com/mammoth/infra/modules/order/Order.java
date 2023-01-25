@@ -4,6 +4,8 @@ import com.mammoth.infra.modules.base.Base;
 
 public class Order extends Base{
 	
+	private Integer mmSeq;
+	private Integer adrSeq;
 	private Integer bskSeq;
 	private Integer prSeq;
 	
@@ -14,6 +16,15 @@ public class Order extends Base{
 	private Integer bskAmount;
 	private Integer bskSell_Price;
 	
+	private String mmName;
+	private Integer mmPhoneNumber;
+	private Integer mmGrade;
+	private String mmEmail;
+	private String adrName;
+	private Integer adrZipcode;
+	private String adrAddress;
+	private String adrAddressDetail;
+	private Integer adrPhoneNumber;
 	
 	
 	public Integer getBskSeq() {
@@ -63,6 +74,72 @@ public class Order extends Base{
 	}
 	public void setBskSell_Price(Integer bskSell_Price) {
 		this.bskSell_Price = bskSell_Price;
+	}
+	public Integer getMmSeq() {
+		return mmSeq;
+	}
+	public void setMmSeq(Integer mmSeq) {
+		this.mmSeq = mmSeq;
+	}
+	public Integer getAdrSeq() {
+		return adrSeq;
+	}
+	public void setAdrSeq(Integer adrSeq) {
+		this.adrSeq = adrSeq;
+	}
+	public Integer getMmPhoneNumber() {
+		return mmPhoneNumber;
+	}
+	public void setMmPhoneNumber(Integer mmPhoneNumber) {
+		this.mmPhoneNumber = mmPhoneNumber;
+	}
+	public String getMmEmail() {
+		return mmEmail;
+	}
+	public void setMmEmail(String mmEmail) {
+		this.mmEmail = mmEmail;
+	}
+	public String getAdrName() {
+		return adrName;
+	}
+	public void setAdrName(String adrName) {
+		this.adrName = adrName;
+	}
+	public Integer getAdrZipcode() {
+		return adrZipcode;
+	}
+	public void setAdrZipcode(Integer adrZipcode) {
+		this.adrZipcode = adrZipcode;
+	}
+	public String getAdrAddress() {
+		return adrAddress;
+	}
+	public void setAdrAddress(String adrAddress) {
+		this.adrAddress = adrAddress;
+	}
+	public String getAdrAddressDetail() {
+		return adrAddressDetail;
+	}
+	public void setAdrAddressDetail(String adrAddressDetail) {
+		this.adrAddressDetail = adrAddressDetail;
+	}
+	public Integer getAdrPhoneNumber() {
+		return adrPhoneNumber;
+	}
+	public void setAdrPhoneNumber(Integer adrPhoneNumber) {
+		this.adrPhoneNumber = adrPhoneNumber;
+	}
+	public String getMmName() {
+		return mmName;
+	}
+	public void setMmName(String mmName) {
+		this.mmName = mmName;
+	}
+	public Integer getMmGrade() {
+		return mmGrade;
+	}
+	public void setMmGrade(Integer mmGrade) {
+		this.mmGrade = mmGrade;
 	}
 	
 	

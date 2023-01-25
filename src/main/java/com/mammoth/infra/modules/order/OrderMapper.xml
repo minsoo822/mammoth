@@ -27,6 +27,26 @@
 		AND prup.upType = 1
 		AND	prup.upDefaultNy = 1
 	</select>
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			mm.mmSeq
+			,mm.mmName
+			,mm.mmPhoneNumber
+			,mm.mmEmail
+			,mm.mmGrade
+			,adr.adrSeq
+			,adr.adrName
+			,adr.adrZipcode
+			,adr.adrAddress
+			,adr.adrAddressDetail
+			,adr.adrPhoneNumber
+		FROM member mm
+		JOIN address adr
+		ON adr.adr_mmSeq = mm.mmSeq 
+		WHERE 1=1
+		AND mm.mmSeq = #{mmSeq}
+		AND adrdefaultNy = 1
+	</select>
 	
 	
 </mapper>

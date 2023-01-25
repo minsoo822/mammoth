@@ -17,6 +17,6 @@ public class OrderDao {
 	private String namespace = "com.mammoth.infra.modules.order.OrderMapper";
 
 	public List<Order> selectList(OrderVo vo) { return sqlSession.selectList(namespace + ".selectList", vo);}
-	
+	public Order selectOne(OrderVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 
 }

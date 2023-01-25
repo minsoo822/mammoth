@@ -689,26 +689,14 @@ div.ec-base-help ul, div.ec-base-help ol {
 				            <!-- 국내 쇼핑몰 -->
 				            <tbody class="address_form  ">
 				                <tr>
-				                    <th scope="row">주문하시는 분 <img src="/resources/images/ico_required.gif"
-				                            alt="필수"></th>
-				                    <td><input id="oname" name="oname" fw-filter="isFill" fw-label="주문자 성명" fw-msg=""
-				                            class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+				                    <th scope="row">주문하시는 분 <img src="/resources/images/ico_required.gif" alt="필수"></th>
+				                    <td><input id="mmName" name="mmName" value="${selectOne.mmName }" class="inputTypeText" size="15" type="text"></td>
 				                </tr>
 				                <tr class="">
 				                    <th scope="row">휴대전화 <span class=""><img
 				                                src="/resources/images/ico_required.gif" alt="필수"></span>
 				                    </th>
-				                    <td><select id="ophone2_1" name="ophone2_[]" fw-filter="isNumber&amp;isFill" fw-label="주문자 핸드폰번호"
-				                            fw-alone="N" fw-msg="">
-				                            <option value="010">010</option>
-				                            <option value="011">011</option>
-				                            <option value="016">016</option>
-				                            <option value="017">017</option>
-				                            <option value="018">018</option>
-				                            <option value="019">019</option>
-				                        </select>-
-				                        <input id="ophone2_2" name="ophone2_[]" maxlength="4" size="4" value="" type="text">-
-				                        <input id="ophone2_3" name="ophone2_[]" maxlength="4" size="4" value="" type="text"></td>
+				                    <td><input id="mmPhoneNumber" name="mmPhoneNumber" maxlength="12" size="4" value="${selectOne.mmPhoneNumber }" type="text"></td>
 				                </tr>
 				            </tbody>
 				            <!-- 해외 쇼핑몰 -->
@@ -718,21 +706,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                    <th scope="row">이메일 <img src="/resources/images/ico_required.gif"
 				                            alt="필수"></th>
 				                    <td>
-				                        <input id="oemail1" name="oemail1" class="mailId" value="" type="text">@
-			                            <input id="oemail2" name="oemail2" class="mailAddress" readonly="readonly" value="" type="text" style="margin: 0 4px;">
-			                            <select id="oemail3">
-				                            <option value="" selected="selected">- 이메일 선택 -</option>
-				                            <option value="naver.com">naver.com</option>
-				                            <option value="daum.net">daum.net</option>
-				                            <option value="nate.com">nate.com</option>
-				                            <option value="hotmail.com">hotmail.com</option>
-				                            <option value="yahoo.com">yahoo.com</option>
-				                            <option value="empas.com">empas.com</option>
-				                            <option value="korea.com">korea.com</option>
-				                            <option value="dreamwiz.com">dreamwiz.com</option>
-				                            <option value="gmail.com">gmail.com</option>
-				                            <option value="etc">직접입력</option>
-				                        </select>
+				                        <input id="oemail1" name="oemail1" class="mailId" value="" type="text">
 				                        <ul class="gBlank5 txtInfo" style="padding: 0px;">
 				                            <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 				                            <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>

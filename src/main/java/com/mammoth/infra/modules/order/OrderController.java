@@ -22,10 +22,12 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="orderForm")
-	public String orderForm(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+	public String orderForm(@ModelAttribute("vo") OrderVo vo, Order dto, Model model) throws Exception {
 		
 		List<Order> oderFormList = service.selectList(vo);
 		model.addAttribute("oderFormList", oderFormList);
+		Order selectOne = service.selectOne(vo);
+		model.addAttribute("selectOneMm", selectOne);
 		
 		return "infra/member/user/orderForm";
 	}

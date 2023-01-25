@@ -840,10 +840,11 @@ li {
 						</div>
 						<div class="price_wrap ">
 							<div class="dis_value custom">
-								<s><c:out value="${one.prPrice }" />원</s>
+								<s><fmt:formatNumber pattern="#,###" value="${one.prPrice }" />원</s>
 							</div>
 							<div class="dis_value strong">
-								<span id="rate" class="rate29"><c:out value="${one.prDiscount }" />%</span>27,000원
+								<span id="rate" class="rate29"><c:out value="${one.prDiscount }" />%</span>
+								<fmt:formatNumber pattern="#,###" value="${one.prTotalPrice}"/>원
 							</div>
 						</div>
 						<div class=" ">
@@ -893,9 +894,7 @@ li {
 													<button type="button" style="width: 30px; text-align: center;">+</button>
 													<button type="button" style="width: 30px; text-align: center;">-</button>
 													</td>
-													<td colspan="2">총 상품금액 : <span
-														class="total"><strong><em>27,000원</em></strong>
-															(0개)</span>
+													<td colspan="2">총 상품금액 : <span class="total"><strong><em>0원</em></strong> (0개)</span>
 													</td>
 												</tr>
 											</tfoot>
@@ -1016,10 +1015,9 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" type="button"
+															<button class="recommend_btn" id="luv" type="button"
 																style="width: 67px; font-size: 10pt;">
-																<span class="value"><i
-																	class="fa-regular fa-thumbs-up"></i>&nbsp;0</span>
+																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount">0</span></span>
 															</button>
 														</div>
 													</div>
@@ -1215,6 +1213,51 @@ li {
 		$("#reviewTitle").attr("tabindex", -1).focus();
 	});
 	
+	
+	// 댓글 좋아요 
+	$("#luv").on("click", function() {
+		
+		var luvUrl = "";
+		var status = $("#luv").css('background-color');
+		
+		if(status == "transparent") {
+			luvUrl = "/luv/luvInst";
+		} else {
+			luvUrl = "/luv/luvDel";
+		}
+		 
+		$.ajax({
+			url: luvUrl
+			,type: 'POST'
+			,dataType: 'json'
+			,data: {
+				shSeq: $("#poSeq").val()
+				,writer: $("#writer").val()
+			},
+			success: function(result) {
+				if(result.list != null) {
+					
+					/* 추천 클릭시 count 숫자 변경 */
+					$("#luvCount").html(result.list.length);
+					
+					/* status에 따라 버튼 디자인 변경 */
+					if(status == "transparent") {
+						$("#luv").css('background', "black");
+						$("#luv").css('color', "white");
+						$("#luv").text("");
+					} else {
+						$("#luv").css('background', "transparent");
+						$("#luv").css('color', "black");
+						$("#luv").text("");
+					}
+					
+				}
+			},
+			error: function() {
+				alert("ajax error...!");
+			}
+		})
+	});
 	</script>
 </body>
 </html>

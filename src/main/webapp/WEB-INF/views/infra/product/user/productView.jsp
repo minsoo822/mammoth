@@ -5,8 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CodeServiceImpl"
-	class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+<% pageContext.setAttribute("br", "\n"); %> 
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -829,31 +829,29 @@ li {
 						</h2>
 						<div class="detail-rating">
 							<span class="snap_review_avg_score noset">
-								<div class="snap_review_avg_score"
-									style="display: inline-block; margin-right: 10px;">
+								<div class="snap_review_avg_score" style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front"
 										style="font-size: 12pt; color: #000;">
 										★★★★★
 										<!-- ☆ -->
 									</div>
-								</div>(389)
+								</div>(<c:out value="${fn:length(rvList)}"/>)
 							</span>
 						</div>
 						<div class="price_wrap ">
 							<div class="dis_value custom">
-								<c:out value="${one.prPrice }" />
-								원
+								<s><c:out value="${one.prPrice }" />원</s>
 							</div>
 							<div class="dis_value strong">
-								<span id="rate" class="rate29"><c:out
-										value="${one.prDiscount }" />%</span>27,000원
+								<span id="rate" class="rate29"><c:out value="${one.prDiscount }" />%</span>27,000원
 							</div>
 						</div>
 						<div class=" ">
 							<div id="simple_desc_source" class="product-detail-desc">
-								<c:out value="${one.prInfo }" />
+								<!-- c:out 없이 그냥 사용해줘야 적용됨 -->
+								${fn:replace(one.prInfo, br, '<br/>')}" 
 							</div>
-						</div>
+						</div> 
 						<div class="order_button_wrap">
 							<div class="order_button_contents" class="static">
 								<table class="tbl_prd_info">
@@ -929,7 +927,7 @@ li {
 						<ul id="product_detail_tab" class="" style="width: 1160px;">
 							<li class="selected" style="width: 580px;"><a href="#"
 								style="text-decoration: none;">상세 정보</a></li>
-							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"></c:out>)</a></li>
+							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"/>)</a></li>
 						</ul>
 					</div>
 					<div class="detail_info_warp"
@@ -1143,22 +1141,43 @@ li {
 	<script>
 	// 모달 띄우기 코드
 	const modal = document.getElementById("modalDiv");
-    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
-    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	
+	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+		
+	    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	    
+	    buttonAddFeed2.addEventListener("click", e => {
+	    	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+	    		alert("로그인후 사용가능한 서비스입니다.");
+	    		return false;
+	    	}
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	} else {
+		
+	    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
+	    
+	    buttonAddFeed.addEventListener("click", e => {
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	    
+		const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	    
+	    buttonAddFeed2.addEventListener("click", e => {
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	}
     
-    buttonAddFeed.addEventListener("click", e => {
-		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-    	modal.style.display = "flex";
-		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
     
-	}); 
-    
-    buttonAddFeed2.addEventListener("click", e => {
-		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-    	modal.style.display = "flex";
-		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
-    
-	}); 
     
  	// 모달 닫기 코드
     const buttonCloseModal = document.getElementById("closeModal");
@@ -1192,8 +1211,9 @@ li {
 	$("#go_review").on("click", function() {
 		$("#reviewTitle").attr("tabindex", -1).focus(); 
 	});
-	
-	
+	$(".detail-rating").on("click", function() {
+		$("#reviewTitle").attr("tabindex", -1).focus();
+	});
 	
 	</script>
 </body>

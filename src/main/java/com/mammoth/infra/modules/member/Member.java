@@ -42,6 +42,11 @@ public class Member extends Base{
 	
 	private Integer[] checkboxSeqArray;
 	
+	//인증
+	private Integer certPhone;
+	private Integer certTelecom;
+	
+	
 	public Integer getMmSeq() {
 		return mmSeq;
 	}
@@ -233,6 +238,18 @@ public class Member extends Base{
 	}
 	public void setCheckboxSeqArray(Integer[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
+	}
+	public Integer getCertPhone() {
+		return certPhone;
+	}
+	public void setCertPhone(Integer certPhone) {
+		this.certPhone = certPhone;
+	}
+	public Integer getCertTelecom() {
+		return certTelecom;
+	}
+	public void setCertTelecom(Integer certTelecom) {
+		this.certTelecom = certTelecom;
 	}
 	
 	

@@ -370,7 +370,9 @@
 	    		</div>
     			</c:when>
     			<c:otherwise>
-    			
+    				<div class="certN">
+    					
+    				</div>
     			</c:otherwise>
     		</c:choose>
     		<h3 class>기본정보</h3>
@@ -669,13 +671,10 @@
 			const user = result.user;
 			console.log(result);
 			console.log(user.phoneNumber);
-			swal("인증 성공!", "휴대폰 인증이 완료되었습니다.", "success")
 
 			var phoneNum = user.phoneNumber;
 			var numResult = phoneNum.replace('+82','0');
 
-			console.log(numResult);
-			
 			
 			$("#certPhone").attr("value" , numResult);
 
@@ -684,11 +683,13 @@
 				type : 'POST',
 				datatype : 'json',
 				data : {
-					mmSeq : $("#mmSeq").val()
+					mmPhoneNumber : $("#certPhone").val()
+					,mmTelecom : $("#certTelecom").val()
+					,mmSeq : $("#mmSeq").val()
 				}
 				,success : function(result) {
 					if(result.rt == "success") {
-						alert("인증 업데이트 완료");
+						swal("인증 성공!", result.cerName + " 님의 휴대폰 인증이 완료되었습니다.", "success")
 					}
 				}
 				,error : function() {

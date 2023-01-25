@@ -121,7 +121,13 @@ public class MemberController {
     	
         service.certUpdt(dto);
         
+        Member cert = service.logInCd(dto);
+        
         returnMap.put("rt", "succes");
+        returnMap.put("certName", cert.getMmName());
+        returnMap.put("certNy", cert.getMmCertNy());
+        
+        
         
         return returnMap;
     }

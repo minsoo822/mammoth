@@ -557,7 +557,11 @@ tfoot {
 			                 <tbody class="xans-element- xans-order xans-order-list center">
 			                	<c:forEach items="${list }" var="bskList" varStatus="status">
 				                	<tr class="xans-record-">
-				                		<td><input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>"></td>
+				                		
+				                		<td>
+				                			<input type="hidden" name="bskSeq" value="<c:out value="${bskList.bskSeq }"></c:out>">
+				                			<input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>">
+			                			</td>
 				                		<td class="thumb gClearLine">
 				                			<a href="#" id="param1" style="text-decoration: none;">
 				                				<img src="${bskList.upPath }${bskList.upUuidName}" alt="">
@@ -591,8 +595,8 @@ tfoot {
 				                		<td>
 				                			<span class="">
 				                				<span class="ec-base-qty">
-				                					<input id="amount${bskList.bskSeq}" name="" size="2" value="${bskList.bskAmount }" type="text" style="width: 28px;">
-				                					<input type="hidden"class="amount" id="hiddenAmount${bskList.bskSeq}" value="">
+				                					<input id="amount${bskList.bskSeq}" name="bskAmount" size="2" value="${bskList.bskAmount }" type="text" style="width: 28px;">
+				                					<%-- <input type="hidden"class="amount" id="hiddenAmount${bskList.bskSeq}" value=""> --%>
 				                					<a onclick="add(${bskList.bskSeq })" style="text-decoration: none;">
 				                						<img src="/resources/images/btn_quantity_up.gif" alt="수량증가" class="up">
 			                						</a>
@@ -615,7 +619,7 @@ tfoot {
 				                			<input type="hidden" class="productTotalPrice" id="asd${bskList.bskSeq}" value="${bskList.bskSell_Price }">
 				                			<strong><span id="poi${bskList.bskSeq }"><fmt:formatNumber pattern="#,###" value="${bskList.bskSell_Price }"/></span>원</strong>
 				                			<!-- 구매페이지로 넘길 히든창 -->
-				                			<input readonly class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
+				                			<input readonly name="bskSell_Price" class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -702,7 +706,7 @@ tfoot {
 											<div class="box txtEm txt16">
 												<strong class="txt23">= </strong><strong><span class="txt23" id="productBuyPrice4"></span>원</strong> 
 												<!-- 총가격 으로 넘길 히튼창 -->
-												<input type="hidden" id="lastPrice" value="">
+												<input type="hidden" id="lastPrice" name="lastPrice" value="">
 											</div>
 										</td>			
 									</tr>
@@ -713,8 +717,8 @@ tfoot {
 				</c:otherwise>
 			</c:choose>
     		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
-    			<a href="#none" onclick=""  id="" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
-    			<a href="#none" onclick="" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
+    			<a type="button" onclick="allOrderForm(${sessSeq})" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
+    			<a type="button" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
     			<span class="gRight">
 		            <a href="/" class="btn_neo_act white" style="text-decoration: none;">쇼핑계속하기</a>
 		        </span>
@@ -844,7 +848,15 @@ tfoot {
 			});
 	});
 	
-
+	
+	var lastPrice = $("#lastPrice");
+	var lastPriceVal = $("#lastPrice").val();
+	
+	allOrderForm = function(key) {
+		mmSeq.attr("value", key);
+		lastPrice.attr("value", lastPriceVal);
+		form.attr("action", "/basket/oderFormUptd").submit();
+	};
 	
 	window.onload = function(){
 		
@@ -873,7 +885,8 @@ tfoot {
 			
 			
 			$("#amount"+key).val(num);
-			$("	#asd"+key).val(productTotalPriceAdd);
+			//$("#hiddenAmount"+key).val(num);	
+			$("#asd"+key).val(productTotalPriceAdd);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd);
 			$("#poi"+key).html(productTotalPriceAdd.toLocaleString());
 			

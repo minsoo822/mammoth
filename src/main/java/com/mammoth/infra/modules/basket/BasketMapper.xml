@@ -80,5 +80,15 @@
 		FROM basket 
 	    WHERE bsk_mmSeq = #{mmSeq}
 	</delete>
+	
+	<update id="bskUpdt">
+		UPDATE basket
+		SET
+			bskAmount		= #{bskAmount}
+			,bskSell_Price	= #{bskSell_Price}	
+		WHERE 1=1
+		AND bskSeq = #{bskSeq}
+	</update>
+	
 
 </mapper>

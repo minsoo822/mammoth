@@ -24,5 +24,6 @@ public class BasketDao {
 	public int oneDel(Basket dto) { return sqlSession.delete(namespace + ".oneDel", dto);}
 	public int allDel(Basket dto) { return sqlSession.delete(namespace + ".allDel", dto);}
 	public int TotalPrice(Basket dto) {return sqlSession.selectOne(namespace + ".TotalPrice", dto);}
+	public int bskUpdt(Basket dto) { return sqlSession.update(namespace + ".bskUpdt", dto);}
 	
 }

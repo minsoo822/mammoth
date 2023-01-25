@@ -14,6 +14,12 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
 	OrderDao dao;
 
+	@Override
+	public List<Order> selectList(OrderVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectList(vo);
+	}
+
 
 	
 	

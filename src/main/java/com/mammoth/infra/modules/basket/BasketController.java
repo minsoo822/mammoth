@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mammoth.infra.modules.member.Member;
 import com.mammoth.infra.modules.member.MemberServiceImpl;
 import com.mammoth.infra.modules.member.MemberVo;
+import com.mammoth.infra.modules.order.OrderVo;
 @Controller
 @RequestMapping(value="/basket/")
 public class BasketController {
@@ -33,9 +34,6 @@ public class BasketController {
 		/* 장바구니 리스트 */
 		List<Basket> selectList = service.selectList(dto);
 		model.addAttribute("list", selectList);
-		/* 장바구니 상품들 총 가격 */
-//		int totalPrice = service.TotalPrice(dto);
-//		model.addAttribute("totalPrice", totalPrice);
 		
 		return "infra/member/user/basket";
 	}
@@ -71,5 +69,15 @@ public class BasketController {
 
 		return "redirect:/basket/basketList";
 	}
+	@RequestMapping(value = "oderFormUptd")
+	public String oderFormUptd(Basket dto, OrderVo vo,RedirectAttributes redirectAttributes) throws Exception {
+
+		service.bskUpdt(dto);
+		vo.setMmSeq(dto.getMmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/order/orderForm";
+	}
+	
 	
 }

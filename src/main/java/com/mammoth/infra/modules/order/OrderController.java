@@ -1,7 +1,11 @@
 package com.mammoth.infra.modules.order;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,7 +22,10 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="orderForm")
-	public String orderForm() throws Exception {
+	public String orderForm(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+		
+		List<Order> oderFormList = service.selectList(vo);
+		model.addAttribute("oderFormList", oderFormList);
 		
 		return "infra/member/user/orderForm";
 	}

@@ -18,7 +18,8 @@
 <script>
 	
 	var form = $("#mainForm");
-	var mmSeq = $("#mmSeq").val();
+	var mmSeq = $("#mmSeq");
+	var mmSeqVal = $("#mmSeq").val();
 	
 	var goMyinfo = "/member/myinfo";
 	var orderList = "/order/orderList";

@@ -544,7 +544,8 @@ div.ec-base-help ul, div.ec-base-help ol {
 	</style>
 </head>
 <body>
-
+	<form method="post" id="mainFrom">
+	<input type="hidden" name="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -584,6 +585,7 @@ div.ec-base-help ul, div.ec-base-help ol {
     			</div>
     			<ul class="ec-base-help controlInfo">
 					<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
+					<input type="text" name="lastPrice" value="" />
 			    </ul>
     			<div class="orderListArea ">
 				    <!-- 개별배송 -->
@@ -616,38 +618,40 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                    <th scope="col">합계</th>
 				                </tr>
 				            </thead>
-				            <tbody class="xans-element- xans-order xans-order-individuallist center">
-				                <tr class="xans-record-">
-				                    <td class="">
-				                    	<input id="" name="" value="" type="checkbox">
-			                    	</td>
-				                    <td class="thumb gClearLine">
-				                    	<a href="#">
-				                    		<img src="/resources/images/subitem1.jpg" alt="">
-			                    		</a>
-				                    </td>
-				                    <td class="left gClearLine">
-				                        <a href="#" style="text-decoration: none; color: #000;">
-				                        	<strong>포맨트 퍼퓸 핸드크림 세트 코튼 메모리</strong>
-			                        	</a>
-				                        <div class="option ">[옵션: [GIFT] 코튼메모리 핸드크림 + 립밤/THANK YOU]</div>
-				                    </td>
-				                    <td class="right">
-				                        <div class="">
-				                            <strong>27,000원</strong>
-				                        </div>
-				                    </td>
-				                    <td>1</td>
-				                    <td><span class="txtInfo">-</span></td>
-				                    <td>
-				                        <div class="txtInfo">개별배송<br></div>
-				                    </td>
-				                    <td rowspan="1" class="">[무료]</td>
-				                    <td class="right">
-				                        <strong>27,000원</strong>
-				                    </td>
-				                </tr>
-				            </tbody>
+				            <c:forEach items="${oderFormList }" var="oderFormList" varStatus="status">
+					            <tbody class="xans-element- xans-order xans-order-individuallist center">
+					                <tr class="xans-record-">
+					                    <td class="">
+					                    	<input id="" name="" value="${oderFormList.bskSeq }" type="checkbox">
+				                    	</td>
+					                    <td class="thumb gClearLine">
+					                    	<a href="#">
+					                    		<img src="${oderFormList.upPath }${oderFormList.upUuidName}" alt="">
+				                    		</a>
+					                    </td>
+					                    <td class="left gClearLine">
+					                        <a href="#" style="text-decoration: none; color: #000;">
+					                        	<strong><c:out value="${oderFormList.prName }"/></strong>
+				                        	</a>
+					                        <!-- <div class="option ">[옵션: [GIFT] 코튼메모리 핸드크림 + 립밤/THANK YOU]</div> -->
+					                    </td>
+					                    <td class="right">
+					                        <div class="">
+					                            <strong><fmt:formatNumber pattern="#,###원" value="${oderFormList.prTotalPrice }"/></strong>
+					                        </div>
+					                    </td>
+					                    <td><c:out value="${oderFormList.bskAmount }"></c:out></td>
+					                    <td><span class="txtInfo">-</span></td>
+					                    <td>
+					                        <div class="txtInfo">개별배송<br></div>
+					                    </td>
+					                    <td rowspan="1" class="">[무료]</td>
+					                    <td class="right">
+					                        <strong><fmt:formatNumber pattern="#,###원" value="${oderFormList.bskSell_Price }"/></strong>
+					                    </td>
+					                </tr>
+					            </tbody>
+				            </c:forEach>
 				            <tfoot class="right">
 				                <tr>
 				                    <td class=""></td>
@@ -1001,7 +1005,7 @@ div.ec-base-help ul, div.ec-base-help ol {
     		</div>
     	</form>
     </div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

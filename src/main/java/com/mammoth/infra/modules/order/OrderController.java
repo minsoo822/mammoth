@@ -2,6 +2,8 @@ package com.mammoth.infra.modules.order;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,9 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="orderForm")
-	public String orderForm(@ModelAttribute("vo") OrderVo vo, Order dto, Model model) throws Exception {
+	public String orderForm(@ModelAttribute("vo") OrderVo vo, Order dto, Model model, HttpSession httpSession) throws Exception {
 		
+		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		//장바구니에서 주문할때 상품리스트
 		List<Order> oderFormList = service.selectList(vo);
 		model.addAttribute("oderFormList", oderFormList);

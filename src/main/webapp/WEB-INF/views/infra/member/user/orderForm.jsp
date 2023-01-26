@@ -593,7 +593,7 @@ div.ec-base-help ul, div.ec-base-help ol {
     			</div>
     			<ul class="ec-base-help controlInfo">
 					<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
-					<input type="text" name="lastPrice" value="" />
+					<input type="text" id="lastPrice" name="lastPrice" value="" />
 			    </ul>
     			<div class="orderListArea ">
 				    <!-- 개별배송 -->

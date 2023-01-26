@@ -24,10 +24,15 @@ public class OrderController {
 	@RequestMapping(value="orderForm")
 	public String orderForm(@ModelAttribute("vo") OrderVo vo, Order dto, Model model) throws Exception {
 		
+		//장바구니에서 주문할때 상품리스트
 		List<Order> oderFormList = service.selectList(vo);
 		model.addAttribute("oderFormList", oderFormList);
+		//회원정보
 		Order selectOne = service.selectOne(vo);
-		model.addAttribute("selectOneMm", selectOne);
+		model.addAttribute("item", selectOne);
+		//쿠폰 리스트
+		List<Order> cuponList = service.cuponList(vo);
+		model.addAttribute("cuponList", cuponList);
 		
 		return "infra/member/user/orderForm";
 	}

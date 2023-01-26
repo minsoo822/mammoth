@@ -8,6 +8,7 @@ public class Order extends Base{
 	private Integer adrSeq;
 	private Integer bskSeq;
 	private Integer prSeq;
+	private Integer cpSeq;
 	
 	private String upPath;
 	private String upUuidName;
@@ -25,6 +26,12 @@ public class Order extends Base{
 	private String adrAddress;
 	private String adrAddressDetail;
 	private Integer adrPhoneNumber;
+	private Integer cuponCount;
+	
+	private String cpName;
+	private Integer cpDiscount;
+	private Integer cpPercentNy;
+	private String cpUseNy;
 	
 	
 	public Integer getBskSeq() {
@@ -140,6 +147,42 @@ public class Order extends Base{
 	}
 	public void setMmGrade(Integer mmGrade) {
 		this.mmGrade = mmGrade;
+	}
+	public Integer getCpSeq() {
+		return cpSeq;
+	}
+	public void setCpSeq(Integer cpSeq) {
+		this.cpSeq = cpSeq;
+	}
+	public String getCpName() {
+		return cpName;
+	}
+	public void setCpName(String cpName) {
+		this.cpName = cpName;
+	}
+	public Integer getCpDiscount() {
+		return cpDiscount;
+	}
+	public void setCpDiscount(Integer cpDiscount) {
+		this.cpDiscount = cpDiscount;
+	}
+	public Integer getCpPercentNy() {
+		return cpPercentNy;
+	}
+	public void setCpPercentNy(Integer cpPercentNy) {
+		this.cpPercentNy = cpPercentNy;
+	}
+	public String getCpUseNy() {
+		return cpUseNy;
+	}
+	public void setCpUseNy(String cpUseNy) {
+		this.cpUseNy = cpUseNy;
+	}
+	public Integer getCuponCount() {
+		return cuponCount;
+	}
+	public void setCuponCount(Integer cuponCount) {
+		this.cuponCount = cuponCount;
 	}
 	
 	

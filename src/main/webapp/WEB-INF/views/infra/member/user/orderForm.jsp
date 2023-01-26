@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<%@ page session="true" %>
+<jsp:useBean id="CodeServiceImpl" class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -545,7 +548,8 @@ div.ec-base-help ul, div.ec-base-help ol {
 </head>
 <body>
 	<form method="post" id="mainFrom">
-	<input type="hidden" name="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="mmSeq" value="${vo.mmSeq }">
+	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -570,14 +574,18 @@ div.ec-base-help ul, div.ec-base-help ol {
 					    <h3 class="title" style="width: 80px;">혜택정보</h3>
 					    <div class="description">
 					        <div class="member ">
-					            <p><strong>김민수</strong> 님은, [웰컴] 회원이십니다.</p>
+					            <p><strong><c:out value="${item.mmName }"/></strong> 님은, [<c:forEach items="${ccgListGrade}" var="ccgListGrade" varStatus="rvStatus">
+																								<c:if test="${ccgListGrade.ccOrder eq item.mmGrade}">
+																									<c:out value="${ccgListGrade.ccName}" />
+																								</c:if>
+																							  </c:forEach>] 회원이십니다.</p>
 					        </div>
 					        <ul class="mileage">
 					            <li>
 					            	<a href="#" style="text-decoration: none; color: #000;">가용적립금 : <strong>0원</strong></a>
 				            	</li>
 					            <li>
-					            	<a href="#" style="text-decoration: none; color: #000;">쿠폰 : <strong>6개</strong></a>
+					            	<a href="#" style="text-decoration: none; color: #000;">쿠폰 : <strong><c:out value="${item.cuponCount }"/>개</strong></a>
 				            	</li>
 					        </ul>
 					    </div>
@@ -690,23 +698,20 @@ div.ec-base-help ul, div.ec-base-help ol {
 				            <tbody class="address_form  ">
 				                <tr>
 				                    <th scope="row">주문하시는 분 <img src="/resources/images/ico_required.gif" alt="필수"></th>
-				                    <td><input id="mmName" name="mmName" value="${selectOne.mmName }" class="inputTypeText" size="15" type="text"></td>
+				                    <td><input id="mmName" name="mmName" value="${item.mmName }" class="inputTypeText" size="15" type="text"></td>
 				                </tr>
 				                <tr class="">
-				                    <th scope="row">휴대전화 <span class=""><img
-				                                src="/resources/images/ico_required.gif" alt="필수"></span>
-				                    </th>
-				                    <td><input id="mmPhoneNumber" name="mmPhoneNumber" maxlength="12" size="4" value="${selectOne.mmPhoneNumber }" type="text"></td>
+				                    <th scope="row">휴대전화 <span class=""><img src="/resources/images/ico_required.gif" alt="필수"></span></th>
+				                    <td><input id="mmPhoneNumber" name="mmPhoneNumber" maxlength="12" size="4" value="${item.mmPhoneNumber }" type="text" style="width: 75px;"></td>
 				                </tr>
 				            </tbody>
 				            <!-- 해외 쇼핑몰 -->
 				            <!-- 이메일 국내/해외 -->
 				            <tbody class="email ec-orderform-emailRow">
 				                <tr>
-				                    <th scope="row">이메일 <img src="/resources/images/ico_required.gif"
-				                            alt="필수"></th>
+				                    <th scope="row">이메일 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 				                    <td>
-				                        <input id="oemail1" name="oemail1" class="mailId" value="" type="text">
+				                        <input id="oemail1" name="oemail1" class="mailId" value="${item.mmEmail }" type="text">
 				                        <ul class="gBlank5 txtInfo" style="padding: 0px;">
 				                            <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 				                            <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
@@ -765,7 +770,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        <img src="/resources/images/ico_required.gif" alt="필수">
 				                    </th>
 				                    <td>
-				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="" type="text">
+				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="${item.mmName }" type="text">
 				                    </td>
 				                </tr>
 				                <tr>
@@ -773,13 +778,13 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        <img src="/resources/images/ico_required.gif" alt="필수">
 				                    </th>
 				                    <td>
-				                        <input id="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="" type="text"> 
+				                        <input id="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="${item.adrZipcode }" type="text"> 
 				                        <a href="#" id="btn_search_rzipcode">
 				                            <img src="/resources/images/btn_zipcode.png" alt="우편번호">
 				                        </a><br>
-				                        <input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text"> 
+				                        <input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="${item.adrAddress }" type="text"> 
 				                        <span class="grid">기본주소</span><br>
-				                        <input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="" type="text"> 
+				                        <input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="${item.adrAddressDetail }" type="text"> 
 				                        <span class="grid">나머지주소</span>
 				                        <span class="grid ">(선택입력가능)</span><span class="zipcode_red_em">상세주소(동/호수)를 꼭 기입 바랍니다. </span>
 				                    </td>
@@ -791,16 +796,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        </span>
 				                    </th>
 				                    <td>
-				                        <select id="rphone2_1" name="rphone2_[]">
-				                            <option value="010">010</option>
-				                            <option value="011">011</option>
-				                            <option value="016">016</option>
-				                            <option value="017">017</option>
-				                            <option value="018">018</option>
-				                            <option value="019">019</option>
-				                        </select>-
-				                        <input id="rphone2_2" name="rphone2_[]" maxlength="4"size="4" value="" type="text">-
-				                        <input id="rphone2_3" name="rphone2_[]" maxlength="4"size="4" value="" type="text">
+				                        <input id="rphone2_3" name="rphone2_[]" maxlength="4"size="11" value="${item.adrPhoneNumber }" type="text">
 				                    </td>
 				                </tr>
 				            </tbody>
@@ -834,14 +830,31 @@ div.ec-base-help ul, div.ec-base-help ol {
 	    						쿠폰
 	    					</div>
 	    					<div class="col-10" style="border: 1px solid #dfdfdf; border-top: 0; border-left: 0">
-	    						<div class="row">
-	    							<div class="col" style="padding: 11px 0 10px 18px; border: 1px solid #dfdfdf; border-left: 0">
-		    							<strong>~~~~~~~~~</strong>
-		    							<a href="">
-		    								<img alt="" src="/resources/images/btn_total_coupon.gif" style="padding-left: 5px;">
-		    							</a>
+	    						<div class="row text-center">
+	    							<div class="col" style="padding: 11px 0 10px 0px; border-bottom: 1px solid #dfdfdf;">
+		    							<strong>쿠폰명</strong>
+	    							</div>
+	    							<div class="col" style="padding: 11px 0 10px 0px; border-bottom: 1px solid #dfdfdf;">
+		    							<strong>할인금액</strong>
+	    							</div>
+	    							<div class="col" style="padding: 11px 0 10px 0px; border: 1px solid #dfdfdf; border-left: 0; border-top: 0">
 	    							</div>
 	    						</div>
+	    						<c:forEach items="${cuponList }" var="cuponList" varStatus="status">
+		    						<div class="row text-center">
+		    							<div class="col" style="padding: 11px 0 10px 0px; border-bottom: 1px solid #dfdfdf;">
+			    							<strong><c:out value="${cuponList.cpName }"/></strong>
+		    							</div>
+		    							<div class="col" style="padding: 11px 0 10px 0px; border-bottom: 1px solid #dfdfdf;">
+			    							<strong><fmt:formatNumber value="${cuponList.cpDiscount }" pattern="#,###원"/></strong>
+		    							</div>
+		    							<div class="col" style="padding: 11px 0 10px 0px; border: 1px solid #dfdfdf; border-left: 0; border-top: 0">
+			    							<a href="">
+			    								<img alt="" src="/resources/images/btn_total_coupon.gif" style="padding-left: 5px;">
+			    							</a>
+		    							</div>
+		    						</div>
+	    						</c:forEach>
 	    					</div>
 	    				</div>
 	    			</div>

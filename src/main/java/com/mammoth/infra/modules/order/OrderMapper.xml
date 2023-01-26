@@ -40,12 +40,26 @@
 			,adr.adrAddress
 			,adr.adrAddressDetail
 			,adr.adrPhoneNumber
+			,(
+				SELECT
+					COUNT(*)
+				FROM cupon cp
+				WHERE cp_mmSeq = mm.mmSeq
+				AND cp_mmSeq = #{mmSeq}
+			)	cuponCount
 		FROM member mm
 		JOIN address adr
 		ON adr.adr_mmSeq = mm.mmSeq 
 		WHERE 1=1
 		AND mm.mmSeq = #{mmSeq}
 		AND adrdefaultNy = 1
+	</select>
+	<select id="cuponList" resultMap="resultMapObj">
+		SELECT
+			*
+		FROM cupon
+		WHERE 1=1
+		AND cp_mmSeq = #{mmSeq}
 	</select>
 	
 	

@@ -18,14 +18,14 @@ public class Order extends Base{
 	private Integer bskSell_Price;
 	
 	private String mmName;
-	private Integer mmPhoneNumber;
+	private String mmPhoneNumber;
 	private Integer mmGrade;
 	private String mmEmail;
 	private String adrName;
 	private Integer adrZipcode;
 	private String adrAddress;
 	private String adrAddressDetail;
-	private Integer adrPhoneNumber;
+	private String adrPhoneNumber;
 	private Integer cuponCount;
 	
 	private String cpName;
@@ -94,10 +94,10 @@ public class Order extends Base{
 	public void setAdrSeq(Integer adrSeq) {
 		this.adrSeq = adrSeq;
 	}
-	public Integer getMmPhoneNumber() {
+	public String getMmPhoneNumber() {
 		return mmPhoneNumber;
 	}
-	public void setMmPhoneNumber(Integer mmPhoneNumber) {
+	public void setMmPhoneNumber(String mmPhoneNumber) {
 		this.mmPhoneNumber = mmPhoneNumber;
 	}
 	public String getMmEmail() {
@@ -130,10 +130,10 @@ public class Order extends Base{
 	public void setAdrAddressDetail(String adrAddressDetail) {
 		this.adrAddressDetail = adrAddressDetail;
 	}
-	public Integer getAdrPhoneNumber() {
+	public String getAdrPhoneNumber() {
 		return adrPhoneNumber;
 	}
-	public void setAdrPhoneNumber(Integer adrPhoneNumber) {
+	public void setAdrPhoneNumber(String adrPhoneNumber) {
 		this.adrPhoneNumber = adrPhoneNumber;
 	}
 	public String getMmName() {

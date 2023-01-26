@@ -548,7 +548,8 @@ div.ec-base-help ul, div.ec-base-help ol {
 </head>
 <body>
 	<form method="post" id="mainFrom">
-	<input type="hidden" name="mmSeq" value="${vo.mmSeq }">
+	<input type="hidden" id="mmSeq"name="mmSeq" value="">
+	<input type="hidden" id="lastPrice" name="lastPrice" value="" />
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -593,7 +594,6 @@ div.ec-base-help ul, div.ec-base-help ol {
     			</div>
     			<ul class="ec-base-help controlInfo">
 					<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
-					<input type="text" id="lastPrice" name="lastPrice" value="" />
 			    </ul>
     			<div class="orderListArea ">
 				    <!-- 개별배송 -->

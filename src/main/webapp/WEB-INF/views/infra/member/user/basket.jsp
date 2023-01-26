@@ -455,8 +455,6 @@ tfoot {
 	<form method="post" id="mainForm">
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
-	<input type="hidden" name="prSeq" id="prSeq" value="">
-	<input type="hidden" name="" id="" value="${fn:length(bskList) }"> 
 	<input type="hidden" name="checkboxSeqArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -619,7 +617,7 @@ tfoot {
 				                			<input type="hidden" class="productTotalPrice" id="asd${bskList.bskSeq}" value="${bskList.bskSell_Price }">
 				                			<strong><span id="poi${bskList.bskSeq }"><fmt:formatNumber pattern="#,###" value="${bskList.bskSell_Price }"/></span>원</strong>
 				                			<!-- 구매페이지로 넘길 히든창 -->
-				                			<input readonly name="bskSell_Prices" class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="text" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
+				                			<input readonly name="bskSell_Prices" class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="hidden" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
 										</td>
 				                		<td class="button">
 					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
@@ -706,7 +704,7 @@ tfoot {
 											<div class="box txtEm txt16">
 												<strong class="txt23">= </strong><strong><span class="txt23" id="productBuyPrice4"></span>원</strong> 
 												<!-- 총가격 으로 넘길 히튼창 -->
-												<input type="text" id="lastPrice" name="lastPrice" value="">
+												<input type="hidden" id="lastPrice" name="lastPrice" value="">
 											</div>
 										</td>			
 									</tr>
@@ -718,7 +716,7 @@ tfoot {
 			</c:choose>
     		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
     			<a type="button" onclick="allOrderForm(${sessSeq})" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
-    			<a type="button" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
+    			<a type="button" onclick="gogogo(${sessSeq})" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
     			<span class="gRight">
 		            <a href="/" class="btn_neo_act white" style="text-decoration: none;">쇼핑계속하기</a>
 		        </span>
@@ -935,16 +933,20 @@ tfoot {
 			}
 		};
 		
+		var lastPrice = $("#lastPrice");
+		//var lastPriceVal = lastPrice.defaultValue;
+		
+		allOrderForm = function(key) {
+			mmSeq.attr("value", key);
+			//lastPrice.attr("value", lastPrice.defaultValue);
+			form.attr("action", "/basket/oderFormUptd").submit();
+		};
 	};
 	
-	var lastPrice = $("#lastPrice");
-	var lastPriceVal = $("#lastPrice").val();
-	
-	allOrderForm = function(key) {
-		mmSeq.attr("value", key);
-		lastPrice.attr("value", lastPriceVal);
-		form.attr("action", "/basket/oderFormUptd").submit();
-	};
+	gogogo = function(key) {
+		mmSeq.attr("value", mmSeqVal);
+		form.attr("action", "/order/orderForm").submit();
+	}
 	
 	
 	</script>	

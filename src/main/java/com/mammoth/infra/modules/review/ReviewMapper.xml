@@ -10,11 +10,20 @@
     
     <select id="selectList" resultMap="resultMapObj">
     	SELECT
-    		rv.rvContents
+    		rv.rvSeq
+    		,rv.rvContents
     		,rv.rv_prSeq
     		,rv.rv_mmSeq
     		,rv.rvStar
     		,rv.rvCreDate
+    		,(
+				SELECT
+					COUNT(*)
+				FROM luv
+				WHERE 1=1
+					AND lv_prSeq = #{rv_prSeq}
+					AND	lv_rvSeq = #{rvSeq}		
+    		) AS lvCount
     		,mm.mmName
     		,mm.mmGrade
     		,pr.prName
@@ -24,6 +33,7 @@
     	JOIN product pr ON pr.prSeq = rv.rv_prSeq
     	JOIN member mm ON mm.mmSeq = rv.rv_mmSeq
     	LEFT JOIN reviewUploaded  rvup ON rvup.up_rvSeq = rv.rvSeq
+    	JOIN luv lv ON lv.lv_rvSeq = rv.rvSeq
     	WHERE 1=1
     		AND rv_prSeq = #{rv_prSeq} 
     	ORDER BY rvSeq DESC

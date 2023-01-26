@@ -8,6 +8,40 @@
 
     <resultMap id="resultMapObj" type="com.mammoth.infra.modules.luv.Luv"></resultMap>
  
- 
+ 	<insert id="luvInst">
+		INSERT INTO  luv(
+			lv_mmSeq
+			,lv_prSeq
+			,lv_rvSeq
+			,lv_ing
+		)
+		VALUES (
+			#{mmSeq}
+			,#{prSeq}
+			,#{rvSeq}
+			,1
+		)
+	</insert>
+	
+	<delete id="luvDel">
+		DELETE
+		FROM luv
+		WHERE 1=1 
+			AND lv_prSeq = #{prSeq}
+			AND lv_mmSeq = #{mmSeq}
+			AND lv_rvSeq = #{rvSeq}
+	</delete>
+	
+	<select id="luvList" resultMap="resultMapObj">
+		SELECT
+			lv_mmSeq
+			,lv_prSeq
+			,lv_rvSeq
+			,lv_ing
+		FROM luv
+		WHERE 1=1
+			AND lv_prSeq = #{prSeq}
+			AND	lv_rvSeq = #{rvSeq}
+	</select>
  
 </mapper>

@@ -1015,9 +1015,10 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" id="luv" type="button"
+															<button class="recommend_btn" onclick="luv('${rvList.rvSeq}')" type="button"
 																style="width: 67px; font-size: 10pt;">
-																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount">0</span></span>
+																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount"><c:out value="${rvList.lvCount}"/></span></span>
+																<input type="hidden" value="${rvList.rvSeq }">
 															</button>
 														</div>
 													</div>
@@ -1031,6 +1032,7 @@ li {
 														<p style="margin-top: 0px;">
 															<c:out value="${rvList.rvContents}" />
 														</p>
+														<c:out value="${rvList.lvCount}"/>
 													</div>
 												</div>
 												<!-- 관리자 댓글내용 s -->
@@ -1215,7 +1217,8 @@ li {
 	
 	
 	// 댓글 좋아요 
-	$("#luv").on("click", function() {
+	
+	luv =  function(rvSeq) {
 		
 		var luvUrl = "";
 		var status = $("#luv").css('background-color');
@@ -1231,14 +1234,15 @@ li {
 			,type: 'POST'
 			,dataType: 'json'
 			,data: {
-				shSeq: $("#poSeq").val()
-				,writer: $("#writer").val()
+				prSeq : $("#prSeq").val()
+				,mmSeq : $("#mmSeq").val()
+				,rvSeq : rvSeq
 			},
 			success: function(result) {
 				if(result.list != null) {
 					
 					/* 추천 클릭시 count 숫자 변경 */
-					$("#luvCount").html(result.list.length);
+					/* $("#luvCount").html(result.list.length); */
 					
 					/* status에 따라 버튼 디자인 변경 */
 					if(status == "transparent") {
@@ -1257,7 +1261,8 @@ li {
 				alert("ajax error...!");
 			}
 		})
-	});
+	}
+	
 	</script>
 </body>
 </html>

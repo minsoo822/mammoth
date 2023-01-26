@@ -7,6 +7,10 @@ public class Luv {
 	private Integer lv_rvSeq;
 	private Integer lv_ing;
 	
+	private Integer mmSeq;
+	private Integer prSeq;
+	private Integer rvSeq;
+	
 	
 	public Integer getLvSeq() {
 		return lvSeq;
@@ -31,6 +35,24 @@ public class Luv {
 	}
 	public void setLv_ing(Integer lv_ing) {
 		this.lv_ing = lv_ing;
+	}
+	public Integer getMmSeq() {
+		return mmSeq;
+	}
+	public void setMmSeq(Integer mmSeq) {
+		this.mmSeq = mmSeq;
+	}
+	public Integer getPrSeq() {
+		return prSeq;
+	}
+	public void setPrSeq(Integer prSeq) {
+		this.prSeq = prSeq;
+	}
+	public Integer getRvSeq() {
+		return rvSeq;
+	}
+	public void setRvSeq(Integer rvSeq) {
+		this.rvSeq = rvSeq;
 	}
 	
 	

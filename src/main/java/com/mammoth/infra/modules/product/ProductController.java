@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mammoth.infra.modules.luv.Luv;
+import com.mammoth.infra.modules.luv.LuvServiceImpl;
 import com.mammoth.infra.modules.review.Review;
 import com.mammoth.infra.modules.review.ReviewServiceImpl;
 
@@ -23,6 +25,9 @@ public class ProductController {
 	
 	@Autowired
 	ReviewServiceImpl rvService;
+	
+	@Autowired
+	LuvServiceImpl lvService;
 	
 	@RequestMapping(value="productList")
 	public String productList(Model model) throws Exception {
@@ -48,7 +53,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productView")
-	public String productView(Model model, Product dto, Review rvdto) throws Exception {
+	public String productView(Model model, Product dto, Review rvdto, Luv lvdto) throws Exception {
 		
 //		System.out.println("---------prSeq : " + dto.getPrSeq());
 		Product one = service.selectOne(dto);
@@ -65,14 +70,21 @@ public class ProductController {
 		
 		List<Product> prdtImglist = service.selectListPrDtImg(dto);
 		model.addAttribute("prdtImglist", prdtImglist);
-		
+
 		
 //		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
 		rvdto.setRv_prSeq(dto.getPrSeq());
 //		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
 		
+		
 		List<Review> rvList = rvService.selectList(rvdto);
+		System.out.println("lvCount : " + rvdto.getLvCount());
 		model.addAttribute("rvList", rvList);
+		
+		System.out.println("lvdto.prSeq : " + lvdto.getPrSeq());
+		System.out.println("lvdto.rvSeq : " + lvdto.getRvSeq());
+		List<Luv> lvList = lvService.luvList(lvdto);
+		model.addAttribute("lvList", lvList);
 		
 		return "infra/product/user/productView";
 	}

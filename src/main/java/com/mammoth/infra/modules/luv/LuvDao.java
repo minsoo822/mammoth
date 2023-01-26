@@ -1,5 +1,7 @@
 package com.mammoth.infra.modules.luv;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -12,7 +14,13 @@ public class LuvDao {
 	@Inject
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
-	private String nampespace = "com.mammoth.infra.modules.luv.LuvMapper";
+	private static String nampespace = "com.mammoth.infra.modules.luv.LuvMapper";
+
 	
+	public List<Luv> luvList(Luv dto) {return sqlSession.selectList(nampespace + ".luvList", dto);}
+	
+	public void luvInst() {sqlSession.insert(nampespace + ".luvInst", "");}
+	
+	public void luvDel() {sqlSession.delete(nampespace + ".luvDel", "");}
 	
 }

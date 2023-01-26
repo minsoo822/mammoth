@@ -316,61 +316,61 @@
     	<div class="xans-element- xans-member xans-member-edit">
     		<c:choose>
     			<c:when test="${item.mmCertNy eq 0 }">
-	    			<div class>
-	    			<h3>회원인증</h3>
-	    			<div class="ec-base-table typeWrite">
-	    				<table border="1" summary>
-	    					<caption>회원인증</caption>
-	    					<colgroup>
-								<col style="width:150px;">
-								<col style="width:auto;">
-							</colgroup>
-							<tbody>
-								<tr class="displaynone">
-									<th scope="row">회원구분</th>
-									<td>개인</td>
-				                </tr>
-								<tr>
-									<th scope="row">인증여부</th>
+	    			<div id="certN">
+		    			<h3>회원인증</h3>
+		    			<div class="ec-base-table typeWrite">
+		    				<table border="1" summary>
+		    					<caption>회원인증</caption>
+		    					<colgroup>
+									<col style="width:150px;">
+									<col style="width:auto;">
+								</colgroup>
+								<tbody>
+									<tr class="displaynone">
+										<th scope="row">회원구분</th>
+										<td>개인</td>
+					                </tr>
+									<tr>
+										<th scope="row">인증여부</th>
+										<td>
+									    <strong class="txtEm">미인증</strong>
+									    <ul class="certifInfo" style="padding-left: 0px;">
+											<li>정보통신망법에 따라 고객의 주민등록번호를 수집하지 않습니다.</li>
+											<li>안전한 전자상거래를 위하여 아래 수단으로 본인인증을 완료하여 주시기 바랍니다.</li>                        
+										</ul>
+										</td>
+									</tr>
+									<tr class="">
+									<th scope="row">회원인증</th>
 									<td>
-								    <strong class="txtEm">미인증</strong>
-								    <ul class="certifInfo" style="padding-left: 0px;">
-										<li>정보통신망법에 따라 고객의 주민등록번호를 수집하지 않습니다.</li>
-										<li>안전한 전자상거래를 위하여 아래 수단으로 본인인증을 완료하여 주시기 바랍니다.</li>                        
-									</ul>
-									</td>
-								</tr>
-								<tr class="">
-								<th scope="row">회원인증</th>
-								<td>
-								<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
-								<div class="certifForm" id="mobileWrap" style="margin-top: 10px;">
-									<select id="telecom" onchange="selectBoxChange(this.value);">
-										<option value="" selected hidden>선택</option>
-										<option value="3">SKT</option>
-										<option value="4">KT</option>
-										<option value="5">LGU+</option>
-									</select>
-									<input id="phoneNumber"  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
-									<input id="certTelecom" name="certTelecom" value="" type="text">
-									<input id="certPhone" name="certPhone" value="" type="text">
-									<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
-									<button type="button" id="phoneNumberButton" onclick="">
-										<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
-									</button><br>
-									<input id="confirmCode" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
-									<button id="confirmCodeButton" type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
-								    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
-								</div>
-								    </td>
-								</tr>
-							</tbody>
-	    				</table>
+									<input id="personal_type0" name="personal_type" fw-filter="isFill" fw-label="회원인증" fw-msg="" value="m" type="radio" checked="checked"><label for="personal_type0">휴대폰인증</label>                        
+									<div class="certifForm" id="mobileWrap" style="margin-top: 10px;">
+										<select id="telecom" onchange="selectBoxChange(this.value);">
+											<option value="" selected hidden>선택</option>
+											<option value="3">SKT</option>
+											<option value="4">KT</option>
+											<option value="5">LGU+</option>
+										</select>
+										<input id="phoneNumber"  class="inputTypeText" placeholder="- 를 제외한숫자만 입력" value="" type="text"> 
+										<input id="certTelecom" name="certTelecom" value="" type="hidden">
+										<input id="certPhone" name="certPhone" value="" type="hidden">
+										<!-- 통신사, 번호, 인증요청버튼, 인증번호, 인증확인버튼  -->
+										<button type="button" id="phoneNumberButton" onclick="">
+											<img src="/resources/images/btn_checkMobile.png" alt="휴대폰 인증" style="margin-bottom: 0px;">
+										</button><br>
+										<input id="confirmCode" placeholder="인증번호" type="text" style="width: 80px; margin-top: 5px;">
+										<button id="confirmCodeButton" type="button" style="vertical-align: middle; font-size: 5pt; padding: 2px; background-color: white; border-radius: 5px; margin-top: 4px; border: #353535 1px solid;">인증하기</button>
+									    <p class="certifInfo" style="margin: 0px;">- 본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
+									</div>
+									    </td>
+									</tr>
+								</tbody>
+		    				</table>
+		    			</div>
 	    			</div>
-	    		</div>
     			</c:when>
     			<c:otherwise>
-    				<div class="certN">
+    				<div>
     					
     				</div>
     			</c:otherwise>
@@ -689,7 +689,8 @@
 				}
 				,success : function(result) {
 					if(result.rt == "success") {
-						swal("인증 성공!", result.cerName + " 님의 휴대폰 인증이 완료되었습니다.", "success")
+						swal("인증 성공!", "휴대폰 인증이 완료되었습니다.", "success");
+						$("#certN").html("");
 					}
 				}
 				,error : function() {

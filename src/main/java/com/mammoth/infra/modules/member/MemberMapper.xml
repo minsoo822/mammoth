@@ -194,6 +194,13 @@
 		WHERE 1=1
 		AND mmSeq = #{mmSeq}
 	</update>
+	<select id="certOne">
+		SELECT
+			mmName
+			,mmCertNy
+		FROM member
+		WHERE mmSeq = #{mmSeq}
+	</select>
 	
 	
 	

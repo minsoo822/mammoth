@@ -19,10 +19,10 @@
     		,(
 				SELECT
 					COUNT(*)
-				FROM luv
+				FROM luv lv
 				WHERE 1=1
-					AND lv_prSeq = #{rv_prSeq}
-					AND	lv_rvSeq = #{rvSeq}		
+					AND lv.lv_prSeq = prSeq
+					AND	lv.lv_rvSeq = rvSeq		
     		) AS lvCount
     		,mm.mmName
     		,mm.mmGrade
@@ -35,7 +35,7 @@
     	LEFT JOIN reviewUploaded  rvup ON rvup.up_rvSeq = rv.rvSeq
     	JOIN luv lv ON lv.lv_rvSeq = rv.rvSeq
     	WHERE 1=1
-    		AND rv_prSeq = #{rv_prSeq} 
+    		AND rv_prSeq = #{prSeq} 
     	ORDER BY rvSeq DESC
     </select>
     
@@ -82,7 +82,7 @@
     	)
     </insert>
     
-    <select id="selectOne" resultMap="resultMapObj">
+    <!-- <select id="selectOne" resultMap="resultMapObj">
     	SELECT
     		rv.rvContents
     		,rv.rv_prSeq
@@ -98,6 +98,6 @@
     	WHERE 1=1
     		AND rv_prSeq = #{rv_prSeq}
     		AND rvSeq = #{rvSeq}
-    </select>
+    </select> -->
     
 </mapper>

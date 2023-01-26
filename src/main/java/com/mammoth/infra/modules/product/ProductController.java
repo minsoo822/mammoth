@@ -78,8 +78,9 @@ public class ProductController {
 		
 		
 		List<Review> rvList = rvService.selectList(rvdto);
-		System.out.println("lvCount : " + rvdto.getLvCount());
 		model.addAttribute("rvList", rvList);
+		
+		System.out.println("rvdto.rvSeq" + rvdto.getRvSeq());
 		
 		System.out.println("lvdto.prSeq : " + lvdto.getPrSeq());
 		System.out.println("lvdto.rvSeq : " + lvdto.getRvSeq());

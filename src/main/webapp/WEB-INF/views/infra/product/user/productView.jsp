@@ -782,8 +782,7 @@ li {
 		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
 
 		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
-		<input type="hidden" name="rv_prSeq" id="rv_prSeq"
-			value="${one.prSeq }">
+		<input type="hidden" name="rv_prSeq" id="rv_prSeq" value="${one.prSeq }">
 
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
@@ -1015,12 +1014,12 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" onclick="luv('${rvList.rvSeq}')" type="button"
+															<button class="recommend_btn" onClick="luv('${rvList.rvSeq}')" type="button"
 																style="width: 67px; font-size: 10pt;">
 																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount"><c:out value="${rvList.lvCount}"/></span></span>
 																<input type="hidden" value="${rvList.rvSeq }">
 															</button>
-														</div>
+														</div> 
 													</div>
 												</div>
 												<div class="row mb-3">
@@ -1032,7 +1031,6 @@ li {
 														<p style="margin-top: 0px;">
 															<c:out value="${rvList.rvContents}" />
 														</p>
-														<c:out value="${rvList.lvCount}"/>
 													</div>
 												</div>
 												<!-- 관리자 댓글내용 s -->
@@ -1218,50 +1216,13 @@ li {
 	
 	// 댓글 좋아요 
 	
-	luv =  function(rvSeq) {
+	luv = $("#luv");
+	luv.addEventListener("click", function(rvSeq) {
 		
-		var luvUrl = "";
-		var status = $("#luv").css('background-color');
-		
-		if(status == "transparent") {
-			luvUrl = "/luv/luvInst";
-		} else {
-			luvUrl = "/luv/luvDel";
-		}
+		alert("luv");
 		 
-		$.ajax({
-			url: luvUrl
-			,type: 'POST'
-			,dataType: 'json'
-			,data: {
-				prSeq : $("#prSeq").val()
-				,mmSeq : $("#mmSeq").val()
-				,rvSeq : rvSeq
-			},
-			success: function(result) {
-				if(result.list != null) {
-					
-					/* 추천 클릭시 count 숫자 변경 */
-					/* $("#luvCount").html(result.list.length); */
-					
-					/* status에 따라 버튼 디자인 변경 */
-					if(status == "transparent") {
-						$("#luv").css('background', "black");
-						$("#luv").css('color', "white");
-						$("#luv").text("");
-					} else {
-						$("#luv").css('background', "transparent");
-						$("#luv").css('color', "black");
-						$("#luv").text("");
-					}
-					
-				}
-			},
-			error: function() {
-				alert("ajax error...!");
-			}
-		})
-	}
+		
+	});
 	
 	</script>
 </body>

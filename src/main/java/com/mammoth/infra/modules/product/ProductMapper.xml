@@ -89,6 +89,7 @@
     		,pr.prInfo
     		,pr.prKind
     		,pr.prFragrance
+    		,pr.prTotalPrice
     		,prup.upPath
     		,prup.upUuidName
     	FROM product pr

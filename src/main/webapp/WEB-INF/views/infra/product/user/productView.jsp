@@ -5,8 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CodeServiceImpl"
-	class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+<% pageContext.setAttribute("br", "\n"); %> 
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -829,31 +829,30 @@ li {
 						</h2>
 						<div class="detail-rating">
 							<span class="snap_review_avg_score noset">
-								<div class="snap_review_avg_score"
-									style="display: inline-block; margin-right: 10px;">
+								<div class="snap_review_avg_score" style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front"
 										style="font-size: 12pt; color: #000;">
 										★★★★★
 										<!-- ☆ -->
 									</div>
-								</div>(389)
+								</div>(<c:out value="${fn:length(rvList)}"/>)
 							</span>
 						</div>
 						<div class="price_wrap ">
 							<div class="dis_value custom">
-								<c:out value="${one.prPrice }" />
-								원
+								<s><fmt:formatNumber pattern="#,###" value="${one.prPrice }" />원</s>
 							</div>
 							<div class="dis_value strong">
-								<span id="rate" class="rate29"><c:out
-										value="${one.prDiscount }" />%</span>27,000원
+								<span id="rate" class="rate29"><c:out value="${one.prDiscount }" />%</span>
+								<fmt:formatNumber pattern="#,###" value="${one.prTotalPrice}"/>원
 							</div>
 						</div>
 						<div class=" ">
 							<div id="simple_desc_source" class="product-detail-desc">
-								<c:out value="${one.prInfo }" />
+								<!-- c:out 없이 그냥 사용해줘야 적용됨 -->
+								${fn:replace(one.prInfo, br, '<br/>')}" 
 							</div>
-						</div>
+						</div> 
 						<div class="order_button_wrap">
 							<div class="order_button_contents" class="static">
 								<table class="tbl_prd_info">
@@ -895,9 +894,7 @@ li {
 													<button type="button" style="width: 30px; text-align: center;">+</button>
 													<button type="button" style="width: 30px; text-align: center;">-</button>
 													</td>
-													<td colspan="2">총 상품금액 : <span
-														class="total"><strong><em>27,000원</em></strong>
-															(0개)</span>
+													<td colspan="2">총 상품금액 : <span class="total"><strong><em>0원</em></strong> (0개)</span>
 													</td>
 												</tr>
 											</tfoot>
@@ -929,7 +926,7 @@ li {
 						<ul id="product_detail_tab" class="" style="width: 1160px;">
 							<li class="selected" style="width: 580px;"><a href="#"
 								style="text-decoration: none;">상세 정보</a></li>
-							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"></c:out>)</a></li>
+							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"/>)</a></li>
 						</ul>
 					</div>
 					<div class="detail_info_warp"
@@ -1018,10 +1015,9 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" type="button"
+															<button class="recommend_btn" id="luv" type="button"
 																style="width: 67px; font-size: 10pt;">
-																<span class="value"><i
-																	class="fa-regular fa-thumbs-up"></i>&nbsp;0</span>
+																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount">0</span></span>
 															</button>
 														</div>
 													</div>
@@ -1143,22 +1139,43 @@ li {
 	<script>
 	// 모달 띄우기 코드
 	const modal = document.getElementById("modalDiv");
-    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
-    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	
+	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+		
+	    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	    
+	    buttonAddFeed2.addEventListener("click", e => {
+	    	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+	    		alert("로그인후 사용가능한 서비스입니다.");
+	    		return false;
+	    	}
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	} else {
+		
+	    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
+	    
+	    buttonAddFeed.addEventListener("click", e => {
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	    
+		const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
+	    
+	    buttonAddFeed2.addEventListener("click", e => {
+			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
+	    	modal.style.display = "flex";
+			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
+	    
+		}); 
+	}
     
-    buttonAddFeed.addEventListener("click", e => {
-		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-    	modal.style.display = "flex";
-		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
     
-	}); 
-    
-    buttonAddFeed2.addEventListener("click", e => {
-		modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-    	modal.style.display = "flex";
-		/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
-    
-	}); 
     
  	// 모달 닫기 코드
     const buttonCloseModal = document.getElementById("closeModal");
@@ -1192,9 +1209,55 @@ li {
 	$("#go_review").on("click", function() {
 		$("#reviewTitle").attr("tabindex", -1).focus(); 
 	});
+	$(".detail-rating").on("click", function() {
+		$("#reviewTitle").attr("tabindex", -1).focus();
+	});
 	
 	
-	
+	// 댓글 좋아요 
+	$("#luv").on("click", function() {
+		
+		var luvUrl = "";
+		var status = $("#luv").css('background-color');
+		
+		if(status == "transparent") {
+			luvUrl = "/luv/luvInst";
+		} else {
+			luvUrl = "/luv/luvDel";
+		}
+		 
+		$.ajax({
+			url: luvUrl
+			,type: 'POST'
+			,dataType: 'json'
+			,data: {
+				shSeq: $("#poSeq").val()
+				,writer: $("#writer").val()
+			},
+			success: function(result) {
+				if(result.list != null) {
+					
+					/* 추천 클릭시 count 숫자 변경 */
+					$("#luvCount").html(result.list.length);
+					
+					/* status에 따라 버튼 디자인 변경 */
+					if(status == "transparent") {
+						$("#luv").css('background', "black");
+						$("#luv").css('color', "white");
+						$("#luv").text("");
+					} else {
+						$("#luv").css('background', "transparent");
+						$("#luv").css('color', "black");
+						$("#luv").text("");
+					}
+					
+				}
+			},
+			error: function() {
+				alert("ajax error...!");
+			}
+		})
+	});
 	</script>
 </body>
 </html>

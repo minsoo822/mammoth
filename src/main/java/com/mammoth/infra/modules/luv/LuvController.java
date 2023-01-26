@@ -14,7 +14,7 @@ public class LuvController {
 	
 
 	@Autowired
-	LuvService service;
+	LuvServiceImpl service;
 	
 	
 	@RequestMapping(value="luvList")

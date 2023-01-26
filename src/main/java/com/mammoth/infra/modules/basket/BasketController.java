@@ -2,6 +2,8 @@ package com.mammoth.infra.modules.basket;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,9 +72,18 @@ public class BasketController {
 		return "redirect:/basket/basketList";
 	}
 	@RequestMapping(value = "oderFormUptd")
-	public String oderFormUptd(Basket dto, OrderVo vo,RedirectAttributes redirectAttributes) throws Exception {
+	public String oderFormUptd(Basket dto, OrderVo vo,RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
-		service.bskUpdt(dto);
+		if(dto.getBskSeqs() != null && dto.getBskSeqs().length > 0) {
+            
+            for(int i=0; i< dto.getBskSeqs().length; i++) {
+                dto.setBskAmount(dto.getBskAmounts()[i]);
+                dto.setBskSell_Price(dto.getBskSell_Prices()[i]);
+                dto.setBskSeq(dto.getBskSeqs()[i]);
+                
+                service.bskUpdt(dto);
+            }
+        }
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 		

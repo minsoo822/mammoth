@@ -27,6 +27,7 @@ public class Order extends Base{
 	private String adrAddressDetail;
 	private String adrPhoneNumber;
 	private Integer cuponCount;
+	private Integer lastPrice;
 	
 	private String cpName;
 	private Integer cpDiscount;
@@ -183,6 +184,12 @@ public class Order extends Base{
 	}
 	public void setCuponCount(Integer cuponCount) {
 		this.cuponCount = cuponCount;
+	}
+	public Integer getLastPrice() {
+		return lastPrice;
+	}
+	public void setLastPrice(Integer lastPrice) {
+		this.lastPrice = lastPrice;
 	}
 	
 	

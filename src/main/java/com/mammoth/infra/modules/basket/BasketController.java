@@ -37,6 +37,8 @@ public class BasketController {
 		List<Basket> selectList = service.selectList(dto);
 		model.addAttribute("list", selectList);
 		
+		System.out.println("-----------------------List" + dto.getLastPrice());
+		
 		return "infra/member/user/basket";
 	}
 	
@@ -84,8 +86,12 @@ public class BasketController {
                 service.bskUpdt(dto);
             }
         }
+		
+		httpSession.setAttribute("sessLastPrice", dto.getLastPrice());
+		//dto.setLastPrice(dto.getLastPrice());
 		vo.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
+		//redirectAttributes.addFlashAttribute("dto", dto);
 		
 		return "redirect:/order/orderForm";
 	}

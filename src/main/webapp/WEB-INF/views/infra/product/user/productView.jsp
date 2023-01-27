@@ -5,8 +5,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CodeServiceImpl" class="com.mammoth.infra.modules.code.CodeServiceImpl" />
-<% pageContext.setAttribute("br", "\n"); %> 
+<jsp:useBean id="CodeServiceImpl"
+	class="com.mammoth.infra.modules.code.CodeServiceImpl" />
+<%
+pageContext.setAttribute("br", "\n");
+%>
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -767,9 +770,9 @@ li {
 }
 </style>
 <style type="text/css">
-	.reviewTitle {
-		outline: none;
-	}
+.reviewTitle {
+	outline: none;
+}
 </style>
 </head>
 <body>
@@ -782,7 +785,8 @@ li {
 		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
 
 		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
-		<input type="hidden" name="rv_prSeq" id="rv_prSeq" value="${one.prSeq }">
+		<input type="hidden" name="rv_prSeq" id="rv_prSeq"
+			value="${one.prSeq }">
 
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
@@ -828,13 +832,14 @@ li {
 						</h2>
 						<div class="detail-rating">
 							<span class="snap_review_avg_score noset">
-								<div class="snap_review_avg_score" style="display: inline-block; margin-right: 10px;">
+								<div class="snap_review_avg_score"
+									style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front"
 										style="font-size: 12pt; color: #000;">
 										★★★★★
 										<!-- ☆ -->
 									</div>
-								</div>(<c:out value="${fn:length(rvList)}"/>)
+								</div>(<c:out value="${fn:length(rvList)}" />)
 							</span>
 						</div>
 						<div class="price_wrap ">
@@ -842,16 +847,18 @@ li {
 								<s><fmt:formatNumber pattern="#,###" value="${one.prPrice }" />원</s>
 							</div>
 							<div class="dis_value strong">
-								<span id="rate" class="rate29"><c:out value="${one.prDiscount }" />%</span>
-								<fmt:formatNumber pattern="#,###" value="${one.prTotalPrice}"/>원
+								<span id="rate" class="rate29"><c:out
+										value="${one.prDiscount }" />%</span>
+								<fmt:formatNumber pattern="#,###" value="${one.prTotalPrice}" />
+								원
 							</div>
 						</div>
 						<div class=" ">
 							<div id="simple_desc_source" class="product-detail-desc">
 								<!-- c:out 없이 그냥 사용해줘야 적용됨 -->
-								${fn:replace(one.prInfo, br, '<br/>')}" 
+								${fn:replace(one.prInfo, br, '<br/>')}"
 							</div>
-						</div> 
+						</div>
 						<div class="order_button_wrap">
 							<div class="order_button_contents" class="static">
 								<table class="tbl_prd_info">
@@ -887,13 +894,15 @@ li {
 										<table border="1" summary="" class="total_options">
 											<tfoot>
 												<tr class="detail-amount-cell">
-													<td colspan="1">
-													수량 : 
-													<input type="text" style="width: 50px; text-align: center;" value="0">
-													<button type="button" style="width: 30px; text-align: center;">+</button>
-													<button type="button" style="width: 30px; text-align: center;">-</button>
+													<td colspan="1">수량 : <input type="text"
+														style="width: 50px; text-align: center;" value="0">
+														<button type="button"
+															style="width: 30px; text-align: center;">+</button>
+														<button type="button"
+															style="width: 30px; text-align: center;">-</button>
 													</td>
-													<td colspan="2">총 상품금액 : <span class="total"><strong><em>0원</em></strong> (0개)</span>
+													<td colspan="2">총 상품금액 : <span class="total"><strong><em>0원</em></strong>
+															(0개)</span>
 													</td>
 												</tr>
 											</tfoot>
@@ -903,10 +912,9 @@ li {
 								<div class="xans-element- xans-product xans-product-action ">
 									<div class="btAction">
 										<a id="cartBtn" href="#none"
-											class="btn_action white  wm_pc_cart" style="width: 200px;" onclick=""> <span>ADD
-												TO CART</span>
-										</a> 
-										<a href="#none" class="btn_action purchase" onclick=""
+											class="btn_action white  wm_pc_cart" style="width: 200px;"
+											onclick=""> <span>ADD TO CART</span>
+										</a> <a href="#none" class="btn_action purchase" onclick=""
 											style="text-decoration: none;"> <span id="btnBuy"
 											class="wm_pc_order">BUY NOW</span>
 										</a>
@@ -925,7 +933,10 @@ li {
 						<ul id="product_detail_tab" class="" style="width: 1160px;">
 							<li class="selected" style="width: 580px;"><a href="#"
 								style="text-decoration: none;">상세 정보</a></li>
-							<li class="" style="width: 580px;"><a id="go_review" style="text-decoration: none; cursor: pointer;">리뷰 (<c:out value="${fn:length(rvList)}"/>)</a></li>
+							<li class="" style="width: 580px;"><a id="go_review"
+								style="text-decoration: none; cursor: pointer;">리뷰 (<c:out
+										value="${fn:length(rvList)}" />)
+							</a></li>
 						</ul>
 					</div>
 					<div class="detail_info_warp"
@@ -936,9 +947,11 @@ li {
 						</c:forEach>
 					</div>
 				</div>
-				<div class="prdReview" style="margin-top: 50px; width: 90%; margin-left: auto; margin-right: auto;">
+				<div class="prdReview"
+					style="margin-top: 50px; width: 90%; margin-left: auto; margin-right: auto;">
 					<hr style="margin-bottom: 20px;">
-					<div class="reviewTitle" id="reviewTitle" style="width: 70%; height: 50px;">
+					<div class="reviewTitle" id="reviewTitle"
+						style="width: 70%; height: 50px;">
 						<h3 style="font-weight: 600; font-size: 13pt;">전체리뷰</h3>
 						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
@@ -969,12 +982,14 @@ li {
 								<div class="col-10 text-center" style="padding-left: 200px;">
 									<p>첫 번째 리뷰를 작성해주세요.</p>
 									<br>
-									<p>리뷰를 작성시 최대 <strong>1,000원</strong> 적립금을 드려요.</p>
+									<p>
+										리뷰를 작성시 최대 <strong>1,000원</strong> 적립금을 드려요.
+									</p>
 								</div>
 								<div class="col-2">
-									<button type="button" id="reviewModal" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
-									첫 리뷰<br>
-									남기기
+									<button type="button" id="reviewModal" class="noReviewAdd mt-4"
+										style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
+										첫 리뷰<br> 남기기
 									</button>
 								</div>
 							</div>
@@ -993,11 +1008,41 @@ li {
 														<div style="font-size: 10pt;">
 															<!-- 벌점, 점수-->
 															<%-- <span>★</span><strong><c:out value="${rvList.rvStar}" /></strong> --%>
-															<c:if test="${rvList.rvStar == 1}"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
-															<c:if test="${rvList.rvStar == 2}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
-															<c:if test="${rvList.rvStar == 3}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></c:if>
-															<c:if test="${rvList.rvStar == 4}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></c:if>
-															<c:if test="${rvList.rvStar == 5}"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></c:if>
+															<c:if test="${rvList.rvStar == 1}">
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+															</c:if>
+															<c:if test="${rvList.rvStar == 2}">
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+															</c:if>
+															<c:if test="${rvList.rvStar == 3}">
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+															</c:if>
+															<c:if test="${rvList.rvStar == 4}">
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-regular fa-star"></i>
+															</c:if>
+															<c:if test="${rvList.rvStar == 5}">
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+																<i class="fa-solid fa-star"></i>
+															</c:if>
 														</div>
 													</div>
 													<div class="col-1">
@@ -1007,19 +1052,41 @@ li {
 													<div class="col-3">
 														<span><c:out value="${rvList.rvCreDate }" /></span>
 													</div>
-													<c:forEach items="${ccgListGrade}" var="listGrade" varStatus="rvStatus">
+													<c:forEach items="${ccgListGrade}" var="listGrade"
+														varStatus="rvStatus">
 														<div class="col-1">
-															<span style="font-size: 12pt;"><strong><c:if test="${listGrade.ccOrder eq rvList.mmGrade}"><c:out value="${listGrade.ccName}" /></c:if></strong></span>
+															<span style="font-size: 12pt;"><strong>
+																<c:if test="${listGrade.ccOrder eq rvList.mmGrade}"><c:out value="${listGrade.ccName}" /></c:if>
+															</strong></span>
 														</div>
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" onclick="luv('${rvList.rvSeq}')" type="button"
-																style="width: 67px; font-size: 10pt;">
-																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount"><c:out value="${rvList.lvCount}"/></span></span>
-																<input type="hidden" value="${rvList.rvSeq }">
-															</button>
-														</div> 
+															<c:choose>
+																<c:when test="${lvList.lv_ing eq 1}">
+																	<button class="recommend_btn" id="luvbtn${rvList.rvSeq}"
+																		onclick="luv(${rvList.rvSeq})" type="button"
+																		style="width: 67px; font-size: 10pt; background: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+																		<span class="value"><i
+																			class="fa-regular fa-thumbs-up"></i>&nbsp;<span
+																			id="luvCount${rvList.rvSeq}"><c:out
+																					value="${rvList.lvCount}" /></span></span> <input type="hidden"
+																			value="${rvList.rvSeq }">
+																	</button>
+																</c:when>
+																<c:otherwise>
+																	<button class="recommend_btn" id="luvbtn${rvList.rvSeq}"
+																		onclick="luv(${rvList.rvSeq})" type="button"
+																		style="width: 67px; font-size: 10pt;">
+																		<span class="value"><i
+																			class="fa-regular fa-thumbs-up"></i>&nbsp;<span
+																			id="luvCount${rvList.rvSeq}"><c:out
+																					value="${rvList.lvCount}" /></span></span> <input type="hidden"
+																			value="${rvList.rvSeq }">
+																	</button>
+																</c:otherwise>
+															</c:choose>
+														</div>
 													</div>
 												</div>
 												<div class="row mb-3">
@@ -1100,8 +1167,7 @@ li {
 					<div class="messageTextWrap">
 						<div class="row mt-3 mb-3">
 							<div class="col">
-								<span>별점</span>
-								<select id="rvStar" name="rvStar">
+								<span>별점</span> <select id="rvStar" name="rvStar">
 									<option value="">선택</option>
 									<option value="1">1점</option>
 									<option value="2">2점</option>
@@ -1118,7 +1184,8 @@ li {
 						</div>
 						<textarea rows="10" cols="40" id="rvContents" name="rvContents"
 							placeholder="리뷰 내용을 입력해주세요"></textarea>
-						<input type="file" id="rvImg" name="rvImg" style="border: 1px solid #ced4da"><br>
+						<input type="file" id="rvImg" name="rvImg"
+							style="border: 1px solid #ced4da"><br>
 					</div>
 					<div class="messageButtons">
 						<button type="button" id="reviewInst"
@@ -1201,7 +1268,52 @@ li {
 	
 	luv = function(rvSeq) {
 		
-		alert(rvSeq + "번 리뷰에 좋아요 클릭함");
+		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+			alert("로그인후 사용가능한 서비스입니다.");
+    		return false;
+		}
+		
+		var luvUrl = "";
+		var status = $("#luvbtn" + rvSeq).css('color');
+		
+		if(status == "rgb(0, 0, 0)") {
+			luvUrl = "/luv/luvInst";
+		} else {
+			luvUrl = "/luv/luvDel";
+		}
+		 
+		$.ajax({
+			url: luvUrl
+			,type: 'POST'
+			,dataType: 'json'
+			,data: {
+				prSeq: $("#prSeq").val()
+				,mmSeq: $("#mmSeq").val()
+				,rvSeq: rvSeq
+			},
+			success: function(result) {
+				if(result.list != null) {
+					
+					/* 추천 클릭시 count 숫자 변경 */
+					$("#luvCount"+rvSeq).html(result.list.length);
+					
+					/* status에 따라 버튼 디자인 변경 */
+					if(status == "rgb(0, 0, 0)") {
+						$("#luvbtn" + rvSeq).css('background', "rgb(0, 0, 0)");
+						$("#luvbtn" + rvSeq).css('color', "rgb(255, 255, 255)");
+						/* $("#luv").text(""); */
+					} else {
+						$("#luvbtn" + rvSeq).css('background', "rgb(255, 255, 255)");
+						$("#luvbtn" + rvSeq).css('color', "rgb(0, 0, 0)");
+						/* $("#luv").text(""); */
+					}
+					
+				}
+			},
+			error: function() {
+				alert("ajax error...!");
+			}
+		})
 		
 	};
 	

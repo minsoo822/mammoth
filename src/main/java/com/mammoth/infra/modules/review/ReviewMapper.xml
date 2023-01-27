@@ -23,6 +23,13 @@
 				WHERE lv.lv_prSeq = prSeq
 					AND	lv.lv_rvSeq = rvSeq		
     		) AS lvCount
+    		,(
+				SELECT
+					COUNT(*)
+				FROM luv lv
+				WHERE lv.lv_rvSeq = rvSeq
+					AND lv.lv_mmSeq = #{mmSeq}
+    		) AS lv_ing
     		,mm.mmName
     		,mm.mmGrade
     		,pr.prName

@@ -18,13 +18,13 @@ public class LuvServiceImpl implements LuvService{
 	}
 
 	@Override
-	public void luvInst() throws Exception {
-		dao.luvInst();
+	public void luvInst(Luv dto) throws Exception {
+		dao.luvInst(dto);
 	}
 
 	@Override
-	public void luvDel() throws Exception {
-		dao.luvDel();
+	public void luvDel(Luv dto) throws Exception {
+		dao.luvDel(dto);
 	}
 	
 	

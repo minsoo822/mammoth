@@ -30,15 +30,14 @@ public class LuvController {
 		
 		Map<String, Object> result = new HashMap<String, Object>();
 		
+		service.luvInst(dto);
+		
 		List<Luv> luvList = service.luvList(dto);
 		
 		if(luvList != null) {
 			result.put("rt", "success");
-			result.put("luvList", luvList);
+			result.put("list", luvList);
 		}
-		
-//		resultMap.put("basketSeq", basketItem.getPrSeq());
-//		resultMap.put("basketName", basketItem.getPrName());
 		
 		return result;
 	}
@@ -49,8 +48,15 @@ public class LuvController {
 		
 		Map<String, Object> result = new HashMap<String, Object>();
 		
-//		resultMap.put("basketSeq", basketItem.getPrSeq());
-//		resultMap.put("basketName", basketItem.getPrName());
+		service.luvDel(dto);
+		
+		List<Luv> luvList = service.luvList(dto);
+		
+		if(luvList != null) {
+			result.put("rt", "success");
+			result.put("list", luvList);
+		}
+		
 		
 		return result;
 	}

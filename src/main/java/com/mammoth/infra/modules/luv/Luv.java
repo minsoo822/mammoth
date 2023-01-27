@@ -3,6 +3,7 @@ package com.mammoth.infra.modules.luv;
 public class Luv {
 
 	private Integer lvSeq;
+	private Integer lv_prSeq;
 	private Integer lv_mmSeq;
 	private Integer lv_rvSeq;
 	private Integer lv_ing;
@@ -53,6 +54,12 @@ public class Luv {
 	}
 	public void setRvSeq(Integer rvSeq) {
 		this.rvSeq = rvSeq;
+	}
+	public Integer getLv_prSeq() {
+		return lv_prSeq;
+	}
+	public void setLv_prSeq(Integer lv_prSeq) {
+		this.lv_prSeq = lv_prSeq;
 	}
 	
 	

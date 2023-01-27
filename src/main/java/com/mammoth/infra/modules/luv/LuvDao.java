@@ -19,8 +19,8 @@ public class LuvDao {
 	
 	public List<Luv> luvList(Luv dto) {return sqlSession.selectList(nampespace + ".luvList", dto);}
 	
-	public void luvInst() {sqlSession.insert(nampespace + ".luvInst", "");}
+	public void luvInst(Luv dto) {sqlSession.insert(nampespace + ".luvInst", dto);}
 	
-	public void luvDel() {sqlSession.delete(nampespace + ".luvDel", "");}
+	public void luvDel(Luv dto) {sqlSession.delete(nampespace + ".luvDel", dto);}
 	
 }

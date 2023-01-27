@@ -17,8 +17,10 @@ public class Review extends Base{
 	private Integer mmGrade;
 	private String prName;
 	private Integer lvCount;
+	private Integer lv_ing;
 	
 	private Integer prSeq;
+	private Integer mmSeq;
 
 	public Integer getRvSeq() {
 		return rvSeq;
@@ -85,6 +87,18 @@ public class Review extends Base{
 	}
 	public void setPrSeq(Integer prSeq) {
 		this.prSeq = prSeq;
+	}
+	public Integer getMmSeq() {
+		return mmSeq;
+	}
+	public void setMmSeq(Integer mmSeq) {
+		this.mmSeq = mmSeq;
+	}
+	public Integer getLv_ing() {
+		return lv_ing;
+	}
+	public void setLv_ing(Integer lv_ing) {
+		this.lv_ing = lv_ing;
 	}
 	
 	

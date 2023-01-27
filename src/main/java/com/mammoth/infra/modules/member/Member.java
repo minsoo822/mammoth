@@ -26,6 +26,7 @@ public class Member extends Base{
 	private String mmAddress;
 	private String mmAddressDetail;
 	private String mmTel;
+	private Integer cuponCount;
 	
 	//주소
 	private Integer adrSeq;
@@ -257,6 +258,12 @@ public class Member extends Base{
 	}
 	public void setMmTel(String mmTel) {
 		this.mmTel = mmTel;
+	}
+	public Integer getCuponCount() {
+		return cuponCount;
+	}
+	public void setCuponCount(Integer cuponCount) {
+		this.cuponCount = cuponCount;
 	}
 	
 	

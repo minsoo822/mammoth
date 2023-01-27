@@ -88,16 +88,23 @@
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
-			mmId
-		    ,mmName
-		    ,mmGrade
-		    ,mmEmail
-		    ,mmPhoneNumber
-		    ,mmTelecom
-		    ,mmGender
-		    ,mmCertNy
-		    ,mmBirth
-		FROM member
+			mm.mmId
+		    ,mm.mmName
+		    ,mm.mmGrade
+		    ,mm.mmEmail
+		    ,mm.mmPhoneNumber
+		    ,mm.mmTelecom
+		    ,mm.mmGender
+		    ,mm.mmCertNy
+		    ,mm.mmBirth
+		    ,(
+		    	SELECT
+		    		COUNT(*)
+		    	FROM cupon cp
+		    	WHERE mm.mmSeq = cp_mmSeq
+		    	AND cp_mmSeq = #{mmSeq}
+		    )	cuponCount
+		FROM member mm
 		WHERE 1=1
 		AND mmSeq = #{mmSeq}
 	</select>

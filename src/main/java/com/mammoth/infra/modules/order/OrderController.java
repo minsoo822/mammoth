@@ -44,6 +44,14 @@ public class OrderController {
 		return "infra/member/user/orderForm";
 	}
 	
+	@RequestMapping(value="orderFormBuyNow")
+	public String orderFormBuyNow(Basket dto) throws Exception {
+		
+		
+		
+		return "";
+	}
+	
 	@RequestMapping(value="orderInst")
 	public String insert(Order dto) throws Exception {
 		

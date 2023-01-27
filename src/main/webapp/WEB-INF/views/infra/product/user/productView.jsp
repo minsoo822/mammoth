@@ -1361,7 +1361,9 @@ li {
 	
 	$("#buyNowBtn").on("click", function() {
 		
-		form.attr("action", "/order/orderForm")
+		alert("buynow");
+		
+		form.attr("action", "/product/buyNowInst").submit();
 		
 	});
 	

@@ -549,7 +549,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 <body>
 	<form method="post" id="mainFrom">
 	<input type="hidden" id="mmSeq"name="mmSeq" value="">
-	<input type="hidden" id="lastPrice" name="lastPrice" value="" />
+	<input type="hidden" id="sessLastPrice" name="sessLastPrice" value="${sessLastPrice}" />
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -664,8 +664,8 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                <tr>
 				                    <td class=""></td>
 				                    <td colspan="8">
-				                        <span class="gLeft">[개별배송]</span> 상품구매금액 <strong>27,000</strong>
-				                         + 배송비 0 (무료)  = 합계 : <strong class="txtEm gIndent10"><span class="txt18">27,000</span>원</strong> 
+				                        <span class="gLeft">[개별배송]</span> 상품구매금액 <strong><fmt:formatNumber pattern="#,###원" value="${sessLastPrice }"/></strong>
+				                         + 배송비 0 (무료)  = 합계 : <strong class="txtEm gIndent10"><span class="txt18"><fmt:formatNumber pattern="#,###" value="${sessLastPrice }"/></span>원</strong> 
 				                    </td>
 				                </tr>
 				            </tfoot>
@@ -866,7 +866,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	    				</div>
 	    				<div class="row" style="border: 1px solid #000; padding: 11px 0 10px 18px;border-top: 1px solid #eee">
 	    					<div class="col" style="height: 58px; ">
-	    						<strong style="font-size: 23px;">27,000원</strong>
+	    						<strong style="font-size: 23px;"><fmt:formatNumber pattern="#,###원" value="${sessLastPrice }"/></strong>
 	    					</div>
 	    				</div>
 	    				<div class="row" style="background: #fbfafa; padding: 11px 0 10px 18px; border: 1px solid #000; border-bottom: 0;">

@@ -492,7 +492,7 @@ tfoot {
 								<a href="/myshop/mileage/historyList.html" style="color: 000;">가용적립금 : <strong>0원</strong></a>
 							</li>
 		                    <li>
-		                    	<a href="/myshop/coupon/coupon.html" style="color: 000;">쿠폰 : <strong>7개</strong></a>
+		                    	<a href="/myshop/coupon/coupon.html" style="color: 000;">쿠폰 : <strong><c:out value="${info.cuponCount }"/>개</strong></a>
 		                    </li>
 		                </ul>
 					</div>

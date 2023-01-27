@@ -14,6 +14,7 @@ public class Basket {
 	private Integer bskSell_Price;
 	private Integer bskAmount;
 	private Integer total;
+	private Integer lastPrice;
 	
 	private Integer[] bskSeqs;
 	private Integer[] bskSell_Prices;
@@ -104,6 +105,12 @@ public class Basket {
 	}
 	public void setBskAmounts(Integer[] bskAmounts) {
 		this.bskAmounts = bskAmounts;
+	}
+	public Integer getLastPrice() {
+		return lastPrice;
+	}
+	public void setLastPrice(Integer lastPrice) {
+		this.lastPrice = lastPrice;
 	}
 	
 	

@@ -59,11 +59,11 @@ public class ProductController {
 		Product one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
-		/* 할인된 가격 계산 */
-		double discount = one.getPrDiscount() * 0.01;
-		double discountPrice = discount * one.getPrPrice();
-		double totalPrice = one.getPrPrice()-discountPrice;
-		model.addAttribute("prTotalPrice", totalPrice);
+//		/* 할인된 가격 계산 */
+//		double discount = one.getPrDiscount() * 0.01;
+//		double discountPrice = discount * one.getPrPrice();
+//		double totalPrice = one.getPrPrice()-discountPrice;
+//		model.addAttribute("prTotalPrice", totalPrice);
 		
 		List<Product> prImglist = service.selectListPrImg(dto);
 		model.addAttribute("prImglist", prImglist);

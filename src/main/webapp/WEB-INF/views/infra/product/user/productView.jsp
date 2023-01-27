@@ -943,7 +943,7 @@ li {
 						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
 					<c:choose>
-						<c:when test="${sessSeq eq null}">
+						<c:when test="${sessSeq eq null || fn:length(rvList) eq 0}">
 						</c:when>
 						<c:otherwise>
 							<div class="reviewBtn text-end" style="font-size: 10pt;">
@@ -972,7 +972,7 @@ li {
 									<p>리뷰를 작성시 최대 <strong>1,000원</strong> 적립금을 드려요.</p>
 								</div>
 								<div class="col-2">
-									<button type="button" id="noReviewAdd" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
+									<button type="button" id="reviewModal" class="noReviewAdd mt-4" style="border: 1px solid #ced4da; font-size: 10pt; width: 100px; border-radius: 5px;">
 									첫 리뷰<br>
 									남기기
 									</button>
@@ -1014,7 +1014,7 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-															<button class="recommend_btn" onClick="luv('${rvList.rvSeq}')" type="button"
+															<button class="recommend_btn" onclick="luv('${rvList.rvSeq}')" type="button"
 																style="width: 67px; font-size: 10pt;">
 																<span class="value"><i class="fa-regular fa-thumbs-up"></i>&nbsp;<span id="luvCount"><c:out value="${rvList.lvCount}"/></span></span>
 																<input type="hidden" value="${rvList.rvSeq }">
@@ -1139,35 +1139,19 @@ li {
 	<script>
 	// 모달 띄우기 코드
 	const modal = document.getElementById("modalDiv");
+    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼, 버튼 동시에 뜨게하면 이벤트 리스너에 null오류가 생겨 하나로 바꿈
 	
 	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 		
-	    const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
-	    
-	    buttonAddFeed2.addEventListener("click", e => {
+	    buttonAddFeed.addEventListener("click", e => {
 	    	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 	    		alert("로그인후 사용가능한 서비스입니다.");
 	    		return false;
 	    	}
-			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-	    	modal.style.display = "flex";
-			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
-	    
 		}); 
 	} else {
 		
-	    const buttonAddFeed = document.getElementById("reviewModal"); // 리뷰작성 버튼
-	    
 	    buttonAddFeed.addEventListener("click", e => {
-			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
-	    	modal.style.display = "flex";
-			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
-	    
-		}); 
-	    
-		const buttonAddFeed2 = document.getElementById("noReviewAdd"); // 첫리뷰 남기기 버튼
-	    
-	    buttonAddFeed2.addEventListener("click", e => {
 			modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌 
 	    	modal.style.display = "flex";
 			/* document.body.style.overflowY = "hidden"; // 스크롤 없애기 */
@@ -1216,7 +1200,8 @@ li {
 	
 	// 댓글 좋아요 
 	
-	luv = $("#luv");
+	var luv = $("#luv");
+	
 	luv.addEventListener("click", function(rvSeq) {
 		
 		alert("luv");

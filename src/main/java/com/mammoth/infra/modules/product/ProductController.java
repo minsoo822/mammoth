@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mammoth.infra.modules.basket.Basket;
+import com.mammoth.infra.modules.basket.BasketServiceImpl;
 import com.mammoth.infra.modules.luv.Luv;
 import com.mammoth.infra.modules.luv.LuvServiceImpl;
 import com.mammoth.infra.modules.review.Review;
@@ -28,6 +32,9 @@ public class ProductController {
 	
 	@Autowired
 	LuvServiceImpl lvService;
+	
+	@Autowired
+	BasketServiceImpl bskService;
 	
 	@RequestMapping(value="productList")
 	public String productList(Model model) throws Exception {
@@ -96,6 +103,24 @@ public class ProductController {
 		return resultMap;
 	}
 	
+	
+	@RequestMapping(value="bskInst")
+	public String bsktInst(Basket bskdto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		bskService.basketInst(bskdto);
+		bskdto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		redirectAttributes.addFlashAttribute("dto", bskdto);
+		return "redirect:/basket/basketList";
+	}
+	
+	@RequestMapping(value="buyNowInst")
+	public String buyNowInst(Basket bskdto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		bskService.basketInst(bskdto);
+		bskdto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		redirectAttributes.addFlashAttribute("dto", bskdto);
+		return "redirect:/order/orderForm";
+	}
 	
 	
 	

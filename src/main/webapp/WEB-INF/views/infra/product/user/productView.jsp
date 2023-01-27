@@ -844,13 +844,12 @@ li {
 						</div>
 						<div class="price_wrap ">
 							<div class="dis_value custom">
-								<s><fmt:formatNumber pattern="#,###" value="${one.prPrice }" />원</s>
+								<s><fmt:formatNumber pattern="#,###원" value="${one.prPrice }" /></s>
 							</div>
 							<div class="dis_value strong">
 								<span id="rate" class="rate29"><c:out
 										value="${one.prDiscount }" />%</span>
-								<fmt:formatNumber pattern="#,###" value="${one.prTotalPrice}" />
-								원
+								<fmt:formatNumber pattern="#,###원" value="${one.prTotalPrice}" />
 							</div>
 						</div>
 						<div class=" ">
@@ -894,15 +893,17 @@ li {
 										<table border="1" summary="" class="total_options">
 											<tfoot>
 												<tr class="detail-amount-cell">
-													<td colspan="1">수량 : <input type="text"
-														style="width: 50px; text-align: center;" value="0">
-														<button type="button"
-															style="width: 30px; text-align: center;">+</button>
-														<button type="button"
-															style="width: 30px; text-align: center;">-</button>
+													<td colspan="1">수량 : <input type="text" id="prAmount" name="bskAmount" style="width: 50px; text-align: center;" value="1">
+														<button type="button" id="plus" style="width: 30px; text-align: center;">+</button>
+														<button type="button" id="minus" style="width: 30px; text-align: center;">-</button>
 													</td>
-													<td colspan="2">총 상품금액 : <span class="total"><strong><em>0원</em></strong>
-															(0개)</span>
+													<td colspan="2">총 상품금액 : <strong><span class="total" id="prTotalPrice"><fmt:formatNumber pattern="#,###" value="${one.prTotalPrice }" />원
+															</span></strong>
+															<input type="hidden" id="prPrice" value="${one.prTotalPrice }">
+															<input type="hidden" id="prTotalPrice2"  name="bskSell_Price" value="${one.prTotalPrice }">
+													</td>
+													<td colspan="1" style="text-align: left;">
+														(<span id="prAmount2">1</span>개)
 													</td>
 												</tr>
 											</tfoot>
@@ -911,13 +912,8 @@ li {
 								</div>
 								<div class="xans-element- xans-product xans-product-action ">
 									<div class="btAction">
-										<a id="cartBtn" href="#none"
-											class="btn_action white  wm_pc_cart" style="width: 200px;"
-											onclick=""> <span>ADD TO CART</span>
-										</a> <a href="#none" class="btn_action purchase" onclick=""
-											style="text-decoration: none;"> <span id="btnBuy"
-											class="wm_pc_order">BUY NOW</span>
-										</a>
+										<a id="cartBtn" class="btn_action white  wm_pc_cart" style="width: 200px;"> <span>ADD TO CART</span></a>
+										<a id="buyNowBtn" class="btn_action purchase" style="text-decoration: none;"> <span id="btnBuy" class="wm_pc_order">BUY NOW</span></a>
 									</div>
 								</div>
 							</div>
@@ -1317,6 +1313,57 @@ li {
 		
 	};
 	
+	var prAmount = $("#prAmount").val();
+	var prPrice = $("#prPrice").val();
+	
+	$("#plus").on("click", function() {
+		
+		// 문자열 앞에 +를 써주면 int형으로 사용 가능
+		var num = +$("#prAmount").val() + 1;
+		
+		var price = prPrice * num;
+		
+		console.log(price);
+		
+		$("#prAmount").val(num);
+		
+		$("#prAmount2").html(num);
+		
+		$("#prTotalPrice").html(price.toLocaleString() + "원");
+		
+		$("#prTotalPrice2").val(price);
+	});
+	
+	$("#minus").on("click", function() {
+		
+		if($("#prAmount").val() < 2 ) {
+			alert("1개 이하의 수량은 안됩니다.");
+			return false;
+		}
+		// 문자열 앞에 +를 써주면 int형으로 사용 가능
+		var num = +$("#prAmount").val() - 1;
+		
+		var price = prPrice * num;
+			
+		$("#prAmount").val(num);
+		$("#prAmount2").html(num);
+		
+		$("#prTotalPrice").html(price.toLocaleString() + "원");
+		
+		$("#prTotalPrice2").val(price);
+	});
+	
+	$("#cartBtn").on("click", function() {
+		
+		form.attr("action", "/product/bskInst").submit();
+		
+	});
+	
+	$("#buyNowBtn").on("click", function() {
+		
+		form.attr("action", "/order/orderForm")
+		
+	});
 	
 	</script>
 </body>

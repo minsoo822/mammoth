@@ -90,10 +90,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String myinfo(@ModelAttribute("vo") MemberVo vo, Member dto ,Model model) throws Exception {
+		
 		
 		Member myInfo = service.selectOne(vo);
 		model.addAttribute("item", myInfo);
+		
+		/* 생일 월/일 나눠서 넣기 */
+		String birth = myInfo.getMmBirth();
+		String month = birth.substring(0, 2);
+		String day = birth.substring(2);
+		model.addAttribute("month", month);
+		model.addAttribute("day", day);
+		
 		Member adrselectOne = service.adrselectOne(vo);
 		model.addAttribute("adritem", adrselectOne);
 		
@@ -104,10 +113,19 @@ public class MemberController {
 		
 		return "infra/member/user/myinfo";
 	}
+	
 	@RequestMapping(value="myinfoUpda")
 	public String myinfoUpda(Member dto ,MemberVo vo ,RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
-		service.myinfoAddrInst(dto);
+		//마이인포에 주소가없으면 insert 없으면 update
+		if (dto.getAdrSeq() == null) {
+			service.myinfoAddrInst(dto);
+		} else {
+			//dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+			service.adrdefaultNy(dto);
+			service.myinfoAddrUpdat(dto);
+		}
+		
 		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		redirectAttributes.addFlashAttribute("vo", vo);
 		

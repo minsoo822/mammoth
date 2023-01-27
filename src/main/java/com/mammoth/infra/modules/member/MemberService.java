@@ -14,6 +14,7 @@ public interface MemberService {
 	public int adrUpdt(Member dto) throws Exception;
 	public int adrCheckDel(Member dto) throws Exception;
 	public int myinfoAddrInst(Member dto) throws Exception;
+	public int myinfoAddrUpdat(Member dto) throws Exception;
 	public Member adrSelectOne(MemberVo vo) throws Exception;
 	public Member adrselectOne(MemberVo vo) throws Exception;
 	public int certUpdt(Member dto) throws Exception;

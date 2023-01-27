@@ -25,6 +25,7 @@ public class Member extends Base{
 	private Integer mmZipcode;
 	private String mmAddress;
 	private String mmAddressDetail;
+	private String mmTel;
 	
 	//주소
 	private Integer adrSeq;
@@ -250,6 +251,12 @@ public class Member extends Base{
 	}
 	public void setCertTelecom(Integer certTelecom) {
 		this.certTelecom = certTelecom;
+	}
+	public String getMmTel() {
+		return mmTel;
+	}
+	public void setMmTel(String mmTel) {
+		this.mmTel = mmTel;
 	}
 	
 	

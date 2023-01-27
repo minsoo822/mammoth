@@ -408,6 +408,7 @@
 			            <tr class="">
 							<th scope="row">주소</th>
 			                <td>
+			                	<input type="hidden" name="adrSeq" value="${adritem.adrSeq }">
 			                    <input id="postcode1" name="mmZipcode" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="${adritem.mmZipcode }" type="text">                    
 			                    <a href="#none" onclick="sample6_execDaumPostcode()" id="postBtn">
 			                    	<img src="/resources/images/btn_zipcode.png" alt="우편번호">
@@ -419,18 +420,18 @@
 			            <tr class="">
 							<th scope="row">일반전화</th>
 							<td>
-								<input name="" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
+								<input name="mmTel" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
 							</td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">휴대전화 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 			                <td>
 			                	<select id="mmTelecom" name="mmTelecom">
-									<option value="3">SKT</option>
-									<option value="4">KT</option>
-									<option value="5">LGU+</option>
+									<option value="3" <c:if test="${item.mmTelecom eq 3 }">selected</c:if>>SKT</option>
+									<option value="4" <c:if test="${item.mmTelecom eq 4 }">selected</c:if>>KT</option>
+									<option value="5" <c:if test="${item.mmTelecom eq 5 }">selected</c:if>>LGU+</option>
 								</select>
-								<input name="mmPhoneNumber" maxlength="11" value="" type="text" placeholder="- 를 뺀 숫자만 입력해주세요">
+								<input name="mmPhoneNumber" maxlength="11" value="${item.mmPhoneNumber }" type="text" placeholder="- 를 뺀 숫자만 입력해주세요" style="width: 170px; height: 22.4px;" >
 								<!-- <input id="" name="" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text"> -->
 							</td>
 			            </tr>
@@ -494,8 +495,8 @@
 			            		<tr class="">
 									<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 					                <td>
-						                <input id="birth_month" name="birth_month" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
-						                <input id="birth_day" name="birth_day" fw-filter="isFill" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 
+						                <input id="birth_month" name="birth_month" class="inputTypeText" maxlength="2" value="${month }" type="text"> 월 
+						                <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="${day }" type="text"> 일 
 						                <!-- <span class="gIndent20 ">
 							                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
 							                <label for="is_solar_calendar0">양력</label>

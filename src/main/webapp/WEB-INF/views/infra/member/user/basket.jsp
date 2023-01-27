@@ -876,7 +876,6 @@ tfoot {
 			
 			
 			$("#amount"+key).val(num);
-			//$("#hiddenAmount"+key).val(num);	
 			$("#asd"+key).val(productTotalPriceAdd);
 			$("#productTotalPrice"+key).val(productTotalPriceAdd);
 			$("#poi"+key).html(productTotalPriceAdd.toLocaleString());

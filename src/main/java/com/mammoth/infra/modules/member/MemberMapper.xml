@@ -73,6 +73,18 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	<update id="myinfoAddrUpdat">
+		UPDATE address
+		SET
+		  	adrName				= #{mmName}
+		  	,adrZipcode			= #{mmZipcode}
+		  	,adrAddress			= #{mmAddress}
+		  	,adrAddressDetail	= #{mmAddressDetail}
+		  	,adrPhoneNumber		= #{mmPhoneNumber}
+		  	,adrTel				= #{mmTel}
+		  	,adrdefaultNy		= 1
+		WHERE adrSeq = #{adrSeq}
+	</update>
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
@@ -80,6 +92,8 @@
 		    ,mmName
 		    ,mmGrade
 		    ,mmEmail
+		    ,mmPhoneNumber
+		    ,mmTelecom
 		    ,mmGender
 		    ,mmCertNy
 		    ,mmBirth
@@ -89,7 +103,8 @@
 	</select>
 	<select id="adrselectOne" resultMap="resultMapObj">
 	SELECT
-		adrZipcode			AS mmZipcode
+		adrSeq
+		,adrZipcode			AS mmZipcode
 		,adrAddress			AS mmAddress
 		,adrAddressDetail	AS mmAddressDetail
 	FROM address

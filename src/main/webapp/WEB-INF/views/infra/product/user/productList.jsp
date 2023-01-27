@@ -58,8 +58,8 @@
     </style>
 </head>
 <body>
-	<form id="mainForm">
-	
+	<form method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
 
 	<!-- header  -->

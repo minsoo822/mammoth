@@ -20,8 +20,7 @@
 				SELECT
 					COUNT(*)
 				FROM luv lv
-				WHERE 1=1
-					AND lv.lv_prSeq = prSeq
+				WHERE lv.lv_prSeq = prSeq
 					AND	lv.lv_rvSeq = rvSeq		
     		) AS lvCount
     		,mm.mmName
@@ -33,7 +32,6 @@
     	JOIN product pr ON pr.prSeq = rv.rv_prSeq
     	JOIN member mm ON mm.mmSeq = rv.rv_mmSeq
     	LEFT JOIN reviewUploaded  rvup ON rvup.up_rvSeq = rv.rvSeq
-    	JOIN luv lv ON lv.lv_rvSeq = rv.rvSeq
     	WHERE 1=1
     		AND rv_prSeq = #{prSeq} 
     	ORDER BY rvSeq DESC

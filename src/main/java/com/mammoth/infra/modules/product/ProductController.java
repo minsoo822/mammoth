@@ -71,19 +71,9 @@ public class ProductController {
 		List<Product> prdtImglist = service.selectListPrDtImg(dto);
 		model.addAttribute("prdtImglist", prdtImglist);
 
-		
-//		System.out.println("before-----prSeq : " + rvDto.getRv_prSeq());
-		rvdto.setRv_prSeq(dto.getPrSeq());
-//		System.out.println("after-----prSeq : " + rvDto.getRv_prSeq());
-		
-		
 		List<Review> rvList = rvService.selectList(rvdto);
 		model.addAttribute("rvList", rvList);
 		
-		System.out.println("rvdto.rvSeq" + rvdto.getRvSeq());
-		
-		System.out.println("lvdto.prSeq : " + lvdto.getPrSeq());
-		System.out.println("lvdto.rvSeq : " + lvdto.getRvSeq());
 		List<Luv> lvList = lvService.luvList(lvdto);
 		model.addAttribute("lvList", lvList);
 		

@@ -943,7 +943,7 @@ li {
 						<!-- <img alt="" src="/resources/images/error-outline.png" style="width: 23px; position: relative;left: 75px; bottom: 40px;"> -->
 					</div>
 					<c:choose>
-						<c:when test="${sessSeq eq null || fn:length(rvList) eq 0}">
+						<c:when test="${fn:length(rvList) eq 0}">
 						</c:when>
 						<c:otherwise>
 							<div class="reviewBtn text-end" style="font-size: 10pt;">
@@ -1159,8 +1159,6 @@ li {
 		}); 
 	}
     
-    
-    
  	// 모달 닫기 코드
     const buttonCloseModal = document.getElementById("closeModal");
     		
@@ -1200,14 +1198,13 @@ li {
 	
 	// 댓글 좋아요 
 	
-	var luv = $("#luv");
 	
-	luv.addEventListener("click", function(rvSeq) {
+	luv = function(rvSeq) {
 		
-		alert("luv");
-		 
+		alert(rvSeq + "번 리뷰에 좋아요 클릭함");
 		
-	});
+	};
+	
 	
 	</script>
 </body>

@@ -1051,7 +1051,6 @@ li {
 													</div>
 													<div class="col-3">
 														<span><c:out value="${rvList.rvCreDate }" /></span><br>
-														<span><c:out value="${rvList.lv_ing }" /></span>
 													</div>
 													<c:forEach items="${ccgListGrade}" var="listGrade"
 														varStatus="rvStatus">
@@ -1063,30 +1062,8 @@ li {
 													</c:forEach>
 													<div class="col">
 														<div class="btnarea text-end">
-														<c:if test="${rvList.lv_ing eq 0}">
-															<button class="recommend_btn" id="luvbtn${rvList.rvSeq}"
-																		onclick="luv(${rvList.rvSeq})" type="button"
-																		style="width: 67px; font-size: 10pt;">
-																		<span class="value"><i
-																			class="fa-regular fa-thumbs-up"></i>&nbsp;<span
-																			id="luvCount${rvList.rvSeq}"><c:out
-																					value="${rvList.lvCount}" /></span></span> <input type="hidden"
-																			value="${rvList.rvSeq }">
-																	</button>
-														</c:if>
-														<c:if test="${rvList.lv_ing eq 1}">
-															<button class="recommend_btn" id="luvbtn${rvList.rvSeq}"
-																		onclick="luv(${rvList.rvSeq})" type="button"
-																		style="width: 67px; font-size: 10pt; background: rgb(0, 0, 0); color: rgb(255, 255, 255);">
-																		<span class="value"><i
-																			class="fa-regular fa-thumbs-up"></i>&nbsp;<span
-																			id="luvCount${rvList.rvSeq}"><c:out
-																					value="${rvList.lvCount}" /></span></span> <input type="hidden"
-																			value="${rvList.rvSeq }">
-																	</button>
-														</c:if>
-															<%-- <c:choose>
-																<c:when test="${lvList.lv_ing eq 1}">
+															<c:choose>
+																<c:when test="${rvList.lv_ing eq 1}">
 																	<button class="recommend_btn" id="luvbtn${rvList.rvSeq}"
 																		onclick="luv(${rvList.rvSeq})" type="button"
 																		style="width: 67px; font-size: 10pt; background: rgb(0, 0, 0); color: rgb(255, 255, 255);">
@@ -1108,7 +1085,7 @@ li {
 																			value="${rvList.rvSeq }">
 																	</button>
 																</c:otherwise>
-															</c:choose> --%>
+															</c:choose>
 														</div>
 													</div>
 												</div>

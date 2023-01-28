@@ -26,8 +26,9 @@ public class BasketController {
 	
 	
 	@RequestMapping(value="basketList")
-	public String basketList(@ModelAttribute("dto") Basket dto, Model model, MemberVo vo) throws Exception {
+	public String basketList(@ModelAttribute("dto") Basket dto, Model model, MemberVo vo,HttpSession httpSession) throws Exception {
 		/* 회원정보 */
+		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		Member info = mmservice.selectOne(vo);
 		model.addAttribute("info", info);
 		/* 장바구니 물품갯수 */
@@ -56,7 +57,7 @@ public class BasketController {
 		
 		service.allDel(dto);
 		dto.setMmSeq(dto.getMmSeq());
-		redirectAttributes.addFlashAttribute("dto", dto);
+		redirectAttributes.addFlashAttribute("vo", dto);
 		
 		return "redirect:/basket/basketList";
 	}
@@ -69,6 +70,7 @@ public class BasketController {
 			dto.setPrSeq(checkboxSeq);
 			service.oneDel(dto);
 		}
+		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);
 
 		return "redirect:/basket/basketList";

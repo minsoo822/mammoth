@@ -805,7 +805,13 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                <tr class="">
 				                    <th scope="row">배송메시지 </th>
 				                    <td>
-				                        <textarea id="omessage" name="omessage" fw-filter="" fw-label="배송 메세지" fw-msg="" maxlength="40" cols="70"></textarea>
+				                        <select>
+				                        	<option selected>::배송메시지를 선택해주세요.::</option>
+											<option value="">문 앞에 놔주세요.</option>
+											<option value="">경비실에 맡겨주세요.</option>
+											<option value="">배송 전에 전화주세요.</option>
+											<option value="">부재시 연락주세요.</option>
+				                        </select>
 				                    </td>
 				                </tr>
 				            </tbody>
@@ -849,7 +855,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 			    							<strong><fmt:formatNumber value="${cuponList.cpDiscount }" pattern="#,###원"/></strong>
 		    							</div>
 		    							<div class="col" style="padding: 11px 0 10px 0px; border: 1px solid #dfdfdf; border-left: 0; border-top: 0">
-			    							<a href="">
+			    							<a onclick="applyCoupon(${cuponList.cpDiscount })" style="cursor: pointer;">
 			    								<img alt="" src="/resources/images/btn_total_coupon.gif" style="padding-left: 5px;">
 			    							</a>
 		    							</div>
@@ -866,7 +872,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	    				</div>
 	    				<div class="row" style="border: 1px solid #000; padding: 11px 0 10px 18px;border-top: 1px solid #eee">
 	    					<div class="col" style="height: 58px; ">
-	    						<strong style="font-size: 23px;"><fmt:formatNumber pattern="#,###원" value="${sessLastPrice }"/></strong>
+	    						<strong style="font-size: 23px;"><span id="totalPrice"><fmt:formatNumber pattern="#,###" value="${sessLastPrice }"/></span>원</strong>
 	    					</div>
 	    				</div>
 	    				<div class="row" style="background: #fbfafa; padding: 11px 0 10px 18px; border: 1px solid #000; border-bottom: 0;">
@@ -876,7 +882,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	    				</div>
 	    				<div class="row" style="border: 1px solid #000; padding: 11px 0 10px 18px;border-top: 1px solid #eee">
 	    					<div class="col" style="height: 58px; ">
-	    						<strong style="font-size: 23px;">- 0원</strong>
+	    						<strong style="font-size: 23px;">- <span id="discount"></span>원</strong>
 	    					</div>
 	    				</div>
 	    				<div class="row" style="background: #fbfafa; padding: 11px 0 10px 18px; border: 1px solid #000; border-bottom: 0;">
@@ -886,7 +892,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	    				</div>
 	    				<div class="row" style="border: 1px solid #000; padding: 11px 0 10px 18px;border-top: 1px solid #eee">
 	    					<div class="col" style="height: 58px; ">
-	    						<strong style="font-size: 23px; color: #008bcc;">= 27,000원</strong>
+	    						<strong style="font-size: 23px; color: #008bcc;">= <span id="totalPrice2"><fmt:formatNumber pattern="#,###" value="${sessLastPrice }"/></span>원</strong>
 	    					</div>
 	    				</div>
 	    			</div>
@@ -926,7 +932,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				            <strong id="current_pay_name">카카오페이(간편결제) </strong> <span>최종결제 금액</span>
 				        </h4>
 				        <p class="price"><span></span>
-				            <input id="total_price" name="total_price"class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" readonly="1" value="27000" type="text"><span>원</span>
+				            <input id="total_price" name="total_price"class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" readonly="1" value="${sessLastPrice }" type="text"><span>원</span>
 				        </p> 
 				        <div class="button">
 			                <a href="#none" id="btn_payment" class="btnSubmit sizeL">
@@ -1000,7 +1006,30 @@ div.ec-base-help ul, div.ec-base-help ol {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		
+		window.onload = function() {
+			
+			var myPrice = $("#totalPrice").text();
+			myPrice = myPrice.replace(',',''); // , 빼주기
+			myPrice = myPrice.trim(); // 공백지우기
+			
+			console.log(myPrice);
+			
+			applyCoupon = function(discount){  
+					
+				applyPrice = myPrice - discount;	// 최종 금액(쿠폰 적용 후)
+				
+				console.log(applyPrice);
+				
+				$("#discount").html(discount.toLocaleString()); // 쿠폰 할인 금액 값 입력
+				$("#totalPrice2").html(applyPrice.toLocaleString()); // 최종 금액 값 입력
+				$("#total_price").attr("value", applyPrice.toLocaleString());
+				
+			};
+			
+		};
+	
+	
+	
 	</script>	
 </body>
 </html>

@@ -620,7 +620,7 @@ tfoot {
 				                			<input readonly name="bskSell_Prices" class="sumTotal" id="productTotalPrice${bskList.bskSeq }" type="hidden" value="${bskList.bskSell_Price }" style="width: 60px; text-align: right; font-weight: 600; border: none; padding-bottom: 4px;">
 										</td>
 				                		<td class="button">
-					                        <a href="javascript:;" class="" onclick="Basket.orderBasketItem(0);" style="text-decoration: none; color: #000;">
+					                        <a class="" onclick="oneBuy(${bskList.bskSeq})" style="text-decoration: none; color: #000;">
 					                        	<img src="/resources/images/btn_order.gif" alt="주문하기">
 				                        	</a>
 					                        <!-- <a href="javascript:;" onclick="BasketNew.moveWish(0);" style="text-decoration: none; color: #000;">
@@ -716,7 +716,7 @@ tfoot {
 			</c:choose>
     		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
     			<a type="button" onclick="allOrderForm(${sessSeq})" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
-    			<a type="button" onclick="gogogo(${sessSeq})" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
+    			<a type="button" onclick="" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
     			<span class="gRight">
 		            <a href="/" class="btn_neo_act white" style="text-decoration: none;">쇼핑계속하기</a>
 		        </span>
@@ -942,9 +942,8 @@ tfoot {
 		};
 	};
 	
-	gogogo = function(key) {
-		mmSeq.attr("value", mmSeqVal);
-		form.attr("action", "/order/orderForm").submit();
+	oneBuy = function(bskSeq) {
+		
 	}
 	
 	

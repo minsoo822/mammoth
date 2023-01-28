@@ -1012,13 +1012,9 @@ div.ec-base-help ul, div.ec-base-help ol {
 			myPrice = myPrice.replace(',',''); // , 빼주기
 			myPrice = myPrice.trim(); // 공백지우기
 			
-			console.log(myPrice);
-			
 			applyCoupon = function(discount){  
 					
 				applyPrice = myPrice - discount;	// 최종 금액(쿠폰 적용 후)
-				
-				console.log(applyPrice);
 				
 				$("#discount").html(discount.toLocaleString()); // 쿠폰 할인 금액 값 입력
 				$("#totalPrice2").html(applyPrice.toLocaleString()); // 최종 금액 값 입력

@@ -29,6 +29,7 @@ public class BasketController {
 	public String basketList(@ModelAttribute("dto") Basket dto, Model model, MemberVo vo,HttpSession httpSession) throws Exception {
 		/* 회원정보 */
 		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		Member info = mmservice.selectOne(vo);
 		model.addAttribute("info", info);
 		/* 장바구니 물품갯수 */

@@ -455,6 +455,7 @@ tfoot {
 	<form method="post" id="mainForm">
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<input type="hidden" name="checkboxSeqArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>

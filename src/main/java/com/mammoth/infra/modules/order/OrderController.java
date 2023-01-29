@@ -46,6 +46,10 @@ public class OrderController {
 		List<Order> cuponList = service.cuponList(vo);
 		model.addAttribute("cuponList", cuponList);
 		
+		// 바로구매로 상품리스트 뿌려주기
+		List<Order> buyNowList = service.selectList(vo);
+		model.addAttribute("oderFormList", buyNowList);
+		
 		return "infra/member/user/orderForm";
 	}
 	

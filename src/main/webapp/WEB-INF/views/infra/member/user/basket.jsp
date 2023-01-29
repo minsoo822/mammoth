@@ -840,6 +840,7 @@ tfoot {
 			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
 			    		
 			    		form.attr("action", "/basket/checkDel").submit();
+			    		console.log(checkboxSeqArray);
 			    });
 			  } else {
 			    swal("변동사항 없습니다");

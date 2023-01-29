@@ -548,9 +548,10 @@ div.ec-base-help ul, div.ec-base-help ol {
 </head>
 <body>
 	<form method="post" id="mainFrom">
-	<input type="hidden" id="mmSeq"name="mmSeq" value="">
-	<input type="hidden" id="sessLastPrice" name="sessLastPrice" value="${sessLastPrice}" />
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
+	<input type="hidden" id="mmSeq"name="mmSeq" value="${sessSeq }">
+	<input type="hidden" id="sessLastPrice" name="sessLastPrice" value="${sessLastPrice}" />
+	<input type="hidden" name="checkboxSeqArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -614,7 +615,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				            <thead>
 				                <tr style="text-align: center;">
 				                    <th scope="col" class="">
-				                	    <input type="checkbox" onclick="">
+				                	    <input type="checkbox" id="checkboxAll" style="cursor: pointer;">
 				                    </th>
 				                    <th scope="col">이미지</th>
 				                    <th scope="col">상품정보</th>
@@ -630,7 +631,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 					            <tbody class="xans-element- xans-order xans-order-individuallist center">
 					                <tr class="xans-record-">
 					                    <td class="">
-					                    	<input id="" name="" value="${oderFormList.bskSeq }" type="checkbox">
+					                    	<input id="" name="checkboxSeq" value="${oderFormList.prSeq }" type="checkbox" style="cursor: pointer;">
 				                    	</td>
 					                    <td class="thumb gClearLine">
 					                    	<a href="#">
@@ -678,7 +679,9 @@ div.ec-base-help ul, div.ec-base-help ol {
     			<div class="ec-base-button">
 			        <span class="gLeft ">
 			            <strong class="text">선택상품을</strong>
-			            <a href="#" id="btn_product_delete"><img src="/resources/images/btn_delete2.gif" alt="삭제하기"></a>
+			            <a id="MultiDel">
+			            	<img src="/resources/images/btn_delete2.gif" alt="삭제하기">
+		            	</a>
 			        </span>
 			    </div>
     			<div class="orderArea  ec-shop-ordererForm">
@@ -1006,23 +1009,76 @@ div.ec-base-help ul, div.ec-base-help ol {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		window.onload = function() {
-			
-			var myPrice = $("#totalPrice").text();
-			myPrice = myPrice.replace(',',''); // , 빼주기
-			myPrice = myPrice.trim(); // 공백지우기
-			
-			applyCoupon = function(discount){  
-					
-				applyPrice = myPrice - discount;	// 최종 금액(쿠폰 적용 후)
+	$(document).ready(function() {
+		$("#checkboxAll").click(function() {
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
+	
+		$("input[name=checkboxSeq]").click(function() {
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+	
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
+	});
+	
+	
+	
+	
+	
+	
+	window.onload = function() {
+		
+		var myPrice = $("#totalPrice").text();
+		myPrice = myPrice.replace(',',''); // , 빼주기
+		myPrice = myPrice.trim(); // 공백지우기
+		
+		applyCoupon = function(discount){  
 				
-				$("#discount").html(discount.toLocaleString()); // 쿠폰 할인 금액 값 입력
-				$("#totalPrice2").html(applyPrice.toLocaleString()); // 최종 금액 값 입력
-				$("#total_price").attr("value", applyPrice.toLocaleString());
-				
-			};
+			applyPrice = myPrice - discount;	// 최종 금액(쿠폰 적용 후)
+			
+			$("#discount").html(discount.toLocaleString()); // 쿠폰 할인 금액 값 입력
+			$("#totalPrice2").html(applyPrice.toLocaleString()); // 최종 금액 값 입력
+			$("#total_price").attr("value", applyPrice.toLocaleString());
 			
 		};
+		
+		
+		var prSeq = $("#prSeq");
+		
+		var checkboxSeqArray = [];
+		
+		$("#MultiDel").on("click", function() {
+			swal({
+				  title: "선택하신 상품을 삭제하시겠습니까?",
+				  text: "선택하신 제품이 삭제될수있습니다!",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+				    swal("선택하신 제품이 삭제되었습니다!", {
+				      icon: "success",
+				    })
+				    .then(function() {
+				    		$("input[name=checkboxSeq]:checked").each(function() { 
+				    			checkboxSeqArray.push($(this).val());
+				    		});
+				    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+				    		
+				    		form.attr("action", "/order/checkDel").submit();
+				    		console.log(checkboxSeqArray);
+				    });
+				  } else {
+				    swal("변동사항 없습니다");
+				  }
+				});
+		});
+		
+	};
 	
 	
 	

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mammoth.infra.modules.basket.Basket;
+import com.mammoth.infra.modules.basket.BasketServiceImpl;
 
 @Controller
 @RequestMapping(value="/order/")
@@ -18,6 +20,9 @@ public class OrderController {
 	
 	@Autowired
 	OrderServiceImpl service;
+	@Autowired
+	BasketServiceImpl bskservice;
+	
 	
 	@RequestMapping(value="orderList")
 	public String orderList() throws Exception {
@@ -42,6 +47,21 @@ public class OrderController {
 		model.addAttribute("cuponList", cuponList);
 		
 		return "infra/member/user/orderForm";
+	}
+	
+	@RequestMapping(value = "checkDel")
+	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		System.out.println("이쪽으로 옵니까?");
+		
+		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
+			dto.setPrSeq(checkboxSeq);
+			bskservice.oneDel(dto);
+		}
+		dto.setMmSeq(dto.getMmSeq());
+		redirectAttributes.addFlashAttribute("dto", dto);
+
+		return "redirect:/order/orderForm";
 	}
 	
 	@RequestMapping(value="orderFormBuyNow")

@@ -33,6 +33,10 @@ public class OrderController {
 	@RequestMapping(value="orderForm")
 	public String orderForm(@ModelAttribute("vo") OrderVo vo, @ModelAttribute("dto")Basket bskdto , Order dto, Model model, HttpSession httpSession) throws Exception {
 		
+		System.out.println("-----------------------List2: " + dto.getLastPrice());
+		System.out.println("-----------------------List2: " + bskdto.getLastPrice());
+		System.out.println("-----------------------List2-2: " + httpSession.getAttribute("sessLastPrice"));
+		
 		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		dto.setLastPrice((int)httpSession.getAttribute("sessLastPrice"));
 		model.addAttribute("lastPrice", dto.getLastPrice());
@@ -56,12 +60,15 @@ public class OrderController {
 	@RequestMapping(value = "checkDel")
 	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
 
-		System.out.println("이쪽으로 옵니까?");
+		System.out.println("-=-=-------- : " + dto.getCheckboxSeqArray());
 		
 		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
 			dto.setPrSeq(checkboxSeq);
+			System.out.println("----------------seq : " + dto.getBskSell_Price());
+			System.out.println("----------------sell : " + dto.getBskSell_Price());
 			bskservice.oneDel(dto);
 		}
+		System.out.println("-----------------------List3 : " + dto.getLastPrice());
 		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);
 

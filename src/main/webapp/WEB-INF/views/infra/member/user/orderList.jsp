@@ -372,7 +372,8 @@ ol {
 	</style>
 </head>
 <body>
-
+	<form method="post" id="mainForm">
+	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -404,7 +405,6 @@ ol {
     			</li>
     		</ul>
     	</div>
-    	<form action="">
     		<div class="xans-element- xans-myshop xans-myshop-orderhistoryhead ">
     			<fieldset class="ec-base-box">
     				<legend>검색기간 설정</legend>
@@ -441,7 +441,6 @@ ol {
 			        <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li>
 			    </ul>
     		</div>
-    	</form>
     	<div class="xans-element- xans-myshop xans-myshop-orderhistorylistitem ec-base-table typeList">
     		<div class="title">
 		        <h3>주문 상품 정보</h3>
@@ -524,7 +523,7 @@ ol {
     		<img src="/resources/images/forment_info_web@3x.jpg" alt="" style="max-width:100%">
     	</div>
     </div>
-	
+	</form>
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
 	

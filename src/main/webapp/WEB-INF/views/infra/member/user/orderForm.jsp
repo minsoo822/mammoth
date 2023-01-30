@@ -547,11 +547,12 @@ div.ec-base-help ul, div.ec-base-help ol {
 	</style>
 </head>
 <body>
-	<form method="post" id="mainFrom">
+	<form method="post" id="mainForm">
 	<c:set var="ccgListGrade" value="${CodeServiceImpl.selectListCachedCode(7)}" />
 	<input type="hidden" id="mmSeq"name="mmSeq" value="${sessSeq }">
 	<input type="hidden" id="sessLastPrice" name="sessLastPrice" value="${sessLastPrice}" />
 	<input type="hidden" name="checkboxSeqArray" >
+	<input type="hidden" name="checkboxSeqArrayz" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -631,7 +632,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 					            <tbody class="xans-element- xans-order xans-order-individuallist center">
 					                <tr class="xans-record-">
 					                    <td class="">
-					                    	<input id="" name="checkboxSeq" value="${oderFormList.prSeq }" type="checkbox" style="cursor: pointer;">
+					                    	<input id="" name="checkboxSeq" value="${oderFormList.prSeq },${oderFormList.bskSell_Price }" type="checkbox" style="cursor: pointer;">
 				                    	</td>
 					                    <td class="thumb gClearLine">
 					                    	<a href="#">
@@ -1027,6 +1028,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	var prSeq = $("#prSeq");
 	
 	var checkboxSeqArray = [];
+	var checkboxPriceArray = [];
 	
 	$("#MultiDel").on("click", function() {
 		swal({
@@ -1047,11 +1049,10 @@ div.ec-base-help ul, div.ec-base-help ol {
 			    		});
 			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
 			    		
-			    		form.attr("action", "/order/checkDel").submit();
-			    		console.log(checkboxSeqArray);
+			    		
+			    		
 			    		alert(checkboxSeqArray);
-			    		console.log("테스트 입니다");
-			    		alert("테스트 입니다");
+			    		form.attr("action", "/order/checkDel").submit();
 			    });
 			  } else {
 			    swal("변동사항 없습니다");

@@ -679,7 +679,7 @@ div.ec-base-help ul, div.ec-base-help ol {
     			<div class="ec-base-button">
 			        <span class="gLeft ">
 			            <strong class="text">선택상품을</strong>
-			            <a id="MultiDel">
+			            <a id="MultiDel" type="button">
 			            	<img src="/resources/images/btn_delete2.gif" alt="삭제하기">
 		            	</a>
 			        </span>
@@ -1009,7 +1009,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		$("#checkboxAll").click(function() {
 			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 			else $("input[name=checkboxSeq]").prop("checked", false);
@@ -1022,10 +1022,42 @@ div.ec-base-help ul, div.ec-base-help ol {
 			if(total != checked) $("#checkboxAll").prop("checked", false);
 			else $("#checkboxAll").prop("checked", true); 
 		});
+	}); */
+
+	var prSeq = $("#prSeq");
+	
+	var checkboxSeqArray = [];
+	
+	$("#MultiDel").on("click", function() {
+		swal({
+			  title: "선택하신 상품을 삭제하시겠습니까?",
+			  text: "선택하신 제품이 삭제될수있습니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("선택하신 제품이 삭제되었습니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+			    		$("input[name=checkboxSeq]:checked").each(function() { 
+			    			checkboxSeqArray.push($(this).val());
+			    		});
+			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			    		
+			    		form.attr("action", "/order/checkDel").submit();
+			    		console.log(checkboxSeqArray);
+			    		alert(checkboxSeqArray);
+			    		console.log("테스트 입니다");
+			    		alert("테스트 입니다");
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
 	});
-	
-	
-	
 	
 	
 	
@@ -1044,39 +1076,6 @@ div.ec-base-help ul, div.ec-base-help ol {
 			$("#total_price").attr("value", applyPrice.toLocaleString());
 			
 		};
-		
-		
-		var prSeq = $("#prSeq");
-		
-		var checkboxSeqArray = [];
-		
-		$("#MultiDel").on("click", function() {
-			swal({
-				  title: "선택하신 상품을 삭제하시겠습니까?",
-				  text: "선택하신 제품이 삭제될수있습니다!",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				})
-				.then((willDelete) => {
-				  if (willDelete) {
-				    swal("선택하신 제품이 삭제되었습니다!", {
-				      icon: "success",
-				    })
-				    .then(function() {
-				    		$("input[name=checkboxSeq]:checked").each(function() { 
-				    			checkboxSeqArray.push($(this).val());
-				    		});
-				    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-				    		
-				    		form.attr("action", "/order/checkDel").submit();
-				    		console.log(checkboxSeqArray);
-				    });
-				  } else {
-				    swal("변동사항 없습니다");
-				  }
-				});
-		});
 		
 	};
 	

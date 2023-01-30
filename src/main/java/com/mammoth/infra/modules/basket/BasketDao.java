@@ -26,4 +26,6 @@ public class BasketDao {
 	public int TotalPrice(Basket dto) {return sqlSession.selectOne(namespace + ".TotalPrice", dto);}
 	public int bskUpdt(Basket dto) { return sqlSession.update(namespace + ".bskUpdt", dto);}
 	
+	public List<Basket> buyNowList() throws Exception {return sqlSession.selectList(namespace + ".buyNowList", "");}
+	
 }

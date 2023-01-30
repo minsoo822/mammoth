@@ -119,7 +119,7 @@ public class ProductController {
 		bskService.basketInst(bskdto);
 		bskdto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		redirectAttributes.addFlashAttribute("dto", bskdto);
-		return "redirect:/order/orderForm";
+		return "redirect:/basket/buyNowList";
 	}
 	
 	

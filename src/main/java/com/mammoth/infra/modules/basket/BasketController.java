@@ -44,6 +44,15 @@ public class BasketController {
 		return "infra/member/user/basket";
 	}
 	
+	@RequestMapping(value="buyNowList")
+	public String buyNowList(Model model, @ModelAttribute("dto")Basket dto) throws Exception{
+		
+		List<Basket> buyNowList = service.buyNowList();
+		model.addAttribute("list", buyNowList); 
+		
+		return "infra/member/user/orderForm";
+	}
+	
 	@RequestMapping(value="oneDel")
 	public String oneDel(Basket dto , RedirectAttributes redirectAttributes) throws Exception {
 		

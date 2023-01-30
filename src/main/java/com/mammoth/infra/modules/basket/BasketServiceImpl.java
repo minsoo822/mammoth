@@ -52,6 +52,11 @@ public class BasketServiceImpl implements BasketService{
 		return dao.bskUpdt(dto);
 	}
 	
+	@Override
+	public List<Basket> buyNowList() throws Exception {
+		
+		return dao.buyNowList();
+	}
 
 	
 

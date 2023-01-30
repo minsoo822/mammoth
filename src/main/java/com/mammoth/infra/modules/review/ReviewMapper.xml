@@ -87,22 +87,12 @@
     	)
     </insert>
     
-    <!-- <select id="selectOne" resultMap="resultMapObj">
-    	SELECT
-    		rv.rvContents
-    		,rv.rv_prSeq
-    		,rv.rv_mmSeq
-    		,rv.rvStar
-    		,rv.rvCreDate
-    		,mm.mmName
-    		,mm.mmGrade
-    		,pr.prName
-    	FROM review rv
-    	JOIN product pr ON pr.prSeq = rv.rv_prSeq
-    	JOIN member mm ON mm.mmSeq = rv.rv_mmSeq
-    	WHERE 1=1
-    		AND rv_prSeq = #{rv_prSeq}
-    		AND rvSeq = #{rvSeq}
-    </select> -->
+    <select id="selectRvStarAver" resultMap="resultMapObj">
+	    SELECT 
+			avg(rvStar) AS rvStarAver
+		FROM review 
+		WHERE rv_prseq = 4
+    </select>
+    
     
 </mapper>

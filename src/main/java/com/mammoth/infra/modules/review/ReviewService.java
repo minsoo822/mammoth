@@ -10,6 +10,6 @@ public interface ReviewService {
 	
 	public Review selectOne(Review dto) throws Exception;
 	
-	public Review selectRvStarAver(Review dto) throws Exception;
+//	public Review selectRvStarAver(Review dto) throws Exception;
 	
 }

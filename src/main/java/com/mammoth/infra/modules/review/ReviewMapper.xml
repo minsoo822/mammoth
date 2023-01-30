@@ -87,12 +87,12 @@
     	)
     </insert>
     
-    <select id="selectRvStarAver" resultMap="resultMapObj">
+    <!-- <select id="selectRvStarAver" resultMap="resultMapObj">
 	    SELECT 
 			avg(rvStar) AS rvStarAver
 		FROM review 
-		WHERE rv_prseq = 4
-    </select>
+		WHERE rv_prseq = #{prSeq}
+    </select> -->
     
     
 </mapper>

@@ -1,5 +1,7 @@
 package com.mammoth.infra.modules.order;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,15 +62,36 @@ public class OrderController {
 	@RequestMapping(value = "checkDel")
 	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
 
-		System.out.println("-=-=-------- : " + dto.getCheckboxSeqArray());
+		System.out.println("-=-=--------몇개가 담겨있나? : " + dto.getCheckboxSeqArray().length);
 		
 		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
-			dto.setPrSeq(checkboxSeq);
-			System.out.println("----------------seq : " + dto.getBskSell_Price());
-			System.out.println("----------------sell : " + dto.getBskSell_Price());
-			bskservice.oneDel(dto);
+			
+			if(dto.getCheckboxSeqArray().length % 2 == 1) {
+				System.out.println("---------- 무엇인가 :" +checkboxSeq);
+				//dto.setPrSeq(checkboxSeq); 
+				//bskservice.oneDel(dto);
+			} else {
+				System.out.println("---------- 얼마인가 :" +checkboxSeq);
+				
+			}
+			
+			//for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
+			//}
 		}
-		System.out.println("-----------------------List3 : " + dto.getLastPrice());
+		
+		
+		/*
+		 * for (int checkboxSeq : dto.getCheckboxSeqArray()) {
+		 * 
+		 * if(checkboxSeq % 2 == 1 ) { System.out.println("-----checkboxSeq : "
+		 * +checkboxSeq);
+		 * 
+		 * dto.setPrSeq(checkboxSeq); bskservice.oneDel(dto); } else {
+		 * System.out.println("-----가격? : " +checkboxSeq); }
+		 * 
+		 * }
+		 */
+		 
 		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);
 

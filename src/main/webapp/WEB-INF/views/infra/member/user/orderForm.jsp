@@ -552,7 +552,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	<input type="hidden" id="mmSeq"name="mmSeq" value="${sessSeq }">
 	<input type="hidden" id="sessLastPrice" name="sessLastPrice" value="${sessLastPrice}" />
 	<input type="hidden" name="checkboxSeqArray" >
-	<input type="hidden" name="checkboxSeqArrayz" >
+	<input type="hidden" name="checkboxPriceArray" >
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -1049,9 +1049,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 			    		});
 			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
 			    		
-			    		
-			    		
-			    		alert(checkboxSeqArray);
+			    		console.log(checkboxSeqArray);
 			    		form.attr("action", "/order/checkDel").submit();
 			    });
 			  } else {

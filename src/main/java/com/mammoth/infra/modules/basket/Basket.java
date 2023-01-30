@@ -21,7 +21,7 @@ public class Basket {
 	private Integer[] bskAmounts;
 	
 	private Integer[] checkboxSeqArray;
-	private String[] checkboxSeqArrayz;
+	private String[] checkboxPriceArray;
 	
 	public Integer getBskSeq() {
 		return bskSeq;
@@ -114,10 +114,10 @@ public class Basket {
 		this.lastPrice = lastPrice;
 	}
 	public String[] getCheckboxSeqArrayz() {
-		return checkboxSeqArrayz;
+		return checkboxPriceArray;
 	}
 	public void setCheckboxSeqArrayz(String[] checkboxSeqArrayz) {
-		this.checkboxSeqArrayz = checkboxSeqArrayz;
+		this.checkboxPriceArray = checkboxSeqArrayz;
 	}
 	
 	

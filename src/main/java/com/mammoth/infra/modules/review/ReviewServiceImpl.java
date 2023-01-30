@@ -47,15 +47,7 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectOne(dto);
 	}
 
-//	@Override
-//	public Review selectRvStarAver(Review dto) throws Exception {
-//		
-//		Review rvStarAver = dao.selectRvStarAver(dto);
-//		
-//		System.out.println("(rvServiceImpl) 평점 : " + rvStarAver);
-//		
-//		return rvStarAver;
-//	}
+	
 	
 	
 	

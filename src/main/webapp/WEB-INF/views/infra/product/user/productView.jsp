@@ -785,8 +785,7 @@ li {
 		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
 
 		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
-		<input type="hidden" name="rv_prSeq" id="rv_prSeq"
-			value="${one.prSeq }">
+		<input type="hidden" name="rv_prSeq" id="rv_prSeq" value="${one.prSeq }">
 
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
@@ -835,41 +834,43 @@ li {
 								<div class="snap_review_avg_score"
 									style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front" style="font-size: 12pt; color: #000;">
-										<c:if test="${1 <= rvStarAver < 2}">
+										★★★★★
+										<c:out value="${rvStarAver}"/>
+										<%-- <c:if test="${rvStarAver eq 1}">
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${2 <= rvStarAver < 3}">
+										<c:if test="${rvStarAver eq 2}">
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${3 <= rvStarAver < 4}">
+										<c:if test="${rvStarAver eq 3}">
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${4 <= rvStarAver < 5}">
+										<c:if test="${rvStarAver eq 4}">
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${5 <= rvStarAver < 6}">
+										<c:if test="${rvStarAver eq 5}">
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
-										</c:if>
+										</c:if> --%>
 									</div>
 								</div>(<c:out value="${fn:length(rvList)}" />)
 							</span>

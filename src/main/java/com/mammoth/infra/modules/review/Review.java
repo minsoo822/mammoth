@@ -11,7 +11,6 @@ public class Review extends Base{
 	private Integer rv_mmSeq;
 	private Integer rvStar;
 	private String rvCreDate;
-	private Integer rvStarAver; // 상품별 리뷰 평점
 	
 	/* 리뷰 정보 */
 	private String mmName;
@@ -101,15 +100,6 @@ public class Review extends Base{
 	public void setLv_ing(Integer lv_ing) {
 		this.lv_ing = lv_ing;
 	}
-	public Integer getRvStarAver() {
-		return rvStarAver;
-	}
-	public void setRvStarAver(Integer rvStarAver) {
-		this.rvStarAver = rvStarAver;
-	}
-	
-	
-	
 	
 	
 	

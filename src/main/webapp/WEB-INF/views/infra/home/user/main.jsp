@@ -175,21 +175,21 @@
 			<div class="col col-3">
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<a onclick="youtube1()">
+						<a onclick="youtube1()" style="cursor: pointer;">
 							<img src="/resources/images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
 						</a>
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 200px;">
-						<a onclick="youtube2()">
+						<a onclick="youtube2()" style="cursor: pointer;">
 							<img src="/resources/images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
 						</a>
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<a onclick="youtube3()">
+						<a onclick="youtube3()" style="cursor: pointer;">
 							<img src="/resources/images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
 						</a>
 					</div>

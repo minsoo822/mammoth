@@ -163,29 +163,35 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col col-9" style="display: flex;">
+			<div class="col col-9" id="youtibeShow1" style="display: flex;">
 				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/0kcLbkptq-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-			<div class="col col-9" style="display: none;">
-				<iframe width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div class="col col-9" id="youtibeShow2" style="display: none;">
+				<iframe width="900" height="506" src="https://www.youtube.com/embed/EJkEAo5QewU" title="[NEW RELEASE] 향기가 실린 바람과 우연의 시작, COTTON BREEZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
-			<div class="col col-9" style="display: none;">
-				<iframe width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div class="col col-9" id="youtibeShow3" style="display: none;">
+				<iframe width="900" height="506" src="https://www.youtube.com/embed/ZQDWl6HCHpE" title="포맨트 '최초' 여성 향수 출시💕 #메모리퍼퓸" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
 			<div class="col col-3">
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<img src="/resources/images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
+						<a onclick="youtube1()">
+							<img src="/resources/images/로고&배너/비디오 이미지1.png" style="height: 100%; width: 100%;">
+						</a>
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 200px;">
-						<img src="/resources/images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
+						<a onclick="youtube2()">
+							<img src="/resources/images/로고&배너/비디오 이미지2.png" style="height: 100%; width: 100%;">
+						</a>
 					</div>
 				</div>
 				<div class="row m-1">
 					<div class="col" style="height: 160px; width: 280px;">
-						<img src="/resources/images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
+						<a onclick="youtube3()">
+							<img src="/resources/images/로고&배너/비디오 이미지3.png" style="height: 100%; width: 100%;">
+						</a>
 					</div>
 				</div>
 			</div>
@@ -285,6 +291,24 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	
+	youtube1 = function() {
+		$("#youtibeShow1").show();
+		$("#youtibeShow2").hide();
+		$("#youtibeShow3").hide();
+	};
+	
+	youtube2 = function() {
+		$("#youtibeShow1").hide();
+		$("#youtibeShow2").show();
+		$("#youtibeShow3").hide();	
+	};
+	
+	youtube3 = function() {
+		$("#youtibeShow1").hide();
+		$("#youtibeShow2").hide();
+		$("#youtibeShow3").show();
+	};
 	
 	productView = function(key) {
 		

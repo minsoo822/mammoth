@@ -88,6 +88,14 @@ public class MemberController {
 	public String join() throws Exception {
 		return "infra/member/user/join";
 	}
+	@RequestMapping(value="join2")
+	public String join2() throws Exception {
+		return "infra/member/user/join2";
+	}
+	@RequestMapping(value="signUp")
+	public String signUp() throws Exception {
+		return "infra/member/user/signUp";
+	}
 	
 	@RequestMapping(value="myinfo")
 	public String myinfo(@ModelAttribute("vo") MemberVo vo, Member dto ,Model model) throws Exception {

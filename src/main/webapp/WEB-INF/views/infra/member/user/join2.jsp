@@ -57,12 +57,19 @@
 	    font-weight: 600;
 	    letter-spacing: -0.4px;
 	}
+	.join_intro .message .msc {
+	    color: rgba(45,45,45,0.7);
+	    font-size: 12px;
+	    letter-spacing: -0.75px;
+	    font-weight: normal;
+	    margin: 20px 0 0 0;
+	}
 	img {
 	    border: none;
 	    vertical-align: top;
 	}
 	.join_intro .snsSync {
-	    padding: 100px 0 21px;
+	    padding: 50px 0 50px;
 	    margin: 0 0;
 	}
 	.join_intro .snsSync a.sync {
@@ -84,8 +91,17 @@
 	    font-weight: 500;
 	}
 	.join_intro .snsSync a.sync {
-	    background: #f8f8f9;
-	    color: #000000;
+        display: block;
+	    background: #000000;
+	    color: #fefffe;
+	    font-size: 15.2px;
+	    font-weight: normal;
+	    line-height: 61px;
+	    border-radius: 32px;
+	    letter-spacing: -0.85px;
+	    text-align: center;
+	    margin: 0 0 11px 0;
+	    position: relative;
 	}
 	.join_intro .snsSync a.sync img {
 	    height: 19px;
@@ -121,6 +137,7 @@
 				</span>
 				<br>
 					당신이 가장 빛나는 순간	
+					<div class="msc">회원 가입 시 웰컴 쿠폰팩 10,000원 증정</div>
 			</div>
 			<form id="member_form_7671323102" name="" action="/exec/front/Member/login/" method="post" target="_self" enctype="multipart/form-data">
 			<!-- <input id="returnUrl" name="returnUrl" value="https://theforment.com/member/privacy.html" type="hidden">
@@ -129,10 +146,10 @@
 			<input id="sIsSnsCheckid" name="sIsSnsCheckid" value="" type="hidden">
 			<input id="sProvider" name="sProvider" value="" type="hidden"> -->
 			<div class="xans-element- xans-member xans-member-login snsSync ">
+				<a href="/member/signUp" class="sync" style="text-decoration: none; margin-bottom: 25px">일반 회원가입</a>
 				<a href="#none" id="kakaoBtn" class=" sync kakao" style="text-decoration: none;">
-					<img src="/resources/images/log_sns_kakao.png" alt="">카카오로 시작 하기
+					<img src="/resources/images/log_sns_kakao.png" alt="">카카오로 로그인 하기
 				</a>
-				<a href="/member/join2" class="sync" style="text-decoration: none;">다른 방법으로 시작 하기</a>
 			</div>
 			</form>
 			<div class="guest_order_wrap">

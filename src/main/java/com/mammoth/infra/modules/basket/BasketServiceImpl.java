@@ -53,9 +53,9 @@ public class BasketServiceImpl implements BasketService{
 	}
 	
 	@Override
-	public List<Basket> buyNowList() throws Exception {
+	public List<Basket> buyNowList(Basket dto) throws Exception {
 		
-		return dao.buyNowList();
+		return dao.buyNowList(dto);
 	}
 	@Override
 	public Basket checkBuy(Basket dto) throws Exception {

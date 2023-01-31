@@ -557,9 +557,9 @@ tfoot {
 			                 <tbody class="xans-element- xans-order xans-order-list center">
 			                	<c:forEach items="${list }" var="bskList" varStatus="status">
 				                	<tr class="xans-record-">
-				                		
 				                		<td>
 				                			<input type="hidden" name="bskSeqs" value="<c:out value="${bskList.bskSeq }"></c:out>">
+				                			<%-- <input type="hidden" name="bskSell_prPrices" value="<c:out value="${bskList.bskSell_Price }"></c:out>"> --%>
 				                			<input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq },${bskList.bskSell_Price }"></c:out>">
 			                			</td>
 				                		<td class="thumb gClearLine">

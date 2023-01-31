@@ -74,7 +74,7 @@ public class BasketController {
 	
 	
 	@RequestMapping(value = "checkDel")
-	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
+	public String MultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
 			dto.setPrSeq(checkboxSeq);
@@ -84,6 +84,61 @@ public class BasketController {
 		redirectAttributes.addFlashAttribute("dto", dto);
 
 		return "redirect:/basket/basketList";
+	}
+	@RequestMapping(value = "checkBuy")
+	public String MultiBuy(Basket dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+
+//		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
+//			dto.setPrSeq(checkboxSeq);
+//			System.out.println("=---------: " + dto.getPrSeq());
+//			service.checkBuy(dto);
+//		}
+		if(dto.getBskSeqs() != null && dto.getBskSeqs().length > 0) {
+            
+            for(int i=0; i< dto.getBskSeqs().length; i++) {
+                dto.setBskAmount(dto.getBskAmounts()[i]);
+                dto.setBskSell_Price(dto.getBskSell_Prices()[i]);
+                dto.setBskSeq(dto.getBskSeqs()[i]);
+                
+                service.bskUpdt(dto);
+            }
+        }
+		
+		
+		for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
+			if(i % 2 == 0) {
+				int checkboxSeqArr = dto.getCheckboxSeqArray()[i];
+				dto.setPrSeq(checkboxSeqArr); 
+				System.out.println("------------seq :" + dto.getPrSeq());
+				service.checkBuy(dto);
+			} else {
+
+				System.out.println("----------개당 가격" + dto.getCheckboxSeqArray()[i]);
+				
+				int price = 0;	
+
+				for(int j = 0; j < dto.getCheckboxSeqArray().length/2; j++) {
+
+					int checkboxPriceArr = dto.getCheckboxSeqArray()[j];
+					int checkboxPriceArrss = dto.getCheckboxSeqArray()[i];
+					
+					System.out.println("-44444-------------- :" + checkboxPriceArr);
+					System.out.println("-5555555-------------- :" + checkboxPriceArrss);
+
+					
+					System.out.println("22222222222222222222222222 :" + price);
+					int lastPrice = price + checkboxPriceArr;
+					System.out.println("1111111111111111111 " + lastPrice);
+					httpSession.setAttribute("sessLastPrice", lastPrice);
+					System.out.println("최종적으로 넘어갈 가격 ---------------- :" + httpSession.getAttribute("sessLastPrice"));
+
+				}
+			}
+		}
+		dto.setMmSeq(dto.getMmSeq());
+		redirectAttributes.addFlashAttribute("dto", dto);
+
+		return "redirect:/order/orderForm";
 	}
 	
 	@RequestMapping(value = "oderFormUptd")

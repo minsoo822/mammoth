@@ -58,32 +58,22 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "checkDel")
-	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes) throws Exception {
+	public String memberMultiDele(Basket dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
-		System.out.println("-=-=--------몇개가 담겨있나? : " + dto.getCheckboxSeqArray().length);
-		
 		for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
 			if(i % 2 == 0) {
 				int checkboxSeqArr = dto.getCheckboxSeqArray()[i];
 				System.out.println("------------seq :" + checkboxSeqArr);
-				//dto.setPrSeq(checkboxSeqArr); 
-				//bskservice.oneDel(dto);
+				dto.setPrSeq(checkboxSeqArr); 
+				bskservice.oneDel(dto);
 			} else {
-				
-				System.out.println("-----가격 : " + dto.getCheckboxSeqArray()[i]);
-				int checkboxPriceArr = 0;
-				checkboxPriceArr += dto.getCheckboxSeqArray()[i];
-				
-				
-				
-				System.out.println("-----총 가격 : " + checkboxPriceArr);
+				dto.setLastPrice((int)httpSession.getAttribute("sessLastPrice"));
+				int price = dto.getLastPrice();	
+				int checkboxPriceArr = dto.getCheckboxSeqArray()[i];
+				int lastPrice = price - checkboxPriceArr;
+				httpSession.setAttribute("sessLastPrice", lastPrice);
 			}
-			//System.out.println("-------i :" + dto.getCheckboxSeqArray()[i]);
 		}
-		
-		
-
-		 
 		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);
 

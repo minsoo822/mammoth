@@ -379,17 +379,26 @@
 					        <input id="birth_year" name="birth_year" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
 					        <input id="birth_month" name="birth_month" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
 					        <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
-					        <!-- <p class="calendar " style="margin: 0px;">
+					        <p class="calendar " style="margin: 0px;">
 					            <span class="switch-radio">
 					                <input id="is_solar_calendar0" name="is_solar_calendar" value="T" type="radio" checked="checked" autocomplete="off">
 					                <label for="is_solar_calendar0">양력</label>
 					                <input id="is_solar_calendar1" name="is_solar_calendar" value="F" type="radio" autocomplete="off">
 					                <label for="is_solar_calendar1">음력</label>
 					            </span>
-					        </p> -->
-					    <!-- </div>
+					        </p>
+					    <div class="label_plh_hp ">
+					        <select id="mobile1" name="mobile[]">
+					            <option value="010">010</option>
+					            <option value="011">011</option>
+					            <option value="016">016</option>
+					            <option value="017">017</option>
+					            <option value="018">018</option>
+					            <option value="019">019</option>
+					        </select>-
+					        <input id="mobile2" name="mobile[]" maxlength="4" value="" type="text">-
 					        <input id="mobile3" name="mobile[]" maxlength="4" value="" type="text">
-					    </div> -->
+					    </div>
 					</div>
 					<br>
 					<div class="btn_join">

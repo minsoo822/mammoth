@@ -24,5 +24,7 @@ public class ReviewDao {
 	
 	public Review selectOne(Review dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", dto);}
 	
+	public Double rvStarAver(Review dto) throws Exception {return sqlSession.selectOne(namespace + ".rvStarAver", dto);}
+	
 
 }

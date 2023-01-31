@@ -87,4 +87,11 @@
     	)
     </insert>
     
+    <select id="rvStarAver" resultType="Double">
+    	SELECT
+    		AVG(rvStar) AS rvStarAver
+    	FROM review
+    	WHERE rv_prSeq = #{prSeq}
+    </select>
+    
 </mapper>

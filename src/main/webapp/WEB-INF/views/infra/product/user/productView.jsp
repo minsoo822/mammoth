@@ -834,30 +834,28 @@ li {
 								<div class="snap_review_avg_score"
 									style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front" style="font-size: 12pt; color: #000;">
-										★★★★★
-										<c:out value="${rvStarAver}"/>
-										<%-- <c:if test="${rvStarAver eq 1}">
+										<c:if test="${rvStarAver eq 1}"> 
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${rvStarAver eq 2}">
+										<c:if test="${rvStarAver eq 2}"> 
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${rvStarAver eq 3}">
+										<c:if test="${rvStarAver eq 3}"> 
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 											<i class="fa-regular fa-star"></i>
 										</c:if>
-										<c:if test="${rvStarAver eq 4}">
+										<c:if test="${rvStarAver eq 4}"> 
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
@@ -870,7 +868,8 @@ li {
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
-										</c:if> --%>
+										</c:if>
+										<c:out value="${rvStarAver}"/> 점
 									</div>
 								</div>(<c:out value="${fn:length(rvList)}" />)
 							</span>

@@ -47,6 +47,15 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectOne(dto);
 	}
 
+	@Override
+	public Double rvStarAver(Review dto) throws Exception {
+
+		
+		
+		
+		return dao.rvStarAver(dto);
+	}
+
 	
 	
 	

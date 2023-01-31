@@ -45,10 +45,14 @@ public class BasketController {
 	}
 	
 	@RequestMapping(value="buyNowList")
-	public String buyNowList(Model model, @ModelAttribute("dto")Basket dto) throws Exception{
+	public String buyNowList(Model model, @ModelAttribute("dto")Basket dto, HttpSession httpSession) throws Exception{
+		
+		System.out.println("basketController dto.getPrSeq : " + dto.getPrSeq());
+		
+		dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		
 		List<Basket> buyNowList = service.buyNowList();
-		model.addAttribute("list", buyNowList); 
+		model.addAttribute("oderFormList", buyNowList); 
 		
 		return "infra/member/user/orderForm";
 	}

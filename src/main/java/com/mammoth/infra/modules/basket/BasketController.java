@@ -104,6 +104,7 @@ public class BasketController {
             }
         }
 		
+		int price = 0;	
 		
 		for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
 			if(i % 2 == 0) {
@@ -114,21 +115,25 @@ public class BasketController {
 			} else {
 
 				System.out.println("----------개당 가격" + dto.getCheckboxSeqArray()[i]);
+				int price2 = 0;
 				
-				int price = 0;	
-
-				for(int j = 0; j < dto.getCheckboxSeqArray().length/2; j++) {
-
-					int checkboxPriceArr = dto.getCheckboxSeqArray()[j];
-					int checkboxPriceArrss = dto.getCheckboxSeqArray()[i];
+				for(int j = 0; j < 1; j++) {
+					
+					int price3 = 0;
+					
+					int checkboxPriceArr = dto.getCheckboxSeqArray()[i];
 					
 					System.out.println("-44444-------------- :" + checkboxPriceArr);
-					System.out.println("-5555555-------------- :" + checkboxPriceArrss);
-
 					
-					System.out.println("22222222222222222222222222 :" + price);
+					System.out.println("--------------price값 :" + price);
+					System.out.println("--------------price2값 :" + price2);
+					System.out.println("--------------price3값 :" + price3);
 					int lastPrice = price + checkboxPriceArr;
-					System.out.println("1111111111111111111 " + lastPrice);
+					System.out.println("-------------lastPrice값 : " + lastPrice);
+					int lastPrice2 = price2 + checkboxPriceArr;
+					System.out.println("-------------lastPrice2값 : " + lastPrice2);
+					int lastPrice3 = price3 + checkboxPriceArr;
+					System.out.println("-------------lastPrice3값 : " + lastPrice3);
 					httpSession.setAttribute("sessLastPrice", lastPrice);
 					System.out.println("최종적으로 넘어갈 가격 ---------------- :" + httpSession.getAttribute("sessLastPrice"));
 

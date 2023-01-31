@@ -559,7 +559,7 @@ tfoot {
 				                		
 				                		<td>
 				                			<input type="hidden" name="bskSeqs" value="<c:out value="${bskList.bskSeq }"></c:out>">
-				                			<input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq }"></c:out>">
+				                			<input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq },${bskList.bskSell_Price }"></c:out>">
 			                			</td>
 				                		<td class="thumb gClearLine">
 				                			<a href="#" id="param1" style="text-decoration: none;">
@@ -717,7 +717,7 @@ tfoot {
 			</c:choose>
     		<div class="xans-element- xans-order xans-order-totalorder ec-base-button justify">
     			<a type="button" onclick="allOrderForm(${sessSeq})" class=" btn_neo_act " style="text-decoration: none;">전체상품주문</a>
-    			<a type="button" onclick="" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
+    			<a type="button" id="MultiBuy" class="btn_neo_act gray " style="text-decoration: none;">선택상품주문</a>
     			<span class="gRight">
 		            <a href="/" class="btn_neo_act white" style="text-decoration: none;">쇼핑계속하기</a>
 		        </span>
@@ -840,6 +840,34 @@ tfoot {
 			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
 			    		
 			    		form.attr("action", "/basket/checkDel").submit();
+			    		console.log(checkboxSeqArray);
+			    });
+			  } else {
+			    swal("변동사항 없습니다");
+			  }
+			});
+	});
+	
+	$("#MultiBuy").on("click", function() {
+		swal({
+			  title: "선택하신 상품을 주문하시겠습니까?",
+			  text: "선택하신 상품이 주문페이지로 넘어갑니다!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("선택하신 상품을 주문합니다!", {
+			      icon: "success",
+			    })
+			    .then(function() {
+			    		$("input[name=checkboxSeq]:checked").each(function() { 
+			    			checkboxSeqArray.push($(this).val());
+			    		});
+			    		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			    		
+			    		form.attr("action", "/basket/checkBuy").submit();
 			    		console.log(checkboxSeqArray);
 			    });
 			  } else {

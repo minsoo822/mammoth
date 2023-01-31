@@ -81,6 +81,9 @@ public class ProductController {
 		List<Review> rvList = rvService.selectList(rvdto);
 		model.addAttribute("rvList", rvList);
 		
+		Double rvStarAver = rvService.rvStarAver(rvdto);
+		model.addAttribute("rvStarAver", rvStarAver);
+		
 		List<Luv> lvList = lvService.luvList(lvdto);
 		model.addAttribute("lvList", lvList);
 		

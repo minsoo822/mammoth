@@ -1010,7 +1010,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-/* 	$(document).ready(function() {
+ 	$(document).ready(function() {
 		$("#checkboxAll").click(function() {
 			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 			else $("input[name=checkboxSeq]").prop("checked", false);
@@ -1023,7 +1023,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 			if(total != checked) $("#checkboxAll").prop("checked", false);
 			else $("#checkboxAll").prop("checked", true); 
 		});
-	}); */
+	});
 
 	var prSeq = $("#prSeq");
 	

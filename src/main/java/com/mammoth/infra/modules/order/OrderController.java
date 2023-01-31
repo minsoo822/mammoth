@@ -1,7 +1,5 @@
 package com.mammoth.infra.modules.order;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -64,33 +62,27 @@ public class OrderController {
 
 		System.out.println("-=-=--------몇개가 담겨있나? : " + dto.getCheckboxSeqArray().length);
 		
-		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
-			
-			if(dto.getCheckboxSeqArray().length % 2 == 1) {
-				System.out.println("---------- 무엇인가 :" +checkboxSeq);
-				//dto.setPrSeq(checkboxSeq); 
+		for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
+			if(i % 2 == 0) {
+				int checkboxSeqArr = dto.getCheckboxSeqArray()[i];
+				System.out.println("------------seq :" + checkboxSeqArr);
+				//dto.setPrSeq(checkboxSeqArr); 
 				//bskservice.oneDel(dto);
 			} else {
-				System.out.println("---------- 얼마인가 :" +checkboxSeq);
 				
+				System.out.println("-----가격 : " + dto.getCheckboxSeqArray()[i]);
+				int checkboxPriceArr = 0;
+				checkboxPriceArr += dto.getCheckboxSeqArray()[i];
+				
+				
+				
+				System.out.println("-----총 가격 : " + checkboxPriceArr);
 			}
-			
-			//for(int i = 0; i < dto.getCheckboxSeqArray().length; i++) {
-			//}
+			//System.out.println("-------i :" + dto.getCheckboxSeqArray()[i]);
 		}
 		
 		
-		/*
-		 * for (int checkboxSeq : dto.getCheckboxSeqArray()) {
-		 * 
-		 * if(checkboxSeq % 2 == 1 ) { System.out.println("-----checkboxSeq : "
-		 * +checkboxSeq);
-		 * 
-		 * dto.setPrSeq(checkboxSeq); bskservice.oneDel(dto); } else {
-		 * System.out.println("-----가격? : " +checkboxSeq); }
-		 * 
-		 * }
-		 */
+
 		 
 		dto.setMmSeq(dto.getMmSeq());
 		redirectAttributes.addFlashAttribute("dto", dto);

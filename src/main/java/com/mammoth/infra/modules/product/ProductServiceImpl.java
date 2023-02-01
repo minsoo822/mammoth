@@ -15,63 +15,69 @@ public class ProductServiceImpl implements ProductService{
 	ProductDao dao;
 
 	@Override
-	public List<Product> selectList() throws Exception {
+	public List<Product> selectList(Product dto) throws Exception {
 		
-		return dao.selectList();
+		return dao.selectList(dto);
 	}
 
 	@Override
 	public void insert(Product dto) throws Exception {
 		
-		  dao.insert(dto);
+//		할인율에 따른 가격 계산
+//		할인율이 0.5% 이런식으로 소수점으로 나오기때문에 데이터 타입을 double로 해주고 넣을때 int로 형변환을 해줘야함.
+		double dcPrice = (dto.getPrPrice()-(dto.getPrPrice()*(dto.getPrDiscount()*0.01)));
+	
+		dto.setPrTotalPrice((int) dcPrice);
+	  
+		dao.insert(dto);
+	  
+		dto.setUp_prSeq(dto.getPrSeq());
+	  
+		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+	  
+		// 상품 이미지
+		int i = 0; 
+	  
+		for(MultipartFile myFile : dto.getPrImg()) {
+	  
+			if(!myFile.isEmpty()) {
 		  
-		  dto.setUp_prSeq(dto.getPrSeq());
+				UtilUpload.uploadProductImg(myFile, pathModule, dto); 
 		  
-		  String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				// for문 돌면서 j가 0이면 -> 첫번째 사진이면 defaultNy 1 아니면 0
+				// sort는 순서 -> 대표이미지 위에서 들어가니까 j를 1로 주고 여러장 들어갈땐 2,3,4,5 순서로 들어가도록 j+1
+				dto.setUpDefaultNy(i == 0 ? 1 : 0); 
+				dto.setUpSort(i+1);
+				dto.setUpType(1);
 		  
-		  // 상품 이미지
-		  int i = 0; 
+				dao.insertUpload(dto); 
 		  
-		  for(MultipartFile myFile : dto.getPrImg()) {
+				i++; 
+			}
+	  
+		}
+	  
+		// 상세 이미지
+		int j = 0; 
+	  
+		for(MultipartFile myFile : dto.getPrDetailImg()) {
+	  
+			if(!myFile.isEmpty()) {
 		  
-			  if(!myFile.isEmpty()) {
-			  
-				  UtilUpload.uploadProductImg(myFile, pathModule, dto); 
-			  
-			  // for문 돌면서 j가 0이면 -> 첫번째 사진이면 defaultNy 1 아니면 0
-			  // sort는 순서 -> 대표이미지 위에서 들어가니까 j를 1로 주고 여러장 들어갈땐 2,3,4,5 순서로 들어가도록 j+1
-			  dto.setUpDefaultNy(i == 0 ? 1 : 0); 
-			  dto.setUpSort(i+1);
-			  dto.setUpType(1);
-			  
-			  dao.insertUpload(dto); 
-			  
-			  i++; 
-			  }
+				UtilUpload.uploadProductImg(myFile, pathModule, dto); 
 		  
-		  }
+				// for문 돌면서 j가 0이면 -> 첫번째 사진이면 defaultNy 1 아니면 0
+				// sort는 순서 -> 대표이미지 위에서 들어가니까 j를 1로 주고 여러장 들어갈땐 2,3,4,5 순서로 들어가도록 j+1
+				dto.setUpDefaultNy(j == 0 ? 1 : 0); 
+				dto.setUpSort(j+1);
+				dto.setUpType(2);
 		  
-		  // 상세 이미지
-		  int j = 0; 
+				dao.insertUpload(dto); 
 		  
-		  for(MultipartFile myFile : dto.getPrDetailImg()) {
-		  
-			  if(!myFile.isEmpty()) {
-			  
-				  UtilUpload.uploadProductImg(myFile, pathModule, dto); 
-			  
-			  // for문 돌면서 j가 0이면 -> 첫번째 사진이면 defaultNy 1 아니면 0
-			  // sort는 순서 -> 대표이미지 위에서 들어가니까 j를 1로 주고 여러장 들어갈땐 2,3,4,5 순서로 들어가도록 j+1
-			  dto.setUpDefaultNy(j == 0 ? 1 : 0); 
-			  dto.setUpSort(j+1);
-			  dto.setUpType(2);
-			  
-			  dao.insertUpload(dto); 
-			  
-			  j++; 
-			  }
-		  
-		  }
+				j++; 
+			}
+	  
+		}
 		  
 	}
 

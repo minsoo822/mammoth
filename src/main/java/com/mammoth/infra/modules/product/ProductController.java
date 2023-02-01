@@ -40,7 +40,7 @@ public class ProductController {
 	@RequestMapping(value="productList")
 	public String productList(Model model, @ModelAttribute("dto") Product dto) throws Exception {
 		
-		List<Product> list = service.selectList();
+		List<Product> list = service.selectList(dto);
 		model.addAttribute("list", list);
 		
 		return "infra/product/user/productList";
@@ -58,7 +58,7 @@ public class ProductController {
 		service.insert(dto);
 		redirectAttributes.addFlashAttribute("dto", dto);
 		
-		return "redirect:/product/user/productList";
+		return "redirect:/product/productList";
 	}
 	
 	@RequestMapping(value="productView")

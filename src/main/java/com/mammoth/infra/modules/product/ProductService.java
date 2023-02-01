@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ProductService {
 	
-	public List<Product> selectList() throws Exception;
+	public List<Product> selectList(Product dto) throws Exception;
 	
 	public void insert(Product dto) throws Exception;
 	

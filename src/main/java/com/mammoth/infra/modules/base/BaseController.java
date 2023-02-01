@@ -28,9 +28,9 @@ public class BaseController {
 	BasketServiceImpl bskService;
 	
 	@RequestMapping(value="")
-	public String home(MemberVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String home(MemberVo vo, Model model, HttpSession httpSession, Product prdto) throws Exception {
 		
-		List<Product> list = prService.selectList();
+		List<Product> list = prService.selectList(prdto);
 		model.addAttribute("list", list);
 		
 		

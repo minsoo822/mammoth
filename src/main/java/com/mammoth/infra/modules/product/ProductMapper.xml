@@ -19,8 +19,21 @@
     		,pr.prFragrance
     		,prup.upPath
     		,prup.upUuidName
+    		,(
+    			SELECT
+		    		AVG(rvStar)
+		    	FROM review
+		    	WHERE rv_prSeq = pr.prSeq
+    		) AS rvStarAver
+    		,(
+    			SELECT
+    			COUNT(*)
+    			FROM review
+    			WHERE rv_prSeq = pr.prSeq
+    		) AS rvTotalCount
     	FROM product pr
     	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
+    	LEFT JOIN review rv ON rv.rv_prSeq = pr.prSeq
     	WHERE 1=1
     		AND pr.prUseNy = 1
     		AND pr.prDelNy = 0
@@ -50,6 +63,28 @@
     		AND prup.upDefaultNy = 1
     	ORDER BY prSeq DESC 
     </select>
+    
+    <!-- <select id="selectListFromCategory" resultMap="resultMapObj">
+    	SELECT
+    		pr.prSeq
+    		,pr.prName
+    		,pr.prDiscount
+    		,pr.prTotalPrice
+    		,pr.prPrice
+    		,pr.prKind
+    		,pr.prFragrance
+    		,prup.upPath
+    		,prup.upUuidName
+    	FROM product pr
+    	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
+    	WHERE 1=1
+    		AND pr.prUseNy = 1
+    		AND pr.prDelNy = 0
+    		AND prup.upType = 1
+    		AND prup.upDefaultNy = 1
+            AND prKind = #{prKind}
+    	ORDER BY prSeq DESC 
+    </select> -->
     
     <insert id="insert">
     	INSERT INTO product (

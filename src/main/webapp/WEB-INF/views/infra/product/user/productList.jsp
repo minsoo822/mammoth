@@ -14,10 +14,11 @@
 	<%@include file="/resources/include/link.jsp"%>
 	
 	<style type="text/css">
-		.headerRightList, .productCategoryList{
+		.productCategoryList{
 			float: left;
 			margin: 0 0 0 25px;
 	    	font-size: 16px; 
+	    	cursor: pointer;
 		}
 	</style>
 	<style type="text/css"> /* 장바구니 버튼 */
@@ -61,6 +62,7 @@
 	<form method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
+	<input type="hidden" name="prKind" id="prKind" value="">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -71,13 +73,13 @@
 			<div class="row">
 				<div class="col">
 					<ul style="float: left;">
-						<li class="productCategoryList" style="margin-left: 0px;"><a href="#">ALL</a></li>
-						<li class="productCategoryList"><a href="#">PERFUME</a></li>
-						<li class="productCategoryList"><a href="#">BODY & HAND</a></li>
-						<li class="productCategoryList"><a href="#">HAIR</a></li>
-						<li class="productCategoryList"><a href="#">LIP</a></li>
-						<li class="productCategoryList"><a href="#">LIFE STYLE</a></li>
-						<li class="productCategoryList"><a href="#">MEN'S SKIN</a></li>
+						<li class="productCategoryList" style="margin-left: 0px;"><a onclick="category(0)">ALL</a></li>
+						<li class="productCategoryList"><a onclick="category(1)">PERFUME</a></li>
+						<li class="productCategoryList"><a onclick="category(2)">BODY & HAND</a></li>
+						<li class="productCategoryList"><a onclick="category(3)">HAIR</a></li>
+						<li class="productCategoryList"><a onclick="category(4)">LIP</a></li>
+						<li class="productCategoryList"><a onclick="category(5)">LIFE STYLE</a></li>
+						<li class="productCategoryList"><a onclick="category(6)">MEN'S SKIN</a></li>
 					</ul> 
 				</div>
 			</div>
@@ -146,6 +148,17 @@
 			
 			prSeq.val(key);
 			form.attr("action", "/product/productView").submit();
+		};
+		
+		category = function(category) {
+			
+			var prKind = $("#prKind");
+			
+			prKind.val(category);
+			
+			alert("prKind 상품 종류 seq : " + category);
+			
+			/* form.attr("action", "/product/productList").submit(); */
 		};
 		
 	</script>	

@@ -12,9 +12,9 @@
 			<div class="col col-3">
 				<a>1</a>
 			</div>
-			<div class="col col-3">
+			<!-- <div class="col col-3">
 				<a>2</a>
-			</div>
+			</div> -->
 			<div class="col col-3">
 				<a>
 					<i class="fa-solid fa-chevron-right"></i>

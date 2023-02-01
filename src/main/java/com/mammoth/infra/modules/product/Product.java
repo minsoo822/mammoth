@@ -18,6 +18,9 @@ public class Product extends Base{
 	private String prModDate;
 	private Integer prTotalPrice;
 	
+	private Integer rvStarAver;
+	private Integer rvTotalCount;
+	
 	
 	public Integer getPrSeq() {
 		return prSeq;
@@ -90,6 +93,18 @@ public class Product extends Base{
 	}
 	public void setPrTotalPrice(Integer prTotalPrice) {
 		this.prTotalPrice = prTotalPrice;
+	}
+	public Integer getRvStarAver() {
+		return rvStarAver;
+	}
+	public void setRvStarAver(Integer rvStarAver) {
+		this.rvStarAver = rvStarAver;
+	}
+	public Integer getRvTotalCount() {
+		return rvTotalCount;
+	}
+	public void setRvTotalCount(Integer rvTotalCount) {
+		this.rvTotalCount = rvTotalCount;
 	}
 	
 	

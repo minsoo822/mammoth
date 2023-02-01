@@ -43,6 +43,14 @@ public class ProductController {
 		List<Product> list = service.selectList(dto);
 		model.addAttribute("list", list);
 		
+//		if(dto.getPrKind() != 0) {
+//			List<Product> listFromCategory = service.selectListFromCategory(dto);
+//			model.addAttribute("listFromCategory", listFromCategory);
+//		} else {
+//			List<Product> list = service.selectList(dto);
+//			model.addAttribute("list", list);
+//		}
+		
 		return "infra/product/user/productList";
 	}
 	

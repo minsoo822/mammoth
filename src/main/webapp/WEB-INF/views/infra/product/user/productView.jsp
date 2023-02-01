@@ -1032,63 +1032,62 @@ li {
 							<c:forEach items="${rvList}" var="rvList" varStatus="rvStatus">
 								<div class=reviewDetail
 									style="margin-bottom: 20px; border-bottom: 1px solid #DFDFDF;">
-									<div class="row">
+									<div class="row" style="width: 100%;">
 										<div class="col">
 											<div id="comment_area">
 												<!-- prepend -->
 												<div class="row"
 													style="display: flex; align-items: center; margin-bottom: 20px;">
-													<div class="col-2">
-														<div style="font-size: 10pt;">
-															<!-- 벌점, 점수-->
-															<%-- <span>★</span><strong><c:out value="${rvList.rvStar}" /></strong> --%>
-															<c:if test="${rvList.rvStar == 1}">
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-															</c:if>
-															<c:if test="${rvList.rvStar == 2}">
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-															</c:if>
-															<c:if test="${rvList.rvStar == 3}">
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-															</c:if>
-															<c:if test="${rvList.rvStar == 4}">
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-regular fa-star"></i>
-															</c:if>
-															<c:if test="${rvList.rvStar == 5}">
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-																<i class="fa-solid fa-star"></i>
-															</c:if>
-														</div>
+													<div class="col" style="font-size: 10pt;">
+														<c:if test="${rvList.rvStar == 1}">
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+														</c:if>
+														<c:if test="${rvList.rvStar == 2}">
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+														</c:if>
+														<c:if test="${rvList.rvStar == 3}">
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+														</c:if>
+														<c:if test="${rvList.rvStar == 4}">
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-regular fa-star"></i>
+														</c:if>
+														<c:if test="${rvList.rvStar == 5}">
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+															<i class="fa-solid fa-star"></i>
+														</c:if>
 													</div>
-													<div class="col-1">
+													<div class="col">
+														<strong><c:out value="${rvList.rvStar}"/></strong> 
+													</div>
+													<div class="col">
 														<span style="font-size: 12pt;"><strong><c:out
 																	value="${rvList.mmName}" /></strong></span>
 													</div>
-													<div class="col-3">
+													<div class="col">
 														<span><c:out value="${rvList.rvCreDate }" /></span><br>
 													</div>
 													<c:forEach items="${ccgListGrade}" var="listGrade"
 														varStatus="rvStatus">
-														<div class="col-1">
+														<div class="col">
 															<span style="font-size: 12pt;"><strong>
 																<c:if test="${listGrade.ccOrder eq rvList.mmGrade}"><c:out value="${listGrade.ccName}" /></c:if>
 															</strong></span>
@@ -1105,7 +1104,7 @@ li {
 																			class="fa-regular fa-thumbs-up"></i>&nbsp;<span
 																			id="luvCount${rvList.rvSeq}"><c:out
 																					value="${rvList.lvCount}" /></span></span> <input type="hidden"
-																			value="${rvList.rvSeq }">
+<%-- 																			value="${rvList.rvSeq }"> --%>
 																	</button>
 																</c:when>
 																<c:otherwise>

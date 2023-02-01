@@ -16,6 +16,8 @@ public class ProductDao {
 	private SqlSession sqlSession;
 	private String namespace = "com.mammoth.infra.modules.product.ProductMapper";
 	
+	public List<Product> selectListMDpick(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectListMDpick", dto);}
+	
 	public List<Product> selectList(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectList", dto);}
 	
 	public void insert(Product dto) throws Exception {sqlSession.insert(namespace + ".insert", dto);}

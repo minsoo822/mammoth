@@ -8,6 +8,28 @@
 
     <resultMap id="resultMapObj" type="com.mammoth.infra.modules.product.Product"></resultMap>
     
+    <select id="selectListMDpick" resultMap="resultMapObj">
+    	SELECT
+    		pr.prSeq
+    		,pr.prName
+    		,pr.prDiscount
+    		,pr.prTotalPrice
+    		,pr.prPrice
+    		,pr.prKind
+    		,pr.prFragrance
+    		,prup.upPath
+    		,prup.upUuidName
+    	FROM product pr
+    	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
+    	WHERE 1=1
+    		AND pr.prUseNy = 1
+    		AND pr.prDelNy = 0
+    		AND prup.upType = 1
+    		AND prup.upDefaultNy = 1
+    	ORDER BY prSeq ASC 
+    	LIMIT 8
+    </select>
+    
     <select id="selectList" resultMap="resultMapObj">
     	SELECT
     		pr.prSeq

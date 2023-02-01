@@ -30,10 +30,8 @@ public class BaseController {
 	@RequestMapping(value="")
 	public String home(MemberVo vo, Model model, HttpSession httpSession, Product prdto) throws Exception {
 		
-		List<Product> list = prService.selectList(prdto);
+		List<Product> list = prService.selectListMDpick(prdto);
 		model.addAttribute("list", list);
-		
-		
 		
 		return "infra/home/user/main";
 	}

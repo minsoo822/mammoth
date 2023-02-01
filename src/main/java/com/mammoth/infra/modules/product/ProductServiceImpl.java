@@ -14,6 +14,13 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductDao dao;
 
+	
+	@Override
+	public List<Product> selectListMDpick(Product dto) throws Exception {
+		
+		return dao.selectListMDpick(dto);
+	}
+
 	@Override
 	public List<Product> selectList(Product dto) throws Exception {
 		

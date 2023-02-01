@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mammoth.infra.common.contants.Constants;
-import com.mammoth.infra.modules.basket.Basket;
+import com.mammoth.infra.modules.cupon.Cupon;
+import com.mammoth.infra.modules.cupon.CuponServiceImpl;
 
 @Controller
 @RequestMapping(value="/member/")
@@ -23,6 +24,8 @@ public class MemberController {
 	
 	@Autowired
 	MemberServiceImpl service;
+	@Autowired
+	CuponServiceImpl cpservice;
 	
 	@RequestMapping(value="adrList")
 	public String addrList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
@@ -74,10 +77,6 @@ public class MemberController {
 		return "infra/member/user/login";
 	}
 	
-	@RequestMapping(value="orderList")
-	public String orderList() throws Exception {
-		return "infra/member/user/orderList";
-	}
 	
 	@RequestMapping(value="guest_order")
 	public String guest_order() throws Exception {
@@ -95,6 +94,17 @@ public class MemberController {
 	@RequestMapping(value="signUp")
 	public String signUp() throws Exception {
 		return "infra/member/user/signUp";
+	}
+	
+	@RequestMapping(value="signUpInst")
+	public String signUpInst(Member dto , Cupon cpdto) throws Exception {
+		
+		dto.setMmBirth(String.valueOf(dto.getMmMonth() + dto.getMmDay()));
+		
+		service.memberInst(dto);
+		cpservice.signUpCupon(cpdto);
+		
+		return "infra/home/user/main";
 	}
 	
 	@RequestMapping(value="myinfo")

@@ -253,7 +253,7 @@
 	}
 	.white-bg {
 		width: 100%;
-		height: 250px;
+		height: 300px;
 		background: white;
 		border-radius: 8px;
 		/* padding: 20px; */
@@ -294,8 +294,6 @@
 </head>
 <body>
 	<form method="post" id="mainForm">
-	<input id="certTelecom" name="mmTelecom" value="" type="text">
-	<input id="certPhone" name="mmPhoneNumber" value="" type="text">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	<!-- 휴대폰 인증 모달 s -->
@@ -309,6 +307,7 @@
 			</div>
 			<div class="modal_body">
 				<p>회원인증</p>
+				<input id="certName" name="mmName" value="" placeholder="이름" style="width: 80px;"><br><br>
 				<select id="telecom" onchange="selectBoxChange(this.value);">
 					<option value="" selected hidden>선택</option>
 					<option value="3">SKT</option>
@@ -354,55 +353,58 @@
 					<br>
 					<div class="input_wrap">
 					    <div class="label_plh">
-					        <input id="member_id" name="member_id" class="inputTypeText" placeholder="아이디" value="" type="text">
+					        <input id="member_id" name="mmId" class="inputTypeText" placeholder="아이디" value="" type="text">
 					    </div> 
+					    <!-- <div class="mod_message error" id="idMsg">아이디를 입력해 주세요.</div> -->
 					    <div class="label_plh password">
 					        <input id="passwd" name="passwd" maxlength="16" 0="disabled" value="" type="password" placeholder="비밀번호">
 					    </div>
 					    <div class="label_plh">
-					        <input id="user_passwd_confirm" name="user_passwd_confirm" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off"
+					        <input id="user_passwd_confirm" name="mmPassword" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off"
 					            maxlength="16" 0="disabled" value="" type="password" placeholder="비밀번호 확인">
 					    </div>
 					    <!-- <div class="mod_message error" id="pwConfirmMsg">비밀번호가 일치하지 않습니다</div> -->
 					
 					    <div class="label_plh">
-					        <input id="email1" name="email1" value="" type="text" placeholder="이메일"> 
+					        <input id="email1" name="mmEmail" value="" type="text" placeholder="이메일"> 
 					    </div>
 					    <!-- <div class="mod_message" id="emailMsg">유효한 이메일을 입력해 주세요</div> -->
 					</div>
 					<div class="input_wrap ">
 					    <div class="label_plh" id="nameTitle">
 					        이름 &nbsp;
-					        <span class="msgInput" id="nameContents"></span>
+					        <span class="msgInput" id="nameContents">
+					        	
+					        </span>
 					    </div>
 					    <div class="label_plh_m ">
-					        <input id="birth_year" name="birth_year" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
-					        <input id="birth_month" name="birth_month" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
-					        <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
+					        <input id="birth_year" name="mmYear" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
+					        <input id="birth_month" name="mmMonth" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
+					        <input id="birth_day" name="mmDay" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
 					        <p class="calendar " style="margin: 0px;">
 					            <span class="switch-radio">
-					                <input id="is_solar_calendar0" name="is_solar_calendar" value="T" type="radio" checked="checked" autocomplete="off">
-					                <label for="is_solar_calendar0">양력</label>
-					                <input id="is_solar_calendar1" name="is_solar_calendar" value="F" type="radio" autocomplete="off">
-					                <label for="is_solar_calendar1">음력</label>
+					                <input id="is_solar_calendar0" name="is_solar_calendar" value="1" type="radio">
+					                <label for="is_solar_calendar0">남자</label>
+					                <input id="is_solar_calendar1" name="is_solar_calendar" value="2" type="radio">
+					                <label for="is_solar_calendar1">여자</label>
+					                <input id="gender" name="mmGender" type="hidden" value="">
 					            </span>
 					        </p>
-					    <div class="label_plh_hp ">
-					        <select id="mobile1" name="mobile[]">
-					            <option value="010">010</option>
-					            <option value="011">011</option>
-					            <option value="016">016</option>
-					            <option value="017">017</option>
-					            <option value="018">018</option>
-					            <option value="019">019</option>
-					        </select>-
-					        <input id="mobile2" name="mobile[]" maxlength="4" value="" type="text">-
-					        <input id="mobile3" name="mobile[]" maxlength="4" value="" type="text">
+					    </div>
+				    	<div class="label_plh_hp ">
+					        <select id="certTelecom" name="mmTelecom" onchange="selectBoxChange(this.value);">
+								<option value="" selected hidden>선택</option>
+								<option value="3">SKT</option>
+								<option value="4">KT</option>
+								<option value="5">LGU+</option>
+							</select>
+					        <input id="certPhone" name="mmPhoneNumber" value="" type="text">
+					        <input type="hidden" id="certYn" name="mmCertNy" value="0">
 					    </div>
 					</div>
 					<br>
 					<div class="btn_join">
-						<button type="button" class="btn_join_submit" onclick="">가입하기</button>
+						<button type="button" class="btn_join_submit" onclick="goSignup()">가입하기</button>
 					</div>
 				</div>
 			</form>
@@ -416,22 +418,40 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script type="text/javascript">
-		
+		//인증모달여기
 		$("#certChange").on("click", function(){
 			$("#modal").show();
 		});
+		//인증모달 닫기
 		$("#closeModal").on("click", function(){
 			$("#modal").hide();
 		});
-		closeModal
 	
 		$(document).ready(function(){
 	    	$("#telecom").change(function(){
-	    		$("#certTelecom").attr("value",$(this).val());
+	    		$('#certTelecom').val($(this).val()).prop("selected",true);
 	    		console.log("Telecom : " + $(this).val());
 	    	});
-	    });
+
+	    	$("input[name='is_solar_calendar']").change(function(){
+	    		var genderVal = $("input[name='is_solar_calendar']:checked").val();
+	    		$("#gender").attr("value", genderVal);
+	    	});
 		
+		});
+
+		
+		
+		
+		
+		goSignup = function() {
+			
+		var genderVal = $("#gender").val();
+
+		console.log(genderVal);
+		form.attr("action", "/member/signUpInst").submit();
+			
+		}
 		
 	</script>
 	<script type="module">
@@ -504,13 +524,18 @@
 
 			var phoneNum = user.phoneNumber;
 			var numResult = phoneNum.replace('+82','0');
-
+			var crName = $("#certName").val();
 			
 			$("#certPhone").attr("value" , numResult);
+
 			
 			swal("인증 성공!",  " 인증이 확인 되었습니다.", "success")
 				.then(function() {
+					console.log(crName);
+
+					$("#certYn").attr("value", "1");			
 					$("#certChange").html('<i class="fa-solid fa-check"></i>휴대폰 인증완료');
+					$("#nameContents").html(crName);
 					$("#modal").hide();
 				});
 			

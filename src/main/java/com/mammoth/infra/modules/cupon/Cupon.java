@@ -3,6 +3,8 @@ package com.mammoth.infra.modules.cupon;
 public class Cupon {
 
 	private Integer cpSeq;
+	private Integer mmSeq;
+	
 	private String cpName;
 	private Integer cpDiscount;
 	private Integer cpPercentNy;
@@ -53,6 +55,12 @@ public class Cupon {
 	}
 	public void setCp_mmSeq(Integer cp_mmSeq) {
 		this.cp_mmSeq = cp_mmSeq;
+	}
+	public Integer getMmSeq() {
+		return mmSeq;
+	}
+	public void setMmSeq(Integer mmSeq) {
+		this.mmSeq = mmSeq;
 	}
 	
 	

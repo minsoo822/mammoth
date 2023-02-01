@@ -15,6 +15,8 @@ public class CuponDao {
 	
 	private static String namespace = "com.mammoth.infra.modules.cupon.CuponMapper";
 	
+	public int signUpCupon(Cupon dto) { return sqlSession.insert(namespace + ".signUpCupon", dto);}
+	
 
 	
 }

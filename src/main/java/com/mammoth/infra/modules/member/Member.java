@@ -28,6 +28,10 @@ public class Member extends Base{
 	private String mmTel;
 	private Integer cuponCount;
 	
+	//회원가입
+	private Integer mmMonth;
+	private Integer mmDay;
+	
 	//주소
 	private Integer adrSeq;
 	
@@ -264,6 +268,18 @@ public class Member extends Base{
 	}
 	public void setCuponCount(Integer cuponCount) {
 		this.cuponCount = cuponCount;
+	}
+	public Integer getMmMonth() {
+		return mmMonth;
+	}
+	public void setMmMonth(Integer mmMonth) {
+		this.mmMonth = mmMonth;
+	}
+	public Integer getMmDay() {
+		return mmDay;
+	}
+	public void setMmDay(Integer mmDay) {
+		this.mmDay = mmDay;
 	}
 	
 	

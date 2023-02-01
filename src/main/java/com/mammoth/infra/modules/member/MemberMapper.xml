@@ -37,8 +37,8 @@
 			,0
 			,#{mmGender}
 			,#{mmBirth}
-			,0
-			,0
+			,1
+			,#{mmCertNy}
 			,now()
 			,0
 			,0
@@ -47,6 +47,7 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
 	
 	<insert id="myinfoAddrInst">
 		INSERT INTO address (

@@ -495,8 +495,8 @@
 			            		<tr class="">
 									<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 					                <td>
-						                <input id="birth_month" name="birth_month" class="inputTypeText" maxlength="2" value="${month }" type="text"> 월 
-						                <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="${day }" type="text"> 일 
+						                <input id="birth_month" name="birth_month" class="inputTypeText" maxlength="2" value="${month }" type="text" readonly> 월 
+						                <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="${day }" type="text" readonly> 일 
 						                <!-- <span class="gIndent20 ">
 							                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
 							                <label for="is_solar_calendar0">양력</label>

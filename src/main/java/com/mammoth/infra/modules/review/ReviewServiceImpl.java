@@ -49,21 +49,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public Double rvStarAver(Review dto) throws Exception {
-
-
-//		if(1 <= dto.getrvsta rvStarAver < 2) {
-//			
-//			rvStarAver = 1;
-//			
-//		} else if(2 <= rvStarAver < 3) {
-//			
-//		} else if(3 <= rvStarAver < 4) {
-//			
-//		} else if(4 <= rvStarAver < 5) {
-//			
-//		} else(rvStarAver = 5) {
-//			
-//		}
 		
 		return dao.rvStarAver(dto);
 	}

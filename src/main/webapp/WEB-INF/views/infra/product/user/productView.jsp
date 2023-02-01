@@ -834,6 +834,13 @@ li {
 								<div class="snap_review_avg_score"
 									style="display: inline-block; margin-right: 10px;">
 									<div class="snap_review_avg_score_image_front" style="font-size: 12pt; color: #000;">
+										<c:if test="${rvStarAver eq null}"> 
+											<i class="fa-regular fa-star"></i>
+											<i class="fa-regular fa-star"></i>
+											<i class="fa-regular fa-star"></i>
+											<i class="fa-regular fa-star"></i>
+											<i class="fa-regular fa-star"></i>
+										</c:if>
 										<c:if test="${1 le rvStarAver && rvStarAver lt 2}"> 
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-regular fa-star"></i>

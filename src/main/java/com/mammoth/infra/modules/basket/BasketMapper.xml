@@ -48,6 +48,26 @@
 		AND prup.upType = 1
 		AND	prup.upDefaultNy = 1
 	</select>
+	<select id="checkBuyList" resultMap="resultMapObj">
+		SELECT
+			bsk.bskSeq
+			,pr.prSeq
+		    ,prup.upPath
+		    ,prup.upUuidName
+			,pr.prName
+			,pr.prTotalPrice
+			,bsk.bskAmount
+			,bsk.bskSell_Price
+		FROM basket bsk
+		JOIN product pr
+		ON bsk.bsk_prSeq = pr.prSeq
+		JOIN productUploaded prup
+		ON bsk.bsk_prSeq = prup.up_prSeq
+		WHERE bsk.bsk_mmSeq = #{mmSeq}
+		AND pr.prSeq = #{prSeq}
+		AND prup.upType = 1
+		AND	prup.upDefaultNy = 1
+	</select>
 	
 	<select id="selectListCount" resultType="Integer">
 		SELECT

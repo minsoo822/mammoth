@@ -62,7 +62,12 @@ public class BasketServiceImpl implements BasketService{
 		// TODO Auto-generated method stub
 		return dao.checkBuy(dto);
 	}
-
+	@Override
+	public List<Basket> checkBuyList(Basket dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.checkBuyList(dto);
+	}
+	
 	
 
 	

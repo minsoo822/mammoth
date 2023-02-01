@@ -201,6 +201,21 @@ public class MemberController {
     }
 	
 	@ResponseBody
+    @RequestMapping(value = "signUpidCheck")
+    public Map<String, Object> signUpidCheck(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>(); 
+        
+        int idCheck = service.idCheck(dto);
+        
+	        if(idCheck > 0 ) {
+	        	returnMap.put("rt", "fail");
+	        } else {
+	        	returnMap.put("rt", "success");
+	        }
+        return returnMap;
+    }
+	
+	@ResponseBody
     @RequestMapping(value = "kakaoLoginProc")
     public Map<String, Object> memberInst(Member dto, HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 

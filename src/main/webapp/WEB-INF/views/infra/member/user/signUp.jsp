@@ -355,15 +355,15 @@
 					    <div class="label_plh">
 					        <input id="member_id" name="mmId" class="inputTypeText" placeholder="아이디" value="" type="text">
 					    </div> 
-					    <!-- <div class="mod_message error" id="idMsg">아이디를 입력해 주세요.</div> -->
+					    <div class="mod_message error" id="idMsg" style="display: none;">사용하실수 없는 아이디 입니다.</div>
 					    <div class="label_plh password">
-					        <input id="passwd" name="passwd" maxlength="16" 0="disabled" value="" type="password" placeholder="비밀번호">
+					        <input id="pw" name="mmPassword" maxlength="16" 0="disabled" value="" type="password" placeholder="비밀번호">
 					    </div>
 					    <div class="label_plh">
-					        <input id="user_passwd_confirm" name="mmPassword" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off"
+					        <input id="pwCheck" name="pwCheck" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off"
 					            maxlength="16" 0="disabled" value="" type="password" placeholder="비밀번호 확인">
 					    </div>
-					    <!-- <div class="mod_message error" id="pwConfirmMsg">비밀번호가 일치하지 않습니다</div> -->
+					    <div class="mod_message error" id="pwConfirmMsg" style="display: none;">비밀번호가 일치하지 않습니다</div>
 					
 					    <div class="label_plh">
 					        <input id="email1" name="mmEmail" value="" type="text" placeholder="이메일"> 
@@ -439,9 +439,46 @@
 	    	});
 		
 		});
-
-		
-		
+		//아이디 중복 체크
+		$("#member_id").on("focusout", function() {
+			
+			$.ajax({
+				url : "/member/signUpidCheck",
+				type : 'POST',
+				datatype : 'json',
+				data : {
+					mmId : $("#member_id").val()
+				},
+				success : function(result) {
+					if(result.rt == "success") {
+						alert("사용가능");		
+						$("#idMsg").show();
+						$("#idMsg").html("사용 가능한 아이디 입니다.");
+						$("#idMsg").css("color","#048be3;");
+					} else {
+						alert("사용불가능");
+						$("#idMsg").show();
+					}
+				}
+			});
+		});
+		//비밀번호 일치 체크
+		$('#pwCheck').on("focusout", function(){
+			var pwd1 = $("#pw").val();
+	        var pwd2 = $("#pwCheck").val();
+	  
+	        if ( pwd1 != '' && pwd2 == '' ) {
+	            null;
+	        } else if (pwd1 != "" || pwd2 != "") {
+	            if (pwd1 == pwd2) {
+	                $("#pwConfirmMsg").show();
+	                $("#pwConfirmMsg").html("비밀번호가 일치합니다.");
+					$("#pwConfirmMsg").css("color","#048be3;");
+	            } else {
+            	  	$("#pwConfirmMsg").show();
+	            }
+	        }
+	    });
 		
 		
 		goSignup = function() {

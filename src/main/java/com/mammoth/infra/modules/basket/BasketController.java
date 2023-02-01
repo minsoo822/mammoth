@@ -107,6 +107,8 @@ public class BasketController {
 				dto.setPrSeq(checkboxSeqArr); 
 				System.out.println("------------seq :" + dto.getPrSeq());
 				service.checkBuy(dto);
+				List<Basket> checkBuyList = service.checkBuyList(dto);
+				model.addAttribute("oderFormList", checkBuyList);
 			} else {
 				int checkboxPriceArr = dto.getCheckboxSeqArray()[i];
 
@@ -115,6 +117,7 @@ public class BasketController {
 				System.out.println("---------------- : " + price);
 				System.out.println("최종적으로 넘어갈 가격 ---------------- :" + httpSession.getAttribute("sessLastPrice"));
 			}
+			
 		}
 		//dto.setMmSeq(dto.getMmSeq());
 		//redirectAttributes.addFlashAttribute("dto", dto);

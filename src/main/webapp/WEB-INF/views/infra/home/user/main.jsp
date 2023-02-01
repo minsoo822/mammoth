@@ -197,8 +197,14 @@
 			</div>
 		</div>
 		<div class="row mt-3">
-			<div class="col">
+			<div class="col" id="youtibeTextShow1" style="display: flex;">
 				<span><b>마스터 퍼퓨머가 '성공'에 영감을 받아 탄생한 향수</b></span>
+			</div>
+			<div class="col" id="youtibeTextShow2" style="display: none;">
+				<span><b>향기가 실린 바람과 우연의 시작</b></span>
+			</div>
+			<div class="col" id="youtibeTextShow3" style="display: none;">
+				<span><b>향기와 함께 피어오르는 코랄빛 설렘의 기억</b></span>
 			</div>
 		</div>
 	</div>
@@ -296,18 +302,27 @@
 		$("#youtibeShow1").show();
 		$("#youtibeShow2").hide();
 		$("#youtibeShow3").hide();
+		$("#youtibeTextShow1").show();
+		$("#youtibeTextShow2").hide();
+		$("#youtibeTextShow3").hide();
 	};
 	
 	youtube2 = function() {
 		$("#youtibeShow1").hide();
 		$("#youtibeShow2").show();
 		$("#youtibeShow3").hide();	
+		$("#youtibeTextShow1").hide();
+		$("#youtibeTextShow2").show();
+		$("#youtibeTextShow3").hide();
 	};
 	
 	youtube3 = function() {
 		$("#youtibeShow1").hide();
 		$("#youtibeShow2").hide();
 		$("#youtibeShow3").show();
+		$("#youtibeTextShow1").hide();
+		$("#youtibeTextShow2").hide();
+		$("#youtibeTextShow3").show();
 	};
 	
 	productView = function(key) {
@@ -483,24 +498,6 @@
 			}
 		})
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	</script>	
 </body>

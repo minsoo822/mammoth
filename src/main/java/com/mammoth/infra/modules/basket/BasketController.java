@@ -86,13 +86,8 @@ public class BasketController {
 		return "redirect:/basket/basketList";
 	}
 	@RequestMapping(value = "checkBuy")
-	public String MultiBuy(Basket dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+	public String MultiBuy(Basket dto, Model model ,RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
-//		for (int checkboxSeq : dto.getCheckboxSeqArray()) {
-//			dto.setPrSeq(checkboxSeq);
-//			System.out.println("=---------: " + dto.getPrSeq());
-//			service.checkBuy(dto);
-//		}
 		if(dto.getBskSeqs() != null && dto.getBskSeqs().length > 0) {
             
             for(int i=0; i< dto.getBskSeqs().length; i++) {
@@ -120,44 +115,11 @@ public class BasketController {
 				System.out.println("---------------- : " + price);
 				System.out.println("최종적으로 넘어갈 가격 ---------------- :" + httpSession.getAttribute("sessLastPrice"));
 			}
-//				System.out.println("----------개당 가격" + dto.getCheckboxSeqArray()[i]);
-//				int price2 = 0;
-//				System.out.println("--------------price값 :" + price);
-//				System.out.println("--------------price2값 :" + price2);
-//				System.out.println("-44444-------------- :" + checkboxPriceArr);
-//				int lastPrice = price + checkboxPriceArr;
-//				System.out.println("-------------lastPrice값 : " + lastPrice);
-//				int lastPrice2 = price2 + checkboxPriceArr;
-//				System.out.println("-------------lastPrice2값 : " + lastPrice2);
-				
-				
-//				for(int j = 0; j < dto.getCheckboxSeqArray().length/2; j++) {
-//					
-//					int price3 = 0;
-//					
-//					int checkboxPriceArr = dto.getCheckboxSeqArray()[i];
-//					
-//					System.out.println("-44444-------------- :" + checkboxPriceArr);
-//					
-//					System.out.println("--------------price값 :" + price);
-//					System.out.println("--------------price2값 :" + price2);
-//					System.out.println("--------------price3값 :" + price3);
-//					int lastPrice = price + checkboxPriceArr;
-//					System.out.println("-------------lastPrice값 : " + lastPrice);
-//					int lastPrice2 = price2 + checkboxPriceArr;
-//					System.out.println("-------------lastPrice2값 : " + lastPrice2);
-//					int lastPrice3 = price3 + checkboxPriceArr;
-//					System.out.println("-------------lastPrice3값 : " + lastPrice3);
-//					httpSession.setAttribute("sessLastPrice", lastPrice);
-//					System.out.println("최종적으로 넘어갈 가격 ---------------- :" + httpSession.getAttribute("sessLastPrice"));
-//
-//				}
-//			}
 		}
-		dto.setMmSeq(dto.getMmSeq());
-		redirectAttributes.addFlashAttribute("dto", dto);
+		//dto.setMmSeq(dto.getMmSeq());
+		//redirectAttributes.addFlashAttribute("dto", dto);
 
-		return "redirect:/order/orderForm";
+		return "infra/member/user/orderForm";
 	}
 	
 	@RequestMapping(value = "oderFormUptd")

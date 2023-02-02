@@ -129,9 +129,9 @@
 					</div>
 					<div class="row  mt-2">
 						<div class="col col-4" style="width: 50px; color: red;">
-							<c:out value="${prList.prDiscount}"/>%
+							<strong><c:out value="${prList.prDiscount}"/>%</strong>
 						</div>
-						<div class="col col-4" style="width: 100px;">
+						<div class="col col-4" style="width: 100px; font-size: 11pt;">
 							<b><fmt:formatNumber pattern="##,###원" value="${prList.prTotalPrice}"/></b>
 						</div>
 						<div class="col col-4" style="width: 100px;">

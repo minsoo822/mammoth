@@ -690,7 +690,6 @@ li {
 	width: 160px;
 	height: auto;
 	display: inline-block;
-	cursor: pointer;
 	background-size: cover !important;
 	margin: 3px;
 }
@@ -876,6 +875,7 @@ li {
 											<i class="fa-solid fa-star"></i>
 											<i class="fa-solid fa-star"></i>
 										</c:if>
+										<c:out value="${rvStarAver}"/>
 									</div>
 								</div>(<c:out value="${fn:length(rvList)}" />)
 							</span>
@@ -1038,7 +1038,7 @@ li {
 												<!-- prepend -->
 												<div class="row"
 													style="display: flex; align-items: center; margin-bottom: 20px;">
-													<div class="col" style="font-size: 10pt;">
+													<div class="col-2" style="font-size: 10pt; max-width: 150px;">
 														<c:if test="${rvList.rvStar == 1}">
 															<i class="fa-solid fa-star"></i>
 															<i class="fa-regular fa-star"></i>
@@ -1074,20 +1074,18 @@ li {
 															<i class="fa-solid fa-star"></i>
 															<i class="fa-solid fa-star"></i>
 														</c:if>
-													</div>
-													<div class="col">
 														<strong><c:out value="${rvList.rvStar}"/></strong> 
 													</div>
-													<div class="col">
+													<div class="col-2" style="max-width: 100px;">
 														<span style="font-size: 12pt;"><strong><c:out
 																	value="${rvList.mmName}" /></strong></span>
 													</div>
-													<div class="col">
+													<div class="col-2" style="max-width: 150px;">
 														<span><c:out value="${rvList.rvCreDate }" /></span><br>
 													</div>
 													<c:forEach items="${ccgListGrade}" var="listGrade"
 														varStatus="rvStatus">
-														<div class="col">
+														<div class="col-1" style="max-width: 100px;">
 															<span style="font-size: 12pt;"><strong>
 																<c:if test="${listGrade.ccOrder eq rvList.mmGrade}"><c:out value="${listGrade.ccName}" /></c:if>
 															</strong></span>
@@ -1124,8 +1122,7 @@ li {
 												</div>
 												<div class="row mb-3">
 													<div class="col-2" style="padding-right: 0px;">
-														<img alt="" src="${rvList.upPath}${rvList.upUuidName}"
-															class="reviewImg">
+														<img src="${rvList.upPath}${rvList.upUuidName}" class="reviewImg">
 													</div>
 													<div class="col" style="padding-right: 0px;">
 														<p style="margin-top: 0px;">

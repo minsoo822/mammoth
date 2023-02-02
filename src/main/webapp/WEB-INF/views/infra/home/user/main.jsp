@@ -77,7 +77,6 @@
 				sessAdmin: <c:out value="${sessAdmin }"/><br> --%>
 	<form action="" method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
-	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -275,7 +274,7 @@
 					</div>
 				</div>
 				<div class="xans-element- xans-product xans-product-action ec-base-button">
-					<a href="#none" onclick="" class="btn_apr  ">바로구매하기</a>
+					<a href="#none" id="buyNowBtn" class="btn_apr  ">바로구매하기</a>
 					<a href="#none" onclick="" class="btn_apr  " id="basketInst">장바구니 담기</a>
 					<a href="#none" class="btn_apr white close" id="closeModal1" >닫기</a>
 				</div>
@@ -394,7 +393,7 @@
 							txt += '</td>'
 							txt += '<td>'
 								txt += '<span class="quantity" style="width:65px;">'
-								txt += '<input type="text" id="amount" class="quantity_opt eProductQuantityClass" value="1">'
+								txt += '<input type="text" name="bskAmount" id="amount" class="quantity_opt eProductQuantityClass" value="1">'
 								txt += '<a href="#none" class="up eProductQuantityUpClass" id="add" data-target="option_box1_up">'
 								txt += '<img src="/resources/images/btn_quantity_up.gif" id="option_box1_up" class="option_box_up" alt="수량증가">'
 								txt += '</a>'
@@ -471,6 +470,20 @@
 			}
 		});
 	};
+	$("#buyNowBtn").on("click", function() {
+		
+		alert("buynow");
+		
+		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
+			
+			alert("로그인 후 사용가능한 서비스입니다.");
+			return false;
+		}
+		
+		form.attr("action", "/product/buyNowInst").submit();
+		
+	});
+	
 	$("#basketInst").on("click", function(){
 
 		$.ajax({

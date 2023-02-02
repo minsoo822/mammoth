@@ -40,10 +40,10 @@ public class UtilUpload {
 		
 //		local 이미지 업로드 경로
 //		우경이 경로
-		String path = "C://factory/WS_STS_4151/propolis/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+//		String path = "C://factory/WS_STS_4151/propolis/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		
 //		EC2 이미지 업로드 경로
-//		String path = "/factory/workspace/propolis/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
+		String path = "/factory/workspace/mammoth/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
 		
 //		절대경로! 년폴더 월폴더 일폴더 여기에 이미지 파일들이 uuid로 저장된다.
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
@@ -83,10 +83,10 @@ public class UtilUpload {
 		
 //		local 이미지 업로드 경로
 //		우경이 경로
-		String path = "C://factory/WS_STS_4151/mammoth/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+//		String path = "C://factory/WS_STS_4151/mammoth/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		
 //		EC2 이미지 업로드 경로
-//		String path = "/factory/workspace/propolis/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
+		String path = "/factory/workspace/mammoth/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
 		
 //		절대경로! 년폴더 월폴더 일폴더 여기에 이미지 파일들이 uuid로 저장된다.
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
@@ -127,10 +127,10 @@ public class UtilUpload {
 		
 //		local 이미지 업로드 경로
 //		우경이 경로
-		String path = "C://factory/WS_STS_4151/mammoth/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+//		String path = "C://factory/WS_STS_4151/mammoth/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		
 //		EC2 이미지 업로드 경로
-//		String path = "/factory/workspace/propolis/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
+		String path = "/factory/workspace/mammoth/resources/uploaded" + "/" + pathModule +  "/" + pathDate + "/";
 		
 //		절대경로! 년폴더 월폴더 일폴더 여기에 이미지 파일들이 uuid로 저장된다.
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";

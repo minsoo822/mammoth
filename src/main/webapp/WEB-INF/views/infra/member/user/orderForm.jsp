@@ -759,13 +759,14 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                    <th scope="row">배송지 선택</th>
 				                    <td>
 				                        <div class="address">
-				                            <input id="sameaddr0" name="sameaddr" value="" type="radio" autocomplete="off">
+				                            <input id="sameaddr0" name="sameaddr" value="0" type="radio" autocomplete="off" checked>
 				                            <label for="sameaddr0">주문자 정보와 동일</label>
-				                            <input id="sameaddr1" name="sameaddr" value="" type="radio" autocomplete="off">
+				                            <input id="sameaddr1" name="sameaddr" value="1" type="radio" autocomplete="off">
 				                            <label for="sameaddr1">새로운 배송지</label> 
-				                            <a href="#none" id="btn_shipp_addr" class="">
+				                            <input type="hidden" name="" id="addr" value="">
+				                            <!-- <a href="#none" id="btn_shipp_addr" class="">
 				                                <img src="/resources/images/btn_address.gif" alt="주소록 보기">
-				                            </a>
+				                            </a> -->
 				                        </div>
 				                    </td>
 				                </tr>
@@ -909,7 +910,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				    <div class="payment">
 				        <div class="method">
 				            <span class="ec-base-label">
-				                <input id="addr_paymethod4" name="addr_paymethod" value="kakaopay" type="radio" autocomplete="off" style="cursor: pointer;">
+				                <input id="addr_paymethod4" name="addr_paymethod" value="kakaopay" type="radio" autocomplete="off" checked style="cursor: pointer;">
 				                <label for="addr_paymethod4">카카오페이(간편결제) </label>
 				            </span>
 				        </div>
@@ -1011,6 +1012,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 	
 	<script>
  	$(document).ready(function() {
+ 		
 		$("#checkboxAll").click(function() {
 			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 			else $("input[name=checkboxSeq]").prop("checked", false);
@@ -1023,6 +1025,21 @@ div.ec-base-help ul, div.ec-base-help ol {
 			if(total != checked) $("#checkboxAll").prop("checked", false);
 			else $("#checkboxAll").prop("checked", true); 
 		});
+		
+		$("input[name='sameaddr']").change(function(){
+    		var addrVal = $("input[name='sameaddr']:checked").val();
+    		$("#addr").attr("value", addrVal);
+
+    		if($("#addr").val() == '1' ) {
+    			$("#rname").val('');
+    			$("#rzipcode1").val('');
+    			$("#raddr1").val('');
+    			$("#raddr2").val('');
+    			$("#rphone2_3").val('');
+    		}
+    		
+    	});
+		
 	});
 
 	var prSeq = $("#prSeq");

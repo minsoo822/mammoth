@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class="row"style="margin: 20px 30px 80px 30px;">
-				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.arenakorea.com/arena/article/51706';">
+				<div class="col m-3 text-center" id="magazineCard" onclick="window.open('https://www.arenakorea.com/arena/article/51706')">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine1.jpg" style="width: 100%;">
@@ -68,11 +68,11 @@
 					</div>
 					<div class="row">
 						<div class="col p-0">
-							<button type="btn btn-primary" style="width: 100%; height: 40px;" id="viewMore">VIEW MORE</button>
+							<button style="width: 100%; height: 40px;" id="viewMore" type="button">VIEW MORE</button>
 						</div>
 					</div>
 				</div>
-				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.thestar.kr/board/star/4759';">
+				<div class="col m-3 text-center" id="magazineCard" onclick="window.open('https://www.thestar.kr/board/star/4759')">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine2.jpg" style="width: 100%;">
@@ -90,11 +90,11 @@
 					</div>
 					<div class="row">
 						<div class="col p-0">
-							<button type="btn btn-primary" style="width: 100%; height: 40px;" id="viewMore">VIEW MORE</button>
+							<button style="width: 100%; height: 40px;" id="viewMore" type="button">VIEW MORE</button>
 						</div>
 					</div>
 				</div>
-				<div class="col m-3 text-center" id="magazineCard" onclick="location.href='https://www.thestar.kr/board/star/4759';">
+				<div class="col m-3 text-center" id="magazineCard" onclick="window.open('https://www.thestar.kr/board/star/4759')">
 					<div class="row">
 						<div class="col p-0" id="image" style="overflow: hidden;">
 							<img src="/resources/images/magazine/magazine3.jpg" style="width: 100%;">
@@ -112,7 +112,7 @@
 					</div>
 					<div class="row">
 						<div class="col p-0">
-							<button type="btn btn-primary" style="width: 100%; height: 40px;" id="viewMore">VIEW MORE</button>
+							<button style="width: 100%; height: 40px;" id="viewMore" type="button">VIEW MORE</button>
 						</div>
 					</div>
 				</div>

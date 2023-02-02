@@ -132,6 +132,14 @@ public class ProductController {
 		return "redirect:/basket/buyNowList";
 	}
 	
+//	public void setParamsPaging(Post dto) throws Exception {
+//		
+//		vo.setParamsPaging(service.selectOneCount(dto));
+//		System.out.println("controller vo.getRowNumToShow : " + vo.getRowNumToShow());
+//		System.out.println("controller vo.getStartRnumForMysql : " + vo.getStartRnumForMysql());
+//
+//	}
+	
 	
 	
 	

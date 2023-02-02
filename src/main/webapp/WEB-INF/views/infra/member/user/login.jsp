@@ -197,8 +197,7 @@
 						</label>
 					</div>
 					<div class="btn_wrap ptmore">
-						<button type="button" class="btnSubmit"
-							onclick="">로그인</button>
+						<button type="button" class="btnSubmit" onclick="signIn()">로그인</button>
 					</div>
 					<div class=" typeLogin">
 						<a href="#" class="btnLogin">아이디찾기</a>
@@ -309,6 +308,51 @@
 		})
 	});
 	/* 카카오 로그인 e */
+	
+	signIn = function() {
+		
+		if($("#member_id").val() == '' || $("#member_id").val() == null) {
+			swal({
+				  title: '아이디를 입력해주세요.!',    
+				  icon: 'warning',
+				});
+			return false;
+		}
+		if($("#member_passwd").val() == '' || $("#member_passwd").val() == null) {
+			swal({
+				  title: '비밀번호를를 입력해주세요.!',    
+				  icon: 'warning',
+				});
+			return false;
+		}
+		$.ajax({
+			url : '/member/signInCd',
+			type : 'POST',	
+			datatype : 'json',	
+			data : {
+				mmId : $("#member_id").val(),
+				mmPassword : $("#member_passwd").val()
+			},	
+			success : function(result) {
+				if (result.rt == "success") {
+					swal("로그인 성공!", result.name + " 회원님 로그인되었습니다.", "success")
+					.then(function() {
+						location.href="/";
+					});
+				} else {
+					swal({
+						  title: '로그인 실패!.',    
+						  text: "아이디와 비밀번호를 다시 확인 후 시도해 주세요.", 
+						  icon: 'warning',
+						});
+				}
+			},
+			error : function(){
+				alert("ajax error..!");
+			}
+		});
+	};
+	
 	/* 네이버 로그인 s */
 	$("#naverBtn").on("click", function() {
 		swal("준비중입니다",);

@@ -19,6 +19,7 @@
 			,mmEmail
 			,mmEmailRecieveCheckNy
 			,mmGender
+			,mmYear
 			,mmBirth
 			,mmGrade
 			,mmCertNy
@@ -36,6 +37,7 @@
 			,#{mmEmail}
 			,0
 			,#{mmGender}
+			,#{mmYear}
 			,#{mmBirth}
 			,1
 			,#{mmCertNy}
@@ -128,7 +130,8 @@
 		WHERE 1=1
 			AND mmId = #{mmId}
 	</select>
-	<!-- 로그인세션 -->
+	
+	<!--SNS 로그인세션 -->
 	<select id="logInCd" resultMap="resultMapObj">
 		SELECT
 			mmSeq
@@ -141,6 +144,21 @@
 		WHERE 1=1
 			AND mmId = #{mmId}
 	</select>
+	<!--일반 로그인세션 -->
+	<select id="signInCd" resultMap="resultMapObj">
+		SELECT
+			mmSeq
+			,mmId
+			,mmName
+			,mmAdminNy
+			,mmCertNy
+		FROM 
+			member
+		WHERE 1=1
+			AND mmId = #{mmId}
+			AND mmPassword = #{mmPassword}
+	</select>
+	
 	<select id="adrList" resultMap="resultMapObj">
 		SELECT
 			*

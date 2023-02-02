@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mammoth.infra.common.util.UtilSecurity;
+
 @Service
 public class MemberServiceImpl implements MemberService{
 	@Autowired
@@ -12,7 +14,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public int memberInst(Member dto) throws Exception {
-		// TODO Auto-generated method stub
+		dto.setMmPassword(UtilSecurity.encryptSha256(dto.getMmPassword()));
 		return dao.memberInst(dto);
 	}
 	@Override
@@ -29,6 +31,11 @@ public class MemberServiceImpl implements MemberService{
 	public Member logInCd(Member dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.logInCd(dto);
+	}
+	@Override
+	public Member signInCd(Member dto) throws Exception {
+		dto.setMmPassword(UtilSecurity.encryptSha256(dto.getMmPassword())); 
+		return dao.signInCd(dto);
 	}
 	@Override
 	public List<Member> adrList(MemberVo vo) throws Exception {

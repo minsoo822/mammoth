@@ -381,13 +381,14 @@
 					        <input id="birth_year" name="mmYear" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
 					        <input id="birth_month" name="mmMonth" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
 					        <input id="birth_day" name="mmDay" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
+					        <!-- <input id="mmBirth" name="mmBirth" type="hidden" value=""> -->
 					        <p class="calendar " style="margin: 0px;">
 					            <span class="switch-radio">
 					                <input id="is_solar_calendar0" name="is_solar_calendar" value="1" type="radio">
 					                <label for="is_solar_calendar0">남자</label>
 					                <input id="is_solar_calendar1" name="is_solar_calendar" value="2" type="radio">
 					                <label for="is_solar_calendar1">여자</label>
-					                <input id="gender" name="mmGender" type="hidden" value="">
+					                <input id="gender" name="mmGender" type="hidden" value="0">
 					            </span>
 					        </p>
 					    </div>
@@ -426,18 +427,25 @@
 		$("#closeModal").on("click", function(){
 			$("#modal").hide();
 		});
-	
+		/* window.onload = function(){
+			var month = $("#birth_month").val();
+			var day = $("#birth_day").val();
+			
+			var birth = $("#birth_month").val() + $("#birth_day").val();
+		
+			$("#mmBirth").attr("value", birth);			
+		}; */
 		$(document).ready(function(){
+			//통신사 코드 넘겨주는 부분
 	    	$("#telecom").change(function(){
 	    		$('#certTelecom').val($(this).val()).prop("selected",true);
 	    		console.log("Telecom : " + $(this).val());
 	    	});
-
+			//성별체크해서 값넘겨주는부분 
 	    	$("input[name='is_solar_calendar']").change(function(){
 	    		var genderVal = $("input[name='is_solar_calendar']:checked").val();
 	    		$("#gender").attr("value", genderVal);
 	    	});
-		
 		});
 		//아이디 중복 체크
 		$("#member_id").on("focusout", function() {
@@ -451,12 +459,10 @@
 				},
 				success : function(result) {
 					if(result.rt == "success") {
-						alert("사용가능");		
 						$("#idMsg").show();
 						$("#idMsg").html("사용 가능한 아이디 입니다.");
 						$("#idMsg").css("color","#048be3;");
 					} else {
-						alert("사용불가능");
 						$("#idMsg").show();
 					}
 				}
@@ -482,13 +488,54 @@
 		
 		
 		goSignup = function() {
-			
-		var genderVal = $("#gender").val();
 
-		console.log(genderVal);
+			if($("#member_id").val() == '' || $("#member_id").val() == null ){
+				swal({
+					  title: '아이디를 입력 해주세요!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			if($("#pwCheck").val() == '' || $("#pwCheck").val() == null ){
+				swal({
+					  title: '비밀번호를 입력 해주세요!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			if($("#email1").val() == '' || $("#email1").val() == null ){
+				swal({
+					  title: '이메일을 입력 해주세요!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			if($("#birth_day").val() == '' || $("#birth_day").val() == null ){
+				swal({
+					  title: '생년월일을 입력 해주세요!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			if($("#gender").val() == '0'){
+				swal({
+					  title: '성별을 선택 해주세요!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			if($("#certYn").val() == '0'){
+				swal({
+					  title: '휴대폰 인증을 완료해주세요!.',    
+					  text: '휴대폰 인증을 하지 않으셨습니다.', 
+					  icon: 'warning',
+					});
+				return false;				
+			}
+			
 		form.attr("action", "/member/signUpInst").submit();
 			
-		}
+		};
 		
 	</script>
 	<script type="module">

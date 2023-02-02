@@ -20,6 +20,7 @@ public class MemberDao {
 //	로그인&회원가입 s
 	public int idCheck(Member dto) { return sqlSession.selectOne(namespace + ".idCheck", dto); }
 	public Member logInCd(Member dto) {return sqlSession.selectOne(namespace + ".logInCd", dto);}
+	public Member signInCd(Member dto) {return sqlSession.selectOne(namespace + ".signInCd", dto);}
 	public int memberInst(Member dto) { return sqlSession.insert(namespace + ".memberInst", dto);}
 //	로그인&회원가입 e	
 //	회원정보 불러오기&수정 s

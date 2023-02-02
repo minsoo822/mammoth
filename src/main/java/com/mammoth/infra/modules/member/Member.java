@@ -15,6 +15,7 @@ public class Member extends Base{
 	private String mmEmail;
 	private Integer mmEmailRecieveCheckNy;
 	private Integer mmGender;
+	private String mmYear;
 	private String mmBirth;
 	private Integer mmGrade;
 	private Integer mmCertNy;
@@ -280,6 +281,12 @@ public class Member extends Base{
 	}
 	public void setMmDay(Integer mmDay) {
 		this.mmDay = mmDay;
+	}
+	public String getMmYear() {
+		return mmYear;
+	}
+	public void setMmYear(String mmYear) {
+		this.mmYear = mmYear;
 	}
 	
 	

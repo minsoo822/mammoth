@@ -12,6 +12,7 @@
 		INSERT INTO cupon (
 		cpName
 		,cpDiscount
+		,cpPercentNy
 		,cpUseNy
 		,cpDelNy
 		,cp_mmSeq
@@ -19,6 +20,7 @@
 		VALUES (
 		'회원가입 쿠폰팩'
 		,10000
+		,0
 		,0
 		,0
 		,#{mmSeq}

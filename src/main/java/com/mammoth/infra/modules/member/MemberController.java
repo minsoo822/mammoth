@@ -99,12 +99,18 @@ public class MemberController {
 	@RequestMapping(value="signUpInst")
 	public String signUpInst(Member dto , Cupon cpdto) throws Exception {
 		
+		System.out.println("--------------월 :" + dto.getMmMonth());
+		System.out.println("--------------일 :" + dto.getMmDay());
+		
+		
 		dto.setMmBirth(String.valueOf(dto.getMmMonth() + dto.getMmDay()));
 		
 		service.memberInst(dto);
+		System.out.println("--------------- : " + dto.getMmSeq());
+		cpdto.setMmSeq(dto.getMmSeq());
 		cpservice.signUpCupon(cpdto);
 		
-		return "infra/home/user/main";
+		return "infra/member/user/login";
 	}
 	
 	@RequestMapping(value="myinfo")
@@ -177,7 +183,7 @@ public class MemberController {
 		return "infra/member/user/mypage";
 	}
 	
-	
+	//sns로그인
 	@ResponseBody
     @RequestMapping(value = "idCheck")
     public Map<String, Object> idCheck(Member dto, HttpSession httpSession) throws Exception {
@@ -187,6 +193,30 @@ public class MemberController {
         Member logInCd = service.logInCd(dto);
         
         if(idCheck > 0 ) {
+        	returnMap.put("rt", "success");
+        	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+        	httpSession.setAttribute("sessSeq", logInCd.getMmSeq());
+			httpSession.setAttribute("sessId", logInCd.getMmId());
+			httpSession.setAttribute("sessName", logInCd.getMmName());
+			httpSession.setAttribute("sessAdmin", logInCd.getMmAdminNy());
+			returnMap.put("name", logInCd.getMmName());
+        } else {
+        	returnMap.put("rt", "fail");
+        }
+        return returnMap;
+    }
+	//일반 로그인
+	@ResponseBody
+    @RequestMapping(value = "signInCd")
+    public Map<String, Object> signInCd(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>(); 
+        
+        System.out.println("아이디 :" +dto.getMmId());
+        System.out.println("비밀번호 :" +dto.getMmPassword());
+        Member logInCd = service.signInCd(dto);
+        
+        System.out.println(logInCd);
+        if(logInCd != null ) {
         	returnMap.put("rt", "success");
         	httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
         	httpSession.setAttribute("sessSeq", logInCd.getMmSeq());

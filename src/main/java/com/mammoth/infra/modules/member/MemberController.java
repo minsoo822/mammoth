@@ -248,6 +248,7 @@ public class MemberController {
         return returnMap;
     }
 	
+	
 	@ResponseBody
     @RequestMapping(value = "kakaoLoginProc")
     public Map<String, Object> memberInst(Member dto, HttpSession httpSession) throws Exception {
@@ -262,6 +263,8 @@ public class MemberController {
     		httpSession.setAttribute("sessName", dto.getMmName());
     		httpSession.setAttribute("sessEmail", dto.getMmEmail());
     		httpSession.setAttribute("sessAdmin", dto.getMmAdminNy());
+    		
+    		returnMap.put("rt", "fail");
         return returnMap;
     }
 	

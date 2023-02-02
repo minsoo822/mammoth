@@ -1371,7 +1371,7 @@ li {
 	$("#minus").on("click", function() {
 		
 		if($("#prAmount").val() < 2 ) {
-			alert("수량을 1개 이하로 변경이 불가능합니다.");
+			alert("1개 이하의 수량은 안됩니다.");
 			return false;
 		}
 		// 문자열 앞에 +를 써주면 int형으로 사용 가능
@@ -1401,6 +1401,8 @@ li {
 	
 	$("#buyNowBtn").on("click", function() {
 		
+		alert("buynow");
+		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 			
 			alert("로그인 후 사용가능한 서비스입니다.");
@@ -1410,7 +1412,7 @@ li {
 		form.attr("action", "/product/buyNowInst").submit();
 		
 	});
-	 
+	
 	</script>
 </body>
 </html>

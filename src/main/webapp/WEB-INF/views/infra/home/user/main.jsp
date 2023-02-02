@@ -472,6 +472,8 @@
 	};
 	$("#buyNowBtn").on("click", function() {
 		
+		alert("buynow");
+		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 			
 			alert("로그인 후 사용가능한 서비스입니다.");
@@ -509,7 +511,7 @@
 			}
 		})
 	});
-	 
+	
 	</script>	
 </body>
 </html>

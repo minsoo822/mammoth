@@ -282,11 +282,11 @@
 											,mmBirth : account.birthday		
 										}
 										,success : function(response) {
-											if (response.rt == "fail") {
-											alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+											if (response.rt == "success") {
+												window.location.href = "/";
 											return false;
 											} else {
-											window.location.href = "/";
+												alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
 											}
 										},
 										error : function(jqXHR, status, error) {

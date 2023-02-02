@@ -264,7 +264,6 @@ public class MemberController {
     		httpSession.setAttribute("sessEmail", dto.getMmEmail());
     		httpSession.setAttribute("sessAdmin", dto.getMmAdminNy());
     		
-    		returnMap.put("rt", "fail");
         return returnMap;
     }
 	

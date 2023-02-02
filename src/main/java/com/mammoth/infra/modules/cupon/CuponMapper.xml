@@ -29,5 +29,13 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT 
+			*
+		FROM cupon
+		WHERE 1=1
+		AND cp_mmSeq = #{mmSeq}
+	</select>
 
 </mapper>

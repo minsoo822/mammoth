@@ -420,7 +420,7 @@ table {
 				<div class="item">
 					<p style="margin: 0px;">사용가능한 쿠폰</p>
 					<div class="xans-element- xans-myshop xans-myshop-asyncbankbook money ">
-						<a href="/myshop/coupon/coupon.html"><span id="xans_myshop_bankbook_coupon_cnt">7</span></a>
+						<a href="/myshop/coupon/coupon.html"><span id="xans_myshop_bankbook_coupon_cnt"><c:out value="${fn:length(cpList)}" /></span></a>
 					</div>
 				</div>
     		</div>
@@ -431,7 +431,7 @@ table {
     				<div class="my_title">나의 쇼핑 정보</div>
     				<ul style="padding-left: 0px; margin: 0px;">
     					<li>
-    						<a href="/myshop/order/list.html">
+    						<a href="/order/orderList">
     							<img src="/resources/images/myicon_04.png" alt="">주문/배송현황
 								<span class="xans-element- xans-layout xans-layout-statelogon ">
 									<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value ">
@@ -441,7 +441,7 @@ table {
 							</a>
     					</li>
     					<li>
-    						<a href="/myshop/order/list.html?mode=cs"><img src="/resources/images/myicon_05.png" alt="">취소/교환/반품 내역
+    						<a href="/order/orderList"><img src="/resources/images/myicon_05.png" alt="">취소/교환/반품 내역
 							<span class="xans-element- xans-layout xans-layout-statelogon ">
 								<span class="xans-element- xans-myshop xans-myshop-orderhistorytab value ">
 									<span id="xans_myshop_total_orders_cs">0</span>

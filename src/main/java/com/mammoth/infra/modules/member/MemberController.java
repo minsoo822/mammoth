@@ -175,10 +175,13 @@ public class MemberController {
     }
 	
 	@RequestMapping(value="mypage")
-	public String mypage(MemberVo vo, Model model) throws Exception {
+	public String mypage(MemberVo vo, Cupon cpdto, Model model) throws Exception {
 		
 		Member mypage = service.selectOne(vo);
 		model.addAttribute("item", mypage);
+		
+		List<Cupon> cpList = cpservice.selectList(cpdto);
+		model.addAttribute("cpList", cpList);
 		
 		return "infra/member/user/mypage";
 	}

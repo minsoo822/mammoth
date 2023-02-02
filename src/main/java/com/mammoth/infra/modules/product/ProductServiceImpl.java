@@ -27,11 +27,11 @@ public class ProductServiceImpl implements ProductService{
 		return dao.selectList(dto);
 	}
 	
-//	@Override
-//	public List<Product> selectListFromCategory(Product dto) throws Exception {
-//		
-//		return dao.selectListFromCategory(dto);
-//	}
+	@Override
+	public List<Product> selectListFromCategory(Product dto) throws Exception {
+		
+		return dao.selectListFromCategory(dto);
+	}
 
 	@Override
 	public void insert(Product dto) throws Exception {

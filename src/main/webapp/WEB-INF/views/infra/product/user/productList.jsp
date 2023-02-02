@@ -156,10 +156,10 @@
 			
 			prKind.val(category);
 			
-			alert("prKind 상품 종류 seq : " + category);
-			
-			/* form.attr("action", "/product/productList").submit(); */
+			form.attr("action", "/product/productList").submit();
 		};
+		
+		
 		
 	</script>	
 </body>

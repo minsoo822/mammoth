@@ -20,7 +20,7 @@ public class ProductDao {
 	
 	public List<Product> selectList(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectList", dto);}
 	
-//	public List<Product> selectListFromCategory(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectListFromCategory", dto);}
+	public List<Product> selectListFromCategory(Product dto) throws Exception {return sqlSession.selectList(namespace + ".selectListFromCategory", dto);}
 	
 	public void insert(Product dto) throws Exception {sqlSession.insert(namespace + ".insert", dto);}
 	

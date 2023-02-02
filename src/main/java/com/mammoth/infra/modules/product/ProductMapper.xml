@@ -64,7 +64,7 @@
     	ORDER BY prSeq DESC 
     </select>
     
-    <!-- <select id="selectListFromCategory" resultMap="resultMapObj">
+    <select id="selectListFromCategory" resultMap="resultMapObj">
     	SELECT
     		pr.prSeq
     		,pr.prName
@@ -84,7 +84,7 @@
     		AND prup.upDefaultNy = 1
             AND prKind = #{prKind}
     	ORDER BY prSeq DESC 
-    </select> -->
+    </select>
     
     <insert id="insert">
     	INSERT INTO product (

@@ -513,7 +513,7 @@ tfoot {
 			<c:choose>
 				<c:when test="${selectListCount eq 0 }">
 					<!-- 장바구니가 비어있을때 s -->
-		    		<div class="xans-element- xans-order xans-order-empty ">
+		    		<div class="xans-element- xans-order xans-order-empty " >
 		    			<p>장바구니가 비어 있습니다.</p>
 		    		</div>
 		    		<!-- 장바구니가 비어있을때 e -->
@@ -558,7 +558,7 @@ tfoot {
 				                	<tr class="xans-record-">
 				                		
 				                		<td>
-				                			<input type="hidden" name="bskSeqs" value="<c:out value="${bskList.bskSeq }"></c:out>">
+				                			<input type="hidden" id="bskSeqs" name="bskSeqs" value="<c:out value="${bskList.bskSeq }"></c:out>">
 				                			<input type="checkbox" id="basket_chk_id_0" name="checkboxSeq" style="cursor: pointer;" value="<c:out value="${bskList.prSeq },${bskList.bskSell_Price }"></c:out>">
 			                			</td>
 				                		<td class="thumb gClearLine">
@@ -849,6 +849,15 @@ tfoot {
 	});
 	
 	$("#MultiBuy").on("click", function() {
+
+		if($("#bskSeqs").val() == undefined ) {
+			swal({
+				  title: '장바구니가 이었습니다!.',    
+				  icon: 'warning',
+				});
+			return false;				
+		}
+		
 		swal({
 			  title: "선택하신 상품을 주문하시겠습니까?",
 			  text: "선택하신 상품이 주문페이지로 넘어갑니다!",
@@ -966,6 +975,14 @@ tfoot {
 		//var lastPriceVal = lastPrice.defaultValue;
 		
 		allOrderForm = function(key) {
+			
+			if($("#bskSeqs").val() == undefined ) {
+				swal({
+					  title: '장바구니가 이었습니다!.',    
+					  icon: 'warning',
+					});
+				return false;				
+			}
 			mmSeq.attr("value", key);
 			//lastPrice.attr("value", lastPrice.defaultValue);
 			form.attr("action", "/basket/oderFormUptd").submit();

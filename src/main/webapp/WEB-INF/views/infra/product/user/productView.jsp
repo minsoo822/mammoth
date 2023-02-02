@@ -1410,7 +1410,7 @@ li {
 		form.attr("action", "/product/buyNowInst").submit();
 		
 	});
-	
+	 
 	</script>
 </body>
 </html>

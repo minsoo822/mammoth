@@ -62,7 +62,6 @@
 	<form method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" value="${sessSeq }">
 	<input type="hidden" name="prSeq" id="prSeq" value="">
-	<input type="hidden" name="prKind" id="prKind" value="">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
@@ -149,17 +148,6 @@
 			prSeq.val(key);
 			form.attr("action", "/product/productView").submit();
 		};
-		
-		category = function(category) {
-			
-			var prKind = $("#prKind");
-			
-			prKind.val(category);
-			
-			form.attr("action", "/product/productList").submit();
-		};
-		
-		
 		
 	</script>	
 </body>

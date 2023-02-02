@@ -90,11 +90,11 @@
 	</style>
 </head>
 <body>
+	<form id="mainForm">
 
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<form id="mainForm">
 		
 		<!-- section -->
 		<div class="container" style="margin-top: 100px; margin-bottom: 150px;">

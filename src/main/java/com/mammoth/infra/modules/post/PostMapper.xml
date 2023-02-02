@@ -22,7 +22,7 @@
     		,poup.upUuidName
     	FROM post po
     	JOIN member mm ON mm.mmSeq = po.po_mmSeq
-    	JOIN postUploaded poup ON po.poSeq = poup.up_poSeq
+    	LEFT JOIN postUploaded poup ON po.poSeq = poup.up_poSeq
     	WHERE 1=1
     		AND po.poUseNy = 1
     		AND po.poDelNy = 0

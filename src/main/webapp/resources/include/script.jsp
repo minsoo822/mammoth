@@ -66,5 +66,15 @@
 		form.attr("action" , mypage ).submit();
 	}
 
+	
+	// header부분에서 드롭다운 버튼 클릭시 상품 종류에 따른 리스트 조회
+	category = function(category) {
+		
+		var prKind = $("#prKind");
+		
+		prKind.val(category);
+		
+		form.attr("action", "/product/productList").submit();
+	};
 
 </script>

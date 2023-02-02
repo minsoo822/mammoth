@@ -17,7 +17,7 @@ public class PostDao {
 	
 	private String namespace = "com.mammoth.infra.modules.post.PostMapper";
 
-	public List<Post> selectList() throws Exception {return sqlSession.selectList(namespace + ".selectList", "");}
+	public List<Post> selectList() throws Exception {return sqlSession.selectList(namespace + ".selectList", "");} 
 	
 	
 }

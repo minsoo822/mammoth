@@ -46,33 +46,35 @@
 	}
 </style>
 
+<!-- 모든 페이지에서 사용되어질 hidden input -->
+<input type="hidden" name="prKind" id="prKind" value="">
+
 <!-- Header Area -->
 <nav class="navbar navbar-expand-lg sticky-top" style="border-bottom: 1px solid #E6E6E6; background: white;">
   <div class="container-fluid">
     <a class="navbar-brand" style="padding-left: 50px; font-size: 25pt; color: #000; text-decoration: none;" href="/"><b>FORMENT</b></a>
     <div class="collapse navbar-collapse" style="padding-left: 30px;" id="navbarNavDropdown">
 	    <div class="dropdown">
-		  <button class="dropbtn" style="font-weight: bold;" href="/product/productList">PRODUCT</button>
+		  <button class="dropbtn" style="font-weight: bold;" onclick="category(0)">PRODUCT</button> 
 		  <div class="dropdown-content">
-		  <a href="/product/productList">ALL</a>
-		  <a href="#">BEST</a>
-		  <a href="#">PERFUME</a>
-		  <a href="#">BODY & HAND</a>
-		  <a href="#">HAIR</a>
-		  <a href="#">LIP</a>
-		  <a href="#">LIFE STYLE</a>
-		  <a href="#">MEN'S SKIN</a>
+		  <a onclick="category(0)">ALL</a>
+		  <a onclick="category(1)">PERFUME</a>
+		  <a onclick="category(2)">BODY & HAND</a>
+		  <a onclick="category(3)">HAIR</a>
+		  <a onclick="category(4)">LIP</a>
+		  <a onclick="category(5)">LIFE STYLE</a> 
+		  <a onclick="category(6)">MEN'S SKIN</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn" style="font-weight: bold;">ABOUT</button>
+		  <button class="dropbtn" style="font-weight: bold;" type="button" onclick="location.href='/magazineList';">ABOUT</button>
 		  <div class="dropdown-content">
 		  <a href="/magazineList">MAGAZINE</a>
 		  <a href="/campaignList">CAMPAIGN</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn" style="font-weight: bold;">C/S CENTER</button>
+		  <button class="dropbtn" style="font-weight: bold;" type="button" onclick="location.href='/post/postList';">C/S CENTER</button>
 		  <div class="dropdown-content">
 		  <a href="/post/postList">NOTICE</a>
 		  <a href="/membership">MEMBERSHIP</a>

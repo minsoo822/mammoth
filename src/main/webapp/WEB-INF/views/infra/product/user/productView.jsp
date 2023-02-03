@@ -782,6 +782,7 @@ li {
 
 		<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 		<input type="hidden" name="prSeq" id="prSeq" value="${one.prSeq }">
+		<input type="hidden" name="lastPrice" id="lastPrice" value="${one.prTotalPrice}">
 
 		<input type="hidden" name="rv_mmSeq" id="rv_mmSeq" value="${sessSeq }">
 		<input type="hidden" name="rv_prSeq" id="rv_prSeq" value="${one.prSeq }">
@@ -931,7 +932,7 @@ li {
 										<table border="1" summary="" class="total_options">
 											<tfoot>
 												<tr class="detail-amount-cell">
-													<td colspan="1">수량 : <input type="text" id="prAmount" name="bskAmount" style="width: 50px; text-align: center;" value="1">
+													<td colspan="1">수량 : <input type="text" id="prAmount" name="bskAmount" style="width: 50px; text-align: center;" value="1" readonly>
 														<button type="button" id="plus" style="width: 30px; text-align: center;">+</button>
 														<button type="button" id="minus" style="width: 30px; text-align: center;">-</button>
 													</td>
@@ -950,8 +951,8 @@ li {
 								</div>
 								<div class="xans-element- xans-product xans-product-action ">
 									<div class="btAction">
-										<a id="cartBtn" class="btn_action white  wm_pc_cart" style="width: 200px;"> <span>ADD TO CART</span></a>
-										<a id="buyNowBtn" class="btn_action purchase" style="text-decoration: none;"> <span id="btnBuy" class="wm_pc_order">BUY NOW</span></a>
+										<a id="cartBtn" class="btn_action white  wm_pc_cart" style="width: 200px; cursor: pointer;"> <span>ADD TO CART</span></a>
+										<a id="buyNowBtn" class="btn_action purchase" style="text-decoration: none;  cursor: pointer;"> <span id="btnBuy" class="wm_pc_order">BUY NOW</span></a>
 									</div>
 								</div>
 							</div>
@@ -1366,6 +1367,7 @@ li {
 		$("#prTotalPrice").html(price.toLocaleString() + "원");
 		
 		$("#prTotalPrice2").val(price);
+		$("#lastPrice").val(price);
 	});
 	
 	$("#minus").on("click", function() {

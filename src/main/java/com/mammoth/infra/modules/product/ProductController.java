@@ -130,7 +130,11 @@ public class ProductController {
 	@RequestMapping(value="buyNowInst")
 	public String buyNowInst(Basket bskdto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 		
+		System.out.println("----------------------------------lastPrice :" + bskdto.getLastPrice());
+		
 		bskService.basketInst(bskdto);
+//		최종가격 세션에 올림
+		httpSession.setAttribute("sessLastPrice", bskdto.getLastPrice());
 		bskdto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		redirectAttributes.addFlashAttribute("dto", bskdto);
 		return "redirect:/basket/buyNowList";

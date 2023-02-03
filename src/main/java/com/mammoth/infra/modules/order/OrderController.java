@@ -49,7 +49,7 @@ public class OrderController {
 		//회원정보
 		Member selectOne = mmservice.selectOne(mmvo);
 		model.addAttribute("item", selectOne);
-		Member adrselectOne = mmservice.adrSelectOne(mmvo);
+		Member adrselectOne = mmservice.adrselectOne(mmvo);
 		model.addAttribute("adritem", adrselectOne);
 		//쿠폰 리스트
 		List<Order> cuponList = service.cuponList(vo);

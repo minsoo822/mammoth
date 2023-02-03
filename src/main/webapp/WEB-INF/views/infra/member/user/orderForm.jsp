@@ -775,7 +775,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        <img src="/resources/images/ico_required.gif" alt="필수">
 				                    </th>
 				                    <td>
-				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="${adritem.mmName }" type="text">
+				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="${adritem.adrName }" type="text">
 				                    </td>
 				                </tr>
 				                <tr>

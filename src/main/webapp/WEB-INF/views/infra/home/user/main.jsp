@@ -157,12 +157,12 @@
 	
 	<!-- section2 --> <!-- FORMENT VIDEO -->
 	<div class="section" style="padding: 80px 150px 150px 150px; background: #f8f8f8;">
-		<div class="row mb-2">
+		<div class="row mb-2" style="width: 1200px; margin-left: auto; margin-right: auto;">
 			<div class="col">
 				<span><b>FORMENT VIDEO</b></span> 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="width: 1200px; margin-left: auto; margin-right: auto;">
 			<div class="col col-9" id="youtibeShow1" style="display: flex;">
 				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/0kcLbkptq-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
@@ -196,7 +196,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mt-3">
+		<div class="row mt-3" style="width: 1200px; margin-left: auto; margin-right: auto;">
 			<div class="col" id="youtibeTextShow1" style="display: flex;">
 				<span><b>마스터 퍼퓨머가 '성공'에 영감을 받아 탄생한 향수</b></span>
 			</div>

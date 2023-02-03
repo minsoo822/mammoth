@@ -249,7 +249,6 @@
 						console.log("id : " + id);
 						console.log("email : " + account.email);
 						console.log("name : " + account.profile.nickname);
-						console.log("picture : " + account.profile.thumbnail_image_url);
 						console.log("gender : " + account.gender);
 						console.log("birthday : " + account.birthday);
 						
@@ -268,6 +267,22 @@
 										location.href="/";
 									});
 								} else {
+									
+									if(account.email == null || account.email == '') {
+										swal({
+											  title: '이메일 정보수집을 동의해주세요.!',    
+											  icon: 'warning',
+											});
+										return false;
+									}
+									if(account.gender == null || account.gender == '') {
+										swal({
+											  title: '성별 정보수집을 동의해주세요.!',    
+											  icon: 'warning',
+											});
+										return false;
+									}
+									
 									$.ajax({
 										async: true
 										,cache: false

@@ -189,11 +189,10 @@
 				<div class="loginbox">
 					<div class="box">
 						<label class="ePlaceholder " title="아이디" style="width: 100%; margin: 0 0 7px;">
-							<input id="member_id" name="member_id" class="inputTypeText" placeholder="아이디" value=""
-								type="text">
+							<input id="member_id" name="member_id" class="inputTypeText" placeholder="아이디" value="admin" type="text">
 						</label>
 						<label class="ePlaceholder " title="비밀번호" style="width: 100%;">
-							<input id="member_passwd" name="member_passwd" value="" type="password" placeholder="비밀번호">
+							<input id="member_passwd" name="member_passwd" value="123" type="password" placeholder="비밀번호">
 						</label>
 					</div>
 					<div class="btn_wrap ptmore">

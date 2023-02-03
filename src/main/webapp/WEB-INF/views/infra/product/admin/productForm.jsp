@@ -132,7 +132,7 @@
 				<div class="col-6">
 					<br>
 					<label for="useNY2" class="form-label">상품 종류<span style="color: red;">*</span></label>
-					<select class="form-select" aria-label="Default select example" id="prKind" name="prKind">
+					<select class="form-select" id="kind" onchange="selectBoxChange(this.value);">
 						<option value=""selected>선택하기</option>
 						<option value="1">PERFUME(향수)</option>
 						<option value="2">BODY & HAND(바디워시,핸드크림)</option>
@@ -141,6 +141,7 @@
 						<option value="5">LIFE STYLE(기타용품)</option>
 						<option value="6">MEN'S SKIN(남성용)</option>
 					</select>
+					<input type="hidden" id="prKind" name="prKind" value="">
 				</div>
 				<div class="col-6">
 					<br>
@@ -235,6 +236,14 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+		$(document).ready(function(){
+			//상품종류 코드 넘겨주는 부분
+	    	$("#kind").change(function(){
+	    		$("#prKind").attr("value",$(this).val());
+	    		console.log("상품종류 : " + $(this).val());
+	    	});
+		});
+		
 		var form = $("#mainForm");
 		
 		/* 상품등록 버튼 */

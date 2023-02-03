@@ -60,7 +60,11 @@ public class ProductController {
 	@RequestMapping(value="productInst")
 	public String insert(Product dto, RedirectAttributes redirectAttributes) throws Exception {
 		
+		
+		System.out.println("----------------------kind :" + dto.getPrKind());
 		service.insert(dto);
+		
+//		dto.setPrKind();
 		redirectAttributes.addFlashAttribute("dto", dto);
 		
 		return "redirect:/product/productList";

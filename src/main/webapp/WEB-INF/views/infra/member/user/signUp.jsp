@@ -252,10 +252,12 @@
 		display: none;
 	}
 	.white-bg {
-		width: 100%;
+		width: 520px;
 		height: 300px;
 		background: white;
 		border-radius: 8px;
+		margin-left: auto;
+		margin-right: auto;
 		/* padding: 20px; */
 	}
 	.modal_head {

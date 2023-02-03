@@ -410,7 +410,7 @@
 			                <td>
 			                	<input type="hidden" name="adrSeq" value="${adritem.adrSeq }">
 			                    <input id="postcode1" name="mmZipcode" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="${adritem.mmZipcode }" type="text">                    
-			                    <a href="#none" onclick="sample6_execDaumPostcode()" id="postBtn">
+			                    <a href="#none" onclick="sample6_execDaumPostcode()" id="postBtn" style="cursor: pointer;">
 			                    	<img src="/resources/images/btn_zipcode.png" alt="우편번호">
 		                    	</a><br>
 			                    <input id="addr1" name="mmAddress" class="inputTypeText" placeholder="" readonly="readonly" value="${adritem.mmAddress }" type="text"> 기본주소<br>
@@ -527,10 +527,10 @@
 				</table>
     		</div>
     		<div class="ec-base-button justify">
-    			<a href="#" onclick="btnMyinfoSave()"><img src="/resources/images/btn_modify_member.gif" alt="회원정보수정"></a>
-    			<a href="#"><img src="/resources/images/btn_modify_cancel.gif" alt="취소"></a>
+    			<a onclick="btnMyinfoSave()" style="cursor: pointer;"><img src="/resources/images/btn_modify_member.gif" alt="회원정보수정"></a>
+    			<a href="/"><img src="/resources/images/btn_modify_cancel.gif" alt="취소"></a>
     			<span class="gRight">
-		            <a href="#" onclick="">
+		            <a href="#" onclick="" style="cursor: pointer;">
 		            	<img src="/resources/images/btn_modify_out.gif" alt="회원탈퇴">
 	            	</a>
 		        </span>

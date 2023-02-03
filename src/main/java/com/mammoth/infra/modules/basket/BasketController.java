@@ -142,6 +142,7 @@ public class BasketController {
 		httpSession.setAttribute("sessLastPrice", dto.getLastPrice());
 		//dto.setLastPrice(dto.getLastPrice());
 		vo.setMmSeq(dto.getMmSeq());
+		System.out.println("-------------------------------oderFormUptd :"+ vo.getMmSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 		//redirectAttributes.addFlashAttribute("dto", dto);
 		

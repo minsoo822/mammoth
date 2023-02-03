@@ -114,8 +114,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="myinfo")
-	public String myinfo(@ModelAttribute("vo") MemberVo vo, Member dto ,Model model) throws Exception {
+	public String myinfo(@ModelAttribute("vo") MemberVo vo, Member dto ,Model model, HttpSession httpSession) throws Exception {
 		
+		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		
 		Member myInfo = service.selectOne(vo);
 		model.addAttribute("item", myInfo);
@@ -251,10 +252,12 @@ public class MemberController {
 	
 	@ResponseBody
     @RequestMapping(value = "kakaoLoginProc")
-    public Map<String, Object> memberInst(Member dto, HttpSession httpSession) throws Exception {
+    public Map<String, Object> memberInst(Member dto, Cupon cpdto ,HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>(); 
 
-        	service.memberInst(dto);    
+        	service.memberInst(dto);   
+        	cpdto.setMmSeq(dto.getMmSeq());
+        	cpservice.signUpCupon(cpdto);
             
         	returnMap.put("rt", "success");
             httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);

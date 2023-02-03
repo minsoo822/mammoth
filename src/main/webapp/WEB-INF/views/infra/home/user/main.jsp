@@ -491,7 +491,7 @@
 	});
 	
 	$("#basketInst").on("click", function(){
-
+		
 		$.ajax({
 			url: '/basketInst',
 			type: 'POST',
@@ -508,6 +508,14 @@
 					      icon: "success",
 					    })
 					    .then(function() {
+					    	window.location = "/";
+					    });
+				} else {
+					swal({
+						  title: '장바구니에 해당제품이 존재합니다!',    
+						  icon: 'warning',
+						})
+						.then(function() {
 					    	window.location = "/";
 					    });
 				}

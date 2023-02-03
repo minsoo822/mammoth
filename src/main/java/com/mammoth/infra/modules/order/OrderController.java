@@ -13,6 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mammoth.infra.modules.basket.Basket;
 import com.mammoth.infra.modules.basket.BasketServiceImpl;
+import com.mammoth.infra.modules.member.Member;
+import com.mammoth.infra.modules.member.MemberServiceImpl;
+import com.mammoth.infra.modules.member.MemberVo;
 
 @Controller
 @RequestMapping(value="/order/")
@@ -22,6 +25,8 @@ public class OrderController {
 	OrderServiceImpl service;
 	@Autowired
 	BasketServiceImpl bskservice;
+	@Autowired
+	MemberServiceImpl mmservice;
 	
 	
 	@RequestMapping(value="orderList")
@@ -31,21 +36,21 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="orderForm")
-	public String orderForm(@ModelAttribute("vo") OrderVo vo, @ModelAttribute("dto")Basket bskdto , Order dto, Model model, HttpSession httpSession) throws Exception {
+	public String orderForm(@ModelAttribute("vo") OrderVo vo, MemberVo mmvo ,@ModelAttribute("dto")Basket bskdto , Order dto, Model model, HttpSession httpSession) throws Exception {
 		
-		System.out.println("-----------------------List2: " + dto.getLastPrice());
-		System.out.println("-----------------------List2: " + bskdto.getLastPrice());
-		System.out.println("-----------------------List2-2: " + httpSession.getAttribute("sessLastPrice"));
+		mmvo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		System.out.println("-------------------orderForm :" + vo.getMmSeq());
 		
-		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		dto.setLastPrice((int)httpSession.getAttribute("sessLastPrice"));
 		model.addAttribute("lastPrice", dto.getLastPrice());
 		//장바구니에서 주문할때 상품리스트
 		List<Order> oderFormList = service.selectList(vo);
 		model.addAttribute("oderFormList", oderFormList);
 		//회원정보
-		Order selectOne = service.selectOne(vo);
+		Member selectOne = mmservice.selectOne(mmvo);
 		model.addAttribute("item", selectOne);
+		Member adrselectOne = mmservice.adrSelectOne(mmvo);
+		model.addAttribute("adritem", adrselectOne);
 		//쿠폰 리스트
 		List<Order> cuponList = service.cuponList(vo);
 		model.addAttribute("cuponList", cuponList);
@@ -54,6 +59,9 @@ public class OrderController {
 		List<Order> buyNowList = service.selectList(vo);
 		model.addAttribute("oderFormList", buyNowList);
 		
+//		System.out.println("-----------------------List2: " + dto.getLastPrice());
+//		System.out.println("-----------------------List2: " + bskdto.getLastPrice());
+//		System.out.println("-----------------------List2-2: " + httpSession.getAttribute("sessLastPrice"));
 		return "infra/member/user/orderForm";
 	}
 	

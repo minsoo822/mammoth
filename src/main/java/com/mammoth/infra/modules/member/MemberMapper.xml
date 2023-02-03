@@ -114,9 +114,11 @@
 	<select id="adrselectOne" resultMap="resultMapObj">
 	SELECT
 		adrSeq
+		,adrName
 		,adrZipcode			AS mmZipcode
 		,adrAddress			AS mmAddress
 		,adrAddressDetail	AS mmAddressDetail
+		,adrPhoneNumber
 	FROM address
 	WHERE adr_mmSeq = #{mmSeq}
 	AND adrdefaultNy = 1

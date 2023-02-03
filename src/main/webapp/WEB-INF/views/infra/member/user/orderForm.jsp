@@ -775,7 +775,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        <img src="/resources/images/ico_required.gif" alt="필수">
 				                    </th>
 				                    <td>
-				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="${item.mmName }" type="text">
+				                        <input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="${adritem.mmName }" type="text">
 				                    </td>
 				                </tr>
 				                <tr>
@@ -783,13 +783,13 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        <img src="/resources/images/ico_required.gif" alt="필수">
 				                    </th>
 				                    <td>
-				                        <input id="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="${item.adrZipcode }" type="text"> 
+				                        <input id="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="${adritem.mmZipcode }" type="text"> 
 				                        <a href="#" id="btn_search_rzipcode">
 				                            <img src="/resources/images/btn_zipcode.png" alt="우편번호">
 				                        </a><br>
-				                        <input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="${item.adrAddress }" type="text"> 
+				                        <input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="${adritem.mmAddress }" type="text"> 
 				                        <span class="grid">기본주소</span><br>
-				                        <input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="${item.adrAddressDetail }" type="text"> 
+				                        <input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="${adritem.mmAddressDetail }" type="text"> 
 				                        <span class="grid">나머지주소</span>
 				                        <span class="grid ">(선택입력가능)</span><span class="zipcode_red_em">상세주소(동/호수)를 꼭 기입 바랍니다. </span>
 				                    </td>
@@ -801,7 +801,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				                        </span>
 				                    </th>
 				                    <td>
-				                        <input id="rphone2_3" name="rphone2_[]" maxlength="4"size="11" value="${item.adrPhoneNumber }" type="text">
+				                        <input id="rphone2_3" name="rphone2_[]" maxlength="4"size="11" value="${adritem.adrPhoneNumber }" type="text">
 				                    </td>
 				                </tr>
 				            </tbody>

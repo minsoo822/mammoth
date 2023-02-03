@@ -220,7 +220,7 @@
 				<div class="content">
 					<div class="xans-element- xans-product xans-product-detail inner">
 						<h2 class="name">
-							<strong id="basketName1">포맨트 시그니처 퍼퓸 코튼허그</strong>
+							<strong id="basketName1"></strong>
 						</h2>
 						<div class="productNormal  ">
 							<div class="xans-element- xans-product xans-product-image imgArea ">
@@ -471,6 +471,9 @@
 			}
 		});
 	};
+	
+	var modlaPrseq = $("#modalprSeq").val();
+	
 	$("#buyNowBtn").on("click", function() {
 		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
@@ -478,6 +481,10 @@
 			alert("로그인 후 사용가능한 서비스입니다.");
 			return false;
 		}
+		
+		var prSeq = $("#prSeq");
+		
+		prSeq.val($("#modalprSeq").val());
 		
 		form.attr("action", "/product/buyNowInst").submit();
 		

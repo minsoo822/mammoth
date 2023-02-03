@@ -978,7 +978,7 @@ tfoot {
 			
 			if($("#bskSeqs").val() == undefined ) {
 				swal({
-					  title: '장바구니가 이었습니다!.',    
+					  title: '장바구니가 비었습니다!.',    
 					  icon: 'warning',
 					});
 				return false;				

@@ -77,6 +77,7 @@
 				sessAdmin: <c:out value="${sessAdmin }"/><br> --%>
 	<form action="" method="post" id="mainForm">
 	<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
+	<input type="hidden" name="prSeq" id="prSeq" value="">
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
@@ -166,10 +167,10 @@
 				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/0kcLbkptq-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<div class="col col-9" id="youtibeShow2" style="display: none;">
-				<iframe width="900" height="506" src="https://www.youtube.com/embed/EJkEAo5QewU" title="[NEW RELEASE] 향기가 실린 바람과 우연의 시작, COTTON BREEZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/EJkEAo5QewU" title="[NEW RELEASE] 향기가 실린 바람과 우연의 시작, COTTON BREEZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
 			<div class="col col-9" id="youtibeShow3" style="display: none;">
-				<iframe width="900" height="506" src="https://www.youtube.com/embed/ZQDWl6HCHpE" title="포맨트 '최초' 여성 향수 출시💕 #메모리퍼퓸" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZQDWl6HCHpE" title="포맨트 '최초' 여성 향수 출시💕 #메모리퍼퓸" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
 			<div class="col col-3">
 				<div class="row m-1">

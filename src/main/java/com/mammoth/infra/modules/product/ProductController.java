@@ -132,7 +132,10 @@ public class ProductController {
 		
 		System.out.println("----------------------------------lastPrice :" + bskdto.getLastPrice());
 		
-		bskService.basketInst(bskdto);
+		int basketCount = bskService.basketCount(bskdto); 
+		if(basketCount == 0) {
+			bskService.basketInst(bskdto);
+		} 
 //		최종가격 세션에 올림
 		httpSession.setAttribute("sessLastPrice", bskdto.getLastPrice());
 		bskdto.setMmSeq((int)httpSession.getAttribute("sessSeq"));

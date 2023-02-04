@@ -29,6 +29,7 @@ public class MemberDao {
 	public int myinfoAddrInst(Member dto) { return sqlSession.insert(namespace + ".myinfoAddrInst", dto);}
 	public int myinfoAddrUpdat(Member dto) { return sqlSession.insert(namespace + ".myinfoAddrUpdat", dto);}
 	public int certUpdt(Member dto) { return sqlSession.update(namespace + ".certUpdt", dto);}
+	public int memberUpdt(Member dto) { return sqlSession.update(namespace + ".memberUpdt", dto); }
 //	회원정보수정 e	
 //	배송지 s
 	public List<Member> adrList(MemberVo vo) { return sqlSession.selectList(namespace + ".adrList", vo);}

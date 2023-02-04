@@ -437,27 +437,51 @@
 			            </tr>
 			            <tr class="">
 							<th scope="row">SMS 수신여부 <img src="/resources/images/ico_required.gif" alt="필수"></th>
-			                <td>
-			                	<input id="is_sms0" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="T" type="radio"><label for="is_sms0">수신함</label>
-								<input id="is_sms1" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="F" type="radio" checked="checked"><label for="is_sms1">수신안함</label>
-								<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
-							</td>
+							<c:choose>
+	      	         			<c:when test="${item.mmSmsRecieveCheckNy eq 0}">
+	      	         				<td>
+					                	<input id="is_sms0" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="1" type="radio"><label for="is_sms0">수신함</label>
+										<input id="is_sms1" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="0" type="radio" checked="checked"><label for="is_sms1">수신안함</label>
+										<input id="mmSmsRecieveCheckNy" name="mmSmsRecieveCheckNy" type="hidden" value="${item.mmSmsRecieveCheckNy }">
+										<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+									</td>
+	      	         			</c:when>
+	      	         			<c:otherwise>
+	      	         				<td>
+					                	<input id="is_sms0" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="1" type="radio" checked="checked"><label for="is_sms0">수신함</label>
+										<input id="is_sms1" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="0" type="radio"><label for="is_sms1">수신안함</label>
+										<input id="mmSmsRecieveCheckNy" name="mmSmsRecieveCheckNy" type="hidden" value="${item.mmSmsRecieveCheckNy }">
+										<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+									</td>
+	      	         			</c:otherwise>
+	      	         		</c:choose>
 			            </tr>
 			            <tr>
 							<th scope="row">이메일 <img src="/resources/images/ico_required.gif" alt="필수"></th>
 			                <td>
-			                    <input id="email1" name="email1"value="${item.mmEmail }" type="text"> <span id="emailMsg"></span>
+			                    <input id="email1" name="mmEmail"value="${item.mmEmail }" type="text"> <span id="emailMsg"></span>
 			                </td>
 			            </tr>
 			            <tr class="">
 							<th scope="row">이메일 수신여부 <img src="/resources/images/ico_required.gif" alt="필수"></th>
-	      	         		<td>
-	      	         			<input id="is_news_mail0" name="is_news_mail" value="T" type="radio">
-	      	         			<label for="is_news_mail0">수신함</label>
-								<input id="is_news_mail1" name="is_news_mail" value="F" type="radio" checked="checked">
-								<label for="is_news_mail1">수신안함</label>
-								<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
-							</td>
+	      	         		<c:choose>
+	      	         			<c:when test="${item.mmEmailRecieveCheckNy eq 1}">
+	      	         				<td>
+			      	         			<input id="is_news_mail0" name="is_news_mail" value="1" type="radio" checked="checked"><label for="is_news_mail0">수신함</label>
+										<input id="is_news_mail1" name="is_news_mail" value="0" type="radio"><label for="is_news_mail1">수신안함</label>
+										<input id="mmEmailRecieveCheckNy" name="mmEmailRecieveCheckNy" type="hidden" value="${item.mmEmailRecieveCheckNy }">
+										<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
+									</td>
+	      	         			</c:when>
+	      	         			<c:otherwise>
+	      	         				<td>
+			      	         			<input id="is_news_mail0" name="is_news_mail" value="1" type="radio"><label for="is_news_mail0">수신함</label>
+										<input id="is_news_mail1" name="is_news_mail" value="0" type="radio" checked="checked"><label for="is_news_mail1">수신안함</label>
+										<input id="mmEmailRecieveCheckNy" name="mmEmailRecieveCheckNy" type="hidden" value="${item.mmEmailRecieveCheckNy }">
+										<p style="margin: 0px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
+									</td>
+	      	         			</c:otherwise>
+	      	         		</c:choose>
 						</tr>
 					</tbody>
     			</table>
@@ -495,8 +519,8 @@
 			            		<tr class="">
 									<th scope="row">생년월일 <img src="/resources/images/ico_required.gif" class="" alt="필수"></th>
 					                <td>
-						                <input id="birth_month" name="birth_month" class="inputTypeText" maxlength="2" value="${month }" type="text" readonly> 월 
-						                <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="${day }" type="text" readonly> 일 
+						                <input id="birth_month" name="birth_month" class="inputTypeText" maxlength="2" value="${month }" type="text" disabled> 월 
+						                <input id="birth_day" name="birth_day" class="inputTypeText" placeholder="" maxlength="2" value="${day }" type="text" disabled> 일 
 						                <!-- <span class="gIndent20 ">
 							                <input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="isFill" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked">
 							                <label for="is_solar_calendar0">양력</label>
@@ -602,6 +626,17 @@
     		$("#certTelecom").attr("value",$(this).val());
     		console.log("Telecom : " + $(this).val());
     	});
+    	//SNS수신동의
+    	$("input[name='is_sms']").change(function(){
+    		var mmSmsRecieveCheckNyVal = $("input[name='is_sms']:checked").val();
+    		$("#mmSmsRecieveCheckNy").attr("value", mmSmsRecieveCheckNyVal);
+    	});
+    	//이메일수신동의
+    	$("input[name='is_news_mail']").change(function(){
+    		var mmEmailRecieveCheckNyVal = $("input[name='is_news_mail']:checked").val();
+    		$("#mmEmailRecieveCheckNy").attr("value", mmEmailRecieveCheckNyVal);
+    	});
+    	
     });
     
 	</script>	

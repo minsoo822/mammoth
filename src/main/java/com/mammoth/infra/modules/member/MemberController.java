@@ -150,6 +150,8 @@ public class MemberController {
 			service.adrdefaultNy(dto);
 			service.myinfoAddrUpdat(dto);
 		}
+		service.memberUpdt(dto);
+		
 		
 		vo.setMmSeq((int)httpSession.getAttribute("sessSeq"));
 		redirectAttributes.addFlashAttribute("vo", vo);

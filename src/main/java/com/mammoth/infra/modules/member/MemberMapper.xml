@@ -50,6 +50,18 @@
 		</selectKey>
 	</insert>
 	
+	<update id="memberUpdt">
+		UPDATE member
+		SET
+			mmTelecom				= #{mmTelecom}
+			,mmPhoneNumber			= #{mmPhoneNumber}
+			,mmTel					= #{mmTel}
+			,mmSmsRecieveCheckNy	= #{mmSmsRecieveCheckNy}
+			,mmEmail				= #{mmEmail}
+			,mmEmailRecieveCheckNy	= #{mmEmailRecieveCheckNy}
+			,mmModDate				= now()
+		WHERE mmSeq = #{mmSeq}
+	</update>
 	
 	<insert id="myinfoAddrInst">
 		INSERT INTO address (
@@ -97,6 +109,8 @@
 		    ,mm.mmEmail
 		    ,mm.mmPhoneNumber
 		    ,mm.mmTelecom
+		    ,mm.mmSmsRecieveCheckNy
+		    ,mm.mmEmailRecieveCheckNy
 		    ,mm.mmGender
 		    ,mm.mmCertNy
 		    ,mm.mmBirth

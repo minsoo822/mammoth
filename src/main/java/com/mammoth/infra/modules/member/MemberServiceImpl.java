@@ -87,6 +87,11 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.myinfoAddrUpdat(dto);
 	}
+	@Override
+	public int memberUpdt(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.memberUpdt(dto);
+	}
 	
 	
 	

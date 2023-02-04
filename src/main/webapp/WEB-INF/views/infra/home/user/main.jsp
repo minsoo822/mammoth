@@ -78,6 +78,7 @@
 	<form action="" method="post" id="mainForm">
 		<input type="hidden" name="mmSeq" id="mmSeq" value="${sessSeq }">
 		<input type="hidden" name="prSeq" id="prSeq" value="">
+		
 		<!-- header  -->
 		<%@include file="/resources/include/header.jsp"%>
 
@@ -248,8 +249,9 @@
 		<!-- modal section -->
 		<!-- 장바구니 modal s -->
 		<div id="popup">
-			<input type="hidden" id="modalprSeq" name="prSeq" value=""> <input
-				type="hidden" id="modalbskSell_Price" name="bskSell_Price" value="">
+			<input type="hidden" id="modalprSeq" name="prSeq" value=""> 
+			<input type="hidden" id="modalbskSell_Price" name="bskSell_Price" value="">
+			<input type="hidden" name="lastPrice" id="lastPrice" value="">
 			<div
 				class="xans-element- xans-product xans-product-optionselectlayer ec-base-layer "
 				style="border: 1px solid #000;">
@@ -413,6 +415,8 @@
 				$("#modalbskSell_Price").attr("value", resultMap.basketTotalPrice);
 				$("#basketName1").html(resultMap.basketName);
 				$("#basketImg").attr("src", resultMap.basketImg);
+				$("#lastPrice").attr("value", resultMap.basketTotalPrice);
+				
 				//$("#basketTotalPrice").attr("value",resultMap.basketTotalPrice);
 				//$("#finalPrice").html(resultMap.basketTotalPrice);
 				
@@ -482,6 +486,7 @@
 					$("#modalbskSell_Price").val(basketTotalPriceAdd);
 					$("#basketTotalPrice").val(basketTotalPriceAdd.toLocaleString());
 					$("#finalPrice").html(basketTotalPriceAdd.toLocaleString());
+					$("#lastPrice").val(basketTotalPriceAdd);
 					//alert("수량을 추가합니다.");
 				});
 				
@@ -498,6 +503,7 @@
 						$("#modalbskSell_Price").val(basketTotalPriceminus);
 						$("#basketTotalPrice").val(basketTotalPriceminus.toLocaleString());
 						$("#finalPrice").html(basketTotalPriceminus.toLocaleString());
+						$("#lastPrice").val(basketTotalPriceminus);
 					}
 					
 					//alert("수량을 감소합니다.");

@@ -921,12 +921,12 @@ li {
 										쿠폰팩
 									</a>
 								</div>
-								<div class="dtc_banner kakao">
+								<!-- <div class="dtc_banner kakao">
 									<a href="#" target="_blank" style="text-decoration: none;">
 										<img src="/resources/images/ico_plus.svg" alt=""> 카카오톡
 										채널 추가시 1천원 쿠폰증정
 									</a>
-								</div>
+								</div> -->
 								<div id="total_product_wrap">
 									<div id="totalProducts" class="" style="margin: 21px 0 0;">
 										<table border="1" summary="" class="total_options">
@@ -1243,7 +1243,13 @@ li {
 		
 	    buttonAddFeed.addEventListener("click", e => {
 	    	if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
-	    		alert("로그인후 사용가능한 서비스입니다.");
+	    		swal({
+				    title: "로그인후 사용가능한 서비스입니다.",  
+					icon: "warning",
+				    })
+				    .then(function() {
+				    	window.location = "/member/login";
+				    });
 	    		return false;
 	    	}
 		}); 
@@ -1300,8 +1306,16 @@ li {
 	luv = function(rvSeq) {
 		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
-			alert("로그인후 사용가능한 서비스입니다.");
+
+			swal({
+			    title: "로그인후 사용가능한 서비스입니다.",  
+				icon: "warning",
+			    })
+			    .then(function() {
+			    	window.location = "/member/login";
+			    });
     		return false;
+
 		}
 		
 		var luvUrl = "";
@@ -1393,8 +1407,15 @@ li {
 		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 			
-			alert("로그인 후 사용가능한 서비스입니다.");
-			return false;
+    		swal({
+			    title: "로그인후 사용가능한 서비스입니다.",  
+				icon: "warning",
+			    })
+			    .then(function() {
+			    	window.location = "/member/login";
+			    });
+    		return false;
+
 		}
 		
 		form.attr("action", "/product/bskInst").submit();
@@ -1405,8 +1426,15 @@ li {
 		
 		if($("#mmSeq").val() == null || $("#mmSeq").val() == '') {
 			
-			alert("로그인 후 사용가능한 서비스입니다.");
-			return false;
+    		swal({
+			    title: "로그인후 사용가능한 서비스입니다.",  
+				icon: "warning",
+			    })
+			    .then(function() {
+			    	window.location = "/member/login";
+			    });
+    		return false;
+
 		}
 		
 		form.attr("action", "/product/buyNowInst").submit();

@@ -911,7 +911,7 @@ div.ec-base-help ul, div.ec-base-help ol {
 				        <div class="method">
 				            <span class="ec-base-label">
 				                <input id="addr_paymethod4" name="addr_paymethod" value="kakaopay" type="radio" autocomplete="off" checked style="cursor: pointer;">
-				                <label for="addr_paymethod4">카카오페이(간편결제) </label>
+				                <label for="addr_paymethod4">카카오페이<img alt="" src="/resources/images/payment_icon_yellow_small.png" style="height: 17px;"> </label>
 				            </span>
 				        </div>
 				
@@ -1094,8 +1094,14 @@ div.ec-base-help ul, div.ec-base-help ol {
 		};
 		
 	};
-	
-	
+	</script>
+	<script type="text/javascript">
+	/* 카카오페이 */
+	POST /v1/payment/ready HTTP/1.1
+	Host: kapi.kakao.com
+	Authorization: KakaoAK ${APP_ADMIN_KEY}
+	Content-type: application/x-www-form-urlencoded;charset=utf-8
+
 	
 	</script>	
 </body>

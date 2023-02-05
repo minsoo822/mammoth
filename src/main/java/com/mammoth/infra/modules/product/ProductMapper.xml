@@ -33,7 +33,6 @@
     		) AS rvTotalCount
     	FROM product pr
     	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
-    	LEFT JOIN review rv ON rv.rv_prSeq = pr.prSeq
     	WHERE 1=1
     		AND pr.prUseNy = 1
     		AND pr.prDelNy = 0
@@ -54,6 +53,18 @@
     		,pr.prFragrance
     		,prup.upPath
     		,prup.upUuidName
+    		,(
+    			SELECT
+		    		AVG(rvStar)
+		    	FROM review
+		    	WHERE rv_prSeq = pr.prSeq
+    		) AS rvStarAver
+    		,(
+    			SELECT
+    			COUNT(*)
+    			FROM review
+    			WHERE rv_prSeq = pr.prSeq
+    		) AS rvTotalCount
     	FROM product pr
     	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
     	WHERE 1=1
@@ -75,6 +86,18 @@
     		,pr.prFragrance
     		,prup.upPath
     		,prup.upUuidName
+    		,(
+    			SELECT
+		    		AVG(rvStar)
+		    	FROM review
+		    	WHERE rv_prSeq = pr.prSeq
+    		) AS rvStarAver
+    		,(
+    			SELECT
+    			COUNT(*)
+    			FROM review
+    			WHERE rv_prSeq = pr.prSeq
+    		) AS rvTotalCount
     	FROM product pr
     	JOIN productUploaded prup ON pr.prSeq = prup.up_prSeq
     	WHERE 1=1

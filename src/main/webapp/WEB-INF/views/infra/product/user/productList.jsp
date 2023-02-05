@@ -117,7 +117,11 @@
 						</div>
 						<div class="row mt-1">
 							<div class="col">
-								<span><i class="fa-solid fa-star"></i>4.9(378)</span>
+								<div class="col">
+								<span><i class="fa-solid fa-star"></i>
+								<c:out value="${prList.rvStarAver}" />(<c:out
+										value="${prList.rvTotalCount}" />)</span>
+							</div>
 							</div>
 						</div>
 						<a><img src="/resources/images/ico_cart.svg" class="basket" onclick="javascript:event.stopPropagation(); basket()"></a>

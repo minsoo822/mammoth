@@ -1,5 +1,12 @@
 package com.mammoth.infra.modules.order;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mammoth.infra.modules.basket.Basket;
@@ -102,5 +110,74 @@ public class OrderController {
 		
 		return "infra/member/user/orderList";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "kakaopay") 
+	public String kakaopay() throws Exception {
+
+		
+		
+		
+		
+		
+		
+//		URL payurl = new URL("https://kapi.kakao.com/v1/payment/ready");
+//		HttpURLConnection payservser = (HttpURLConnection) payurl.openConnection();
+//		payservser.setRequestMethod("POST");
+//		payservser.setRequestProperty("Authorization", "KakaoAK e93e08eea47455811d387bd6eb2aa5a8");
+//		payservser.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+//		payservser.setDoOutput(true);
+//		
+//		String dt = "cid=TC0ONETIME"
+//				  + "&partner_order_id=partner_order_id"
+//				  + "&partner_user_id=partner_user_id&"
+//				  + "item_name=초코파이&"
+//				  + "quantity=1&"
+//				  + "total_amount=2200&"
+//				  + "tax_free_amount=0&"
+//				  + "approval_url=https://developers.kakao.com/success&"
+//				  + "fail_url=https://developers.kakao.com/fail&"
+//				  + "cancel_url=https://developers.kakao.com/cancel";
+//		
+//		OutputStream orderform = payservser.getOutputStream();
+//		DataOutputStream foment = new DataOutputStream(orderform);
+//		foment.writeBytes(dt);
+//		foment.close();
+//		
+//		int result = payservser.getResponseCode();
+//		
+//		InputStream take;
+//		if(result == 200) {
+//			take = payservser.getInputStream();
+//		} else {
+//			take = payservser.getErrorStream();			
+//		}
+//		InputStreamReader read =new InputStreamReader(take); 
+//		BufferedReader change =new BufferedReader(read);
+//		
+//		return change.readLine();
+		
+		return "";
+				
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

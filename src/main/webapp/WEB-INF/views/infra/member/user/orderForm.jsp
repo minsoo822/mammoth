@@ -1097,10 +1097,24 @@ div.ec-base-help ul, div.ec-base-help ol {
 	</script>
 	<script type="text/javascript">
 	/* 카카오페이 */
-	POST /v1/payment/ready HTTP/1.1
-	Host: kapi.kakao.com
-	Authorization: KakaoAK ${APP_ADMIN_KEY}
-	Content-type: application/x-www-form-urlencoded;charset=utf-8
+	$("#btn_payment").on("click", function() {
+		$.ajax({
+			url : '/order/kakaopay',
+			type : 'POST',
+			datatype : 'json',
+			data : {
+				form : $("#mainForm").serialize()
+			},
+			success : function(result) {
+				alert(result.tid);
+				/* var pay = result.next_redirect_pc_url;
+				window.open(pay); */
+			},
+			error : function() {
+				alert("ajax error..!");
+			}
+		});
+	});
 
 	
 	</script>	

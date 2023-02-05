@@ -267,7 +267,7 @@
 									});
 								} else {
 									
-									if(account.email == null || account.email == '') {
+									/* if(account.email == null || account.email == '') {
 										swal({
 											  title: '이메일 정보수집을 동의해주세요.!',    
 											  icon: 'warning',
@@ -280,7 +280,7 @@
 											  icon: 'warning',
 											});
 										return false;
-									}
+									} */
 									
 									$.ajax({
 										async: true

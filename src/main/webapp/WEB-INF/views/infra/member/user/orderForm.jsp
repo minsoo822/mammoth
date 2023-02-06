@@ -1009,6 +1009,14 @@ div.ec-base-help ul, div.ec-base-help ol {
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{1.2.0}.js"></script>
+	<script type="text/javascript">
+		
+	var IMP = window.IMP; // 생략 가능
+	    IMP.init("{imp34266408}"); // 예: imp00000000
+	
+	
+	</script>
 	
 	<script>
  	$(document).ready(function() {

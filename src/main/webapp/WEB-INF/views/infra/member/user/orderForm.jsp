@@ -941,10 +941,10 @@ div.ec-base-help ul, div.ec-base-help ol {
 				        </p> 
 				        <div class="button">
 			                <a href="#none" id="btn_payment" class="btnSubmit sizeL">
-			                <span class="">
-			                	<img src="/resources/images/btn_place_order.gif" alt="결제하기">
-		                	</span>
-	                	</a>
+				                <span class="">
+				                	<img src="/resources/images/btn_place_order.gif" alt="결제하기">
+			                	</span>
+	                		</a>
 			            </div>
 				        <div class="mileage ">
 				            <dl class="ec-base-desc gLarge right">
@@ -1101,11 +1101,23 @@ div.ec-base-help ul, div.ec-base-help ol {
 			
 		};
 		
+		$("#btn_payment").on("click", function(){
+
+			form.attr("action", "/order/orderInst").submit();
+			
+			
+			
+		});
+		
 	};
 	</script>
 	<script type="text/javascript">
+	
+	
+	
+	
 	/* 카카오페이 */
-	$("#btn_payment").on("click", function() {
+/* 	$("#btn_payment").on("click", function() {
 		$.ajax({
 			url : '/order/kakaopay',
 			type : 'POST',
@@ -1117,12 +1129,12 @@ div.ec-base-help ul, div.ec-base-help ol {
 				alert(result.tid);
 				/* var pay = result.next_redirect_pc_url;
 				window.open(pay); */
-			},
+	/*		},
 			error : function() {
 				alert("ajax error..!");
 			}
 		});
-	});
+	}); */
 
 	
 	</script>	

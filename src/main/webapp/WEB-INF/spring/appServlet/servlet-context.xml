@@ -19,15 +19,43 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<!-- 파일첨부 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-      
-    <beans:property name="maxUploadSize" value="-1" />    <!-- 업로드 용량 -1 제한없음 -->
-    <beans:property name="defaultEncoding" value="utf-8" />
-    
+	    <beans:property name="maxUploadSize" value="-1" />    <!-- 업로드 용량 -1 제한없음 -->
+	    <beans:property name="defaultEncoding" value="utf-8" />
     </beans:bean>
     
 	<context:component-scan base-package="com.mammoth.infra" />
 
+	<!-- session interceptor s 2022.03.13 for logincheck -->
+	<!-- <interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/home/Home" />
+			<exclude-mapping path="/member/loginForm" />
+			<exclude-mapping path="/member/loginCheck" />
+			<exclude-mapping path="/member/signUpActorForm" />
+			<exclude-mapping path="/member/signUpActorInst" />
+			<exclude-mapping path="/member/signUpDirectorForm" />
+			<exclude-mapping path="/member/signUpDirectorInst" />
+			<exclude-mapping path="/rest/**" />
+			
+			카카오 로그인(controller, 카카오톡 서버 controller)
+			<exclude-mapping path="/member/kakaoLoginProc"/>
+			<exclude-mapping path="/v2/user/me"/>
+			네이버로그인(controller, 네이버 서버 controller)
+			<exclude-mapping path="/member/naverLoginProc"/>
+			
+			구글 로그인
+			<exclude-mapping path="https://people.googleapis.com/v1/people/me"/>
+			
+			<exclude-mapping path="/member/mainIndex" />
+			<beans:bean id="checkLoginSessionInterception" class="com.actorfw.infra.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+	</interceptors>	 -->
+	<!-- session interceptor e 2022.03.13 for logincheck -->
 
 
 </beans:beans>

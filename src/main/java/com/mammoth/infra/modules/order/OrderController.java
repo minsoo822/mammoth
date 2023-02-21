@@ -38,8 +38,10 @@ public class OrderController {
 	
 	
 	@RequestMapping(value="orderList")
-	public String orderList() throws Exception {
-				
+	public String orderList(Order dto) throws Exception {
+		
+		service.buyInst(dto);
+		
 		return "infra/member/user/orderList";
 	}
 	
@@ -67,9 +69,6 @@ public class OrderController {
 		List<Order> buyNowList = service.selectList(vo);
 		model.addAttribute("oderFormList", buyNowList);
 		
-//		System.out.println("-----------------------List2: " + dto.getLastPrice());
-//		System.out.println("-----------------------List2: " + bskdto.getLastPrice());
-//		System.out.println("-----------------------List2-2: " + httpSession.getAttribute("sessLastPrice"));
 		return "infra/member/user/orderForm";
 	}
 	

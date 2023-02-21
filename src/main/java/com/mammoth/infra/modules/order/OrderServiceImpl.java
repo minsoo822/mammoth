@@ -26,6 +26,11 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return dao.cuponList(vo);
 	}
+	@Override
+	public int buyInst(Order dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.buyInst(dto);
+	}
 	
 
 	

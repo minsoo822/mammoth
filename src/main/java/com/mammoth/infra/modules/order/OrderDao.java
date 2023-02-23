@@ -19,6 +19,6 @@ public class OrderDao {
 	public List<Order> selectList(OrderVo vo) { return sqlSession.selectList(namespace + ".selectList", vo);}
 	public Order selectOne(OrderVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	public List<Order> cuponList(OrderVo vo) { return sqlSession.selectList(namespace + ".cuponList", vo);}
-	public int buyInst(Order dto) {return sqlSession.insert(namespace + ".buyInst", dto);}
+//	public int buyInst(Order dto) {return sqlSession.insert(namespace + ".buyInst", dto);}
 
 }

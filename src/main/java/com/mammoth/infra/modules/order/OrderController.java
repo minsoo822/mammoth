@@ -40,7 +40,7 @@ public class OrderController {
 	@RequestMapping(value="orderList")
 	public String orderList(Order dto) throws Exception {
 		
-		service.buyInst(dto);
+		//service.buyInst(dto);
 		
 		return "infra/member/user/orderList";
 	}

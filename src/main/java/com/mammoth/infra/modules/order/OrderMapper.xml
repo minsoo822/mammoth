@@ -83,11 +83,11 @@
 		AND bsk_prSeq = #{prSeq}
 	</select>
 	
-	<insert id="buyInst">
+<!-- 	<insert id="buyInst">
 		
 		INSERT INTO order (
 			odCreDate
-			<!-- ,주문번호 -->
+			,주문번호
 			,od_prSeq
 			,odAmount
 			,odSell_Price
@@ -97,7 +97,7 @@
 		)
 		VALUES (
 			now()
-			<!-- ,주문번호 -->
+			,주문번호
 			,#{od_prSeq}
 			,#{odAmount}
 			,#{odSell_Price}
@@ -109,7 +109,7 @@
 				SELECT last_insert_id()
 		</selectKey>
 	
-	</insert>
+	</insert> -->
 	
 	
 	

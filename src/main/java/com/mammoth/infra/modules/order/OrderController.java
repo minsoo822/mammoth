@@ -40,7 +40,7 @@ public class OrderController {
 	@RequestMapping(value="orderList")
 	public String orderList(Order dto) throws Exception {
 		
-		//service.buyInst(dto);
+		
 		
 		return "infra/member/user/orderList";
 	}
@@ -105,6 +105,11 @@ public class OrderController {
 	
 	@RequestMapping(value="orderInst")
 	public String insert(Order dto) throws Exception {
+		
+		
+		//service.buyInst(dto);
+		//인서트 시키기
+		//장바구니 삭제시키기
 		
 		
 		return "infra/member/user/orderList";
